@@ -1,0 +1,203 @@
+---
+title: "Ecological Traitdata Standard"
+author: "Florian D. Schneider, Nadja Simons, Caterina Penone, Andreas Ostrowski"
+date: "12 Mai 2017"
+output:
+  html_document:
+    keep_md: yes
+    toc: yes
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+
+**This is the documentation of the Ecological Traitdata Standard (ETS), version 0.3** 
+
+This defined vocabulary aims at providing all essential columns for raw data of functional trait measurements for ecological research. Most terms relate to terms from the Darwin Core Standard and it's Extensions (terms of DWC are referenced thus in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm)
+
+The glossary of terms is ordered into a **core section** with essential columns for trait data, extensions which are allowing to provide additional layers of information, as well as a vocabulary for metadata information of particular importance for trait data. A final section provides defined terms for lists of trait definitions, also termed a Trait Thesaurus. 
+
+**Extensions:**
+
+- the `Occurence` extension contains information on the level of individual specimens, such as date and location and method of sampling and preservation, or physiological specifications of the phenotype, such as sex, life stage or age. 
+- the `MeasurementOrFact` extension takes information at the level of single measurements or reported values, such as the original literature from where the value is cited, the method of measurement or statistical method of aggregation. 
+- The extension `BiodiversityExploratories` provides columns for localisation for trait data from the Biodiversity Exploratories sites (ww.biodiversity-exploratories.de). 
+
+**Structure of trait data:**
+
+The traitdata standard requires data to be stored in a long table format containing one measurement per row described by the column terms provided in the core section. (see Whitepaper for further considerations)
+
+There are two ways of integrating the extensions: 
+
+- **within the same data file**: additional columns are provided to describe the properties concerning the measurement or the occurence of the specimen. The output file may be stored as a csv or txt table or an excel spreadsheet.  
+- **in separate data files**: the main file refers to additional data files in the fields `measurementID` or `occurenceID`. This is usually the case if the occurences are externally documented, for instance as specimens from a museum. This also applies if the data are stored as an Excel spreadsheet or as a Darwin Core Archive (as proposed for TraitBank).   
+
+This list of terms will also be available as 
+
+- a csv/txt/xlsx table file which will be provided for download on BExIS including full documentation in the metadata (for manual use, this may be uploaded to BExIs as soon it's ready), and
+- a machine readable template glossary (xml file or csv with additional flags and markers) which serves as input reference for software tools. (can we provide a simple API?) 
+
+```{r, results = 'asis', echo = FALSE, warning = FALSE}
+library(data.table)
+library(knitr)
+glossary <- read.csv("../TraitDataStandard.csv")
+urlroot <- "http://ecologicaltraitdata.github.com/traitdatastandard/index.html"
+
+columnNames <- glossary$columnName
+sections <- glossary$Namespace
+sectionNames <- levels(glossary$Namespace)
+
+glossary <- as.data.table(glossary)
+glossary <- setNames(split(glossary[,-c(1), with = FALSE], f = as.integer(glossary$Namespace)), sectionNames)
+
+glossary <- lapply(glossary, function(x) setNames(split(x, f = seq_along(x$columnName)), x$columnName))
+
+```
+
+# Core traitdata columns
+
+For the essential primary data (trait value, taxon assignment, trait name), the trait data standard recommends to report the original naming and value scheme as used by the data provider. However, to ensure compatibility with other datasets, the original data provider's information should be doubled into standardized columns indexed by appending `Std` to the column name. 
+This ensures compatibility on the provider's side and transparency for data users on the reported measurements and facts, and enables checking for inconsistencies and misspellings in the complete dataset provided by the author. If provided, the standardized fields allow merging heterogeneous data sources into a single table to perform further analyses. This practice of double bookkeeping of trait data has successfully established for the TRY database on plant traits, for instance (Kattge ..). 
+
+The R package 'traitdataform' (https://www.github.com/fdschneider/traitdataform) provides tools to transfer heterogeneous datasets into a longtable format and to create standardized taxa and trait columns, based on public ontologies. 
+
+By linking to (public) ontologies via the field `taxonID`, further taxonomic information can be extracted for analysis. Alternatively, `taxonID` may also link to an accompanying datasheet that contains information on the taxonomic resolution or specification of the observation. 
+
+Similarly, linking to trait terminologies (a 'Thesaurus') via the field `traitID` allows an unambiguous interpretation of the trait measurement. If no online ontology is available, an accompanying dataset should specify the trait definition. For setting up such a Thesaurus, we propose the use of terms provided in section 'Traitlist' below. 
+
+```{r, results = 'asis', echo = FALSE}
+
+j <- "Traitdata"
+
+ for(i in columnNames[sections == j]) {
+     dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
+     colnames(dd) <- i
+     cat("## `", i, "`  ", sep = "")
+     cat("\n")
+     cat("[go to top](", urlroot, ")", sep = "") 
+     cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
+     
+   print(kable(dd, format = "markdown"))
+ }
+
+```
+
+# Extension: Measurement or Fact 
+
+This section provides additional information about a reported measurement or fact and in most cases can easily be included as extra columns to the core dataset. The columns would contain detail on the methodology of measuring and reporting of aggregated data. 
+
+In case of facts reported from literature or from expert knowledge, or cited from other databases, please include bibliographic citation of the original data source in field 'references'. 
+
+```{r, results = 'asis', echo = FALSE}
+
+j <- "MeasurementOrFact"
+
+ for(i in columnNames[sections == j]) {
+   dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
+     colnames(dd) <- i
+     cat("## `", i, "`  ", sep = "")
+     cat("\n")
+     cat("[go to top](", urlroot, ")", sep = "") 
+     cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
+
+   print(kable(dd, format = "markdown"))
+ }
+
+```
+
+
+# Extension: Occurence 
+
+this section of columns aims for identifying the methodology and primary source of the data and keep the reference to the actual specimen (e.g. for museum collections or related data analysis). It also may add detail on the condition of the observed specimen, its sex, morphotype or developmental stage. 
+Especially for analyses of intra-specific trait variation, this composes valuable data. 
+
+For trait data compiled from literature or expert knowledge, the level of information on an 'occurence' would not apply, since no specific individual has been observed. In this case, the field 'occurenceID' should be left blank in the core data.  
+
+```{r, results = 'asis', echo = FALSE}
+
+j <- "Occurence"
+
+ for(i in columnNames[sections == j]) {
+    dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
+     colnames(dd) <- i
+     cat("## `", i, "`  ", sep = "")
+     cat("\n")
+     cat("[go to top](", urlroot, ")", sep = "") 
+     cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
+ print(kable(dd, format = "markdown"))
+ }
+
+```
+
+# Extension: Biodiversity Exploratories
+
+This section records location in the context of the exploratories. From `ExploratotriesPlotID` a detailled georeference can be inferred. Additional spatial resolution, e.g. on subplots, may be provided in `locationID` of section sampling event. 
+
+```{r, results = 'asis', echo = FALSE}
+
+j <- "BiodiversityExploratories"
+
+ for(i in columnNames[sections == j]) {
+      dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
+     colnames(dd) <- i
+     cat("## `", i, "`  ", sep = "")
+     cat("\n")
+     cat("[go to top](", urlroot, ")", sep = "") 
+     cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
+     print(kable(dd, format = "markdown"))
+ }
+
+``` 
+
+# Metadata vocabulary
+
+These data are required when combining datasets from different sources. We suggest integrating a `datasetID` referencing to an external data sheet or adding columns to the dataset to keep important information about authorship and terms of use at the measurement level. 
+
+
+```{r, results = 'asis', echo = FALSE}
+
+j <- "Metadata"
+
+ for(i in columnNames[sections == j]) {
+      dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
+     colnames(dd) <- i
+     cat("## `", i, "`  ", sep = "")
+     cat("\n")
+     cat("[go to top](", urlroot, ")", sep = "") 
+     cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
+     print(kable(dd, format = "markdown"))
+ }
+
+```
+
+# Terms for Traitlists (a 'Trait Thesaurus')
+
+Ontologies for functional traits are beeing developed for different organism groups, mostly centered around certain research questions or subjects of study. To date, the TRY database takes the most inclusive approach on functional traits for vascular plants (Kattge) and describes XX traits and put them into the hierarchical structure of an ontology.
+
+For some animal groups, similar approaches do exist, but few are available as an online ontology. 
+
+As a starting point for creating an ontology for functional traits, we propose the following terms for trait lists (also termed 'lookup tables' of traits, or trait 'Thesaurus'), to describe functional traits that are in the focus of a single research project. Those trait lists would be uploaded along with the trait dataset. 
+
+Using this standardized terminology will allow merging trait definitions from multiple sources. We encourage providing these lookup tables as an open ressource on public ontology and terminology servers, to enable a global referencing. 
+
+```{r, results = 'asis', echo = FALSE}
+
+j <- "Traitlist"
+
+ for(i in columnNames[sections == j]) {
+      dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
+     colnames(dd) <- i
+     cat("## `", i, "`  ", sep = "")
+     cat("\n")
+     cat("[go to top](", urlroot, ")", sep = "") 
+     cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
+     print(kable(dd, format = "markdown"))
+ }
+
+```
+
+----
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Ecological Traitdata Standard </span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florian D. Schneider, Nadja Simons, Caterina Penone, Andreas Ostrowski</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
