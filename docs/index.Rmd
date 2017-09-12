@@ -49,7 +49,7 @@ This list of terms will also be available as
 library(data.table)
 library(knitr)
 glossary <- read.csv("../TraitDataStandard.csv")
-urlroot <- "http://ecologicaltraitdata.github.io/traitdatastandard/"
+urlroot <- "http://ecologicaltraitdata.github.io/TraitDataStandard/"
 
 columnNames <- glossary$columnName
 sections <- glossary$Namespace
