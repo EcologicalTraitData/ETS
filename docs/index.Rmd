@@ -33,8 +33,8 @@ The traitdata standard implies that the trait data should be stored in a long ta
 
 There are two ways of integrating the information provided by the extensions: 
 
-- **within the same data file**: additional columns are provided to describe the properties concerning the measurement or the occurence of the specimen. The output file may be stored as a csv or txt table or an excel spreadsheet.  
-- **in separate data files**: the main file refers to additional data files in the fields `measurementID` or `occurenceID`. This is usually the case if the occurences are externally documented, for instance as specimens from a museum. This also applies if the data are stored as an Excel spreadsheet or as a Darwin Core Archive (as proposed for TraitBank).   
+- **within the same data file**: additional columns are provided to describe the properties concerning the measurement or the occurrence of the specimen. The output file may be stored as a csv or txt table or an excel spreadsheet.  
+- **in separate data files**: the main file refers to additional data files in the fields `measurementID` or `occurrenceID`. This is usually the case if the occurrences are externally documented, for instance as specimens from a museum. This also applies if the data are stored as an Excel spreadsheet or as a Darwin Core Archive (as proposed for TraitBank).   
 
 The R package 'traitdataform' (https://www.github.com/fdschneider/traitdataform) provides tools to transfer heterogeneous datasets into a longtable format and to create standardized taxa and trait columns, based on public ontologies. 
 
@@ -49,7 +49,7 @@ This list of terms will also be available as
 library(data.table)
 library(knitr)
 glossary <- read.csv("../TraitDataStandard.csv")
-urlroot <- "http://ecologicaltraitdata.github.io/traitdatastandard/index.html"
+urlroot <- "http://ecologicaltraitdata.github.io/traitdatastandard/"
 
 columnNames <- glossary$columnName
 sections <- glossary$Namespace
@@ -112,16 +112,16 @@ j <- "MeasurementOrFact"
 ```
 
 
-# Extension: Occurence 
+# Extension: Occurrence 
 
 this section of columns aims for identifying the methodology and primary source of the data and keep the reference to the actual specimen (e.g. for museum collections or related data analysis). It also may add detail on the condition of the observed specimen, its sex, morphotype or developmental stage. 
 Especially for analyses of intra-specific trait variation, this composes valuable data. 
 
-For most trait data compiled from literature or expert knowledge, the level of information on an 'occurence' would not apply, since no specific individual has been observed. In this case, the field 'occurenceID' should be left blank in the core data. In cases where different aggregate ranges or averages are reported for male and female individuals, the columns sex or developmental stage may be used without the reference to an occurence ID. 
+For most trait data compiled from literature or expert knowledge, the level of information on an 'occurrence' would not apply, since no specific individual has been observed. In this case, the field 'occurrenceID' should be left blank in the core data. In cases where different aggregate ranges or averages are reported for male and female individuals, the columns sex or developmental stage may be used without the reference to an occurrence ID. 
 
 ```{r, results = 'asis', echo = FALSE}
 
-j <- "Occurence"
+j <- "Occurrence"
 
  for(i in columnNames[sections == j]) {
     dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
