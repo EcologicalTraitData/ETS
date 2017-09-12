@@ -17,33 +17,39 @@ output:
 
 This defined vocabulary aims at providing all essential columns for raw data of functional trait measurements for ecological research. Most terms relate to terms from the Darwin Core Standard and it's Extensions (terms of DWC are referenced thus in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm)
 
-The glossary of terms is ordered into a **core section** with essential columns for trait data, extensions which are allowing to provide additional layers of information, as well as a vocabulary for metadata information of particular importance for trait data. A final section provides defined terms for lists of trait definitions, also termed a Trait Thesaurus. 
+The glossary of terms is ordered into a **core section** with essential columns for trait data, extensions which are allowing to provide additional layers of information, as well as a vocabulary for **metadata** information of particular importance for trait data. A final section provides defined terms for **lists of trait definitions**, also termed a Trait Thesaurus. 
 
 **Extensions:**
 
-- the `Occurence` extension contains information on the level of individual specimens, such as date and location and method of sampling and preservation, or physiological specifications of the phenotype, such as sex, life stage or age. 
+We provide three extensions of the vocabulary, that allow for additional information on the trait measurement. 
+
+- the `Occurrence` extension contains information on the level of individual specimens, such as date and location and method of sampling and preservation, or physiological specifications of the phenotype, such as sex, life stage or age. 
 - the `MeasurementOrFact` extension takes information at the level of single measurements or reported values, such as the original literature from where the value is cited, the method of measurement or statistical method of aggregation. 
-- The extension `BiodiversityExploratories` provides columns for localisation for trait data from the Biodiversity Exploratories sites (ww.biodiversity-exploratories.de). 
+- The `BiodiversityExploratories` extension provides columns for localisation for trait data from the Biodiversity Exploratories sites (www.biodiversity-exploratories.de). 
 
 **Structure of trait data:**
 
-The traitdata standard requires data to be stored in a long table format containing one measurement per row described by the column terms provided in the core section. (see Whitepaper for further considerations)
+The traitdata standard implies that the trait data should be stored in a long table format containing one measurement per row described by the column terms provided in the core section. (see our Methods paper for further considerations on data structure and format). 
 
-There are two ways of integrating the extensions: 
+There are two ways of integrating the information provided by the extensions: 
 
 - **within the same data file**: additional columns are provided to describe the properties concerning the measurement or the occurence of the specimen. The output file may be stored as a csv or txt table or an excel spreadsheet.  
 - **in separate data files**: the main file refers to additional data files in the fields `measurementID` or `occurenceID`. This is usually the case if the occurences are externally documented, for instance as specimens from a museum. This also applies if the data are stored as an Excel spreadsheet or as a Darwin Core Archive (as proposed for TraitBank).   
 
+The R package 'traitdataform' (https://www.github.com/fdschneider/traitdataform) provides tools to transfer heterogeneous datasets into a longtable format and to create standardized taxa and trait columns, based on public ontologies. 
+
 This list of terms will also be available as 
 
 - a csv/txt/xlsx table file which will be provided for download on BExIS including full documentation in the metadata (for manual use, this may be uploaded to BExIs as soon it's ready), and
-- a machine readable template glossary (xml file or csv with additional flags and markers) which serves as input reference for software tools. (can we provide a simple API?) 
+- a machine readable glossary of terms compliant with semantic web standards (OWL format) and accessible via an API (hosted on GFBio Terminology Server). 
+ 
+
 
 ```{r, results = 'asis', echo = FALSE, warning = FALSE}
 library(data.table)
 library(knitr)
 glossary <- read.csv("../TraitDataStandard.csv")
-urlroot <- "http://ecologicaltraitdata.github.com/traitdatastandard/index.html"
+urlroot <- "http://ecologicaltraitdata.github.io/traitdatastandard/index.html"
 
 columnNames <- glossary$columnName
 sections <- glossary$Namespace
@@ -60,8 +66,6 @@ glossary <- lapply(glossary, function(x) setNames(split(x, f = seq_along(x$colum
 
 For the essential primary data (trait value, taxon assignment, trait name), the trait data standard recommends to report the original naming and value scheme as used by the data provider. However, to ensure compatibility with other datasets, the original data provider's information should be doubled into standardized columns indexed by appending `Std` to the column name. 
 This ensures compatibility on the provider's side and transparency for data users on the reported measurements and facts, and enables checking for inconsistencies and misspellings in the complete dataset provided by the author. If provided, the standardized fields allow merging heterogeneous data sources into a single table to perform further analyses. This practice of double bookkeeping of trait data has successfully established for the TRY database on plant traits, for instance (Kattge ..). 
-
-The R package 'traitdataform' (https://www.github.com/fdschneider/traitdataform) provides tools to transfer heterogeneous datasets into a longtable format and to create standardized taxa and trait columns, based on public ontologies. 
 
 By linking to (public) ontologies via the field `taxonID`, further taxonomic information can be extracted for analysis. Alternatively, `taxonID` may also link to an accompanying datasheet that contains information on the taxonomic resolution or specification of the observation. 
 
@@ -113,7 +117,7 @@ j <- "MeasurementOrFact"
 this section of columns aims for identifying the methodology and primary source of the data and keep the reference to the actual specimen (e.g. for museum collections or related data analysis). It also may add detail on the condition of the observed specimen, its sex, morphotype or developmental stage. 
 Especially for analyses of intra-specific trait variation, this composes valuable data. 
 
-For trait data compiled from literature or expert knowledge, the level of information on an 'occurence' would not apply, since no specific individual has been observed. In this case, the field 'occurenceID' should be left blank in the core data.  
+For most trait data compiled from literature or expert knowledge, the level of information on an 'occurence' would not apply, since no specific individual has been observed. In this case, the field 'occurenceID' should be left blank in the core data. In cases where different aggregate ranges or averages are reported for male and female individuals, the columns sex or developmental stage may be used without the reference to an occurence ID. 
 
 ```{r, results = 'asis', echo = FALSE}
 
@@ -174,13 +178,28 @@ j <- "Metadata"
 
 # Terms for Traitlists (a 'Trait Thesaurus')
 
-Ontologies for functional traits are beeing developed for different organism groups, mostly centered around certain research questions or subjects of study. To date, the TRY database takes the most inclusive approach on functional traits for vascular plants (Kattge) and describes XX traits and put them into the hierarchical structure of an ontology.
+A trait thesaurus or ontology assigns descriptive trait names with A) an unambiguous definition of the trait and B) an expected format of measured values or reported facts, and might additionally provide C) semantic relationships for deriving a hierarchical or tree-based classification of traits. 
 
+Traits are not only defined in terms of their interpretation, but are ideally also standardised in terms of numerical units and, even more important, the use of harmonized factor levels. This is challenging, given the range of data types that fall within datasets of functional traits. 
+Numerical values represent measurements of length, volumes, ratios, rates or timespans. Integer values may apply to count data (e.g. eggs per clutch). 
+Binary data (encoded as 0 or 1) or logical data (coded as TRUE or FALSE) may apply to qualitative traits such as specific behaviour during mating (e.g. are territories defended) or specialisation to a given habitat (e.g. species restricted to relicts of primeval forests). Many traits are categorical and allow for a constrained set of factor levels, such as sex differences in wing morphology (both sexes winged, both sexes unwinged, only males winged, only females winged) or unconstrained entries such as color. Categorical traits often are ordinal, i.e. they have a logical sequence as in the case of life stages or hibernation stages, or habitat preference traits such as horizontal stratum use. 
+Finally there are specific formats of multivariate trait values, e.g. x-y-z coordinates of a landmark measured in a standardized 3D space [ref] or relative abundance of chain-lengths in biochemical compounds [].
+To cope with this variety of data types, definitions should refer to other well-defined terms of other ontologies that describe standard units, morphological body parts, protein characteristics (Protein Ontology) or chemical terms (e.g. the ChEBI, http://www.obofoundry.org/ontology/chebi.html).
+
+Online ontologies extend into (machine readable) semantic web resources by providing a hierarchical classification of traits or a relational tree of functional traits. 
+Each trait definition may link to a broader or narrower term. For instance, the definition of 'femur length of first leg, left side' is narrower than 'femur length' which is narrower than 'leg trait' which is narrower than 'locomotion trait'. (Ref semantic database methods)
+This links traits of similar functional meaning and allows cross-taxon comparative studies at the level of broader terms. 
+
+Ontologies for functional traits are beeing developed for different organism groups, mostly centered around certain research questions or subjects of study. To date, the TRY database takes the most inclusive approach on functional traits for vascular plants (Kattge).
 For some animal groups, similar approaches do exist, but few are available as an online ontology. 
 
-As a starting point for creating an ontology for functional traits, we propose the following terms for trait lists (also termed 'lookup tables' of traits, or trait 'Thesaurus'), to describe functional traits that are in the focus of a single research project. Those trait lists would be uploaded along with the trait dataset. 
+As a starting point for creating an ontology for functional traits, we propose the following terms for trait lists (also termed 'Thesaurus'), to describe functional traits that are in the focus of the research project. 
 
-Using this standardized terminology will allow merging trait definitions from multiple sources. We encourage providing these lookup tables as an open ressource on public ontology and terminology servers, to enable a global referencing. 
+Using this standardized terminology will allow merging trait definitions from multiple sources. We encourage providing these lookup tables as an open resource on public terminology servers to enable a global referencing. 
+The benefit of such classifications will increase if open Application Programming Interfaces (APIs) provide a way to extract the definitions and higher-level trait hierarchies programmatically via software tools. To harmonize trait data across databases, future trait standard initiatives should provide this functionality. 
+Online ontologies hosted with accredited ontology servers have the advantage of providing a persistent and direct link of the term on the internet (a *Uniform Resource Identifier*, URI).
+Terminology portals or registries, such as the GFBio Terminology Service or ontobee, may provide a central host for trait ontologies. 
+
 
 ```{r, results = 'asis', echo = FALSE}
 
