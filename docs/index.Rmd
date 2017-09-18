@@ -5,11 +5,6 @@ date: "12 Mai 2017"
 output:
   html_document:
     keep_md: yes
-    toc: yes
-  pdf_document:
-    toc: yes
-  word_document:
-    toc: yes
 ---
 
 
@@ -19,7 +14,7 @@ This defined vocabulary aims at providing all essential columns for raw data of 
 
 The glossary of terms is ordered into a **core section** with essential columns for trait data, extensions which are allowing to provide additional layers of information, as well as a vocabulary for **metadata** information of particular importance for trait data. A final section provides defined terms for **lists of trait definitions**, also termed a Trait Thesaurus. 
 
-**Extensions:**
+## Extensions:
 
 We provide three extensions of the vocabulary, that allow for additional information on the trait measurement. 
 
@@ -27,7 +22,7 @@ We provide three extensions of the vocabulary, that allow for additional informa
 - the `MeasurementOrFact` extension takes information at the level of single measurements or reported values, such as the original literature from where the value is cited, the method of measurement or statistical method of aggregation. 
 - The `BiodiversityExploratories` extension provides columns for localisation for trait data from the Biodiversity Exploratories sites (www.biodiversity-exploratories.de). 
 
-**Structure of trait data:**
+## Structure of trait data:
 
 The traitdata standard implies that the trait data should be stored in a long table format containing one measurement per row described by the column terms provided in the core section. (see our Methods paper for further considerations on data structure and format). 
 
@@ -44,6 +39,7 @@ This list of terms will also be available as
 - a machine readable glossary of terms compliant with semantic web standards (OWL format) and accessible via an API (hosted on GFBio Terminology Server). 
  
 
+## defined terms:
 
 ```{r, results = 'asis', echo = FALSE, warning = FALSE}
 library(data.table)
@@ -60,7 +56,25 @@ glossary <- setNames(split(glossary[,-c(1), with = FALSE], f = as.integer(glossa
 
 glossary <- lapply(glossary, function(x) setNames(split(x, f = seq_along(x$columnName)), x$columnName))
 
+
+j <- "Traitdata"
+
+for(j in c("Traitdata", "MeasurementOrFact", "Occurrence", "BiodiversityExploratories", "Traitlist", "Metadata" )) {
+  cat("**Extension: ", j, "**  ", sep = "" )
+  cat("\n")
+  for(i in columnNames[sections == j]) {
+     dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
+     colnames(dd) <- i
+     cat("[","`", i, "`", "](", urlroot, "#", tolower(i), ")   |  ", sep = "") 
+  }
+  cat("\n")
+}
+ 
+
+
 ```
+
+---
 
 # Core traitdata columns
 
