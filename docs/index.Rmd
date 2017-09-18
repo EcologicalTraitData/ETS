@@ -60,7 +60,8 @@ glossary <- lapply(glossary, function(x) setNames(split(x, f = seq_along(x$colum
 j <- "Traitdata"
 
 for(j in c("Traitdata", "MeasurementOrFact", "Occurrence", "BiodiversityExploratories", "Traitlist", "Metadata" )) {
-  cat("**Extension: ", j, "**  ", sep = "" )
+  if(j %in% c("MeasurementOrFact", "Occurrence", "BiodiversityExploratories") ) ext <- "Extension: " else ext <- ""
+  cat("**",ext, j, "**  ", sep = "" )
   cat("\n")
   for(i in columnNames[sections == j]) {
      dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
