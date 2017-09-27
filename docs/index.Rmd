@@ -56,12 +56,14 @@ glossary <- setNames(split(glossary[,-c(1), with = FALSE], f = as.integer(glossa
 
 glossary <- lapply(glossary, function(x) setNames(split(x, f = seq_along(x$columnName)), x$columnName))
 
+namespace <- c("Traitdata", "MeasurementOrFact", "Occurrence", "BiodiversityExploratories", "Traitlist", "Metadata" )
 
-j <- "Traitdata"
+j_verbose <- c("core-traitdata-columns", "extension-measurement-or-fact", "extension-occurrence", "extension-biodiversity-exploratories", "terms-for-traitlists-a-trait-thesaurus", "metadata-vocabulary" ) 
 
-for(j in c("Traitdata", "MeasurementOrFact", "Occurrence", "BiodiversityExploratories", "Traitlist", "Metadata" )) {
+for(j in namespace) {
+  
   if(j %in% c("MeasurementOrFact", "Occurrence", "BiodiversityExploratories") ) ext <- "Extension: " else ext <- ""
-  cat("**",ext, j, "**  ", sep = "" )
+  cat("[**",ext, j, "**](", urlroot,"#", j_verbose[match( j, namespace)]," )  ", sep = "" )
   cat("\n")
   for(i in columnNames[sections == j]) {
      dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
