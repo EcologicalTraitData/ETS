@@ -8,7 +8,7 @@ output:
 ---
 
 
-**This is the documentation of the Ecological Traitdata Standard (ETS), version 0.3** 
+**This is the documentation of the Ecological Traitdata Standard (ETS), version 0.4** 
 
 This defined vocabulary aims at providing all essential columns for raw data of functional trait measurements for ecological research. Most terms relate to terms from the Darwin Core Standard and it's Extensions (terms of DWC are referenced thus in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm)
 
