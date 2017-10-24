@@ -1,6 +1,6 @@
 ---
 title: "Ecological Traitdata Standard"
-author: "Florian D. Schneider, Nadja Simons, Caterina Penone, Andreas Ostrowski"
+author: "Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski"
 date: "12 Mai 2017"
 output:
   html_document:
@@ -207,7 +207,7 @@ Online ontologies extend into (machine readable) semantic web resources by provi
 Each trait definition may link to a broader or narrower term. For instance, the definition of 'femur length of first leg, left side' is narrower than 'femur length' which is narrower than 'leg trait' which is narrower than 'locomotion trait'. (Ref semantic database methods)
 This links traits of similar functional meaning and allows cross-taxon comparative studies at the level of broader terms. 
 
-Ontologies for functional traits are beeing developed for different organism groups, mostly centered around certain research questions or subjects of study. To date, the TRY database takes the most inclusive approach on functional traits for vascular plants (Kattge).
+Ontologies for functional traits are being developed for different organism groups, mostly centered around certain research questions or subjects of study. To date, the TRY database takes the most inclusive approach on functional traits for vascular plants (Kattge).
 For some animal groups, similar approaches do exist, but few are available as an online ontology. 
 
 As a starting point for creating an ontology for functional traits, we propose the following terms for trait lists (also termed 'Thesaurus'), to describe functional traits that are in the focus of the research project. 
@@ -236,4 +236,4 @@ j <- "Traitlist"
 
 ----
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Ecological Traitdata Standard </span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florian D. Schneider, Nadja Simons, Caterina Penone, Andreas Ostrowski</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Ecological Traitdata Standard </span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
