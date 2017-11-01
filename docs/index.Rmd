@@ -1,20 +1,40 @@
 ---
 title: "Ecological Traitdata Standard"
 author: "Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski"
-date: "12 Mai 2017"
+date: "v0.4, released: 12 May 2017"
 output:
   html_document:
     keep_md: yes
 ---
 
+# Abstract 
 
-**This is the documentation of the Ecological Traitdata Standard (ETS), version 0.4** 
+
+# Suggested Citation
+
+To refer to **this version** of the ETS please cite: 
+
+> Schneider et al. (2017) Ecological Traitdata Standard, v0.4, URL: ... , DOI: ... 
+
+Please also cite the methods paper for the rationale and general considerations of semantic standardization of trait data: 
+
+> Schneider et al. (in preparation) Introducing an Ecological Trait-data Standard. 
+
+
+# License
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Ecological Traitdata Standard </span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+
+# Definition 
+
+## Glossary of terms
 
 This defined vocabulary aims at providing all essential columns for raw data of functional trait measurements for ecological research. Most terms relate to terms from the Darwin Core Standard and it's Extensions (terms of DWC are referenced thus in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm)
 
 The glossary of terms is ordered into a **core section** with essential columns for trait data, extensions which are allowing to provide additional layers of information, as well as a vocabulary for **metadata** information of particular importance for trait data. A final section provides defined terms for **lists of trait definitions**, also termed a Trait Thesaurus. 
 
-## Extensions:
+### Extensions:
 
 We provide three extensions of the vocabulary, that allow for additional information on the trait measurement. 
 
@@ -22,7 +42,7 @@ We provide three extensions of the vocabulary, that allow for additional informa
 - the `MeasurementOrFact` extension takes information at the level of single measurements or reported values, such as the original literature from where the value is cited, the method of measurement or statistical method of aggregation. 
 - The `BiodiversityExploratories` extension provides columns for localisation for trait data from the Biodiversity Exploratories sites (www.biodiversity-exploratories.de). 
 
-## Structure of trait data:
+## Structure of trait data
 
 The traitdata standard implies that the trait data should be stored in a long table format containing one measurement per row described by the column terms provided in the core section. (see our Methods paper for further considerations on data structure and format). 
 
@@ -39,7 +59,7 @@ This list of terms will also be available as
 - a machine readable glossary of terms compliant with semantic web standards (OWL format) and accessible via an API (hosted on GFBio Terminology Server). 
  
 
-## defined terms:
+## List of terms
 
 ```{r, results = 'asis', echo = FALSE, warning = FALSE}
 library(data.table)
@@ -235,5 +255,3 @@ j <- "Traitlist"
 ```
 
 ----
-
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Ecological Traitdata Standard </span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
