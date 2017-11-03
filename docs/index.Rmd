@@ -1,7 +1,7 @@
 ---
 title: "Ecological Traitdata Standard"
 author: "Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski"
-date: "v0.4, released: 12 May 2017"
+date: "v0.5, released: 3 Nov. 2017"
 output:
   html_document:
     keep_md: yes
@@ -9,17 +9,21 @@ output:
 
 # Abstract 
 
+The Ecological Traitdata Standard (ETS) is a collection of terms for datasets on quantitative and qualitative organism properties (i.e. traits). It also includes recommendations on how to structure such data for upload in public databases. 
 
 # Suggested Citation
 
 To refer to **this version** of the ETS please cite: 
 
-> Schneider et al. (2017) Ecological Traitdata Standard, v0.4, URL: ... , DOI: ... 
+> Schneider et al. (2017) Ecological Traitdata Standard, v0.5, URL: https://ecologicaltraitdata.github.io/TraitDataStandard/v0.5/ , DOI: ... 
 
 Please also cite the methods paper for the rationale and general considerations of semantic standardization of trait data: 
 
-> Schneider et al. (in preparation) Introducing an Ecological Trait-data Standard. 
+> Florian D. Schneider, Malte Jochum, Gaetane LeProvost, Andreas Ostrowski, Caterina Penone, Nadja K. Simons (in preparation) Introducing an Ecological Trait-data Standard. 
 
+# Contribute
+
+The Ecological Traitdata Standard is under continuous open source development, hosted on [Github](https://github.com/EcologicalTraitData/TraitDataStandard). Please refer to the [Github Issues page](https://github.com/EcologicalTraitData/TraitDataStandard/issues) for discussion and revision of individual terms, and settle the issue here before filing a pull-request that implements an update.
 
 # License
 
@@ -44,22 +48,23 @@ We provide three extensions of the vocabulary, that allow for additional informa
 
 ## Structure of trait data
 
-The traitdata standard implies that the trait data should be stored in a long table format containing one measurement per row described by the column terms provided in the core section. (see our Methods paper for further considerations on data structure and format). 
+The traitdata standard implies that the trait data should be stored in a long table format containing one measurement per row described by the terms provided in the core section. (see our Methods paper for further considerations on data structure and format). 
 
 There are two ways of integrating the information provided by the extensions: 
 
-- **within the same data file**: additional columns are provided to describe the properties concerning the measurement or the occurrence of the specimen. The output file may be stored as a csv or txt table or an excel spreadsheet.  
-- **in separate data files**: the main file refers to additional data files in the fields `measurementID` or `occurrenceID`. This is usually the case if the occurrences are externally documented, for instance as specimens from a museum. This also applies if the data are stored as an Excel spreadsheet or as a Darwin Core Archive (as proposed for TraitBank).   
+- **within the same data file**: additional terms are provided to describe columns containing properties concerning the measurement or the occurrence of the specimen. The output file may be stored as a csv or txt table.  
+- **in separate data files**: the main file refers to additional data files via identifiers, contained in fields like `measurementID` or `occurrenceID`. This is usually the case if the occurrences are externally documented, for instance as specimens from a museum. This also applies if the data are stored in additional data tables, e.g. within an Excel spreadsheet or as a Darwin Core Archive (as proposed for TraitBank). 
 
 The R package 'traitdataform' (https://www.github.com/fdschneider/traitdataform) provides tools to transfer heterogeneous datasets into a longtable format and to create standardized taxa and trait columns, based on public ontologies. 
 
-This list of terms will also be available as 
+## Glossary of terms
 
-- a csv/txt/xlsx table file which will be provided for download on BExIS including full documentation in the metadata (for manual use, this may be uploaded to BExIs as soon it's ready), and
-- a machine readable glossary of terms compliant with semantic web standards (OWL format) and accessible via an API (hosted on GFBio Terminology Server). 
- 
+This glossary is available as 
 
-## List of terms
+- this human-readable reference (html file), including commentaries and further definitions
+- a csv table file (the 'source' file,  [TraitDataStandard.csv](https://github.com/EcologicalTraitData/TraitDataStandard/raw/master/TraitDataStandard.csv))  
+- a machine readable RDF ontology file, compliant with semantic web standards accessible via an API (produced by and hosted on GFBio Terminology Server)
+
 
 ```{r, results = 'asis', echo = FALSE, warning = FALSE}
 library(data.table)
@@ -101,8 +106,8 @@ for(j in namespace) {
 
 # Core traitdata columns
 
-For the essential primary data (trait value, taxon assignment, trait name), the trait data standard recommends to report the original naming and value scheme as used by the data provider. However, to ensure compatibility with other datasets, the original data provider's information should be doubled into standardized columns indexed by appending `Std` to the column name. 
-This ensures compatibility on the provider's side and transparency for data users on the reported measurements and facts, and enables checking for inconsistencies and misspellings in the complete dataset provided by the author. If provided, the standardized fields allow merging heterogeneous data sources into a single table to perform further analyses. This practice of double bookkeeping of trait data has successfully established for the TRY database on plant traits, for instance (Kattge ..). 
+For the essential primary data (trait value, taxon assignment, trait name), the trait data standard recommends to report the original naming and value scheme as used by the data provider. However, to ensure compatibility with other datasets, the original data provider's information should be duplicated into standardized columns indexed by appending `Std` to the column name. 
+This ensures compatibility on the provider's side and transparency for data users on the reported measurements and facts, and enables checking for inconsistencies and misspellings in the complete dataset provided by the author. If provided, the standardized fields allow merging heterogeneous data sources into a single table to perform further analyses. This practice of double bookkeeping of trait data has successfully established for the TRY database on plant traits, for instance (Kattge et al. 2011. TRY – a global database of plant traits. Global Change Biology, 17, 2905–2935). 
 
 By linking to (public) ontologies via the field `taxonID`, further taxonomic information can be extracted for analysis. Alternatively, `taxonID` may also link to an accompanying datasheet that contains information on the taxonomic resolution or specification of the observation. 
 
@@ -151,7 +156,7 @@ j <- "MeasurementOrFact"
 
 # Extension: Occurrence 
 
-this section of columns aims for identifying the methodology and primary source of the data and keep the reference to the actual specimen (e.g. for museum collections or related data analysis). It also may add detail on the condition of the observed specimen, its sex, morphotype or developmental stage. 
+This section of columns aims for identifying the methodology and primary source of the data and keep the reference to the actual specimen (e.g. for museum collections or related data analysis). It also may add detail on the condition of the observed specimen, its sex, morphotype or developmental stage. 
 Especially for analyses of intra-specific trait variation, this composes valuable data. 
 
 For most trait data compiled from literature or expert knowledge, the level of information on an 'occurrence' would not apply, since no specific individual has been observed. In this case, the field 'occurrenceID' should be left blank in the core data. In cases where different aggregate ranges or averages are reported for male and female individuals, the columns sex or developmental stage may be used without the reference to an occurrence ID. 
