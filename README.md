@@ -46,7 +46,7 @@ At some point, a new major version of the Traitdata Standard may be issued, prov
 
 To refer to **this version** of the ETS please cite: 
   
-  > Schneider et al. (2017) Ecological Traitdata Standard, v0.5, URL: https://ecologicaltraitdata.github.io/TraitDataStandard/v0.5/ , DOI: ... 
+  > Schneider et al. (2017) Ecological Traitdata Standard, v0.5, URL: https://ecologicaltraitdata.github.io/TraitDataStandard/v0.5/ , DOI: [10.5281/zenodo.1041733](https://doi.org/10.5281/zenodo.1041733)  
 
 Please also cite the methods paper for the rationale and general considerations of semantic standardization of trait data: 
   
