@@ -1,3 +1,5 @@
+# Ecological Traitdata Standard (ETS)
+
 This repository hosts the **Ecological Traitdata Standard**, which defines terms for the use in datasets containing quantitative and qualitative functional traits. 
 
 The repository contains: 
@@ -8,7 +10,7 @@ The repository contains:
 
 A machine readable version will be generated and hosted by GFBio in RDF format.
 
-# fields
+## fields
 
 The glossary contains several fields which are defined as follows: 
 
@@ -26,11 +28,11 @@ The glossary contains several fields which are defined as follows:
 | Definition   | The definition of the term. | 
 | Comment      | Clarification and examples. |
 
-# Contribute
+## Contribute
 
 Please use the [issues-page](https://github.com/EcologicalTraitData/TraitDataStandard/issues) for discussion and revision on individual terms, and settle the issue here before filing a pull-request that implements an update. 
 
-# Versioning
+## Versioning
 
 **Current Version is 0.5**
 
@@ -40,16 +42,16 @@ That said, definitions of terms can only be broadened or made more explicit, if 
 
 At some point, a new major version of the Traitdata Standard may be issued, providing new versioned URIs for all terms of the standard that have been altered since the previous major version. 
 
-# Suggested Citation
+## Suggested Citation
 
 To refer to **this version** of the ETS please cite: 
   
-  > Schneider et al. (2017) Ecological Traitdata Standard, v0.4, URL: ... , DOI: ... 
+  > Schneider et al. (2017) Ecological Traitdata Standard, v0.5, URL: https://ecologicaltraitdata.github.io/TraitDataStandard/v0.5/ , DOI: ... 
 
 Please also cite the methods paper for the rationale and general considerations of semantic standardization of trait data: 
   
-  > Schneider et al. (in preparation) Introducing an Ecological Trait-data Standard. 
-
-# License
+  > Florian D. Schneider, Malte Jochum, Gaetane LeProvost, Andreas Ostrowski, Caterina Penone, Nadja K. Simons (in preparation) Introducing an Ecological Trait-data Standard. 
+  
+## License
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Ecological Traitdata Standard </span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
