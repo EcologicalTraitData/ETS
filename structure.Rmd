@@ -1,5 +1,7 @@
 ---
 title: "Structure of trait data"
+bibliography: biblio.bib
+csl: amnat.csl
 ---
 
 Tidy long-table formats [@wickham14] are the most predictable and compatible format for the core content of trait datasets and should be used for standalone uploads on low-threshold repositories. 
@@ -21,8 +23,10 @@ A general definition, whether a column describes asset data or is part of the ce
 
 The latter links separate data sheets by identifiers, which has the advantage of tidy datasets and avoids duplication of verbose information [@wickham14]. As a rule of thumb, the columns of the 'Measurement or Fact' and 'Occurrence' extension would be stored in a separate data sheet. The use of Darwin Core Archives [http://eol.org/info/structured_data_archives, DwC-A; @robertson09] is the recommended structure for GBIF [@gbif17,  http://tools.gbif.org/dwca-assistant/] or EOL TraitBank [@parr16,  http://eol.org/info/cp_archives]. These are .zip archives containing data table txt-files along with a descriptive metadata file (in .xml format). Detailled descriptions and tools for validation can be found on the website of EOL (http://eol.org/info/cp_archives) and GBIF (http://tools.gbif.org/dwca-assistant/).
 
-The metadata of any dataset that employs this data structure should refer to the respective version of the Ecological Traitdata Standard as "Schneider et al. 2017 Ecological Traitdata Standard v1.0, DOI: XXXX.xxxx, URL: https://ecologicaltraitdata.github.io/TraitDataStandard/v1.0/". In addition to the versioned online reference, the dataset should also cite the methods paper "Schneider et al. (in preparation) ..." for an explanation of the rationale.  
+The metadata of any dataset that employs this data structure should refer to the respective version of the Ecological Traitdata Standard as "Schneider et al. 2017 Ecological Traitdata Standard v1.0, DOI: XXXX.xxxx, URL: https://ecologicaltraitdata.github.io/ETS/v1.0/". In addition to the versioned online reference, the dataset should also cite the methods paper "Schneider et al. (in preparation) ..." for an explanation of the rationale.  
 
 ## R Tools 
 
 The R package 'traitdataform' (https://www.github.com/fdschneider/traitdataform) provides tools to transfer heterogeneous datasets into a longtable format and to create standardised taxa and trait columns, based on public ontologies. See the package documentation site and vignettes for further information.  
+
+# References 
