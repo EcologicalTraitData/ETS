@@ -1,32 +1,40 @@
-name: "Ecological Traidtata Standard"
+name: Ecological Traidtata Standard
 output:
   html_document:
     theme: cosmo
     highlight: textmate
-output_dir: "docs"
-exclude: ["*.xlsx", "draft/*.*", "convert_to_xml.R"]
-navbar: 
-  title: "Ecological Traitdata Standard"
-  left: 
-    - text: "Glossary"
-      icon: fa-file-text-o
-      href: index.html
-    - text: "About"
-      icon: fa-info
-      href: about.html
-    - text: "Structure of traitdata"
-      href: structure.html
-    - text: "Trait Thesauri"
-      href: thesauri.html
-  right: 
-    - text: "Versions"
-      menu:
-        - text: "Version history"
-          href: versions.html
-        - text: "--------"
-        - text: "v0.5"
-          href: v0.5/index.html
-        - text: "v0.4"
-          href: v0.4/index.html
-    - icon: fa-github
-      href: http://github.com/EcologicalTraitdata/
+    lib_dir: site_libs
+    self_contained: no
+output_dir: docs
+exclude:
+- '*.xlsx'
+- draft/*.*
+- '*.R'
+- amnat.csl
+- biblio.bib
+navbar:
+  title: Ecological Traitdata Standard
+  left:
+  - text: Glossary
+    icon: fa-file-text-o
+    href: index.html
+  - text: About
+    icon: fa-info
+    href: about.html
+  - text: Structure of traitdata
+    href: structure.html
+  - text: Trait Thesauri
+    href: thesauri.html
+  right:
+  - text: Versions
+    menu:
+    - text: Version history
+      href: versions.html
+    - text: '--------'
+    - text: v0.5
+      href: v0.5/index.html
+    - text: v0.4
+      href: v0.4/index.html
+  - icon: fa-github
+    href: http://github.com/EcologicalTraitdata/
+

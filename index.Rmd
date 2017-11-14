@@ -21,7 +21,7 @@ We provide three **extensions** of the vocabulary, that allow for additional inf
 This glossary of terms is available as 
 
 - this human-readable reference (html file), including commentaries and further definitions
-- a csv table file (the 'source' file,  [TraitDataStandard.csv](https://github.com/EcologicalTraitData/TraitDataStandard/raw/master/TraitDataStandard.csv))  
+- a csv table file (the 'source' file,  [TraitDataStandard.csv](https://github.com/EcologicalTraitData/ETS/raw/master/TraitDataStandard.csv))  
 - a machine readable RDF ontology file, compliant with semantic web standards accessible via an API (produced by and hosted on GFBio Terminology Server)
 
 ## Table of contents
@@ -30,7 +30,7 @@ This glossary of terms is available as
 library(data.table)
 library(knitr)
 glossary <- read.csv("TraitDataStandard.csv")
-urlroot <- "http://ecologicaltraitdata.github.io/TraitDataStandard/"
+urlroot <- "http://ecologicaltraitdata.github.io/ETS/"
 
 columnNames <- glossary$columnName
 sections <- glossary$Namespace
@@ -41,9 +41,9 @@ glossary <- setNames(split(glossary[,-c(1), with = FALSE], f = as.integer(glossa
 
 glossary <- lapply(glossary, function(x) setNames(split(x, f = seq_along(x$columnName)), x$columnName))
 
-namespace <- c("Traitdata", "Traitlist", "Metadata",  "MeasurementOrFact", "Occurrence", "BiodiversityExploratories" )
+namespace <- c("Traitdata", "Metadata", "Traitlist",  "MeasurementOrFact", "Occurrence", "BiodiversityExploratories" )
 
-j_verbose <- c("core-traitdata-columns", "terms-for-traitlists-a-trait-thesaurus", "metadata-vocabulary", "extension-measurement-or-fact", "extension-occurrence", "extension-biodiversity-exploratories" ) 
+j_verbose <- c("core-traitdata-terms",  "metadata-vocabulary", "terms-for-thesauri", "extension-measurement-or-fact", "extension-occurrence", "extension-biodiversity-exploratories" ) 
 
 for(j in namespace) {
   
@@ -64,7 +64,7 @@ for(j in namespace) {
 
 ---
 
-# Core traitdata columns
+# Core traitdata terms
 
 For the essential primary data (trait value, taxon assignment, trait name), the trait data standard recommends to report the original naming and value scheme as used by the data provider. However, to ensure compatibility with other datasets, the original data provider's information should be duplicated into standardized columns indexed by appending `Std` to the column name. 
 This ensures compatibility on the provider's side and transparency for data users on the reported measurements and facts, and enables checking for inconsistencies and misspellings in the complete dataset provided by the author. If provided, the standardized fields allow merging heterogeneous data sources into a single table to perform further analyses. This practice of double bookkeeping of trait data has successfully established for the TRY database on plant traits, for instance (Kattge et al. 2011. TRY – a global database of plant traits. Global Change Biology, 17, 2905–2935). 
@@ -75,22 +75,27 @@ Similarly, linking to trait terminologies (a 'Thesaurus') via the field `traitID
 
 ```{r, results = 'asis', echo = FALSE}
 
-j <- "Traitdata"
+parseterms <- function(namespace) {
+  
+sorting <- c( "Definition", "Comment","valueType", "Identifier", "DateIssued", "Version", "DateModified", "Refines", "Replaces", "Deprecated", "ReplacedBy" )
 
- for(i in columnNames[sections == j]) {
-     dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
-     colnames(dd) <- i
+ for(i in columnNames[sections == namespace]) {
+      dd <- t(glossary[[namespace]][[as.character(i)]][,-1, with=FALSE])
+      dd <- dd[match(sorting, rownames(dd)), ] 
+      dd <- as.data.frame(dd)
+      colnames(dd) <- i
      cat("## `", i, "`  ", sep = "")
      cat("\n")
      cat("[go to top](", urlroot, ")", sep = "") 
      cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
-     
-   print(kable(dd, format = "markdown"))
+     print(kable(dd, format = "markdown"))
  }
+}
 
+parseterms("Traitdata")
 ```
 
-
+---
 
 # Metadata vocabulary
 
@@ -114,21 +119,14 @@ These data are required when combining datasets from different sources. We sugge
 
 ```{r, results = 'asis', echo = FALSE}
 
-j <- "Metadata"
-
- for(i in columnNames[sections == j]) {
-      dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
-     colnames(dd) <- i
-     cat("## `", i, "`  ", sep = "")
-     cat("\n")
-     cat("[go to top](", urlroot, ")", sep = "") 
-     cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
-     print(kable(dd, format = "markdown"))
- }
+parseterms("Metadata")
 
 ```
 
-# Terms for Traitlists (a 'Trait Thesaurus')
+
+--- 
+
+# Terms for Thesauri
 
 A trait thesaurus or ontology assigns descriptive trait names with A) an unambiguous definition of the trait and B) an expected format of measured values or reported facts, and might additionally provide C) semantic relationships for deriving a hierarchical or tree-based classification of traits. 
 
@@ -155,17 +153,7 @@ Terminology portals or registries, such as the GFBio Terminology Service or onto
 
 ```{r, results = 'asis', echo = FALSE}
 
-j <- "Traitlist"
-
- for(i in columnNames[sections == j]) {
-      dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
-     colnames(dd) <- i
-     cat("## `", i, "`  ", sep = "")
-     cat("\n")
-     cat("[go to top](", urlroot, ")", sep = "") 
-     cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
-     print(kable(dd, format = "markdown"))
- }
+parseterms("Traitlist")
 
 ```
 
@@ -189,18 +177,7 @@ For literature data, the original source might report trait values on the family
 
 ```{r, results = 'asis', echo = FALSE}
 
-j <- "MeasurementOrFact"
-
- for(i in columnNames[sections == j]) {
-   dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
-     colnames(dd) <- i
-     cat("## `", i, "`  ", sep = "")
-     cat("\n")
-     cat("[go to top](", urlroot, ")", sep = "") 
-     cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
-
-   print(kable(dd, format = "markdown"))
- }
+parseterms("MeasurementOrFact")
 
 ```
 
@@ -221,17 +198,7 @@ For most trait data compiled from literature or expert knowledge, the level of i
 
 ```{r, results = 'asis', echo = FALSE}
 
-j <- "Occurrence"
-
- for(i in columnNames[sections == j]) {
-    dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
-     colnames(dd) <- i
-     cat("## `", i, "`  ", sep = "")
-     cat("\n")
-     cat("[go to top](", urlroot, ")", sep = "") 
-     cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
- print(kable(dd, format = "markdown"))
- }
+parseterms("Occurrence")
 
 ```
 
@@ -243,16 +210,5 @@ Trait data uploaded to the Biodiversity Exploratories Information System (BExIS)
 
 ```{r, results = 'asis', echo = FALSE}
 
-j <- "BiodiversityExploratories"
-
- for(i in columnNames[sections == j]) {
-      dd <- as.data.frame(t(glossary[[j]][[as.character(i)]][,-1, with=FALSE]))
-     colnames(dd) <- i
-     cat("## `", i, "`  ", sep = "")
-     cat("\n")
-     cat("[go to top](", urlroot, ")", sep = "") 
-     cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
-     print(kable(dd, format = "markdown"))
- }
-
+parseterms("BiodiversityExploratories")
 ``` 

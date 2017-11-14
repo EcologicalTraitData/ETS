@@ -15,7 +15,7 @@ The ETS provides a low-threshold standard, suitable for storing own trait data l
 
 To refer to **this version** of the ETS please cite: 
 
-> Schneider et al. (2017) Ecological Traitdata Standard, v0.5, URL: https://ecologicaltraitdata.github.io/TraitDataStandard/v0.5/ , DOI: [10.5281/zenodo.1041733](https://doi.org/10.5281/zenodo.1041733)  
+> Schneider et al. (2017) Ecological Traitdata Standard, v0.5, URL: https://ecologicaltraitdata.github.io/ETS/v0.6/ , DOI: [10.5281/zenodo.1041733](https://doi.org/10.5281/zenodo.1041733)  
 
 Please also cite the methods paper for the rationale and general considerations of the standardization of trait data: 
 
@@ -23,4 +23,4 @@ Please also cite the methods paper for the rationale and general considerations 
 
 # Contribute
 
-The Ecological Traitdata Standard is under continuous open source development, hosted on [Github](https://github.com/EcologicalTraitData/TraitDataStandard). Please refer to the [Github Issues page](https://github.com/EcologicalTraitData/TraitDataStandard/issues) for discussion and revision of individual terms, and settle the issue here before filing a pull-request that implements an update.
+The Ecological Traitdata Standard is under continuous open source development, hosted on [Github](https://github.com/EcologicalTraitData/ETS). Please refer to the [Github Issues page](https://github.com/EcologicalTraitData/ETS/issues) for discussion and revision of individual terms, and settle the issue here before filing a pull-request that implements an update.
