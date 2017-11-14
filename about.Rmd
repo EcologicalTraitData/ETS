@@ -1,0 +1,26 @@
+---
+title: "About this Standard"
+---
+
+# Abstract 
+
+The Ecological Traitdata Standard (ETS) is a collection of terms for datasets on quantitative and qualitative organism properties (i.e. traits) that describe its performance or function in an ecosystem. It also includes recommendations on how to structure such data for upload in public databases. 
+The ETS provides a low-threshold standard, suitable for storing own trait data locally, or for publishing them on a scientific database or filehosting service. 
+
+# License
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Ecological Traitdata Standard </span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. That means, you are free to use and re-use, modify and publish all texts and documents on this website, as long as you give attribution to its original source. 
+
+# Suggested Citation
+
+To refer to **this version** of the ETS please cite: 
+
+> Schneider et al. (2017) Ecological Traitdata Standard, v0.5, URL: https://ecologicaltraitdata.github.io/TraitDataStandard/v0.5/ , DOI: [10.5281/zenodo.1041733](https://doi.org/10.5281/zenodo.1041733)  
+
+Please also cite the methods paper for the rationale and general considerations of the standardization of trait data: 
+
+> Florian D. Schneider, Malte Jochum, Gaetane LeProvost, Andreas Ostrowski, Caterina Penone, Nadja K. Simons (in preparation) Towards an Ecological Trait-data Standard. 
+
+# Contribute
+
+The Ecological Traitdata Standard is under continuous open source development, hosted on [Github](https://github.com/EcologicalTraitData/TraitDataStandard). Please refer to the [Github Issues page](https://github.com/EcologicalTraitData/TraitDataStandard/issues) for discussion and revision of individual terms, and settle the issue here before filing a pull-request that implements an update.
