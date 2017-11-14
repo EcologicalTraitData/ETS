@@ -5,8 +5,7 @@ This repository hosts the **Ecological Traitdata Standard**, which defines terms
 The repository contains: 
 
 - the 'source file' of the glossary (in .csv format), defining the terms and containing the URIs.
-- the source file of the documentation (docs/index.Rmd) which is parsed in RStudio into html. 
-- the index.html file contained in the docs directory is deployed as the human-readable form of the glossary via the 'Github Pages' service. 
+- the source files of the documentation website (.Rmd, .yml), which are parsed in [RStudio as a Rmarkdown Website](http://rmarkdown.rstudio.com/rmarkdown_websites.html) and served via [Github pages](https://pages.github.com/) (output in folder docs) to https://ecologicaltraitdata.github.io/ETS/. 
 
 A machine readable version will be generated and hosted by GFBio in RDF format.
 
@@ -30,11 +29,11 @@ The glossary contains several fields which are defined as follows:
 
 ## Contribute
 
-Please use the [issues-page](https://github.com/EcologicalTraitData/TraitDataStandard/issues) for discussion and revision on individual terms, and settle the issue here before filing a pull-request that implements an update. 
+Please use the [issues-page](https://github.com/EcologicalTraitData/ETS/issues) for discussion and revision on individual terms, and settle the issue here before filing a pull-request that implements an update. 
 
 ## Versioning
 
-**Current Version is 0.5**
+**Current Version is 0.6**
 
 Terminologies must provide a stability of definitions. If publications refer to the URI of a term, the definition found must be stable and be true to the definition intended by the author.
 
@@ -46,7 +45,7 @@ At some point, a new major version of the Traitdata Standard may be issued, prov
 
 To refer to **this version** of the ETS please cite: 
   
-  > Schneider et al. (2017) Ecological Traitdata Standard, v0.5, URL: https://ecologicaltraitdata.github.io/TraitDataStandard/v0.5/ , DOI: [10.5281/zenodo.1041733](https://doi.org/10.5281/zenodo.1041733)  
+  > Schneider et al. (2017) Ecological Traitdata Standard, v0.6, URL: https://ecologicaltraitdata.github.io/ETS/v0.6/ , DOI: [10.5281/zenodo.1041733](https://doi.org/10.5281/zenodo.1041733)  
 
 Please also cite the methods paper for the rationale and general considerations of semantic standardization of trait data: 
   
