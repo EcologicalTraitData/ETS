@@ -1,0 +1,1111 @@
+<?xml version="1.0"?>
+<Test>
+  <ETS>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>scientificName</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#scientificname</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/scientificName</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Original character string provided as species name by the data owner (kept for reference and continueity)</Definition>
+      <Comment>Can be equal to scientificNameStd. Authors may use abbreviations, or use underscores to separate genus and species name. </Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>traitName</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#traitname</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/measurementType</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Name of the trait as used by the data provider (kept for compatibility on provider side). </Definition>
+      <Comment>This can be a short name or user defined coded trait name. However, it is recommended to provide definition of the user provided trait names in the metadata. </Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>traitID</columnName>
+      <valueType>factor</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#traitid</Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Unique identifier of the trait following a public or user-provided thesaurus of traits. </Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>traitValue</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#traitvalue</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/measurementValue</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Measured raw value or factor level for this species trait as measured and provided by the author. </Definition>
+      <Comment>Must respect the unit given in 'measurementUnit_user' for numerical traits. For categorical traits, the factor levels should be harmonized across the dataset and explained in the metadata. </Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>traitUnit</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#traitunit</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/measurementUnit</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Reports the unit that the author's raw data were measured in, if applicable (only for numeric values). For unitless numerical values, use 'unitless' in this field. For factorial values, leave empty or provide NA. </Definition>
+      <Comment>For numerical values report unit in format for lengths "mm", for volumes "mm3" / "mm^3", areas "mm2" / "mm^2", for movement "m/s", or for volume to surface ratios: "mm3/mm2"</Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>scientificNameStd</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#scientificnamestd</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/scientificName</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Full scientific name (with authorship and date information if known). It should be an accepted taxon name according to a published taxonomy (provided in taxonID).</Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>traitNameStd</columnName>
+      <valueType>factor</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#traitnamestd</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/measurementType</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Descriptive Name of the trait reported. This should follow the controlled vocabulary of a thesaurus of traits available online or published along with the dataset. </Definition>
+      <Comment>Accompanying this, the traitID should provide an unambiguous link to the trait definition in the thesaurus or supplementary dataset. </Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>traitValueStd</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#traitvaluestd</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/measurementValue</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Standardised measured value or factor level for this species trait. Numerical values must use the correct unit. Factor levels  must be compliant with the thesaurus of traits. </Definition>
+      <Comment>Using "." as a decimal separator! The standardized data values or factor levels must correspond to the expected units and factor levels of the trait thesaurus, e.g. "32.423", "female", "apter", "3"</Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>traitUnitStd</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#traitunitstd</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/measurementUnit</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The units associated with the measurementValue. The expected standard unit for this trait as defined in the traitlist/ thesaurus. </Definition>
+      <Comment>Recommended best practice is to use the International System of Units (SI).  Examples: "mm", "C", "km", "ha". For discussion see http://terms.tdwg.org/wiki/dwc:measurementUnit</Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>taxonRank</columnName>
+      <valueType>factor</valueType>
+      <vocabulary>domain; kingdom; subkingdom; superphylum; phylum; subphylum; superclass; class; subclass; supercohort; cohort; subcohort; superorder; order; subordern; infraorder; superfamily; family; subfamily; tribe; subtribe; genus; subgenus; section; subsection; series; subseries; speciesAggregate; species; subspecificAggregate; subspecies; variety; cultivar; strain</vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#taxonrank</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/taxonRank</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The taxonomic rank of the most specific name in the scientificName. Recommended best practice is to use a controlled vocabulary. </Definition>
+      <Comment>This is to clarify cases where information is not given on a species level. Examples: "subspecies", "varietas", "forma", "species", "genus".</Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>kingdom</columnName>
+      <valueType>factor</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://rs.tdwg.org/dwc/terms/kingdom</Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The full scientific name of the kingdom in which the taxon is classified.</Definition>
+      <Comment>Examples: "Animalia", "Plantae". For discussion see http://terms.tdwg.org/wiki/dwc:kingdom</Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>order</columnName>
+      <valueType>factor</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://rs.tdwg.org/dwc/terms/order</Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version></Version>
+      <DateIssued>10/17/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The full scientific name of the order in which the taxon is classified.</Definition>
+      <Comment>Examples: "Carnivora", "Monocleales". For discussion see http://terms.tdwg.org/wiki/dwc:order</Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>taxonID</columnName>
+      <valueType>factor</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#taxonid</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/taxonID</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Verified name identifier  of the species or subspecies (or higher taxon) for which this value was collected. Each entry should link to a published reference species  list/taxonomy. Avoid synonyms. </Definition>
+      <Comment>Examples: "GBIF Backbone Taxonomy:497924", "8fa58e08-08de-4ac1-b69c-1235340b7001", "32567", "http://species.gbif.org/abies_alba_1753", "urn:lsid:gbif.org:usages:32567". For discussion see http://terms.tdwg.org/wiki/dwc:taxonID</Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>measurementID</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#measurementid</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/measurementID</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>A unique, dataset-specific identifier. Links multi-value trait measurements, e.g. x-y-z coordinates of a morphometric landmark, biochemical compound quantities for different chainlengths. In this case, the trait names must specifiy the sub-measurement, e.g. "landmark32_x", and must be specified in a reference trait list, given in the field "measurementMethod". </Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>occurrenceID</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#occurrenceid</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/occurrenceID</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>A character string user defined by the data author.  It is recommended best practice to use a globally unique identifier, if available, e.g. a museum ID referring to the individual specimen from which the data were measured. usually does not apply for literature data.</Definition>
+      <Comment>This is important for the analysis of co-variation of morphometric data or intraspecific variation. It may also couples multiple measurements on a single specimen, which also could be a leaf or a single bone without an assignment to an individual organism. If available, upload related dataset to describe specimens more precisely, e.g. environmental parameters or identity related information. </Comment>
+    </value>
+    <value>
+      <Namespace>Traitdata</Namespace>
+      <columnName>warnings</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#warnings</Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>warnings from the R-script will be stored here, e.g. regarding a lack of match between the provided taxonID and the ontology, or the trait names or values, a mismatch in the units provided and the unit expected according to the trait table. User defined warnings and flags can be added as well, e.g. 'NOTUSE'.</Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>basisOfRecord</columnName>
+      <valueType>factor</valueType>
+      <vocabulary>LivingSpecimen; PreservedSpecimen; FossilSpecimen; literatureData; traitDatabase; expertKnowledge</vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#basisofrecord</Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/basisOfRecord</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>How and from which kind of specimen were the data obtained? Use of the controlled vocabulary is recommended. </Definition>
+      <Comment>Options are: Taken by own measurement (distinguish LivingSpecimen, PreservedSpecimen, FossilSpecimen) or taken from literature (literatureData), from an existing trait database (traitDatabase), or expert knowledge (expertKnowledge).</Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>basisOfRecordDescription</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier>http://ecologicaltraitdata.github.io/TraitDataStandard/#basisofrecorddescription</Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Adding more detail to the basisOfRecord. </Definition>
+      <Comment>If life specimens were sampled, where did they come from? Have they been reared in cultivation? If literature data or online database, provide type of literature, e.g. textbook, website, URL, etc. If preserved specimens were used, which method of preservation? In case of expert knowledge, give the name of the authority. </Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>references</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://purl.org/dc/terms/references</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.4</Version>
+      <DateIssued>8/24/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Precise reference to the source. If literature data, this should quote the book or online database. If museum specimen, this should report the name of the collection. If expert knowledge, this should name the authority, preferrably using ORCID. If trait database, provide reference to the original publication, DOI or URL of the trait-database. </Definition>
+      <Comment>Examples: "http://mvzarctos.berkeley.edu/guid/MVZ:Mamm:165861"; "http://www.catalogueoflife.org/annual-checklist/show_species_details.php?record_id=6197868". For discussion see http://terms.tdwg.org/wiki/dwc:references</Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>measurementResolution</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>If the trait information was originally given on another taxonomic level than species. Applies mainly for literature and expert knowledge data. not applying for measured data. The hierarchical level to which the trait data would refer. </Definition>
+      <Comment>For example, information given in literature could state 'most species in this genus are winged', but the trait data could be given for each species in this genus.</Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>measurementMethod</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/measurementMethod</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Applies primarily to measured data. The method, tools and scales used to measure a (numerical) trait value. A description of or reference to (publication, URI) the method or protocol used to determine the measurement, fact, characteristic, or assertion. </Definition>
+      <Comment>Should be a concise and standardised text entry or reference (publication, URI), referring to a particular method (e.g. 'direct weighing', 'length-mass regression', 'intertegular span', 'length between node X and y' ) and  measurement conditions (e.g. certain temperature or humidity, name of device or scale used for measurement).  To avoid repetition or lengthy entries, authors should use global identifiers of methodological terms if available, or enter dataset specific identifiers and provide a more detailed description of the method or protocol used to determine the measurement, fact, characteristic, or assertion in the metadata of the dataset. </Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>measurementDeterminedBy</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/measurementDeterminedBy</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>A list (concatenated and separated) of names of people, groups, or organizations who determined the value of the measurement. Can be encoded by dataset-specific identifiers for reasons of privacy. This is kept as a co-factor for repeated measurements.</Definition>
+      <Comment>The recommended best practice is to separate the values with a vertical bar (' | '). Examples: "Rob Guralnick", "Julie Woodruff | Eileen Lacey".</Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>measurementDeterminedDate</columnName>
+      <valueType>Date</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/measurementDeterminedDate</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The date of the measurement. Also kept as a co-factor. Use format "YYYY-MM-DD hh:mm TIMEZONE". Not to confuse with year, month, day columns which are reserved for the date of sampling (may be identical, though). </Definition>
+      <Comment>Examples: "1963-03-08T14:07-0600" is 8 Mar 1963 2:07pm in the time zone six hours earlier than UTC, "2009-02-20T08:40Z" is 20 Feb 2009 8:40am UTC, "1809-02-12" is 12 Feb 1809, "1906-06" is Jun 1906, "1971" is just that year, "2007-03-01T13:00:00Z/2008-05-11T15:30:00Z" is the interval between 1 Mar 2007 1pm UTC and 11 May 2008 3:30pm UTC, "2007-11-13/15" is the interval between 13 Nov 2007 and 15 Nov 2007. For discussion see http://terms.tdwg.org/wiki/dwc:measurementDeterminedDate</Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>measurementRemarks</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/measurementRemarks</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Remarks concerning a particular measurement, e.g. additional information on the quality and reliability, reference or acknowledgements.</Definition>
+      <Comment>Any particularities about the individual measurement or specimen that might affect trait measuremnt, e.g. 'last antenna segment missing'. </Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>aggregateMeasure</columnName>
+      <valueType>logical</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Is measurementValue reporting an individual measurement or an aggregate Measure? Takes a binary entry: TRUE or FALSE</Definition>
+      <Comment>This is flagging aggregate data in an unambiguous way. Aggregate measures are often reported for repeated measures, e.g. replicate measurements of leaf size from a single plant individual or for grouped measurement, e.g. for weightings of a counted number of specimens (e.g. leaves or small organisms). </Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>individualCount</columnName>
+      <valueType>integer</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/individualCount</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>If measurement is an aggregate measure of multiple individuals or specimens, report number of specimens as count, i.e. integer number. Defaults to 1</Definition>
+      <Comment>Examples: "1", "25". For discussion see http://terms.tdwg.org/wiki/dwc:individualCount</Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>dispersion</columnName>
+      <valueType>numeric</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>If aggregate measure of multiple individuals or specimens, the numeric value of dispersion (variance or standard deviation) for the mean value reported in measurementValue_user (no unit conversion is provided by the R-package!). Defaults to 0. If a value is provided, report the statistical method in the field statisticalMethod.</Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>measurementValue_min</columnName>
+      <valueType>numeric</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The lower boundary of observed values. Instead of or in addition to dispersion metric. </Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>measurementValue_max</columnName>
+      <valueType>numeric</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The upper boundary of observed values. Instead of or in addition to dispersion metric. </Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>measurementAccuracy</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/measurementAccuracy</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The description of the potential error associated with the measurementValue.</Definition>
+      <Comment>Examples: "0.01", "normal distribution with variation of 2 m". For discussion see http://terms.tdwg.org/wiki/dwc:measurementAccuracy</Comment>
+    </value>
+    <value>
+      <Namespace>MeasurementOrFact</Namespace>
+      <columnName>statisticalMethod</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>For aggregated measures, the method for data aggregation or averaging as well as the variation or range.</Definition>
+      <Comment> E.g. 'mean and standard deviation', 'median and 95% confidence interval', 'mean and variance', 'mean and range of values', 'median and 95% interquantile range'</Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>sex</columnName>
+      <valueType>factor</valueType>
+      <vocabulary>male; female; subadult; unknown; hermaphrodite</vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/sex</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Defining the sex of the measured specimen, to capture dimorphisms. Standardised factor levels are: "male", "female", "subadult", "unknown", "hermaphrodite"</Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>lifeStage</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/lifeStage</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The life stage of the measured specimen. </Definition>
+      <Comment>Recommended factor levels are: seed, seedling, sapling, adult, egg, larval_instar_1, larval_instar_2, larval_instar_3, ... , pupa; For very taxon-specific life stages, it is recommended to provide detailed explanation in the metadata of the dataset. </Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>age</columnName>
+      <valueType>numeric</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The age of the specimen in years.</Definition>
+      <Comment>Example: "2", "0.16".</Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>morphotype</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The morphotype of the observed specimen.</Definition>
+      <Comment>Examples: "worker", "drone", "queen". Since morphotypes can differ between organism groups, provide definition of morphotypes in the metadata of the dataset. </Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>eventID</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/eventID</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The sampling event or campaign. A globally valid URI or user specified character string that links to another table providing detailed information, e.g. environmental or temporal parameters, descriptions on methods etc..</Definition>
+      <Comment>could be a combination of date and sampling region </Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>preparations</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/preparations</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>For preserved specimens, a list (concatenated and separated) of preparations and preservation methods for the occurence. </Definition>
+      <Comment>Do not report procedures for measurement or sampling here (see samplingProtocol and measurementMethod). The recommended best practice is to separate the values with a vertical bar (' | '). Examples: "fossil", "cast", "photograph", "DNA extract", "skin | "skull | skeleton", "whole animal (ETOH) | tissue (EDTA)". For discussion see http://terms.tdwg.org/wiki/dwc:preparations</Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>samplingProtocol</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/samplingProtocol</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The name of, reference to, or description of the method or protocol used for obtaining the specimen. </Definition>
+      <Comment>Examples: "UV light trap", "mist net", "bottom trawl", "ad hoc observation", "point count", "Penguins from space: faecal stains reveal the location of emperor penguin colonies, http://dx.doi.org/10.1111/j.1466-8238.2009.00467.x", "Takats et al. 2001. Guidelines for Nocturnal Owl Monitoring in North America. Beaverhill Bird Observatory and Bird Studies Canada, Edmonton, Alberta. 32 pp.", "http://www.bsc-eoc.org/download/Owl.pdf". For discussion see http://terms.tdwg.org/wiki/dwc:samplingProtocol</Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>year</columnName>
+      <valueType>integer</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/year</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The four-digit year, at which the specimens were extracted or sampled. </Definition>
+      <Comment>Example: "2008". For discussion see http://terms.tdwg.org/wiki/dwc:year</Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>month</columnName>
+      <valueType>integer</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/month</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The ordinal month, in which the specimens were extracted or sampled. </Definition>
+      <Comment>Examples: "1" (=January), "10" (=October). For discussion see http://terms.tdwg.org/wiki/dwc:month</Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>day</columnName>
+      <valueType>integer</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/day</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The integer day of the month on which the specimens were extracted or sampled. </Definition>
+      <Comment>Examples: "9", "28". For discussion see http://terms.tdwg.org/wiki/dwc:day</Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>eventDate</columnName>
+      <valueType>Date</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/eventDate</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Represents the date, at which the specimens were extracted or sampled. If providing eventDate, then enter format of type: YYYY-MM-DD hh:mm TIMEZONE (fall back to 12:00 if no time is available). For lower precision, use year, month and day field instead.</Definition>
+      <Comment> Note: this is not to record the date when the specimens were measured (use measurementDeterminedDate for this). If applicable, at least provide a year.  Providing a date is highly viable for studies analysing temporal variation in traits. </Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>locationID</columnName>
+      <valueType>factor</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/locationID</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>A globally unique or dataset-specific identifier. Could report the plot within the experimental setting which would be further specified in the metadata or in a separate dataset.</Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>habitat</columnName>
+      <valueType>factor</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/habitat</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>A character string reporting habitat type from which the specimen was sampled. E.g. 'forest', 'grassland', 'oak savanna', 'pre-cordilleran steppe'. It is recommended to link to ecological ontologies, if available, using public URIs. </Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>decimalLongitude</columnName>
+      <valueType>numeric</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/decimalLongitude</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The geographic longitude (in decimal degrees, using the spatial reference system given in geodeticDatum) of the geographic center of a Location. </Definition>
+      <Comment>Positive values are east of the Greenwich Meridian, negative values are west of it. Legal values lie between -180 and 180, inclusive. Example: "-121.1761111". For discussion see http://terms.tdwg.org/wiki/dwc:decimalLongitude</Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>decimalLatitude</columnName>
+      <valueType>numeric</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/decimalLatitude</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The geographic latitude (in decimal degrees, using the spatial reference system given in geodeticDatum) of the geographic center of a Location. </Definition>
+      <Comment>Positive values are north of Equator, negative values are south of it. Legal values lie between -180 and 180, inclusive. Example: "-41.0983423". For discussion see http://terms.tdwg.org/wiki/dwc:decimalLatitude</Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>elevation</columnName>
+      <valueType>numeric</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/verbatimElevation</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The geographic elevation in meters above sea level.</Definition>
+      <Comment>May map to verbatimElevation (http://rs.tdwg.org/dwc/terms/verbatimElevation) or minimumElevationInMeters (http://rs.tdwg.org/dwc/terms/minimumElevationInMeters) and maximumElevationInMeters (http://rs.tdwg.org/dwc/terms/maximumElevationInMeters); Example: "200". For discussion see http://terms.tdwg.org/wiki/dwc:maximumElevationInMeters</Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>geodeticDatum</columnName>
+      <valueType>factor</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/geodeticDatum</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The geodeticDatum defines the ellipsoid, geodetic datum, or spatial reference system (SRS) upon which the geographic coordinates given in decimalLatitude and decimalLongitude as based. Recommended system is "WGS84". Use the EPSG code to provide an SRS. Examples: "EPSG:4326", "WGS84", "NAD27", "Campo Inchauspe", "European 1950", "Clarke 1866"*</Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>verbatimLocality</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/verbatimLocality</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The specific description of the place. Less specific geographic information can be provided in other geographic terms (higherGeography, continent, country, stateProvince, county, municipality, waterBody, island, islandGroup). This term may contain information modified from the original to correct perceived errors or standardize the description. </Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>country</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/country</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names.</Definition>
+      <Comment>Examples: "Germany", "Denmark", "Colombia", "Espa&#x618AE; For discussion see http://terms.tdwg.org/wiki/dwc:country;  This should be added if a more precise location is unavailable, to enable data to be used by GBif. </Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>countryCode</columnName>
+      <valueType>factor</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/countryCode</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The standard code for the country in which the Location occurs. Recommended best practice is to use ISO 3166-1-alpha-2 country codes.</Definition>
+      <Comment>Examples:"DE" for Germany, "AR" for Argentina, "SV" for El Salvador. For discussion see http://terms.tdwg.org/wiki/dwc:countryCode; This should be added if a more precise location is unavailable, to enable data to be used by GBif. </Comment>
+    </value>
+    <value>
+      <Namespace>Occurrence</Namespace>
+      <columnName>occurenceRemarks</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/occurrenceRemarks</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Comments or notes about the Occurrence.</Definition>
+      <Comment>Example: "found dead on road". For discussion see http://terms.tdwg.org/wiki/dwc:occurrenceRemarks</Comment>
+    </value>
+    <value>
+      <Namespace>Metadata</Namespace>
+      <columnName>rightsHolder</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://purl.org/dc/terms/rightsHolder</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>A person or organization owning or managing rights over the resource, i.e. this dataset.</Definition>
+      <Comment>A list of author names (separated by |) or name of a consortium, or institution</Comment>
+    </value>
+    <value>
+      <Namespace>Metadata</Namespace>
+      <columnName>bibliographicCitation</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://purl.org/dc/terms/bibliographicCitation</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>A bibliographic reference for the resource as a statement indicating how this record should be cited (attributed) when used. Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible.</Definition>
+      <Comment>e.g. "Gossner, M.M., Simons, N.K., Achtziger, R., Blick, T., Dorow, W.H.., Dziock, F., et al. (2015). A summary of eight traits of Coleoptera, Hemiptera, Orthoptera and Araneae, occurring in grasslands in Germany. Sci Data, 2, 150013, doi:10.1038/sdata.2015.13" If dataset has been published, include DOI </Comment>
+    </value>
+    <value>
+      <Namespace>Metadata</Namespace>
+      <columnName>license</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://purl.org/dc/terms/license</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>A legal document giving official permission to do something with the resource.</Definition>
+      <Comment>Examples: "http://creativecommons.org/publicdomain/zero/1.0/legalcode", "http://creativecommons.org/licenses/by/4.0/legalcode". For discussion see http://terms.tdwg.org/wiki/dwc:license</Comment>
+    </value>
+    <value>
+      <Namespace>Metadata</Namespace>
+      <columnName>datasetID</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/datasetID</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>An identifier for the set of data. May be a global unique identifier or an identifier specific to a collection or institution.</Definition>
+      <Comment>e.g. BExIS ID, or  a DOI referring to the published dataset </Comment>
+    </value>
+    <value>
+      <Namespace>Metadata</Namespace>
+      <columnName>datasetName</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines>http://rs.tdwg.org/dwc/terms/datasetName</Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>The name identifying the data set from which the record was derived.</Definition>
+      <Comment>e.g. a BExIS dataset name, a unique name for the traitdataset</Comment>
+    </value>
+    <value>
+      <Namespace>Metadata</Namespace>
+      <columnName>author</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.4</Version>
+      <DateIssued>9/5/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Metadata</Namespace>
+      <columnName>version</columnName>
+      <valueType>character</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.4</Version>
+      <DateIssued>9/5/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>BiodiversityExploratories</Namespace>
+      <columnName>OriginExploratories</columnName>
+      <valueType>logical</valueType>
+      <vocabulary>TRUE;FALSE</vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Did measured specimens originate from Exploratories Plots? TRUE or FALSE, defaults to FALSE</Definition>
+      <Comment>As unambiguous flag for data and specimens that are originating from Exploratories sites. </Comment>
+    </value>
+    <value>
+      <Namespace>BiodiversityExploratories</Namespace>
+      <columnName>ExploratoriesPlotID</columnName>
+      <valueType>factor</valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>EP plot ID (or also any valid Gridplot ID or VIP ID) where the measured specimen was extracted. Only for specimen that were extracted from the exploratories directly (or direct offspring, if hatched in the lab). Please also report it, even if this was not part of your research question and provide a Date (a year at last) if available.</Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>BiodiversityExploratories</Namespace>
+      <columnName>Exploratory</columnName>
+      <valueType>factor</valueType>
+      <vocabulary>HAI; SCH; ALB</vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>Exploratories Region (Hainich, Schorfheide, Alb) for sorting purpose and readability, or if exact Plot ID is not available. Report the Region in format: HAI; SCH; ALB</Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>BiodiversityExploratories</Namespace>
+      <columnName>ExploType</columnName>
+      <valueType>factor</valueType>
+      <vocabulary>W; G</vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>W for forest or G for grassland plot. </Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Class</Namespace>
+      <columnName>LivingSpecimen</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Class</Namespace>
+      <columnName>PreservedSpecimen</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Class</Namespace>
+      <columnName>FossilSpecimen</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Class</Namespace>
+      <columnName>LiteratureData</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Class</Namespace>
+      <columnName>TraitDatabase</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Class</Namespace>
+      <columnName>ExpertKnowledge</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Traitlist</Namespace>
+      <columnName>valueType</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.4</Version>
+      <DateIssued>9/27/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>type of trait values. Defines the trait as numeric, integer, categorical, binary/logical, or character. </Definition>
+      <Comment>Numerical values represent measurements of length, volumes, ratios, rates or timespans. Integer values apply to count data (e.g. eggs per clutch). Binary data (encoded as 0 or 1) or logical data (coded as TRUE or FALSE) may apply to qualitative traits such as specific behaviour during mating (e.g. are territories defended) or specialisation to a given habitat (e.g. species restricted to relicts of primeval forests). Categorical traits should define a constrained set of factor levels, such as sex differences in wing morphology (both sexes winged, both sexes unwinged, only males winged, only females winged) or unconstrained entries such as color. Ordinal categorical traits may be better encoded as integer values, e.g. a logical sequence as in the case of life stages or hibernation stages, or habitat preference traits such as horizontal stratum use.</Comment>
+    </value>
+    <value>
+      <Namespace>Traitlist</Namespace>
+      <columnName>factorLevels</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.4</Version>
+      <DateIssued>9/27/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>the constrained vocabulary for categorical traits or ordinal binary traits.</Definition>
+      <Comment>Ordinal traits may be encoded with numerically indexed factor levels; e.g. 1_egg, 2_larvae, 3_pupae, 4_adult; the field traitDescription should define the factor levels; </Comment>
+    </value>
+    <value>
+      <Namespace>Traitlist</Namespace>
+      <columnName>maxAllowedValue</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.4</Version>
+      <DateIssued>9/27/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>a lower boundary for accepted numerical values</Definition>
+      <Comment>May be used for eliminating invalid data. This boundary may constrain a range of values of meaningful orders of magnitude, or constrain entries to positive values.  </Comment>
+    </value>
+    <value>
+      <Namespace>Traitlist</Namespace>
+      <columnName>minAllowedValue</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.4</Version>
+      <DateIssued>9/27/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>an upper boundary for accepted numerical values</Definition>
+      <Comment>May be used for eliminating invalid data. This boundary may constrain a range of values of meaningful orders of magnitude.  </Comment>
+    </value>
+    <value>
+      <Namespace>Traitlist</Namespace>
+      <columnName>traitDescription</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.4</Version>
+      <DateIssued>9/27/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition>A short, unambiguous definition of the trait. May refer to a method of measurement.</Definition>
+      <Comment>The definition should make use of  terms provided by existing public ontologies, e.g. 'the mass (PATO:mass), either fresh or dried, of a fruit (PO:fruit)'</Comment>
+    </value>
+    <value>
+      <Namespace>Traitlist</Namespace>
+      <columnName>Comments</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.3</Version>
+      <DateIssued>7/7/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Traitlist</Namespace>
+      <columnName>broaderTerm</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.4</Version>
+      <DateIssued>8/24/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Traitlist</Namespace>
+      <columnName>narrowerTerm</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.4</Version>
+      <DateIssued>8/24/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Traitlist</Namespace>
+      <columnName>synonym</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.4</Version>
+      <DateIssued>8/24/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+    <value>
+      <Namespace>Traitlist</Namespace>
+      <columnName>relatedTerm</columnName>
+      <valueType></valueType>
+      <vocabulary></vocabulary>
+      <Identifier></Identifier>
+      <Refines></Refines>
+      <Replaces>NA</Replaces>
+      <Version>v0.4</Version>
+      <DateIssued>8/24/2017</DateIssued>
+      <DateModified>NA</DateModified>
+      <Definition></Definition>
+      <Comment></Comment>
+    </value>
+  </ETS>
+</Test>
