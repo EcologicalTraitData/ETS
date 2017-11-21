@@ -15,16 +15,16 @@ The glossary contains several fields which are defined as follows:
 
 | field        | definition                          |
 |--------------|-------------------------------------|
-| Namespace    | The category the term belongs to.   |
-| Identifier   | URI of the term. If the term is an exact duplicate from Darwin Core or other glossaries, Identifier will forward directly to this definition. |
+| Namespace    | The collection of terms that the term is part of.   | 
+| Identifier   | The Uniform Resource Identifier used to uniquely identify a term.  If the term is an exact duplicate from Darwin Core or other glossaries, Identifier will forward directly to this definition. |
 | Refines      | If the definition builds on terms of the Darwin Core or other Glossaries, the original term is linked here (URI) |
-| Replaces     | If the term replaces a previously defined term, it |
-| Deprecated   | if TRUE, the term should not be used for new datasets, but will be maintained. |
-| ReplacedBy   | If a term should not be used any more, this field provides the URI of the  replacement term. |
-| Version      |  |
+| Replaces     | The URI of the term  that is replaced by this term. | 
+| Deprecated   | Flaggin deprecated terms. If TRUE, the term should not be used for new datasets, but will be maintained for compatibility. |
+| ReplacedBy   | If a term is deprecated not be used any more, this field provides the URI of the  replacement term. |
+| Version      |  | 
 | DateIssued   |  | 
-| DateModified |  |
-| Definition   | The definition of the term. | 
+| DateModified |  | 
+| Definition   | A statement that represents the concept and essential nature of the term.  | 
 | Comment      | Clarification and examples. |
 
 ## Contribute
