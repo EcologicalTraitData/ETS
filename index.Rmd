@@ -6,17 +6,17 @@ date: "v0.6, released: 14 Nov. 2017"
 
 # Glossary of terms
 
-This defined vocabulary aims at providing all essential terms to describe datasets of functional trait measurements and facts for ecological research. Many terms refine terms from the Darwin Core Standard and it's extensions (terms of DWC are referenced thus in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm). 
+This defined vocabulary aims at providing all essential terms to describe datasets of functional trait measurements and facts for ecological research. Many terms refine terms from the Darwin Core Standard (DWC: Darwin Core Terms) and its extensions. DWC are referenced in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm). 
 
-The glossary of terms is ordered into a **core section** with essential columns for trait data, extensions which are allowing to provide additional layers of information, as well as a vocabulary for **metadata** information of particular importance for trait data. 
+The glossary of terms is ordered into a **core section** with essential columns for trait data, **extensions** which are allowing to provide additional layers of information, as well as a vocabulary for **metadata** information of particular importance for trait data. 
 
 Another section provides defined terms and structure for **trait Thesauri**, i.e. lists of trait definitions. 
 
 We provide three **extensions** of the vocabulary, that allow for additional information on the trait measurement. 
 
 - the `Occurrence` extension contains information on the level of individual specimens, such as date and location and method of sampling and preservation, or physiological specifications of the phenotype, such as sex, life stage or age. 
-- the `MeasurementOrFact` extension takes information at the level of single measurements or reported values, such as the original literature from where the value is cited, the method of measurement or statistical method of aggregation. 
-- The `BiodiversityExploratories` extension provides columns for localisation for trait data from the Biodiversity Exploratories sites (www.biodiversity-exploratories.de). 
+- the `MeasurementOrFact` extension contains information at the level of single measurements or reported values, such as the original literature from where the value is cited, the method of measurement or the statistical method used for aggregation. 
+- The `BiodiversityExploratories` extension provides columns for localisation of trait data from the Biodiversity Exploratories plots and regions (www.biodiversity-exploratories.de). 
 
 This glossary of terms is available as 
 
@@ -99,14 +99,14 @@ parseterms("Traitdata")
 
 # Metadata vocabulary
 
-For datasets collate from multiple other datasets
+For datasets collated from multiple other datasets. @Flo: maybe clarify this
 There is the set of information that applies to the entire trait-dataset, which classifies them as metadata. 
 
 
-To retain the rights of the original data contributor, the field `rightsHolder` states the person or organization that owns or manages the rights to the data; `bibliographicCitation` states a bibliographic reference which should be cited when the data is used; and license specifies under which terms and conditions the data can be used, re-used and/or published. This information always applies to one single fact or measurement,
+To retain the rights of the original data contributor, the field `rightsHolder` states the person or organization that owns or manages the rights to the data; `bibliographicCitation` states a bibliographic reference which should be cited when the data is used; and license specifies under which terms and conditions the data can be used, re-used and/or published. This information always applies to one single fact or measurement.
 
-Further information on the larger dataset which originally contained this entry can be stored in `datasetID`, `datasetName`, `author` <!-- -->. These columns should hence give credit to the person who compiled the original dataset and signs responsible for the correct identification and reporting of the rights holder.
-These information usually may be kept in the metadata of the dataset, but if datasets from different sources are merged, those should be referred to by a unique identifier (`datasetID`) or be reported as additional columns in the merged dataset (`author`, `license`, ...; see Dublin Core Metadata standards, Ref). 
+Further information on the larger dataset which originally contained the single fact or measurement can be stored in `datasetID`, `datasetName`, `author` <!-- -->. These columns should hence give credit to the person who compiled the original dataset and signs responsible for the correct identification and reporting of the rights holder.
+These information can usually be kept in the metadata of the dataset, but if datasets from different sources are merged, those should be referred to by a unique identifier (`datasetID`) or be reported as additional columns in the merged dataset (`author`, `license`, ...; see Dublin Core Metadata standards, Ref). 
 
 Since trait data are of great use for synthesis studies, information about how the data may be distributed, re-used and attributed to are of particular importance for trait datasets. Most researchers encourage re-use of their published datasets while making sure they are sufficiently credited. The use of permissive licenses for traitdata publications, such as Creative Commons Attribution or Creative Commons Zero/Public Domain release, has been established as the gold standard. 
 
@@ -143,7 +143,7 @@ This links traits of similar functional meaning and allows cross-taxon comparati
 Ontologies for functional traits are being developed for different organism groups, mostly centered around certain research questions or subjects of study. To date, the TRY database takes the most inclusive approach on functional traits for vascular plants (Kattge).
 For some animal groups, similar approaches do exist, but few are available as an online ontology. 
 
-As a starting point for creating an ontology for functional traits, we propose the following terms for trait lists (also termed 'Thesaurus'), to describe functional traits that are in the focus of the research project. 
+As a starting point for creating an ontology for functional traits, we propose the following terms for trait lists (also termed 'Thesaurus'), to describe functional traits that are in the focus of a given project.
 
 Using this standardized terminology will allow merging trait definitions from multiple sources. We encourage providing these lookup tables as an open resource on public terminology servers to enable a global referencing. 
 The benefit of such classifications will increase if open Application Programming Interfaces (APIs) provide a way to extract the definitions and higher-level trait hierarchies programmatically via software tools. To harmonize trait data across databases, future trait standard initiatives should provide this functionality. 
@@ -167,10 +167,10 @@ parseterms("Traitlist")
 This section provides additional information about a reported measurement or fact and in most cases can easily be included as extra columns to the core dataset.
 
 
-As a high-level discrimination of the source of the measurement or fact, the Darwin Core Term `basisOfRecord` takes an entry about the type of trait data recorded: Were they taken by own measurement (distinguish "LivingSpecimen", "PreservedSpecimen", "FossilSpecimen") or taken from literature ("literatureData"), from an existing trait database ("traitDatabase"), or is it expert knowledge ("expertKnowledge"). It is highly recommended to provide further detail about the source in the column `basisOfRecordDescription`. 
+As a high-level discrimination of the source of the measurement or fact, the Darwin Core Term `basisOfRecord` takes an entry about the type of trait data recorded. It distingushed between data collected by own measurement (distinguish "LivingSpecimen", "PreservedSpecimen", "FossilSpecimen"), from literature ("literatureData"), from an existing trait database ("traitDatabase"), or from expert knowledge ("expertKnowledge"). It is highly recommended to provide further detail about the source in the column `basisOfRecordDescription`. 
 
 To keep track of potential sources of noise or bias in measured data, the method of measurement (`measurementMethod`), the person conducting the measurement (`measurementDeterminedBy`), and the date at which the measurement was obtained (`measurementDeterminedDate`) are recorded. 
-Authors would often report aggregate data of repeated or pooled measurements, e.g. by weighing multiple individuals simultaneously and calculating an average. In these cases, recording the number of individuals (`individualCount`) along with a dispersion measure (e.g. variance or standard deviation, `dispersion`) or range of values (e.g. min and max of values observed in the field `measurementValueMin`, `measurementValueMax`) is adviced. The field `statisticalMethod` names the method for data aggregation (e.g. mean or median) as well as the variation or range (e.g. reporting variance or standard deviation).
+Authors would often report aggregated data from repeated or pooled measurements, e.g. by weighing multiple individuals simultaneously and calculating an average. In these cases, recording the number of individuals (`individualCount`) along with a dispersion measure (e.g. variance or standard deviation, `dispersion`) or range of values (e.g. min and max of values observed in the field `measurementValueMin`, `measurementValueMax`) is adviced. The field `statisticalMethod` names the method for data aggregation (e.g. mean or median) as well as the variation or range (e.g. reporting variance or standard deviation).
 
 For data not obtained from own measurement, the field `references` provides a precise reference to the source of data (e.g. a book or existing database) or the authority of expert knowledge. 
 For literature data, the original source might report trait values on the family or genus level, but the dataset author infers and reports the trait data at species level (e.g. if the entire genus reportedly shares the same trait value). To preserve this information, the column `measurementResolution` should report the taxon rank for which the reported value was originally assessed.
@@ -190,7 +190,7 @@ For both literature and measured data, trait values may be recorded for differen
 
 Sampling may be further specified using a unique identifier for the sampling event (`eventID`) which references to an external dataset. The record of a `samplingProtocol` may capture bias in samling methods. Further procedures and methods of preservation should be reported in `preparations`.  
 
-Seasonal variation of traits may be recored by assigning a date and time of sampling to the occurrence, using the fields `year`,	`month` and	`day`, depending on resolution. Further field definitions of the Darwin Core Standard can be applied instead, to refer to a geological stratum, for instance. 
+Seasonal variation of traits may be recorded by assigning a date and time of sampling to the occurrence, using the fields `year`,	`month` and	`day`, depending on resolution. Further field definitions of the Darwin Core Standard can be applied instead, to refer to a geological stratum, for instance. 
 
 To capture geographic variation of traits, a set of fields for georeferencing can put the observation into spatial and ecological context (`habitat`, 	`decimalLongitude`,	`decimalLatitude`, `elevation`,	`geodeticDatum`, `verbatimLocality`, `country`, `countryCode`). The field `locationID` may be used to reference the occurrence to a dataset-specific or global identifier. This allows the trait data to double as observation data, e.g. for upload to the GBIF database. 
 
@@ -204,7 +204,7 @@ parseterms("Occurrence")
 
 # Extension: Biodiversity Exploratories
 
-This section records location in the context of the Biodiversity Exploratories project (www.biodiversity-exploratories.de). The field `OriginExploratories` flags trait measurements originating from samples in the project context. `Exploratory` and  `ExploType` allow to place the sample within a region or a landscape type (Grassland or Forest). From `ExploratotriesPlotID` a detailled georeference can be inferred. Additional spatial resolution, e.g. on subplots, may be provided in `locationID` of the Occurence extension. 
+This section records location in the context of the Biodiversity Exploratories project (www.biodiversity-exploratories.de). The field `OriginExploratories` flags trait measurements originating from samples in the project context. `Exploratory` and  `ExploType` allow to place the sample within a region or a landscape type (Grassland or Forest). From `ExploratotriesPlotID` a detailed georeference can be inferred. Additional spatial resolution, e.g. on subplots, may be provided in `locationID` of the Occurence extension. 
 
 Trait data uploaded to the Biodiversity Exploratories Information System (BExIS) should use the vocabulary in a single-file longtable format (no DwC-Archives supported).
 
