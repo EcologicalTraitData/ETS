@@ -20,11 +20,11 @@ A project-specific trait thesaurus may be a table of terms containing the follow
 
 - a human readable, informative trait name (`trait`) 
 - unique dataset-specific identifier (`Identifier`), which is referenced in the trait data-set
-- a short, unambiguous verbal definition (`traitDescription`) which may make use of standard terms provided in other Ontologies, e.g. the definition for 'fruit mass' in TOP reads: "the mass (PATO:mass), either fresh or dried, of a fruit (PO:fruit)", referring to Phenotypic Characeristics Ontology PATO and Planteome Plant Ontolgy, PO (http://top-thesaurus.org/annotationInfo?viz=1&&trait=Fruit_mass). 
-- constrain the legit factor levels (for categorical data, `factorLevels`) or expected standard units (`expectedUnit` for numerical data). The type of values should be differentiated in the field `valueType` by specifying 'numerical', 'logical', 'integer', 'categorical' traits.
-- link the term to a broader or narrower term (`broaderTerm`, `narrowerTerm`), related terms (`relatedTerm`) or synonyms (`synonym`), e.g. the definition of 'femur length of first leg, left side' is narrower than 'femur length' which is narrower than 'leg trait' which is narrower than 'locomotion trait'. This extends the trait list into a semantic web resource, facilitates the classification of traits, and allows for cross-taxon comparative studies at the level of broader terms [@garnier17]. 
+- a short, unambiguous verbal definition (`traitDescription`) which may make use of standard terms provided in other ontologies, e.g. the definition for 'fruit mass' in TOP reads: "the mass (PATO:mass), either fresh or dried, of a fruit (PO:fruit)", referring to Phenotypic Characeristics Ontology PATO and Planteome Plant Ontolgy, PO (http://top-thesaurus.org/annotationInfo?viz=1&&trait=Fruit_mass). 
+- legit factor levels (for categorical data, `factorLevels`) or expected standard units (`expectedUnit` for numerical data). The type of values should be differentiated in the field `valueType` by specifying 'numerical', 'logical', 'integer', or 'categorical' traits.
+- links of each term to broader and/or narrower terms (`broaderTerm`, `narrowerTerm`), related terms (`relatedTerm`) or synonyms (`synonym`), e.g. the definition of 'femur length of first leg, left side' is narrower than 'femur length' which is narrower than 'leg trait' which is narrower than 'locomotion trait'. This extends the trait list into a semantic web resource, facilitates the classification of traits, and allows for cross-taxon comparative studies at the level of broader terms [@garnier17]. 
 
-## defining expected values
+## Defining expected values
 
 Traits are not only defined in terms of their interpretation, but are ideally also standardised in terms of numerical units and, even more important, the use of factor levels. This is challenging, given the range of data types that fall within datasets of functional traits. 
 
@@ -36,7 +36,7 @@ To cope with this variety of data types, definitions should refer to other well-
 
 Such reference definitions should also refer to methodological handbooks (@perez-harguindeguy13; @moretti17), which standardise the process of measurement. 
 
-## semantic web 
+## Semantic web 
 
 Online ontologies extend into (machine readable) semantic web resources by providing a hierarchical classification of traits (TOP) or a relational tree of functional traits (e.g. TOP or T-SITA). 
 
@@ -44,25 +44,25 @@ Each trait definition may link to a broader or narrower term. For instance, the 
 This links traits of similar functional meaning. 
 
 These systematic approaches to traits will be very useful for comparing similar traits measured in different taxa at higher hierarchical levels.
-Furthermore, trait definitions may refer to related terms that describe a similar feature but with other means, or synonyms defined in other trait ontologies. By providing this semantic interlinkage of trait ontologies, a web of definitions is spun across the internet which allows researchers and search engines to relate independent trait measurements with each other.  
+Furthermore, trait definitions may refer to related terms that describe a similar feature but with other means, or synonyms defined in other trait ontologies. By providing this semantic interlinkage of trait ontologies, a web of definitions is spun across the internet which allows researchers and search engines to relate independent trait measurements to each other.  
 
 The benefit of such classifications will increase if open Application Programming Interfaces (APIs) provide a way to extract the definitions and higher-level trait hierarchies programmatically via software tools. To harmonize trait data across databases, future trait standard initiatives should provide this functionality. 
 
 
 # Publish trait thesauri or ontologies
 
-The biggest challenge in building semantic web resources for scientific communities is building a consensus vocabulary that is sufficiently broad while being specific enough for all most use cases. Thesauri and ontologies may be published to cover the specific project context only (e.g. ecosystem, region or experiment), or to be of general use and application for an entire taxonomic group or methodology.
+The biggest challenge in building semantic web resources for scientific communities is building a consensus vocabulary that is sufficiently broad while being specific enough for most use cases. Thesauri and ontologies may be published to cover the specific project context only (e.g. ecosystem, region or experiment), or to be of general use and application for an entire taxonomic group or methodology.
 The claim of generality comes with higher demands on consensus building. 
 
 That said, different models of publication of trait thesauri may apply depending on the claim of generality. 
 
-## publish as supplementary information
+## Publish as supplementary information
 
 If the thesaurus is only meant to translate the specific project dataset, the definition of traits may be published as metadata along with the trait dataset. This can be done by adding it to the Archive uploaded to a low-threshold fileserver. We highly recommend the use of Darwin Core Archives for this use case. 
 
 ## Publication on own website
 
-If the thesaurus is of broader use, e.g. for a specific organism group, a region or ecosystem, or a broader project context, thesauri are rather defined by pragmatic choice than a claim of completeness. Consensus is acheived within a limited community of researchers. In this case, multiple indidual datasets refer to the same thesaurus. Therefore, it should be published as a simple, static web resource.  
+If the thesaurus is of broader use, e.g. for a specific organism group, a region or ecosystem, or a broader project context, thesauri are rather defined by pragmatic choice than a claim of completeness. Consensus is acheived within a limited community of researchers. In this case, multiple individual datasets refer to the same thesaurus. Therefore, it should be published as a simple, static web resource.  
 
 A simple way to publish a list of trait definitions for a project may be as a public repository on development platforms like Github. 
 
