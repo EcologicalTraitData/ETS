@@ -6,23 +6,23 @@ date: "v0.6, released: 14 Nov. 2017"
 
 # Glossary of terms
 
-This defined vocabulary aims at providing all essential terms to describe datasets of functional trait measurements and facts for ecological research. Many terms refine terms from the Darwin Core Standard and it's extensions (terms of DWC are referenced thus in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm). 
+This defined vocabulary aims at providing all essential terms to describe datasets of functional trait measurements and facts for ecological research. Many terms refine terms from the Darwin Core Standard and its extensions (terms of DWC are referenced thus in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm). 
 
 The glossary of terms is ordered into a **core section** with essential columns for trait data, extensions which are allowing to provide additional layers of information, as well as a vocabulary for **metadata** information of particular importance for trait data. 
 
-Another section provides defined terms and structure for **trait Thesauri**, i.e. lists of trait definitions. 
+A third section provides defined terms and structure for **trait thesauri**, i.e. lists of trait definitions. 
 
 We provide three **extensions** of the vocabulary, that allow for additional information on the trait measurement. 
 
-- the `Occurrence` extension contains information on the level of individual specimens, such as date and location and method of sampling and preservation, or physiological specifications of the phenotype, such as sex, life stage or age. 
+- the `Occurrence` extension contains information on the level of individual specimens, such as date, location, and method of sampling and preservation, or physiological specifications of the phenotype, such as sex, life stage or age. 
 - the `MeasurementOrFact` extension takes information at the level of single measurements or reported values, such as the original literature from where the value is cited, the method of measurement or statistical method of aggregation. 
-- The `BiodiversityExploratories` extension provides columns for localisation for trait data from the Biodiversity Exploratories sites (www.biodiversity-exploratories.de). 
+- The `BiodiversityExploratories` extension provides columns for linking trait data from the Biodiversity Exploratories to the respective project sites (www.biodiversity-exploratories.de). 
 
 This glossary of terms is available as 
 
 - this human-readable reference (html file), including commentaries and further definitions
 - a csv table file (the 'source' file,  [TraitDataStandard.csv](https://github.com/EcologicalTraitData/ETS/raw/master/TraitDataStandard.csv))  
-- a machine readable RDF ontology file, compliant with semantic web standards accessible via an API (produced by and hosted on GFBio Terminology Server)
+- a machine readable RDF ontology file, compliant with semantic web standards accessible via an API (produced by and hosted on the GFBio Terminology Server)
 
 ## Table of contents
 
@@ -67,11 +67,11 @@ for(j in namespace) {
 # Core traitdata terms
 
 For the essential primary data (trait value, taxon assignment, trait name), the trait data standard recommends to report the original naming and value scheme as used by the data provider. However, to ensure compatibility with other datasets, the original data provider's information should be duplicated into standardized columns indexed by appending `Std` to the column name. 
-This ensures compatibility on the provider's side and transparency for data users on the reported measurements and facts, and enables checking for inconsistencies and misspellings in the complete dataset provided by the author. If provided, the standardized fields allow merging heterogeneous data sources into a single table to perform further analyses. This practice of double bookkeeping of trait data has successfully established for the TRY database on plant traits, for instance (Kattge et al. 2011. TRY – a global database of plant traits. Global Change Biology, 17, 2905–2935). 
+This ensures compatibility on the provider's side and transparency for data users on the reported measurements and facts, and enables checking for inconsistencies and misspellings in the complete dataset provided by the author. If provided, the standardized fields allow merging heterogeneous data sources into a single table to perform further analyses. This practice of double bookkeeping of trait data has been successfully established for the TRY database on plant traits, for instance (Kattge et al. 2011. TRY – a global database of plant traits. Global Change Biology, 17, 2905–2935). 
 
 By linking to (public) ontologies via the field `taxonID`, further taxonomic information can be extracted for analysis. Alternatively, `taxonID` may also link to an accompanying datasheet that contains information on the taxonomic resolution or specification of the observation. 
 
-Similarly, linking to trait terminologies (a 'Thesaurus') via the field `traitID` allows an unambiguous interpretation of the trait measurement. If no online ontology is available, an accompanying dataset should specify the trait definition. For setting up such a Thesaurus, we propose the use of terms provided in section 'Traitlist' below. 
+Similarly, linking to trait terminologies (a 'Thesaurus') via the field `traitID` allows an unambiguous interpretation of the trait measurement. If no online ontology is available, an accompanying dataset should specify the trait definition. For setting up such a thesaurus, we propose the use of terms provided in section 'Traitlist' below. 
 
 ```{r, results = 'asis', echo = FALSE}
 
@@ -99,11 +99,10 @@ parseterms("Traitdata")
 
 # Metadata vocabulary
 
-For datasets collate from multiple other datasets
-There is the set of information that applies to the entire trait-dataset, which classifies them as metadata. 
+For datasets collated from multiple other datasets, there is the subset of information that applies to the entire trait-dataset, which classifies it as metadata. 
 
 
-To retain the rights of the original data contributor, the field `rightsHolder` states the person or organization that owns or manages the rights to the data; `bibliographicCitation` states a bibliographic reference which should be cited when the data is used; and license specifies under which terms and conditions the data can be used, re-used and/or published. This information always applies to one single fact or measurement,
+To retain the rights of the original data contributor, the field `rightsHolder` states the person or organization that owns or manages the rights to the data; `bibliographicCitation` states a bibliographic reference which should be cited when the data is used; and `license` specifies under which terms and conditions the data can be used, re-used and/or published. This information always applies to one single fact or measurement.
 
 Further information on the larger dataset which originally contained this entry can be stored in `datasetID`, `datasetName`, `author` <!-- -->. These columns should hence give credit to the person who compiled the original dataset and signs responsible for the correct identification and reporting of the rights holder.
 These information usually may be kept in the metadata of the dataset, but if datasets from different sources are merged, those should be referred to by a unique identifier (`datasetID`) or be reported as additional columns in the merged dataset (`author`, `license`, ...; see Dublin Core Metadata standards, Ref). 
