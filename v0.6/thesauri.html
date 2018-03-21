@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Creating Trait Thesauri</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlightingOnLoad(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ecological Traitdata Standard</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-file-text-o"></span>
+     
+    Glossary
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="structure.html">Structure of traitdata</a>
+</li>
+<li>
+  <a href="thesauri.html">Trait Thesauri</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Versions
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="versions.html">Version history</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="v0.5/index.html">v0.5</a>
+    </li>
+    <li>
+      <a href="v0.4/index.html">v0.4</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="http://github.com/EcologicalTraitdata/">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Creating Trait Thesauri</h1>
+
+</div>
+
+
+<div id="trait-thesauri-and-ontologies" class="section level1">
+<h1>Trait thesauri and ontologies</h1>
+<p>If no published trait definition is available that can be referenced, trait-datasets should be accompanied by a dataset-specific glossary of traits, also termed a ‘thesaurus’. In its simplest form, a trait thesaurus would provide a “controlled vocabulary designed to clarify the definition and structuring of key terms and associated concepts in a specific discipline” <span class="citation">(Laporte et al. 2013; Garnier et al. 2017)</span>. To be unambiguous, any thesaurus should be defining terms based on other well-defined terms from semantic ontologies.</p>
+<p>In addition to the mere listing of trait definitions, a trait ‘ontology’ would be providing a formal model of the conceptual objects and relationships, or entities and qualities <span class="citation">(Garnier et al. 2017)</span>, ideally structured following the guidelines for a semantic web standard <span class="citation">(Berners-Lee et al. 2001)</span>. This can take rather complex forms, but for trait data might be just adding a hierarchy of broader and narrower terms.</p>
+<p>By providing a minimal vocabulary for thesauri and ontologies (<a href="https://ecologicaltraitdata.github.io/TraitDataStandard/#terms-for-traitlists-a-trait-thesaurus" class="uri">https://ecologicaltraitdata.github.io/TraitDataStandard/#terms-for-traitlists-a-trait-thesaurus</a>), we hope to facilitate the publication of trait thesauri developed for the own project context which always should be referenced in the core trait dataset. The thesaurus might accompany the core data in a Darwin Core Archive, or be published on any other stable webservice.</p>
+<p>Thus, in its simplest form, a trait thesaurus would assign trait names with A) an unambiguous definition of the trait and B) an expected format (e.g. units or legit factor levels) of measured values or reported facts. A trait ontology would additionally provide semantic relationships between terms for deriving a hierarchical or tree-based classification of traits and analysing traits in a broader taxonomic context.</p>
+</div>
+<div id="minimal-terms-of-a-trait-thesaurus" class="section level1">
+<h1>Minimal terms of a trait thesaurus</h1>
+<p>A project-specific trait thesaurus may be a table of terms containing the following information:</p>
+<ul>
+<li>a human readable, informative trait name (<code>trait</code>)</li>
+<li>unique dataset-specific identifier (<code>Identifier</code>), which is referenced in the trait data-set</li>
+<li>a short, unambiguous verbal definition (<code>traitDescription</code>) which may make use of standard terms provided in other Ontologies, e.g. the definition for ‘fruit mass’ in TOP reads: “the mass (PATO:mass), either fresh or dried, of a fruit (PO:fruit)”, referring to Phenotypic Characeristics Ontology PATO and Planteome Plant Ontolgy, PO (<a href="http://top-thesaurus.org/annotationInfo?viz=1" class="uri">http://top-thesaurus.org/annotationInfo?viz=1</a>&amp;&amp;trait=Fruit_mass).</li>
+<li>constrain the legit factor levels (for categorical data, <code>factorLevels</code>) or expected standard units (<code>expectedUnit</code> for numerical data). The type of values should be differentiated in the field <code>valueType</code> by specifying ‘numerical’, ‘logical’, ‘integer’, ‘categorical’ traits.</li>
+<li>link the term to a broader or narrower term (<code>broaderTerm</code>, <code>narrowerTerm</code>), related terms (<code>relatedTerm</code>) or synonyms (<code>synonym</code>), e.g. the definition of ‘femur length of first leg, left side’ is narrower than ‘femur length’ which is narrower than ‘leg trait’ which is narrower than ‘locomotion trait’. This extends the trait list into a semantic web resource, facilitates the classification of traits, and allows for cross-taxon comparative studies at the level of broader terms <span class="citation">(Garnier et al. 2017)</span>.</li>
+</ul>
+<div id="defining-expected-values" class="section level2">
+<h2>defining expected values</h2>
+<p>Traits are not only defined in terms of their interpretation, but are ideally also standardised in terms of numerical units and, even more important, the use of factor levels. This is challenging, given the range of data types that fall within datasets of functional traits.</p>
+<p><strong>Numerical values</strong> represent measurements of lengths, volumes, ratios, rates or timespans. Integer values may apply to count data (e.g. eggs per clutch). <strong>Binary data</strong> (encoded as 0 or 1) or logical data (coded as TRUE or FALSE) may apply to qualitative traits such as specific behaviour during mating (e.g. are territories defended) or specialisation to a given habitat (e.g. species restricted to relicts of primeval forests). Many traits are <strong>categorical</strong> and allow for a constrained set of factor levels, such as sex differences in wing morphology (both sexes winged, both sexes unwinged, only males winged, only females winged) or unconstrained entries such as color. Categorical traits often are <strong>ordinal</strong>, i.e. they have a logical sequence as in the case of life stages or hibernation stages, or habitat preference traits such as horizontal stratum use. Finally, there are specific formats of <strong>multivariate trait values</strong>, e.g. x-y-z coordinates of a landmark measured in a standardised 3D space or relative abundance of chain-lengths in biochemical compounds. To cope with this variety of data types, definitions should refer to other well-defined terms of existing ontologies that describe standard units, morphological body parts, protein characteristics (Protein Ontology) or chemical terms (e.g. the ChEBI, <a href="http://www.obofoundry.org/ontology/chebi.html" class="uri">http://www.obofoundry.org/ontology/chebi.html</a>).</p>
+<p>Such reference definitions should also refer to methodological handbooks (<span class="citation">Perez-Harguindeguy et al. (2013)</span>; <span class="citation">(<span class="citeproc-not-found" data-reference-id="moretti17"><strong>???</strong></span>)</span>), which standardise the process of measurement.</p>
+</div>
+<div id="semantic-web" class="section level2">
+<h2>semantic web</h2>
+<p>Online ontologies extend into (machine readable) semantic web resources by providing a hierarchical classification of traits (TOP) or a relational tree of functional traits (e.g. TOP or T-SITA).</p>
+<p>Each trait definition may link to a broader or narrower term. For instance, the definition of ‘femur length of first leg, left side’ is narrower than ‘femur length’ which is narrower than ‘leg trait’ which is narrower than ‘locomotion trait’. (Ref semantic database methods) This links traits of similar functional meaning.</p>
+<p>These systematic approaches to traits will be very useful for comparing similar traits measured in different taxa at higher hierarchical levels. Furthermore, trait definitions may refer to related terms that describe a similar feature but with other means, or synonyms defined in other trait ontologies. By providing this semantic interlinkage of trait ontologies, a web of definitions is spun across the internet which allows researchers and search engines to relate independent trait measurements with each other.</p>
+<p>The benefit of such classifications will increase if open Application Programming Interfaces (APIs) provide a way to extract the definitions and higher-level trait hierarchies programmatically via software tools. To harmonize trait data across databases, future trait standard initiatives should provide this functionality.</p>
+</div>
+</div>
+<div id="publish-trait-thesauri-or-ontologies" class="section level1">
+<h1>Publish trait thesauri or ontologies</h1>
+<p>The biggest challenge in building semantic web resources for scientific communities is building a consensus vocabulary that is sufficiently broad while being specific enough for all most use cases. Thesauri and ontologies may be published to cover the specific project context only (e.g. ecosystem, region or experiment), or to be of general use and application for an entire taxonomic group or methodology. The claim of generality comes with higher demands on consensus building.</p>
+<p>That said, different models of publication of trait thesauri may apply depending on the claim of generality.</p>
+<div id="publish-as-supplementary-information" class="section level2">
+<h2>publish as supplementary information</h2>
+<p>If the thesaurus is only meant to translate the specific project dataset, the definition of traits may be published as metadata along with the trait dataset. This can be done by adding it to the Archive uploaded to a low-threshold fileserver. We highly recommend the use of Darwin Core Archives for this use case.</p>
+</div>
+<div id="publication-on-own-website" class="section level2">
+<h2>Publication on own website</h2>
+<p>If the thesaurus is of broader use, e.g. for a specific organism group, a region or ecosystem, or a broader project context, thesauri are rather defined by pragmatic choice than a claim of completeness. Consensus is acheived within a limited community of researchers. In this case, multiple indidual datasets refer to the same thesaurus. Therefore, it should be published as a simple, static web resource.</p>
+<p>A simple way to publish a list of trait definitions for a project may be as a public repository on development platforms like Github.</p>
+</div>
+<div id="publication-on-ontology-servers" class="section level2">
+<h2>Publication on Ontology servers</h2>
+<p>Online ontologies hosted with accredited ontology servers have the advantage of providing a persistent and direct link of the term on the internet (a <em>Uniform Resource Identifier</em>, URI). Terminology portals or registries, such as the GFBio Terminology Service, the OBO Foundry, or Ontobee, may provide a central host for trait ontologies.</p>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-berners-lee01">
+<p>Berners-Lee, T., J. Hendler, and O. Lassila. 2001. The semantic web. Scientific american 284:28–37.</p>
+</div>
+<div id="ref-garnier17">
+<p>Garnier, E., U. Stahl, M.-A. Laporte, J. Kattge, I. Mougenot, I. Kühn, B. Laporte, et al. 2017. Towards a thesaurus of plant characteristics: An ecological contribution. Journal of Ecology 105:298–309.</p>
+</div>
+<div id="ref-laporte13">
+<p>Laporte, M.-A., E. Garnier, and I. Mougenot. 2013. A faceted search system for facilitating discovery-driven scientific activities: A use case from functional ecology. Semantics for Biodiversity (S4BioDiv 2013) 25.</p>
+</div>
+<div id="ref-perez-harguindeguy13">
+<p>Perez-Harguindeguy, N., S. Diaz, E. Garnier, S. Lavorel, H. Poorter, P. Jaureguiberry, M. S. Bret-Harte, et al. 2013. New handbook for standardised measurement of plant functional traits worldwide. Australian Journal of botany 61:167–234.</p>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
