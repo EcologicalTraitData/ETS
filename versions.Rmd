@@ -8,6 +8,11 @@ That said, definitions of terms can only be broadened or made more explicit, if 
 
 At some point, a new major version of the Traitdata Standard may be issued, providing new versioned URIs for all terms of the standard that have been altered since the previous major version.
 
+# v0.7.0, released 21. March 2018
+
+- add class/extension "Taxon" with extended taxonomic hierarchical terms. 
+- rename terms of "Biodiversity Exploratories" extension
+
 # v0.6.1, released 21. Nov. 2017
 
 - update terms for traitlists (Trait Thesauri)
@@ -15,7 +20,6 @@ At some point, a new major version of the Traitdata Standard may be issued, prov
 
 # v0.6, released 14 Nov. 2017
 
-Website | Github release | DOI: 
 
 ## major changes
 
