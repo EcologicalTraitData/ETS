@@ -1,19 +1,20 @@
 ---
-title: "Ecological Traitdata Standard"
+title: "Ecological Traitdata Standard Vocabulary"
 author: "Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski"
-date: "v0.6, released: 14 Nov. 2017"
+date: "v0.7, released: 21 March 2018"
 ---
 
 # Glossary of terms
 
-This defined vocabulary aims at providing all essential terms to describe datasets of functional trait measurements and facts for ecological research. Many terms refine terms from the Darwin Core Standard and it's extensions (terms of DWC are referenced thus in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm). 
+This defined vocabulary aims at providing all essential terms to describe datasets of functional trait measurements and facts for ecological research. The vocabulary builds on the Darwin Core Standard and it's extensions (terms of DWC are referenced thus in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm). 
 
 The glossary of terms is ordered into a **core section** with essential columns for trait data, extensions which are allowing to provide additional layers of information, as well as a vocabulary for **metadata** information of particular importance for trait data. 
 
 Another section provides defined terms and structure for **trait Thesauri**, i.e. lists of trait definitions. 
 
-We provide three **extensions** of the vocabulary, that allow for additional information on the trait measurement. 
+We provide four **extensions** of the vocabulary, that allow for additional information on the trait measurement. 
 
+- the `Taxon` extension provides further terms for specifying the taxonomic resolution of the observation.
 - the `Occurrence` extension contains information on the level of individual specimens, such as date and location and method of sampling and preservation, or physiological specifications of the phenotype, such as sex, life stage or age. 
 - the `MeasurementOrFact` extension takes information at the level of single measurements or reported values, such as the original literature from where the value is cited, the method of measurement or statistical method of aggregation. 
 - The `BiodiversityExploratories` extension provides columns for localisation for trait data from the Biodiversity Exploratories sites (www.biodiversity-exploratories.de). 
@@ -41,13 +42,13 @@ glossary <- setNames(split(glossary[,-c(1), with = FALSE], f = as.integer(glossa
 
 glossary <- lapply(glossary, function(x) setNames(split(x, f = seq_along(x$columnName)), x$columnName))
 
-namespace <- c("Traitdata", "Metadata", "Traitlist",  "MeasurementOrFact", "Occurrence", "BiodiversityExploratories" )
+namespace <- c("Traitdata", "Metadata", "Traitlist", "Taxon",  "MeasurementOrFact", "Occurrence", "BiodiversityExploratories" )
 
-j_verbose <- c("core-traitdata-terms",  "metadata-vocabulary", "terms-for-thesauri", "extension-measurement-or-fact", "extension-occurrence", "extension-biodiversity-exploratories" ) 
+j_verbose <- c("core-traitdata-terms",  "metadata-vocabulary", "terms-for-thesauri", "extension-taxon", "extension-measurement-or-fact", "extension-occurrence", "extension-biodiversity-exploratories" ) 
 
 for(j in namespace) {
   
-  if(j %in% c("MeasurementOrFact", "Occurrence", "BiodiversityExploratories") ) ext <- "Extension: " else ext <- ""
+  if(j %in% c("Taxon", "MeasurementOrFact", "Occurrence", "BiodiversityExploratories") ) ext <- "Extension: " else ext <- ""
   cat("[**",ext, j, "**](", urlroot,"#", j_verbose[match( j, namespace)]," )  ", sep = "" )
   cat("\n")
   for(i in columnNames[sections == j]) {
@@ -160,7 +161,24 @@ parseterms("Traitlist")
 
 ---
 
+# Extension: Taxon
 
+This section provides terms to specify taxonomic resolution and hierarchical depth of the observed measurement or fact. 
+
+Especially when only providing a 'scientificName' an entry in `kingdom` is recommended to identify homonyms. Additionally, `class`, `order`, `phylum`, `family` and `genus` are variables to filter the dataset by. The entry `taxonRank` should be specified to name the hierarchical level to which the observation applies, i.e. if data were measured on a verified instance of species "Agrotis exclamationis", `taxonRank` would be "species". If the reported fact was generali
+
+If the dataset provides a URI within `taxonID` that maps to a taxonomic online reference or lookup table of an unambiguous and commonly accepted or verified species name, most of these information are redundant. They should be provided nonetheless to enable sorting and analysis by higher hierarchical levels. 
+
+
+
+```{r, results = 'asis', echo = FALSE}
+
+parseterms("Taxon")
+
+```
+
+
+---
 
 # Extension: Measurement or Fact 
 
