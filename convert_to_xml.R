@@ -17,7 +17,7 @@ convertToXML <- function(df,name)
 
 glossary <- read.csv("TraitDataStandard.csv")
 
-template = convertToXML(glossary,"ETS")
+template <- convertToXML(glossary,"traitdatastandard")
 XML::saveXML(template$value(), file = "TraitDataStandard.xml")
 
 
