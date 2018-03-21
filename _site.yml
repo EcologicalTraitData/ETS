@@ -21,8 +21,6 @@ navbar:
   - text: About
     icon: fa-info
     href: about.html
-  - text: Structure of traitdata
-    href: structure.html
   - text: Trait Thesauri
     href: thesauri.html
   right:
@@ -31,6 +29,8 @@ navbar:
     - text: Version history
       href: versions.html
     - text: '--------'
+    - text: v0.6
+      href: v0.6/index.html
     - text: v0.5
       href: v0.5/index.html
     - text: v0.4
