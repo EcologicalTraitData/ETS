@@ -11,7 +11,7 @@
 
 
 
-<title>About this Standard</title>
+<title>Structure of trait data</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,9 +20,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -31,12 +30,10 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
 }
 </script>
 
@@ -193,29 +190,25 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
+  <a href="structure.html">Structure of traitdata</a>
+</li>
+<li>
   <a href="thesauri.html">Trait Thesauri</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Versions
+    Version history
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="versions.html">Version history</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="v0.6/index.html">v0.6</a>
+      <a href="/v0.5/index.html">v0.5</a>
     </li>
     <li>
-      <a href="v0.5/index.html">v0.5</a>
-    </li>
-    <li>
-      <a href="v0.4/index.html">v0.4</a>
+      <a href="/v0.4/index.html">v0.4</a>
     </li>
   </ul>
 </li>
@@ -223,6 +216,7 @@ $(document).ready(function () {
   <a href="http://github.com/EcologicalTraitdata/">
     <span class="fa fa-github"></span>
      
+    Github
   </a>
 </li>
       </ul>
@@ -234,30 +228,23 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About this Standard</h1>
+<h1 class="title toc-ignore">Structure of trait data</h1>
 
 </div>
 
 
-<section id="abstract" class="level1">
-<h1>Abstract</h1>
-<p>The Ecological Traitdata Standard (ETS) is a collection of terms for datasets on quantitative and qualitative organism properties (i.e. traits) that describe its performance or function in an ecosystem. It also includes recommendations on how to structure such data for upload in public databases. The ETS provides a low-threshold standard, suitable for storing own trait data locally, or for publishing them on a scientific database or filehosting service.</p>
-</section>
-<section id="license" class="level1">
-<h1>License</h1>
-<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span data-xmlns:dct="http://purl.org/dc/terms/" data-property="dct:title">Ecological Traitdata Standard </span> by <span data-xmlns:cc="http://creativecommons.org/ns#" data-property="cc:attributionName">Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. That means, you are free to use and re-use, modify and publish all texts and documents on this website, as long as you give attribution to its original source.</p>
-</section>
-<section id="suggested-citation" class="level1">
-<h1>Suggested Citation</h1>
-<p>To refer to <strong>this version</strong> of the ETS please cite:</p>
-<blockquote>
-<p>Schneider et al. (2018) Ecological Traitdata Standard, v0.7, URL: <a href="https://ecologicaltraitdata.github.io/ETS/v0.7/" class="uri">https://ecologicaltraitdata.github.io/ETS/v0.7/</a> , DOI: <a href="https://doi.org/10.5281/zenodo.1041733">10.5281/zenodo.1041733</a></p>
-</blockquote>
-</section>
-<section id="contribute" class="level1">
-<h1>Contribute</h1>
-<p>The Ecological Traitdata Standard is under continuous open source development, hosted on <a href="https://github.com/EcologicalTraitData/ETS">Github</a>. Please refer to the <a href="https://github.com/EcologicalTraitData/ETS/issues">Github Issues page</a> for discussion and revision of individual terms, and settle the issue here before filing a pull-request that implements an update.</p>
-</section>
+<p>Trait data should be stored in a long table format containing one measurement per row described by the terms provided in the core section. (see our Methods paper for further considerations on data structure and format).</p>
+<p>For reasons of reproducibility and openness, data should not be saved in proprietary or compressed spreadsheet formats (like ‘.xls’ or ‘.xlsx’) but rather in comma-separated text files (‘.csv’ or ‘.txt’).</p>
+<p>There are two possibilities to integrate further information to the core trait data columns:</p>
+<ul>
+<li><strong>within the same data file</strong>: additional terms are provided to describe columns containing properties concerning the measurement or the occurrence of the specimen.</li>
+<li><strong>in separate data files</strong>: the main file refers to additional data files via unique identifiers, encoding each individual occurrence of a species (<code>occurrenceID</code>), single measurements or reported facts (<code>measurementID</code>), locations of sampling (<code>locationID</code>) and sampling campaigns (<code>eventID</code>).</li>
+</ul>
+<p>For chosing one or the other, the trade-off is data-consistency and readability <em>vs.</em> avoidance of content duplication.</p>
+<p>For standalone dataset publications on a hosting service with only little information content beside the core traitdata columns, the first would be the preferred format, since it facilitates an analysis of cofactors and correlations further down the road. If datasets of different source are merged, the information is readily available without the risk of breaking the reference to an external datasheet. Other cases, where key data columns would be placed in the same table as the core data are traits assessed on a higher level of organisation, e.g. microbial functional traits assessed at the community level taken from a soil sample. Here, location or measurement information are in the primary focus of the investigation.</p>
+<p>The latter links separate data sheets by identifiers, which has the advantage of tidy datasets and avoids duplication of verbose information <span class="citation">[@wickham14]</span>. As a rule of thumb, the columns of the ‘Measurement or Fact’ and ‘Occurrence’ extension would be stored in a separate data sheet. EOL TraitBank proposes the use of Darwin Core Archives <span class="citation">[http://eol.org/info/structured_data_archives, DwC-A; @robertson09]</span> to upload such related data along with the core trait dataset, which is also the accepted format for GBIF <span class="citation">[@gbif17]</span>. These are .zip archives containing data table txt-files along with a descriptive metadata file (in .xml format). Detailled descriptions and tools for validation can be found on the website of EOL (<a href="http://eol.org/info/cp_archives" class="uri">http://eol.org/info/cp_archives</a>) and GBIF (<a href="http://tools.gbif.org/dwca-assistant/" class="uri">http://tools.gbif.org/dwca-assistant/</a>).</p>
+<p>A general definition, whether a column describes asset data or is part of the central dataset is ill advised. Therefore, our glossary of terms should be used to describe the scientific data according to the study context</p>
+<p>The R package ‘traitdataform’ (<a href="https://www.github.com/fdschneider/traitdataform" class="uri">https://www.github.com/fdschneider/traitdataform</a>) provides tools to transfer heterogeneous datasets into a longtable format and to create standardized taxa and trait columns, based on public ontologies.</p>
 
 
 

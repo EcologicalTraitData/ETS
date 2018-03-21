@@ -35,7 +35,7 @@ if (window.hljs) {
   hljs.configure({languages: []});
   hljs.initHighlightingOnLoad();
   if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlightingOnLoad(); }, 0);
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
   }
 }
 </script>
@@ -193,9 +193,6 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
-  <a href="structure.html">Structure of traitdata</a>
-</li>
-<li>
   <a href="thesauri.html">Trait Thesauri</a>
 </li>
       </ul>
@@ -211,6 +208,9 @@ $(document).ready(function () {
       <a href="versions.html">Version history</a>
     </li>
     <li class="divider"></li>
+    <li>
+      <a href="v0.6/index.html">v0.6</a>
+    </li>
     <li>
       <a href="v0.5/index.html">v0.5</a>
     </li>
@@ -239,22 +239,75 @@ $(document).ready(function () {
 </div>
 
 
-<p>Tidy long-table formats <span class="citation">(Wickham 2014)</span> are the most predictable and compatible format for the core content of trait datasets and should be used for standalone uploads on low-threshold repositories.</p>
+<p>Long-table formats are the most predictable and compatible format for the core content of trait datasets and should be used for standalone uploads on low-threshold repositories.</p>
+<!--
+Depending on the research objective, trait-data are stored in a range of different table formats. In the subsequent paragraphs, we discuss the most common formats  in relation to the use cases in trait-based ecology. 
+
+### a) Species wide-table
+
+<!-- AO: You argue somehow that matrix format I a result of lit. review and so on. I would not agree with it. Your example also “just” points to aggregated data which menas one row is on species (aggregated) value.
+Your example is (for me) not really a matrix. In a matrix you have a relation between two variables. In the first column and and on the upper row normally the values of one variable are written. An example would be species x body length. Then for body_length some classifications are written like (0-1, 1-2, 2-3,…) Then in the matrix the observation/abundance/… is noted. E.g. spec1 x “0-1” = 5, spec1 x “1-2” = 3, and so on. Your wexample hat already different variables (=traits) with different units as columns. That is a meaningfull representation of variables and values in a normal data table. Maybe it is good her to show the enormous number of different investigated traits and point to the resulting big (many columns = wide) tables.
+-->
+<!--
+If trait data have been collated at the species level from different literature sources or from expert knowledge, or as aggregated measurements collated from raw data, they usually are reported in a species$\times$trait wide-table format (Fig. 2*a*), with a column of values for each trait recorded and a row for each species (or taxon) for which data were available. 
+This format needs to clearly differentiate missing data and traits not applicable to a given taxon (often filled in as 'NA' or dummy numbers, e.g. '999'). It may store additional information (e.g. on variation of means or literature source) in secondary columns or accompanying datasheets. 
+The wide-table format is widely used for the production of lookup-tables at the species level, which may either report qualitative facts (from literature or  expert knowledge) or aggregated quantitative traits (averages or ranges of trait values for this taxon). <!-- AO: You say it already 2 sentences before -->
+<!--
+Quantitative traits reported at this resolution are often used to calculate community weighted means or functional diversity metrics at the community level [@laliberte10a]. Also at this level of information, missing entries, e.g. about the trait values of a rarely described species, may be inferred from these tables when combined with phylogenies ['gap filling', @swenson14; @penone14; @taugourdeau14] and using Bayesian approaches [@schrodt15]. <!--However, these matrices do not allow estimates of within-species variation or assessments of the quality of the reported measurement or fact [@guralnick16]. -->
+<!--AO: Why not? I can filter for a specific species and get all respective rows. But this is not a result a using a data format, it is a result of the data itself, FDS: no, since only one row per species exists; true that data itself don't cover this variation. -->
+<!--
+
+### b) Occurrence wide-table
+
+In these occurrence wide-tables (Fig. 2*b*), each row is centered around a single physical occurrence of a species, e.g. phenotypic variation of traits within species would usually be recorded per observation where each replicate taken on a distinct individual specimen would be recorded in a row, with the respective trait values stored in columns. Those data are common in investigations of evolutionary trade-offs and trait correlation, or of intra-specific variation along environmental gradients. Occurrence data would also capture phenotypic variation arising from morphotypes and sexual dimorphism. This format is the most intuitive for recording own empirical measurements and therefore is common for measured quantitative data but rarely found for reported qualitative facts obtained from the literature.
+
+### c.) measurement long-table
+
+Both wide-table formats report the different trait values stored in multiple columns. Each trait column represents one value that applies to the entity in question (i.e. to a species  or an occurrence). As the column names and the width of the table varies with the number of traits included, merging data from different sources requires user-defined mapping and manual harmonization of these structures. 
+
+A computationally more effective method that allows for high flexibility is the storage of traitdata in long-table formats [@wickham14; @parr16]. In these, each row is reserved for a single measurement or fact of a specific trait, referenced to a single specimen  (i.e., one occurrence)  which is assigned to a specific taxon. 
+<!-- FDS: also refer to kattge 11 -->
+<!--AO: Useful for data sharing, ease of data harmonization, aggregation: probably yes. But not necessarily computational more effective at all. E.g. I start to mix up numeric values with descriptive values. I start to mix up different units. Now it is more complicated to retrieve associated values (like all length measurements in mm) again to make e.g. quality stuff. Ergo less effective from that perspective. But it has some advantages which may overrule dis. See below 
+AO: For the whole proofing why to use such a long format I think that GBIF and DwC has already given some sentences. I strongly think their work should be considered and can be used as reference!
+We can simply argue that a well established routine should now also executed on trait level!
+Furthermore for DwC exists also the “extended measurement or facts extension” which is useful for putting e.g. traits to species.
+
+-->
+<!--
+This allows repeated measurements on a single individual to be stored by linking the data from separate rows via a unique specimen identifier. Also, multivariate trait measurements can be recorded in this format by linking multiple rows via a unique measurement identifier.  Long-table datasets purport multiple advantages for data manipulation (e.g. filtering, sub-setting and aggregating data), visualization (e.g. plot measured values by factor variable or taxon) and statistical modelling (e.g. ANOVA for testing difference of trait value by sex) [@wickham14]. As long-table fromats draw from a defined set of columns,  merging of datasets is much easier. 
+<!-- BKR: Is that really true? Of course, you have less problems on the schema or structure level. But, on the other hand, the differences (e.g. different terms for the same trait,…) now happen on the instance level (that is – in the data; in the rows). Thus, at least with respect to integration, you just move the problem from one level to the other.  To ease integration, one would need to agree on the entries in the features column
+AO: Maybe describe some more advantages here like: it is possible to ensure that the items/values are always taken from a provided lookup-table e.g. for taxon, trait_names, units, more?
+We may have something like a dimension, the data source (measurement, lit. review, …) and some more criteria which are beneficial for researchers  and data aggregation?
+Again: I think we find here papers regarding DWC and GBIF (and OBIS) as source of proofing the facts.
+-->
+<!--
+The long-table format therefore is ideal for storing raw data of trait measurements in huge databases, and allows the entries to be linked via the respective unique identifiers to additional information. Each row of the dataset can therefore be interpreted as a statement of an 'entity x having a qualitative/quantitative feature y' (Fig. 2*c*). 
+
+<!-- Cat: here I guess that a figure showing few rows of a species x trait matrix and a long-format one with links to other information (metadata,..) woud help quite a lot. By experience some users are not be familiar with the interest of using the long-table format.-->
+<!-- Malte: I agree (see my comment above), such a figure / would definitely help convince people (or at least not to lose them). -->
+<!--
+\begin{figure}[t]
+\centering
+\includegraphics[width=1\textwidth, angle=0]{figures/fig2.png}
+\caption{Formats used for trait datasets.  a) taxon-level trait data compiled from literature or aggregated from measurements are often published as a compiled species $\times$ traits matrix; b) wide-tables report measurements on the specimen-level, i.e. one physical occurrence of a taxon; c) a measurement long-table is a well defined and tidy data format, reporting one single measurement per row and relating it to a trait definition and taxon via unambiguous identifiers. Additional identifiers relate each row to other layers of information on d) the specimen (occurrence) or e) the origin or confidence on the reported measurement or fact.}
+
+\end{figure}
+-->
 <p>Besides the core trait data (value, trait &amp; taxon), harmonized entries should be added as duplicates (see <a href="index.html">‘Glossary’</a>). If data contain multi-layered information on the measurement or occurrence (including geolocation and date information), further columns may be added to the core set of columns (see description of <a href="index.html">Extensions</a>). For reasons of reproducibility and openness, data should not be uploaded in proprietary spreadsheet formats (like ‘.xlsx’) but rather in comma-separated text files (‘.csv’ or ‘.txt’).</p>
 <p>There are two possibilities to integrate further information to the core trait data columns:</p>
 <ul>
 <li><strong>within the same data file</strong>: add further columns to the core dataset using column names as described in the ETS and its extensions, concerning the measurement or the occurrence of the specimen.</li>
-<li><strong>in separate data files</strong>: the main file refers to additional data files via unique identifiers, encoding each individual occurrence of a species (<code>occurrenceID</code>), single measurements or reported facts (<code>measurementID</code>), locations of sampling (<code>locationID</code>) and sampling campaigns (<code>eventID</code>). It is recommended to use Darwin Core Archives <span class="citation">(DwC-A, Robertson et al. 2009)</span>.</li>
+<li><strong>in separate data files</strong>: the main file refers to additional data files via unique identifiers, encoding each individual occurrence of a species (<code>occurrenceID</code>), single measurements or reported facts (<code>measurementID</code>), locations of sampling (<code>locationID</code>) and sampling campaigns (<code>eventID</code>). It is recommended to use Darwin Core Archives <span class="citation" data-cites="robertson09">(DwC-A, Robertson et al. 2009)</span>.</li>
 </ul>
 <p>For chosing one or the other, the trade-off is data-consistency and readability <em>vs.</em> avoidance of content duplication:</p>
 <p>For standalone dataset publications on a hosting service with only little information content beside the core traitdata columns, the first would be the preferred format, since it facilitates an analysis of cofactors and correlations further down the road. If datasets of different source are merged, the information is readily available without the risk of breaking the reference to an external datasheet. Other cases, where key data columns would be placed in the same table as the core data are traits assessed on a higher level of organisation, e.g. microbial functional traits assessed at the community level taken from a soil sample. Here, location or measurement information are in the primary focus of the investigation (see vocabulary extensions below). A general definition, whether a column describes asset data or is part of the central dataset is ill advised. Therefore, our glossary of terms and its extensions should be used to describe the scientific data according to the study context.</p>
-<p>The latter links separate data sheets by identifiers, which has the advantage of tidy datasets and avoids duplication of verbose information <span class="citation">(Wickham 2014)</span>. As a rule of thumb, the columns of the ‘Measurement or Fact’ and ‘Occurrence’ extension would be stored in a separate data sheet. The use of Darwin Core Archives <span class="citation">(<a href="http://eol.org/info/structured_data_archives" class="uri">http://eol.org/info/structured_data_archives</a>, DwC-A; Robertson et al. 2009)</span> is the recommended structure for GBIF <span class="citation">(GBIF 2017, <a href="http://tools.gbif.org/dwca-assistant/" class="uri">http://tools.gbif.org/dwca-assistant/</a>)</span> or EOL TraitBank <span class="citation">(Parr et al. 2016, <a href="http://eol.org/info/cp_archives" class="uri">http://eol.org/info/cp_archives</a>)</span>. These are .zip archives containing data table txt-files along with a descriptive metadata file (in .xml format). Detailled descriptions and tools for validation can be found on the website of EOL (<a href="http://eol.org/info/cp_archives" class="uri">http://eol.org/info/cp_archives</a>) and GBIF (<a href="http://tools.gbif.org/dwca-assistant/" class="uri">http://tools.gbif.org/dwca-assistant/</a>).</p>
-<p>The metadata of any dataset that employs this data structure should refer to the respective version of the Ecological Traitdata Standard as “Schneider et al. 2017 Ecological Traitdata Standard v1.0, DOI: XXXX.xxxx, URL: <a href="https://ecologicaltraitdata.github.io/ETS/v1.0/" class="uri">https://ecologicaltraitdata.github.io/ETS/v1.0/</a>”. In addition to the versioned online reference, the dataset should also cite the methods paper “Schneider et al. (in preparation) …” for an explanation of the rationale.</p>
-<div id="r-tools" class="section level2">
+<p>The latter links separate data sheets by identifiers, which has the advantage of tidy datasets and avoids duplication of verbose information <span class="citation" data-cites="wickham14">(Wickham 2014)</span>. As a rule of thumb, the columns of the ‘Measurement or Fact’ and ‘Occurrence’ extension would be stored in a separate data sheet. The use of Darwin Core Archives <span class="citation" data-cites="robertson09">(<a href="http://eol.org/info/structured_data_archives" class="uri">http://eol.org/info/structured_data_archives</a>, DwC-A; Robertson et al. 2009)</span> is the recommended structure for GBIF <span class="citation" data-cites="gbif17">(GBIF 2017, <a href="http://tools.gbif.org/dwca-assistant/" class="uri">http://tools.gbif.org/dwca-assistant/</a>)</span> or EOL TraitBank <span class="citation" data-cites="parr16">(Parr et al. 2016, <a href="http://eol.org/info/cp_archives" class="uri">http://eol.org/info/cp_archives</a>)</span>. These are .zip archives containing data table txt-files along with a descriptive metadata file (in .xml format). Detailled descriptions and tools for validation can be found on the website of EOL (<a href="http://eol.org/info/cp_archives" class="uri">http://eol.org/info/cp_archives</a>) and GBIF (<a href="http://tools.gbif.org/dwca-assistant/" class="uri">http://tools.gbif.org/dwca-assistant/</a>).</p>
+<p>The metadata of any dataset that employs this data structure should refer to the respective version of the Ecological Traitdata Standard as “Schneider et al. 2017 Ecological Traitdata Standard v1.0, DOI: XXXX.xxxx, URL: <a href="https://ecologicaltraitdata.github.io/ETS/v1.0/" class="uri">https://ecologicaltraitdata.github.io/ETS/v1.0/</a>”. In addition to the versioned online reference, the dataset should also cite the methods paper “Schneider et al. (in preparation) …” for an explanation of the rationale.</p>
+<section id="r-tools" class="level2">
 <h2>R Tools</h2>
 <p>The R package ‘traitdataform’ (<a href="https://www.github.com/fdschneider/traitdataform" class="uri">https://www.github.com/fdschneider/traitdataform</a>) provides tools to transfer heterogeneous datasets into a longtable format and to create standardised taxa and trait columns, based on public ontologies. See the package documentation site and vignettes for further information.</p>
-</div>
-<div id="references" class="section level1 unnumbered">
+</section>
+<section id="references" class="level1 unnumbered">
 <h1>References</h1>
 <div id="refs" class="references">
 <div id="ref-gbif17">
@@ -270,7 +323,7 @@ $(document).ready(function () {
 <p>Wickham, H. 2014. Tidy data. Journal of Statistical Software 59:1–23.</p>
 </div>
 </div>
-</div>
+</section>
 
 
 

@@ -35,7 +35,7 @@ if (window.hljs) {
   hljs.configure({languages: []});
   hljs.initHighlightingOnLoad();
   if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlightingOnLoad(); }, 0);
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
   }
 }
 </script>
@@ -193,9 +193,6 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
-  <a href="structure.html">Structure of traitdata</a>
-</li>
-<li>
   <a href="thesauri.html">Trait Thesauri</a>
 </li>
       </ul>
@@ -211,6 +208,9 @@ $(document).ready(function () {
       <a href="versions.html">Version history</a>
     </li>
     <li class="divider"></li>
+    <li>
+      <a href="v0.6/index.html">v0.6</a>
+    </li>
     <li>
       <a href="v0.5/index.html">v0.5</a>
     </li>
@@ -242,43 +242,56 @@ $(document).ready(function () {
 <p>Terminologies must provide a stability of definitions. If publications refer to the URI of a term, the definition found must be stable and be true to the definition intended by the author.</p>
 <p>That said, definitions of terms can only be broadened or made more explicit, if the original sense of the definition remains valid. The discussion leading to a refinement of a term should consider this. If a definition changes substantially, it should receive an own URI and replace any redundant or deprecated terms. The deprecated terms will remain available at the same URI.</p>
 <p>At some point, a new major version of the Traitdata Standard may be issued, providing new versioned URIs for all terms of the standard that have been altered since the previous major version.</p>
-<div id="v0.6-released-14-nov.-2017" class="section level1">
-<h1>v0.6, released 14 Nov. 2017</h1>
-<p>Website | Github release | DOI:</p>
-<div id="major-changes" class="section level2">
+<section id="v0.7.0-released-21.-march-2018" class="level1">
+<h1>v0.7.0, released 21. March 2018</h1>
+<ul>
+<li>add class/extension “Taxon” with extended taxonomic hierarchical terms.</li>
+<li>rename terms of “Biodiversity Exploratories” extension</li>
+</ul>
+</section>
+<section id="v0.6.1-released-21.-nov.2017" class="level1">
+<h1>v0.6.1, released 21. Nov. 2017</h1>
+<ul>
+<li>update terms for traitlists (Trait Thesauri)</li>
+<li>fixed typo</li>
+</ul>
+</section>
+<section id="v0.6-released-14-nov.2017" class="level1">
+<h1>v0.6, released 14 Nov. 2017</h1>
+<section id="major-changes" class="level2">
 <h2>major changes</h2>
 <ul>
 <li>Construct multi-page website using Rmarkdown Website</li>
 <li>add recommendations on how to build trait thesaurus</li>
 </ul>
-</div>
-<div id="minor-changes" class="section level2">
+</section>
+<section id="minor-changes" class="level2">
 <h2>minor changes</h2>
-</div>
-</div>
-<div id="v0.5-released-3-nov.-2017" class="section level1">
-<h1>v0.5, released 3 Nov. 2017</h1>
+</section>
+</section>
+<section id="v0.5-released-3-nov.2017" class="level1">
+<h1>v0.5, released 3 Nov. 2017</h1>
 <p>Website | Github release | DOI:</p>
-<div id="major-changes-1" class="section level2">
+<section id="major-changes-1" class="level2">
 <h2>major changes</h2>
 <ul>
 <li>fix URIs of terms, forward URI of terms identical to DwC</li>
 <li>removed colum ‘vocabulary’, define constrained vocabulary in Comments instead</li>
 </ul>
-</div>
-<div id="minor-changes-1" class="section level2">
+</section>
+<section id="minor-changes-1" class="level2">
 <h2>minor changes</h2>
 <ul>
 <li>spell-checking terms and descriptions, remove reference to Exploratories</li>
 </ul>
-</div>
-</div>
-<div id="v0.4-released-aug.-2017" class="section level1">
-<h1>v0.4, released Aug. 2017</h1>
-</div>
-<div id="v0.2-released-12-mai-2017" class="section level1">
+</section>
+</section>
+<section id="v0.4-released-aug.2017" class="level1">
+<h1>v0.4, released Aug. 2017</h1>
+</section>
+<section id="v0.2-released-12-mai-2017" class="level1">
 <h1>v0.2, released 12 Mai 2017</h1>
-</div>
+</section>
 
 
 
