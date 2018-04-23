@@ -1,6 +1,6 @@
 ---
 title: "Ecological Traitdata Standard Vocabulary"
-author: "Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski"
+author: "Florian D. Schneider, Malte Jochum, Gaetane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons"
 date: "v0.7, released: 21 March 2018"
 ---
 
@@ -23,7 +23,7 @@ This glossary of terms is available as
 
 - this human-readable reference (html file), including commentaries and further definitions
 - a csv table file (the 'source' file,  [TraitDataStandard.csv](https://github.com/EcologicalTraitData/ETS/raw/master/TraitDataStandard.csv))  
-- a machine readable RDF ontology file, compliant with semantic web standards accessible via an API (produced by and hosted on GFBio Terminology Server)
+- a machine readable RDF ontology file, compliant with semantic web standards accessible via an API (produced by and hosted on GFBio Terminology Server, coming soon!)
 
 ## Table of contents
 
