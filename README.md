@@ -19,7 +19,7 @@ The glossary contains several fields which are defined as follows:
 | Identifier   | The Uniform Resource Identifier used to uniquely identify a term.  If the term is an exact duplicate from Darwin Core or other glossaries, Identifier will forward directly to this definition. |
 | Refines      | If the definition builds on terms of the Darwin Core or other Glossaries, the original term is linked here (URI) |
 | Replaces     | The URI of the term  that is replaced by this term. | 
-| Deprecated   | Flaggin deprecated terms. If TRUE, the term should not be used for new datasets, but will be maintained for compatibility. |
+| Deprecated   | Flagging deprecated terms. If TRUE, the term should not be used for new datasets, but will be maintained for compatibility. |
 | ReplacedBy   | If a term is deprecated not be used any more, this field provides the URI of the  replacement term. |
 | Version      |  | 
 | DateIssued   |  | 
@@ -33,7 +33,7 @@ Please use the [issues-page](https://github.com/EcologicalTraitData/ETS/issues) 
 
 ## Versioning
 
-**Current Version is 0.6**
+**Current Version is 0.8**
 
 Terminologies must provide a stability of definitions. If publications refer to the URI of a term, the definition found must be stable and be true to the definition intended by the author.
 
@@ -45,12 +45,15 @@ At some point, a new major version of the Traitdata Standard may be issued, prov
 
 To refer to **this version** of the ETS please cite: 
   
-  > Schneider et al. (2017) Ecological Traitdata Standard, v0.6, URL: https://ecologicaltraitdata.github.io/ETS/v0.6/ , DOI: [10.5281/zenodo.1041733](https://doi.org/10.5281/zenodo.1041733)  
+> Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C. and Simons, N.K. (2018) Ecological Trait-data Standard Vocabulary, v0.8, URL: https://ecologicaltraitdata.github.io/ETS/v0.8/ , DOI: [10.5281/zenodo.1255287](https://doi.org/10.5281/zenodo.1255287)  
 
-Please also cite the methods paper for the rationale and general considerations of semantic standardization of trait data: 
-  
-  > Florian D. Schneider, Malte Jochum, Gaetane LeProvost, Andreas Ostrowski, Caterina Penone, Nadja K. Simons (in preparation) Introducing an Ecological Trait-data Standard. 
-  
+You can cite **all versions** of the ETS by using the DOI [10.5281/zenodo.1041732](https://doi.org/10.5281/zenodo.1041732). This will always resolve to the latest version. 
+
+Please also cite the paper discussing the rationale of the Ecological Trait-data Standard: 
+
+> Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C., Fichtmüller, D., Gossner, M.M., Güntsch, A., König-Ries, B., Manning, P. and Simons, N.K. (2018) Towards an Ecological Trait-data Standard, biorxiv.org 
+
 ## License
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Ecological Traitdata Standard </span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Ecological Traitdata Standard </span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florian D. Schneider, Malte Jochum, Gaëtane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. That means, you are free to use and re-use, modify and publish all texts and documents on this website, as long as you give attribution to its original source. 
+
