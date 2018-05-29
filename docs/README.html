@@ -11,7 +11,7 @@
 
 
 
-<title>Version history</title>
+<title>README.utf8</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,7 +22,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -234,75 +233,107 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Version history</h1>
 
 </div>
 
 
-<p>Standard terminologies must provide a stability of definitions. If publications refer to the URI of a term, the link must be semantically stable and be true to the definition intended by the author.</p>
-<p>That said, with minor increments of the standard, definitions of terms can only be broadened or made more explicit, if the original sense of the definition remains valid. The community discussion leading to a refinement of a term should consider this. If a definition changes substantially, it may receive an own URI and replace any redundant or deprecated terms. The deprecated terms will remain available at their original URI.</p>
-<p>If alterations in terms lead to incompatibility with previous versions, a new major version of the Trait-data Standard Vocabulary may be issued, providing new versioned URIs for all terms of the standard that have been altered since the previous major version.</p>
-<p>Discussions on terms and versions are coordinated in the <a href="https://github.com/EcologicalTraitData/ETS/issues">Github Issues</a>.</p>
-<section id="v0.8.0-released-29-may-2018" class="level1">
-<h1>v0.8.0, released 29 May 2018</h1>
+<section id="ecological-traitdata-standard-ets" class="level1">
+<h1>Ecological Traitdata Standard (ETS)</h1>
+<p>This repository hosts the <strong>Ecological Traitdata Standard</strong>, which defines terms for the use in datasets containing quantitative and qualitative functional traits.</p>
+<p>The repository contains:</p>
 <ul>
-<li>fix patches and minor things in term definitions and comments, provide more examples.</li>
-<li>revise description on vocabulary sections</li>
-<li>revise recommendation for trait definitions; drop page on publication of Thesauri</li>
+<li>the ‘source file’ of the glossary (in .csv format), defining the terms and containing the URIs.</li>
+<li>the source files of the documentation website (.Rmd, .yml), which are parsed in <a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html">RStudio as a Rmarkdown Website</a> and served via <a href="https://pages.github.com/">Github pages</a> (output in folder docs) to <a href="https://ecologicaltraitdata.github.io/ETS/" class="uri">https://ecologicaltraitdata.github.io/ETS/</a>.</li>
 </ul>
+<p>A machine readable version will be generated and hosted by GFBio in RDF format.</p>
+<section id="fields" class="level2">
+<h2>fields</h2>
+<p>The glossary contains several fields which are defined as follows:</p>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>field</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Namespace</td>
+<td>The collection of terms that the term is part of.</td>
+</tr>
+<tr class="even">
+<td>Identifier</td>
+<td>The Uniform Resource Identifier used to uniquely identify a term. If the term is an exact duplicate from Darwin Core or other glossaries, Identifier will forward directly to this definition.</td>
+</tr>
+<tr class="odd">
+<td>Refines</td>
+<td>If the definition builds on terms of the Darwin Core or other Glossaries, the original term is linked here (URI)</td>
+</tr>
+<tr class="even">
+<td>Replaces</td>
+<td>The URI of the term that is replaced by this term.</td>
+</tr>
+<tr class="odd">
+<td>Deprecated</td>
+<td>Flaggin deprecated terms. If TRUE, the term should not be used for new datasets, but will be maintained for compatibility.</td>
+</tr>
+<tr class="even">
+<td>ReplacedBy</td>
+<td>If a term is deprecated not be used any more, this field provides the URI of the replacement term.</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DateIssued</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DateModified</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Definition</td>
+<td>A statement that represents the concept and essential nature of the term.</td>
+</tr>
+<tr class="odd">
+<td>Comment</td>
+<td>Clarification and examples.</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="v0.7.0-released-21-march-2018" class="level1">
-<h1>v0.7.0, released 21 March 2018</h1>
+<section id="contribute" class="level2">
+<h2>Contribute</h2>
+<p>Please use the <a href="https://github.com/EcologicalTraitData/ETS/issues">issues-page</a> for discussion and revision on individual terms, and settle the issue here before filing a pull-request that implements an update.</p>
 </section>
-<section id="major-changes" class="level1">
-<h1>major changes</h1>
-<ul>
-<li>add class/extension “Taxon” with extended taxonomic hierarchical terms.</li>
-<li>rename terms of “Biodiversity Exploratories” extension</li>
-</ul>
+<section id="versioning" class="level2">
+<h2>Versioning</h2>
+<p><strong>Current Version is 0.6</strong></p>
+<p>Terminologies must provide a stability of definitions. If publications refer to the URI of a term, the definition found must be stable and be true to the definition intended by the author.</p>
+<p>That said, definitions of terms can only be broadened or made more explicit, if the original sense of the definition remains valid. The discussion leading to a refinement of a term should consider this. If a definition changes substantially, it should receive an own URI and replace any redundant or deprecated terms. The deprecated terms will remain available at the same URI.</p>
+<p>At some point, a new major version of the Traitdata Standard may be issued, providing new versioned URIs for all terms of the standard that have been altered since the previous major version.</p>
 </section>
-<section id="v0.6.1-released-21-nov.2017" class="level1">
-<h1>v0.6.1, released 21 Nov. 2017</h1>
-<ul>
-<li>update terms for traitlists (Trait Thesauri)</li>
-<li>fixed typo</li>
-</ul>
+<section id="suggested-citation" class="level2">
+<h2>Suggested Citation</h2>
+<p>To refer to <strong>this version</strong> of the ETS please cite:</p>
+<blockquote>
+<p>Schneider et al. (2017) Ecological Traitdata Standard, v0.6, URL: <a href="https://ecologicaltraitdata.github.io/ETS/v0.6/" class="uri">https://ecologicaltraitdata.github.io/ETS/v0.6/</a> , DOI: <a href="https://doi.org/10.5281/zenodo.1041733">10.5281/zenodo.1041733</a></p>
+</blockquote>
+<p>Please also cite the methods paper for the rationale and general considerations of semantic standardization of trait data:</p>
+<blockquote>
+<p>Florian D. Schneider, Malte Jochum, Gaetane LeProvost, Andreas Ostrowski, Caterina Penone, Nadja K. Simons (in preparation) Introducing an Ecological Trait-data Standard.</p>
+</blockquote>
 </section>
-<section id="v0.6-released-14-nov.2017" class="level1">
-<h1>v0.6, released 14 Nov. 2017</h1>
-<section id="major-changes-1" class="level2">
-<h2>major changes</h2>
-<ul>
-<li>Construct multi-page website using Rmarkdown Website</li>
-<li>add recommendations on how to build trait thesaurus</li>
-</ul>
+<section id="license" class="level2">
+<h2>License</h2>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span data-xmlns:dct="http://purl.org/dc/terms/" data-property="dct:title">Ecological Traitdata Standard </span> by <span data-xmlns:cc="http://creativecommons.org/ns#" data-property="cc:attributionName">Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 </section>
-<section id="minor-changes" class="level2">
-<h2>minor changes</h2>
-</section>
-</section>
-<section id="v0.5-released-3-nov.2017" class="level1">
-<h1>v0.5, released 3 Nov. 2017</h1>
-<p>Website | Github release | DOI:</p>
-<section id="major-changes-2" class="level2">
-<h2>major changes</h2>
-<ul>
-<li>fix URIs of terms, forward URI of terms identical to DwC</li>
-<li>removed colum ‘vocabulary’, define constrained vocabulary in Comments instead</li>
-</ul>
-</section>
-<section id="minor-changes-1" class="level2">
-<h2>minor changes</h2>
-<ul>
-<li>spell-checking terms and descriptions, remove reference to Exploratories</li>
-</ul>
-</section>
-</section>
-<section id="v0.4-released-aug.2017" class="level1">
-<h1>v0.4, released Aug. 2017</h1>
-</section>
-<section id="v0.2-released-12-mai-2017" class="level1">
-<h1>v0.2, released 12 Mai 2017</h1>
 </section>
 
 

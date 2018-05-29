@@ -174,7 +174,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Ecological Trait-data Standard</a>
+      <a class="navbar-brand" href="index.html">Ecological Traitdata Standard</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -182,7 +182,7 @@ $(document).ready(function () {
   <a href="index.html">
     <span class="fa fa-file-text-o"></span>
      
-    Vocabulary
+    Glossary
   </a>
 </li>
 <li>
@@ -191,6 +191,9 @@ $(document).ready(function () {
      
     About
   </a>
+</li>
+<li>
+  <a href="thesauri.html">Trait Thesauri</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -206,16 +209,13 @@ $(document).ready(function () {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="https://ecologicaltraitdata.github.io/ETS/v0.7/index.html">v0.7</a>
+      <a href="v0.6/index.html">v0.6</a>
     </li>
     <li>
-      <a href="https://ecologicaltraitdata.github.io/ETS/v0.6/index.html">v0.6</a>
+      <a href="v0.5/index.html">v0.5</a>
     </li>
     <li>
-      <a href="https://ecologicaltraitdata.github.io/ETS/v0.5/index.html">v0.5</a>
-    </li>
-    <li>
-      <a href="https://ecologicaltraitdata.github.io/ETS/v0.4/index.html">v0.4</a>
+      <a href="v0.4/index.html">v0.4</a>
     </li>
   </ul>
 </li>
@@ -239,32 +239,6 @@ $(document).ready(function () {
 </div>
 
 
-<!-- 
-A trait thesaurus or ontology assigns descriptive trait names with A) an unambiguous definition of the trait and B) an expected format of measured values or reported facts, and might additionally provide C) semantic relationships for deriving a hierarchical or tree-based classification of traits. 
-
-
-A trait thesaurus or ontology assigns descriptive trait names with A) an unambiguous definition of the trait and B) an expected format of measured values or reported facts, and might additionally provide C) semantic relationships for deriving a hierarchical or tree-based classification of traits. 
-
-Traits must not only be defined in terms of their interpretation, but are ideally also standardised in terms of numerical units and, even more important, the use of harmonized factor levels. This is challenging, given the range of data types that fall within datasets of functional traits. 
-Numerical values represent measurements of length, volumes, ratios, rates or timespans. Integer values may apply to count data (e.g. eggs per clutch). 
-Binary data (encoded as 0 or 1) or logical data (coded as TRUE or FALSE) may apply to qualitative traits such as specific behaviour during mating (e.g. are territories defended) or specialisation to a given habitat (e.g. species restricted to relicts of primeval forests). Many traits are categorical and allow for a constrained set of factor levels, such as sex differences in wing morphology (both sexes winged, both sexes unwinged, only males winged, only females winged) or unconstrained entries such as color. Categorical traits often are ordinal, i.e. they have a logical sequence as in the case of life stages or hibernation stages, or habitat preference traits such as horizontal stratum use. 
-Finally there are specific formats of multivariate trait values, e.g. x-y-z coordinates of a landmark measured in a standardized 3D space or relative abundance of chain-lengths in biochemical compounds.
-
-Each trait definition may link to a broader or narrower term. For instance, the definition of 'femur length of first leg, left side' is narrower than 'femur length' which is narrower than 'leg trait' which is narrower than 'locomotion trait'. (Ref semantic database methods)
-This links traits of similar functional meaning and allows cross-taxon comparative studies at the level of broader terms. 
-
-
-Ontologies for functional traits are being developed for different organism groups, mostly centered around certain research questions or subjects of study. To date, the TRY database takes the most inclusive approach on functional traits for vascular plants (Kattge).
-For some animal groups, similar approaches do exist, but few are available as an online ontology. 
-
-As a starting point for creating an ontology for functional traits, we propose the following terms for trait lists (also termed 'Thesaurus'), to describe functional traits that are in the focus of the research project. 
-
-Using this standardized terminology will allow merging trait definitions from multiple sources. We encourage providing these lookup tables as an open resource on public terminology servers to enable a global referencing. 
-The benefit of such classifications will increase if open Application Programming Interfaces (APIs) provide a way to extract the definitions and higher-level trait hierarchies programmatically via software tools. To harmonize trait data across databases, future trait standard initiatives should provide this functionality. 
-Online ontologies hosted with accredited ontology servers have the advantage of providing a persistent and direct link of the term on the internet (a *Uniform Resource Identifier*, URI).
-Terminology portals or registries, such as the GFBio Terminology Service or ontobee, may provide a central host for trait ontologies. 
-
--->
 <p>If no published trait definition is available that can be referenced, trait-datasets should be accompanied by a dataset-specific glossary of traits, also termed a ‘thesaurus’. In its simplest form, a trait thesaurus would provide a “controlled vocabulary designed to clarify the definition and structuring of key terms and associated concepts in a specific discipline” <span class="citation" data-cites="laporte13 garnier17">(Laporte et al. 2013; Garnier et al. 2017)</span>. To be unambiguous, any thesaurus should be defining terms based on other well-defined terms from semantic ontologies.</p>
 <p>In addition to the mere listing of trait definitions, a trait ‘ontology’ would be providing a formal model of the conceptual objects and relationships, or entities and qualities <span class="citation" data-cites="garnier17">(Garnier et al. 2017)</span>, ideally structured following the guidelines for a semantic web standard <span class="citation" data-cites="berners-lee01">(Berners-Lee et al. 2001)</span>. This can take rather complex forms, but for trait data might be just adding a hierarchy of broader and narrower terms.</p>
 <p>By providing a minimal vocabulary for thesauri and ontologies (<a href="https://ecologicaltraitdata.github.io/TraitDataStandard/#terms-for-traitlists-a-trait-thesaurus" class="uri">https://ecologicaltraitdata.github.io/TraitDataStandard/#terms-for-traitlists-a-trait-thesaurus</a>), we hope to facilitate the publication of trait thesauri developed for the own project context which always should be referenced in the core trait dataset. The thesaurus might accompany the core data in a Darwin Core Archive, or be published on any other stable webservice.</p>
