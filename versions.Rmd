@@ -2,18 +2,27 @@
 title: "Version history"
 ---
 
-Terminologies must provide a stability of definitions. If publications refer to the URI of a term, the definition found must be stable and be true to the definition intended by the author.
+Standard terminologies must provide a stability of definitions. If publications refer to the URI of a term, the link must be semantically stable and be true to the definition intended by the author.
 
-That said, definitions of terms can only be broadened or made more explicit, if the original sense of the definition remains valid. The discussion leading to a refinement of a term should consider this. If a definition changes substantially, it should receive an own URI and replace any redundant or deprecated terms. The deprecated terms will remain available at the same URI.
+That said, with minor increments of the standard, definitions of terms can only be broadened or made more explicit, if the original sense of the definition remains valid. The community discussion leading to a refinement of a term should consider this. If a definition changes substantially, it may receive an own URI and replace any redundant or deprecated terms. The deprecated terms will remain available at their original URI.
 
-At some point, a new major version of the Traitdata Standard may be issued, providing new versioned URIs for all terms of the standard that have been altered since the previous major version.
+If alterations in terms lead to incompatibility with previous versions, a new major version of the Trait-data Standard Vocabulary may be issued, providing new versioned URIs for all terms of the standard that have been altered since the previous major version.
 
-# v0.7.0, released 21. March 2018
+Discussions on terms and versions are coordinated in the [Github Issues](https://github.com/EcologicalTraitData/ETS/issues).
 
+# v0.8.0, released 29 May 2018
+
+- fix patches and minor things in term definitions and comments, provide more examples.
+- revise description on vocabulary sections
+- revise recommendation for trait definitions; drop page on publication of Thesauri
+
+# v0.7.0, released 21 March 2018
+
+# major changes
 - add class/extension "Taxon" with extended taxonomic hierarchical terms. 
 - rename terms of "Biodiversity Exploratories" extension
 
-# v0.6.1, released 21. Nov. 2017
+# v0.6.1, released 21 Nov. 2017
 
 - update terms for traitlists (Trait Thesauri)
 - fixed typo
