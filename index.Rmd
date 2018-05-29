@@ -1,16 +1,14 @@
 ---
-title: "Ecological Traitdata Standard Vocabulary"
-author: "Florian D. Schneider, Malte Jochum, Gaetane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons"
-date: "v0.7, released: 21 March 2018"
+title: "Ecological Trait-data Standard Vocabulary"
+author: "Florian D. Schneider, Malte Jochum, Gaëtane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons"
+date: "v0.8.0, released: 29 May 2018"
 ---
 
 # Glossary of terms
 
 This defined vocabulary aims at providing all essential terms to describe datasets of functional trait measurements and facts for ecological research. The vocabulary builds on the Darwin Core Standard and it's extensions (terms of DWC are referenced thus in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm). 
 
-The glossary of terms is ordered into a **core section** with essential columns for trait data, extensions which are allowing to provide additional layers of information, as well as a vocabulary for **metadata** information of particular importance for trait data. 
-
-Another section provides defined terms and structure for **trait Thesauri**, i.e. lists of trait definitions. 
+The glossary of terms is ordered into a **core section** with essential columns for trait data, extensions which are allowing to provide additional layers of information, as well as a vocabulary for **metadata** information of particular importance for trait data. Another section provides defined **terms for trait definitions** to be included in the metadata or published along with the dataset. 
 
 We provide four **extensions** of the vocabulary, that allow for additional information on the trait measurement. 
 
@@ -21,9 +19,12 @@ We provide four **extensions** of the vocabulary, that allow for additional info
 
 This glossary of terms is available as 
 
-- this human-readable reference (html file), including commentaries and further definitions
-- a csv table file (the 'source' file,  [TraitDataStandard.csv](https://github.com/EcologicalTraitData/ETS/raw/master/TraitDataStandard.csv))  
-- a machine readable RDF ontology file, compliant with semantic web standards accessible via an API (produced by and hosted on GFBio Terminology Server, coming soon!)
+- this human-readable reference (html file), including commentaries and further definitions,
+- a csv table file (the 'source' file,  [TraitDataStandard.csv](https://github.com/EcologicalTraitData/ETS/raw/master/TraitDataStandard.csv)),
+- a machine readable RDF ontology file, compliant with semantic web standards accessible via an API (produced by and hosted on GFBio Terminology Server, **coming soon!**).
+
+The rationale for developing the Ecological Trait-data standard has been cast in a paper that is available as pre-print:  
+
 
 ## Table of contents
 
@@ -44,7 +45,7 @@ glossary <- lapply(glossary, function(x) setNames(split(x, f = seq_along(x$colum
 
 namespace <- c("Traitdata", "Metadata", "Traitlist", "Taxon",  "MeasurementOrFact", "Occurrence", "BiodiversityExploratories" )
 
-j_verbose <- c("core-traitdata-terms",  "metadata-vocabulary", "terms-for-thesauri", "extension-taxon", "extension-measurement-or-fact", "extension-occurrence", "extension-biodiversity-exploratories" ) 
+j_verbose <- c("core-traitdata-terms",  "metadata-vocabulary", "terms-for-trait-definitions", "extension-taxon", "extension-measurement-or-fact", "extension-occurrence", "extension-biodiversity-exploratories" ) 
 
 for(j in namespace) {
   
@@ -67,12 +68,12 @@ for(j in namespace) {
 
 # Core traitdata terms
 
-For the essential primary data (trait value, taxon assignment, trait name), the trait data standard recommends to report the original naming and value scheme as used by the data provider. However, to ensure compatibility with other datasets, the original data provider's information should be duplicated into standardized columns indexed by appending `Std` to the column name. 
+For the essential primary data (trait value, taxon assignment, trait name), it is recommended to report the original naming and value scheme as used by the data provider. However, to ensure compatibility with other datasets, the original data provider's information should be duplicated into standardized columns indexed by appending `Std` to the column name. 
 This ensures compatibility on the provider's side and transparency for data users on the reported measurements and facts, and enables checking for inconsistencies and misspellings in the complete dataset provided by the author. If provided, the standardized fields allow merging heterogeneous data sources into a single table to perform further analyses. This practice of double bookkeeping of trait data has successfully established for the TRY database on plant traits, for instance (Kattge et al. 2011. TRY – a global database of plant traits. Global Change Biology, 17, 2905–2935). 
 
 By linking to (public) ontologies via the field `taxonID`, further taxonomic information can be extracted for analysis. Alternatively, `taxonID` may also link to an accompanying datasheet that contains information on the taxonomic resolution or specification of the observation. 
 
-Similarly, linking to trait terminologies (a 'Thesaurus') via the field `traitID` allows an unambiguous interpretation of the trait measurement. If no online ontology is available, an accompanying dataset should specify the trait definition. For setting up such a Thesaurus, we propose the use of terms provided in section 'Traitlist' below. 
+Similarly, linking to published trait definitions in public thesauri or ontologies via the field `traitID` allows an unambiguous interpretation of the trait measurement. If no online ontology is available, an accompanying data table should specify the trait definitions by making use of terms provided in the section 'Traitlist' below. 
 
 ```{r, results = 'asis', echo = FALSE}
 
@@ -100,22 +101,12 @@ parseterms("Traitdata")
 
 # Metadata vocabulary
 
-For datasets collate from multiple other datasets
-There is the set of information that applies to the entire trait-dataset, which classifies them as metadata. 
+To describe trait-datasets unambiguously, we suggest the following terms to be used in the metadata accompanying the publication of trait-data. 
 
-
-To retain the rights of the original data contributor, the field `rightsHolder` states the person or organization that owns or manages the rights to the data; `bibliographicCitation` states a bibliographic reference which should be cited when the data is used; and license specifies under which terms and conditions the data can be used, re-used and/or published. This information always applies to one single fact or measurement,
-
-Further information on the larger dataset which originally contained this entry can be stored in `datasetID`, `datasetName`, `author` <!-- -->. These columns should hence give credit to the person who compiled the original dataset and signs responsible for the correct identification and reporting of the rights holder.
-These information usually may be kept in the metadata of the dataset, but if datasets from different sources are merged, those should be referred to by a unique identifier (`datasetID`) or be reported as additional columns in the merged dataset (`author`, `license`, ...; see Dublin Core Metadata standards, Ref). 
-
+To retain the rights of the original data contributor use `author`. Data owner `rightsHolder` states the person or organization that owns or manages the rights to the data; `bibliographicCitation` states a bibliographic reference which should be cited when the data is used; and `license` specifies under which terms and conditions the data can be used, re-used and/or published. 
 Since trait data are of great use for synthesis studies, information about how the data may be distributed, re-used and attributed to are of particular importance for trait datasets. Most researchers encourage re-use of their published datasets while making sure they are sufficiently credited. The use of permissive licenses for traitdata publications, such as Creative Commons Attribution or Creative Commons Zero/Public Domain release, has been established as the gold standard. 
 
-Individual measurements and facts will likely already belong to a larger set of traits or a separate trait database before they are added to a combined trait database. To retain the rights of the original data contributor, the field `rightsHolder` states the person or organisation who owns or manages the rights to the data; `bibliographicCitation` states a bibliographic reference which should be cited when the data is used; and `license` specifies under which terms and conditions the data can be used, re-used and/or published. 
-This information always applies to one single fact or measurement, further information on the larger dataset which originally contained this entry can be stored in `datasetID`, `datasetName`,`authorLastname` and `authorFirstname`. These columns should hence give credit to the person who compiled the original dataset and signs responsible for the correct identification and reporting of the rights holder.
-
-
-These data are required when combining datasets from different sources. We suggest integrating a `datasetID` referencing to an external data sheet or adding columns to the dataset to keep important information about authorship and terms of use at the measurement level. 
+When combining datasets from different sources, `datasetID` may keep the reference to an external data sheet specifying the metadata. Alternatively, the terms of this section can be added as columns to the dataset to keep important information about authorship and terms of use at the measurement level. 
 
 
 ```{r, results = 'asis', echo = FALSE}
@@ -127,30 +118,16 @@ parseterms("Metadata")
 
 --- 
 
-# Terms for Thesauri
+# Terms for trait definitions
 
-A trait thesaurus or ontology assigns descriptive trait names with A) an unambiguous definition of the trait and B) an expected format of measured values or reported facts, and might additionally provide C) semantic relationships for deriving a hierarchical or tree-based classification of traits. 
+To cope with the variety of data types, trait-data should make use of globally valid and unambiguous trait definitions from public ontologies or thesauri, by providing their URIs in the field `traitID`. 
+Using this standardized terminology will facilitate merging trait definitions from multiple sources.
 
-Traits are not only defined in terms of their interpretation, but are ideally also standardised in terms of numerical units and, even more important, the use of harmonized factor levels. This is challenging, given the range of data types that fall within datasets of functional traits. 
-Numerical values represent measurements of length, volumes, ratios, rates or timespans. Integer values may apply to count data (e.g. eggs per clutch). 
-Binary data (encoded as 0 or 1) or logical data (coded as TRUE or FALSE) may apply to qualitative traits such as specific behaviour during mating (e.g. are territories defended) or specialisation to a given habitat (e.g. species restricted to relicts of primeval forests). Many traits are categorical and allow for a constrained set of factor levels, such as sex differences in wing morphology (both sexes winged, both sexes unwinged, only males winged, only females winged) or unconstrained entries such as color. Categorical traits often are ordinal, i.e. they have a logical sequence as in the case of life stages or hibernation stages, or habitat preference traits such as horizontal stratum use. 
-Finally there are specific formats of multivariate trait values, e.g. x-y-z coordinates of a landmark measured in a standardized 3D space [ref] or relative abundance of chain-lengths in biochemical compounds [].
-To cope with this variety of data types, definitions should refer to other well-defined terms of other ontologies that describe standard units, morphological body parts, protein characteristics (Protein Ontology) or chemical terms (e.g. the ChEBI, http://www.obofoundry.org/ontology/chebi.html).
+If no published trait definition is available that can be referenced, trait-datasets should be accompanied by a dataset-specific glossary of traits that would provide a definition specific to the study context. 
+To be unambiguous, this list should be defining terms based on other well-defined terms from semantic ontologies, e.g. for units or higher hierarchical terms from trait ontologies (using `broaderTerm`). 
+Also refer to well-defined terms of other ontologies that describe standard units, morphological body parts, protein characteristics (Protein Ontology) or chemical terms (e.g. the ChEBI, http://www.obofoundry.org/ontology/chebi.html).
 
-Online ontologies extend into (machine readable) semantic web resources by providing a hierarchical classification of traits or a relational tree of functional traits. 
-Each trait definition may link to a broader or narrower term. For instance, the definition of 'femur length of first leg, left side' is narrower than 'femur length' which is narrower than 'leg trait' which is narrower than 'locomotion trait'. (Ref semantic database methods)
-This links traits of similar functional meaning and allows cross-taxon comparative studies at the level of broader terms. 
-
-Ontologies for functional traits are being developed for different organism groups, mostly centered around certain research questions or subjects of study. To date, the TRY database takes the most inclusive approach on functional traits for vascular plants (Kattge).
-For some animal groups, similar approaches do exist, but few are available as an online ontology. 
-
-As a starting point for creating an ontology for functional traits, we propose the following terms for trait lists (also termed 'Thesaurus'), to describe functional traits that are in the focus of the research project. 
-
-Using this standardized terminology will allow merging trait definitions from multiple sources. We encourage providing these lookup tables as an open resource on public terminology servers to enable a global referencing. 
-The benefit of such classifications will increase if open Application Programming Interfaces (APIs) provide a way to extract the definitions and higher-level trait hierarchies programmatically via software tools. To harmonize trait data across databases, future trait standard initiatives should provide this functionality. 
-Online ontologies hosted with accredited ontology servers have the advantage of providing a persistent and direct link of the term on the internet (a *Uniform Resource Identifier*, URI).
-Terminology portals or registries, such as the GFBio Terminology Service or ontobee, may provide a central host for trait ontologies. 
-
+The following vocabulary helps to provide trait definitions as a separate data table or within the metadata object along with the publication of the trait dataset.  
 
 ```{r, results = 'asis', echo = FALSE}
 
