@@ -25,6 +25,7 @@ This glossary of terms is available as
 
 The rationale for developing the Ecological Trait-data standard has been cast in a paper that is available as pre-print:  
 
+> Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C., Fichtmüller, D., Gossner, M.M., Güntsch, A., König-Ries, B., Manning, P. and Simons, N.K. (2018) Towards an Ecological Trait-data Standard, biorxiv.org DOI: [10.1101/328302](https://doi.org/10.1101/328302) 
 
 ## Table of contents
 

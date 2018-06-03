@@ -21,7 +21,7 @@ You can cite **all versions** of the ETS by using the DOI [10.5281/zenodo.104173
 
 Please also cite the paper discussing the rationale of the Ecological Trait-data Standard: 
 
-> Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C., Fichtmüller, D., Gossner, M.M., Güntsch, A., König-Ries, B., Manning, P. and Simons, N.K. (2018) Towards an Ecological Trait-data Standard, biorxiv.org 
+> Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C., Fichtmüller, D., Gossner, M.M., Güntsch, A., König-Ries, B., Manning, P. and Simons, N.K. (2018) Towards an Ecological Trait-data Standard, biorxiv.org  DOI: [10.1101/328302](https://doi.org/10.1101/328302) 
 
 # Contribute
 
