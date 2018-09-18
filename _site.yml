@@ -9,9 +9,9 @@ output_dir: docs
 exclude:
 - '*.xlsx'
 - draft/*.*
+- bexis/*.*
+- gfbio/*.*
 - '*.R'
-- 'thesauri.Rmd'
-- 'structure.Rmd'
 - amnat.csl
 - biblio.bib
 navbar:

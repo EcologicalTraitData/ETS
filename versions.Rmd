@@ -10,7 +10,9 @@ If alterations in terms lead to incompatibility with previous versions, a new ma
 
 Discussions on terms and versions are coordinated in the [Github Issues](https://github.com/EcologicalTraitData/ETS/issues).
 
-# v0.9.0, released xx September 2018
+---
+
+# release candidate: v0.9.0, released xx September 2018 
 
 ## major changes 
 
@@ -25,26 +27,36 @@ Discussions on terms and versions are coordinated in the [Github Issues](https:/
 - fix documentation page relative links
 - add contributing conditions (CONTRIBUTING.md) & license statement (LICENSE.md)
 
+---
 
-# v0.8.0, released 29 May 2018
+# v0.8.0, released 29 May 2018 
+
+([Github](https://github.com/EcologicalTraitData/ETS/tree/v0.8) )
 
 - fix patches and minor things in term definitions and comments, provide more examples.
 - revise description on vocabulary sections
 - revise recommendation for trait definitions; drop page on publication of Thesauri
 
+---
+
 # v0.7.0, released 21 March 2018
+
+([Github](https://github.com/EcologicalTraitData/ETS/tree/v0.7) )
 
 ## major changes
 - add class/extension "Taxon" with extended taxonomic hierarchical terms. 
 - rename terms of "Biodiversity Exploratories" extension
+
+---
 
 # v0.6.1, released 21 Nov. 2017
 
 - update terms for traitlists (Trait Thesauri)
 - fixed typo
 
-# v0.6, released 14 Nov. 2017
+---
 
+# v0.6, released 14 Nov. 2017
 
 ## major changes
 
@@ -52,6 +64,8 @@ Discussions on terms and versions are coordinated in the [Github Issues](https:/
 - add recommendations on how to build trait thesaurus
 
 ## minor changes
+
+---
 
 # v0.5, released 3 Nov. 2017
 
@@ -66,7 +80,11 @@ Website | Github release | DOI:
 
 - spell-checking terms and descriptions, remove reference to Exploratories
 
+---
+
 # v0.4, released Aug. 2017
+
+---
 
 # v0.2, released 12 Mai 2017
 
