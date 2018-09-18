@@ -11,7 +11,7 @@
 
 
 
-<title>README.utf8</title>
+<title>README.utf8.md</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -89,6 +89,9 @@ img {
 }
 .tabbed-pane {
   padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
 }
 button.code-folding-btn:focus {
   outline: none;
@@ -205,6 +208,9 @@ $(document).ready(function () {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.8/index.html">v0.8</a>
+    </li>
+    <li>
       <a href="https://ecologicaltraitdata.github.io/ETS/v0.7/index.html">v0.7</a>
     </li>
     <li>
@@ -237,22 +243,33 @@ $(document).ready(function () {
 </div>
 
 
-<section id="ecological-traitdata-standard-ets" class="level1">
+<div id="ecological-traitdata-standard-ets" class="section level1">
 <h1>Ecological Traitdata Standard (ETS)</h1>
 <p>This repository hosts the <strong>Ecological Traitdata Standard</strong>, which defines terms for the use in datasets containing quantitative and qualitative functional traits.</p>
 <p>The repository contains:</p>
 <ul>
-<li>the ‘source file’ of the glossary (in .csv format), defining the terms and containing the URIs.</li>
+<li>the ‘source file’ of the ETS (in .csv format), defining the terms and containing the URIs.</li>
 <li>the source files of the documentation website (.Rmd, .yml), which are parsed in <a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html">RStudio as a Rmarkdown Website</a> and served via <a href="https://pages.github.com/">Github pages</a> (output in folder docs) to <a href="https://ecologicaltraitdata.github.io/ETS/" class="uri">https://ecologicaltraitdata.github.io/ETS/</a>.</li>
+<li>a machine readable version will be generated and hosted by GFBio in .owl format.</li>
 </ul>
-<p>A machine readable version will be generated and hosted by GFBio in RDF format.</p>
-<section id="fields" class="level2">
+</div>
+<div id="use-the-ets" class="section level1">
+<h1>Use the ETS</h1>
+<p>The Ecological Traitdata Standard (ETS) is a collection of terms for datasets on quantitative and qualitative organism properties (i.e. traits) that describe its performance or function in an ecosystem.</p>
+<p>The ETS has three major use-cases:</p>
+<ol style="list-style-type: decimal">
+<li>it provides a low-threshold terminology standard, suitable for storing own trait data locally, or for publishing them on a scientific database or filehosting service. By using the vocabulary for own data publications, authors can ensure the interoperability and re-use of their data.</li>
+<li>it can be used for harmonizing datasets from distributed sources, by mapping the heterogeneous data into the unified scheme provided by the vocabulary. Thus, it aids the development of trait-data compilations.</li>
+<li>it can be used to develop exchange formats for software and webservices, e.g. APIs, and to combine trait-data with other data-types. This aids the development of a semantic web of biodiversity data.</li>
+</ol>
+<p>The rationale of the ETS has been discussed in Schneider et al. 2018, Towards an Ecological Trait-data Standard, biorxiv.org DOI: <a href="https://doi.org/10.1101/328302">10.1101/328302</a>.</p>
+<div id="fields" class="section level2">
 <h2>fields</h2>
-<p>The glossary contains several fields which are defined as follows:</p>
+<p>The vocabulary contains several fields which are defined as follows:</p>
 <table>
 <colgroup>
-<col style="width: 27%" />
-<col style="width: 72%" />
+<col width="27%" />
+<col width="72%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -271,7 +288,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td>Refines</td>
-<td>If the definition builds on terms of the Darwin Core or other Glossaries, the original term is linked here (URI)</td>
+<td>If the definition builds on terms of the Darwin Core or other Glossaries, the original term is linked here (URI).</td>
 </tr>
 <tr class="even">
 <td>Replaces</td>
@@ -279,23 +296,23 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td>Deprecated</td>
-<td>Flaggin deprecated terms. If TRUE, the term should not be used for new datasets, but will be maintained for compatibility.</td>
+<td>Flagging deprecated terms. If TRUE, the term should not be used for new datasets, but will be maintained for compatibility.</td>
 </tr>
 <tr class="even">
 <td>ReplacedBy</td>
-<td>If a term is deprecated not be used any more, this field provides the URI of the replacement term.</td>
+<td>If a term is deprecated, this field provides the URI of the replacement term.</td>
 </tr>
 <tr class="odd">
-<td>Version</td>
-<td></td>
+<td>FirstIssuedIn</td>
+<td>The Version of the ETS this term has been first published (starting with v0.8 as the first public release version)</td>
 </tr>
 <tr class="even">
 <td>DateIssued</td>
-<td></td>
+<td>The date when the term was defined for the first time within the ETS.</td>
 </tr>
 <tr class="odd">
 <td>DateModified</td>
-<td></td>
+<td>Reports the latest activity on this term.</td>
 </tr>
 <tr class="even">
 <td>Definition</td>
@@ -307,34 +324,40 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="contribute" class="level2">
-<h2>Contribute</h2>
-<p>Please use the <a href="https://github.com/EcologicalTraitData/ETS/issues">issues-page</a> for discussion and revision on individual terms, and settle the issue here before filing a pull-request that implements an update.</p>
-</section>
-<section id="versioning" class="level2">
+</div>
+</div>
+<div id="suggested-citation" class="section level1">
+<h1>Suggested Citation</h1>
+<p>To refer to <strong>this version</strong> of the ETS please cite:</p>
+<blockquote>
+<p>Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C. and Simons, N.K. (2018) Ecological Trait-data Standard Vocabulary, v0.8, URL: <a href="https://ecologicaltraitdata.github.io/ETS/v0.8/" class="uri">https://ecologicaltraitdata.github.io/ETS/v0.8/</a> , DOI: <a href="https://doi.org/10.5281/zenodo.1255287">10.5281/zenodo.1255287</a></p>
+</blockquote>
+<p>It is recommended to provide this versioned pointer from the metadata of datasets that apply the ETS. You can cite <strong>all versions</strong> of the ETS by using the DOI <a href="https://doi.org/10.5281/zenodo.1041732">10.5281/zenodo.1041732</a>. This will always resolve to the latest version.</p>
+<p>Please also cite the paper discussing the rationale of the Ecological Trait-data Standard:</p>
+<blockquote>
+<p>Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C., Fichtmüller, D., Gossner, M.M., Güntsch, A., König-Ries, B., Manning, P. and Simons, N.K. (2018) Towards an Ecological Trait-data Standard, biorxiv.org DOI: <a href="https://doi.org/10.1101/328302">10.1101/328302</a></p>
+</blockquote>
+</div>
+<div id="contribute-to-future-development" class="section level1">
+<h1>Contribute to future development</h1>
+<p>The Ecological Traitdata Standard Vocabulary is under continuous and open community development, hosted on <a href="https://github.com/EcologicalTraitData/ETS">Github</a>. It invites submissions of new terms and extensions, and revisions of existing terms from a wide community of researchers working with trait data. Please refer to the <a href="https://github.com/EcologicalTraitData/ETS/issues">Github Issues page</a> for discussion and revision of individual terms, and settle the issue here before filing a pull-request that implements an update.</p>
+<div id="versioning" class="section level2">
 <h2>Versioning</h2>
-<p><strong>Current Version is 0.6</strong></p>
+<p><strong>Current Version is 0.8</strong></p>
 <p>Terminologies must provide a stability of definitions. If publications refer to the URI of a term, the definition found must be stable and be true to the definition intended by the author.</p>
 <p>That said, definitions of terms can only be broadened or made more explicit, if the original sense of the definition remains valid. The discussion leading to a refinement of a term should consider this. If a definition changes substantially, it should receive an own URI and replace any redundant or deprecated terms. The deprecated terms will remain available at the same URI.</p>
 <p>At some point, a new major version of the Traitdata Standard may be issued, providing new versioned URIs for all terms of the standard that have been altered since the previous major version.</p>
-</section>
-<section id="suggested-citation" class="level2">
-<h2>Suggested Citation</h2>
-<p>To refer to <strong>this version</strong> of the ETS please cite:</p>
-<blockquote>
-<p>Schneider et al. (2017) Ecological Traitdata Standard, v0.6, URL: <a href="https://ecologicaltraitdata.github.io/ETS/v0.6/" class="uri">https://ecologicaltraitdata.github.io/ETS/v0.6/</a> , DOI: <a href="https://doi.org/10.5281/zenodo.1041733">10.5281/zenodo.1041733</a></p>
-</blockquote>
-<p>Please also cite the methods paper for the rationale and general considerations of semantic standardization of trait data:</p>
-<blockquote>
-<p>Florian D. Schneider, Malte Jochum, Gaetane LeProvost, Andreas Ostrowski, Caterina Penone, Nadja K. Simons (in preparation) Introducing an Ecological Trait-data Standard.</p>
-</blockquote>
-</section>
-<section id="license" class="level2">
+</div>
+<div id="contributors" class="section level2">
+<h2>Contributors</h2>
+<p>The Ecological Trait-data Standard was authored by Florian D. Schneider, Malte Jochum, Gaëtane Le Provost, Andreas Ostrowski, Caterina Penone, and Nadja Simons. It was ported to the GFBio Terminology Service by David Fichtmüller.</p>
+<p>Contributors: David Fichtmüller</p>
+</div>
+<div id="license" class="section level2">
 <h2>License</h2>
-<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span data-xmlns:dct="http://purl.org/dc/terms/" data-property="dct:title">Ecological Traitdata Standard </span> by <span data-xmlns:cc="http://creativecommons.org/ns#" data-property="cc:attributionName">Florian D. Schneider, Nadja K. Simons, Caterina Penone, Andreas Ostrowski</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
-</section>
-</section>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Ecological Traitdata Standard </span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florian D. Schneider, Malte Jochum, Gaëtane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. That means, you are free to use and re-use, modify and publish all texts and documents on this website, as long as you give attribution to its original source.</p>
+</div>
+</div>
 
 
 

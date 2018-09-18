@@ -11,7 +11,7 @@
 
 
 
-<title>Structure of trait data</title>
+<title>Version history</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,8 +20,9 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -30,10 +31,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -171,7 +174,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Ecological Traitdata Standard</a>
+      <a class="navbar-brand" href="index.html">Ecological Trait-data Standard</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -179,7 +182,7 @@ $(document).ready(function () {
   <a href="index.html">
     <span class="fa fa-file-text-o"></span>
      
-    Glossary
+    Vocabulary
   </a>
 </li>
 <li>
@@ -189,26 +192,30 @@ $(document).ready(function () {
     About
   </a>
 </li>
-<li>
-  <a href="structure.html">Structure of traitdata</a>
-</li>
-<li>
-  <a href="thesauri.html">Trait Thesauri</a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Version history
+    Versions
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="/v0.5/index.html">v0.5</a>
+      <a href="versions.html">Version history</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.7/index.html">v0.7</a>
     </li>
     <li>
-      <a href="/v0.4/index.html">v0.4</a>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.6/index.html">v0.6</a>
+    </li>
+    <li>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.5/index.html">v0.5</a>
+    </li>
+    <li>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.4/index.html">v0.4</a>
     </li>
   </ul>
 </li>
@@ -216,7 +223,6 @@ $(document).ready(function () {
   <a href="http://github.com/EcologicalTraitdata/">
     <span class="fa fa-github"></span>
      
-    Github
   </a>
 </li>
       </ul>
@@ -228,23 +234,76 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Structure of trait data</h1>
+<h1 class="title toc-ignore">Version history</h1>
 
 </div>
 
 
-<p>Trait data should be stored in a long table format containing one measurement per row described by the terms provided in the core section. (see our Methods paper for further considerations on data structure and format).</p>
-<p>For reasons of reproducibility and openness, data should not be saved in proprietary or compressed spreadsheet formats (like ‘.xls’ or ‘.xlsx’) but rather in comma-separated text files (‘.csv’ or ‘.txt’).</p>
-<p>There are two possibilities to integrate further information to the core trait data columns:</p>
+<p>Standard terminologies must provide a stability of definitions. If publications refer to the URI of a term, the link must be semantically stable and be true to the definition intended by the author.</p>
+<p>That said, with minor increments of the standard, definitions of terms can only be broadened or made more explicit, if the original sense of the definition remains valid. The community discussion leading to a refinement of a term should consider this. If a definition changes substantially, it may receive an own URI and replace any redundant or deprecated terms. The deprecated terms will remain available at their original URI.</p>
+<p>If alterations in terms lead to incompatibility with previous versions, a new major version of the Trait-data Standard Vocabulary may be issued, providing new versioned URIs for all terms of the standard that have been altered since the previous major version.</p>
+<p>Discussions on terms and versions are coordinated in the <a href="https://github.com/EcologicalTraitData/ETS/issues">Github Issues</a>.</p>
+<section id="v0.8.0-released-29-may-2018" class="level1">
+<h1>v0.8.0, released 29 May 2018</h1>
 <ul>
-<li><strong>within the same data file</strong>: additional terms are provided to describe columns containing properties concerning the measurement or the occurrence of the specimen.</li>
-<li><strong>in separate data files</strong>: the main file refers to additional data files via unique identifiers, encoding each individual occurrence of a species (<code>occurrenceID</code>), single measurements or reported facts (<code>measurementID</code>), locations of sampling (<code>locationID</code>) and sampling campaigns (<code>eventID</code>).</li>
+<li>fix patches and minor things in term definitions and comments, provide more examples.</li>
+<li>revise description on vocabulary sections</li>
+<li>revise recommendation for trait definitions; drop page on publication of Thesauri</li>
 </ul>
-<p>For chosing one or the other, the trade-off is data-consistency and readability <em>vs.</em> avoidance of content duplication.</p>
-<p>For standalone dataset publications on a hosting service with only little information content beside the core traitdata columns, the first would be the preferred format, since it facilitates an analysis of cofactors and correlations further down the road. If datasets of different source are merged, the information is readily available without the risk of breaking the reference to an external datasheet. Other cases, where key data columns would be placed in the same table as the core data are traits assessed on a higher level of organisation, e.g. microbial functional traits assessed at the community level taken from a soil sample. Here, location or measurement information are in the primary focus of the investigation.</p>
-<p>The latter links separate data sheets by identifiers, which has the advantage of tidy datasets and avoids duplication of verbose information <span class="citation">[@wickham14]</span>. As a rule of thumb, the columns of the ‘Measurement or Fact’ and ‘Occurrence’ extension would be stored in a separate data sheet. EOL TraitBank proposes the use of Darwin Core Archives <span class="citation">[http://eol.org/info/structured_data_archives, DwC-A; @robertson09]</span> to upload such related data along with the core trait dataset, which is also the accepted format for GBIF <span class="citation">[@gbif17]</span>. These are .zip archives containing data table txt-files along with a descriptive metadata file (in .xml format). Detailled descriptions and tools for validation can be found on the website of EOL (<a href="http://eol.org/info/cp_archives" class="uri">http://eol.org/info/cp_archives</a>) and GBIF (<a href="http://tools.gbif.org/dwca-assistant/" class="uri">http://tools.gbif.org/dwca-assistant/</a>).</p>
-<p>A general definition, whether a column describes asset data or is part of the central dataset is ill advised. Therefore, our glossary of terms should be used to describe the scientific data according to the study context</p>
-<p>The R package ‘traitdataform’ (<a href="https://www.github.com/fdschneider/traitdataform" class="uri">https://www.github.com/fdschneider/traitdataform</a>) provides tools to transfer heterogeneous datasets into a longtable format and to create standardized taxa and trait columns, based on public ontologies.</p>
+</section>
+<section id="v0.7.0-released-21-march-2018" class="level1">
+<h1>v0.7.0, released 21 March 2018</h1>
+</section>
+<section id="major-changes" class="level1">
+<h1>major changes</h1>
+<ul>
+<li>add class/extension “Taxon” with extended taxonomic hierarchical terms.</li>
+<li>rename terms of “Biodiversity Exploratories” extension</li>
+</ul>
+</section>
+<section id="v0.6.1-released-21-nov.2017" class="level1">
+<h1>v0.6.1, released 21 Nov. 2017</h1>
+<ul>
+<li>update terms for traitlists (Trait Thesauri)</li>
+<li>fixed typo</li>
+</ul>
+</section>
+<section id="v0.6-released-14-nov.2017" class="level1">
+<h1>v0.6, released 14 Nov. 2017</h1>
+<section id="major-changes-1" class="level2">
+<h2>major changes</h2>
+<ul>
+<li>Construct multi-page website using Rmarkdown Website</li>
+<li>add recommendations on how to build trait thesaurus</li>
+</ul>
+</section>
+<section id="minor-changes" class="level2">
+<h2>minor changes</h2>
+</section>
+</section>
+<section id="v0.5-released-3-nov.2017" class="level1">
+<h1>v0.5, released 3 Nov. 2017</h1>
+<p>Website | Github release | DOI:</p>
+<section id="major-changes-2" class="level2">
+<h2>major changes</h2>
+<ul>
+<li>fix URIs of terms, forward URI of terms identical to DwC</li>
+<li>removed colum ‘vocabulary’, define constrained vocabulary in Comments instead</li>
+</ul>
+</section>
+<section id="minor-changes-1" class="level2">
+<h2>minor changes</h2>
+<ul>
+<li>spell-checking terms and descriptions, remove reference to Exploratories</li>
+</ul>
+</section>
+</section>
+<section id="v0.4-released-aug.2017" class="level1">
+<h1>v0.4, released Aug. 2017</h1>
+</section>
+<section id="v0.2-released-12-mai-2017" class="level1">
+<h1>v0.2, released 12 Mai 2017</h1>
+</section>
 
 
 
