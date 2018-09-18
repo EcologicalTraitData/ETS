@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Version history</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ecological Trait-data Standard</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-file-text-o"></span>
+     
+    Vocabulary
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Versions
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="versions.html">Version history</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="http://github.com/EcologicalTraitdata/">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Version history</h1>
+
+</div>
+
+
+<p>Standard terminologies must provide a stability of definitions. If publications refer to the URI of a term, the link must be semantically stable and be true to the definition intended by the author.</p>
+<p>That said, with minor increments of the standard, definitions of terms can only be broadened or made more explicit, if the original sense of the definition remains valid. The community discussion leading to a refinement of a term should consider this. If a definition changes substantially, it may receive an own URI and replace any redundant or deprecated terms. The deprecated terms will remain available at their original URI.</p>
+<p>If alterations in terms lead to incompatibility with previous versions, a new major version of the Trait-data Standard Vocabulary may be issued, providing new versioned URIs for all terms of the standard that have been altered since the previous major version.</p>
+<p>Discussions on terms and versions are coordinated in the <a href="https://github.com/EcologicalTraitData/ETS/issues">Github Issues</a>.</p>
+<hr />
+<div id="release-candidate-v0.9.0-released-xx-september-2018" class="section level1">
+<h1>release candidate: v0.9.0, released xx September 2018</h1>
+<div id="major-changes" class="section level2">
+<h2>major changes</h2>
+<ul>
+<li>rename source file into ETS.csv</li>
+<li>fix date scheme to ISO 8601</li>
+<li>eliminate term versions, introduce ‘FirstIssuedIn’ to refer to ETS version</li>
+<li>introduce Traitlist|relatedTerm and revive Traitlist|source: these</li>
+</ul>
+</div>
+<div id="minor-changes" class="section level2">
+<h2>minor changes</h2>
+<ul>
+<li>update documentation page and field definitions</li>
+<li>fix documentation page relative links</li>
+<li>add contributing conditions (CONTRIBUTING.md) &amp; license statement (LICENSE.md)</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="v0.8.0-released-29-may-2018" class="section level1">
+<h1>v0.8.0, released 29 May 2018</h1>
+<p>(<a href="https://github.com/EcologicalTraitData/ETS/tree/v0.8">Github</a> )</p>
+<ul>
+<li>fix patches and minor things in term definitions and comments, provide more examples.</li>
+<li>revise description on vocabulary sections</li>
+<li>revise recommendation for trait definitions; drop page on publication of Thesauri</li>
+</ul>
+<hr />
+</div>
+<div id="v0.7.0-released-21-march-2018" class="section level1">
+<h1>v0.7.0, released 21 March 2018</h1>
+<p>(<a href="https://github.com/EcologicalTraitData/ETS/tree/v0.7">Github</a> )</p>
+<div id="major-changes-1" class="section level2">
+<h2>major changes</h2>
+<ul>
+<li>add class/extension “Taxon” with extended taxonomic hierarchical terms.</li>
+<li>rename terms of “Biodiversity Exploratories” extension</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="v0.6.1-released-21-nov.2017" class="section level1">
+<h1>v0.6.1, released 21 Nov. 2017</h1>
+<ul>
+<li>update terms for traitlists (Trait Thesauri)</li>
+<li>fixed typo</li>
+</ul>
+<hr />
+</div>
+<div id="v0.6-released-14-nov.2017" class="section level1">
+<h1>v0.6, released 14 Nov. 2017</h1>
+<div id="major-changes-2" class="section level2">
+<h2>major changes</h2>
+<ul>
+<li>Construct multi-page website using Rmarkdown Website</li>
+<li>add recommendations on how to build trait thesaurus</li>
+</ul>
+</div>
+<div id="minor-changes-1" class="section level2">
+<h2>minor changes</h2>
+<hr />
+</div>
+</div>
+<div id="v0.5-released-3-nov.2017" class="section level1">
+<h1>v0.5, released 3 Nov. 2017</h1>
+<p>Website | Github release | DOI:</p>
+<div id="major-changes-3" class="section level2">
+<h2>major changes</h2>
+<ul>
+<li>fix URIs of terms, forward URI of terms identical to DwC</li>
+<li>removed colum ‘vocabulary’, define constrained vocabulary in Comments instead</li>
+</ul>
+</div>
+<div id="minor-changes-2" class="section level2">
+<h2>minor changes</h2>
+<ul>
+<li>spell-checking terms and descriptions, remove reference to Exploratories</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="v0.4-released-aug.2017" class="section level1">
+<h1>v0.4, released Aug. 2017</h1>
+<hr />
+</div>
+<div id="v0.2-released-12-mai-2017" class="section level1">
+<h1>v0.2, released 12 Mai 2017</h1>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
