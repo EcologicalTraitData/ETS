@@ -10,6 +10,22 @@ If alterations in terms lead to incompatibility with previous versions, a new ma
 
 Discussions on terms and versions are coordinated in the [Github Issues](https://github.com/EcologicalTraitData/ETS/issues).
 
+# v0.9.0, released xx September 2018
+
+## major changes 
+
+- rename source file into ETS.csv
+- fix date scheme to ISO 8601 
+- eliminate term versions, introduce 'FirstIssuedIn' to refer to ETS version
+- introduce Traitlist|relatedTerm and revive Traitlist|source: these 
+
+## minor changes
+
+- update documentation page and field definitions
+- fix documentation page relative links
+- add contributing conditions (CONTRIBUTING.md) & license statement (LICENSE.md)
+
+
 # v0.8.0, released 29 May 2018
 
 - fix patches and minor things in term definitions and comments, provide more examples.
@@ -18,7 +34,7 @@ Discussions on terms and versions are coordinated in the [Github Issues](https:/
 
 # v0.7.0, released 21 March 2018
 
-# major changes
+## major changes
 - add class/extension "Taxon" with extended taxonomic hierarchical terms. 
 - rename terms of "Biodiversity Exploratories" extension
 
