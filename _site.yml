@@ -6,14 +6,7 @@ output:
     lib_dir: site_libs
     self_contained: no
 output_dir: docs
-exclude:
-- '*.xlsx'
-- draft/*.*
-- bexis/*.*
-- gfbio/*.*
-- '*.R'
-- amnat.csl
-- biblio.bib
+exclude: ['*.xlsx', 'draft', 'bexis', 'gfbio', '*.R', 'amnat.csl', 'biblio.bib']
 navbar:
   title: Ecological Trait-data Standard
   left:
