@@ -16,10 +16,11 @@ Discussions on terms and versions are coordinated in the [Github Issues](https:/
 
 ## major changes 
 
+- move URI for terms to GFBio terminology service
 - rename source file into ETS.csv
 - fix date scheme to ISO 8601 
 - eliminate term versions, introduce 'FirstIssuedIn' to refer to ETS version
-- introduce Traitlist|relatedTerm and revive Traitlist|source: these 
+- introduce Traitlist|relatedTerm and revive Traitlist|source 
 
 ## minor changes
 
