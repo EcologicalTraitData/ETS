@@ -1,0 +1,14 @@
+	<owl:DatatypeProperty rdf:about="{{cells["Identifier"].value}}">
+		<rdfs:label xml:lang="en">{{cells["columnName"].value}}</rdfs:label>
+{{if(isBlank(cells["Definition"].value),"","		<dcterms:description xml:lang=\"en\">"+cells["Definition"].value+"</dcterms:description>
+")}}{{if(isBlank(cells["Comment"].value),"","		<rdfs:comment xml:lang=\"en\">"+cells["Comment"].value+"</rdfs:comment>
+")}}		<rdfs:isDefinedBy rdf:resource="{{cells["isDefinedBy"].value}}" />
+{{if(isBlank(cells["DateIssued"].value),"","		<dcterms:issued>"+cells["DateIssued"].value+"</dcterms:issued>
+")}}{{if(isBlank(cells["DateModified"].value),"","		<dcterms:modified>"+cells["DateModified"].value+"</dcterms:modified>
+")}}		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+{{if(isBlank(cells["Refines"].value),"","		<rdfs:subPropertyOf rdf:resource=\""+cells["Refines"].value+"\" />
+")}}{{if(isBlank(cells["Replaces"].value),"","		<dcterms:replaces rdf:resource=\""+cells["Replaces"].value+"\"/>
+")}}{{if(or(isBlank(cells["Deprecated"].value),cells["Deprecated"].value=="false",cells["Deprecated"].value=="no",cells["Deprecated"].value=="0"),"		<dwcattributes:status>recommended</dwcattributes:status>","		<dwcattributes:status>historical</dwcattributes:status>")}}
+{{if(isBlank(cells["ReplacedBy"].value),"","		<dcterms:isReplacedBy rdf:resource=\""+cells["ReplacedBy"].value+"\"/>
+")}}		<dwcattributes:organizedInClass rdf:resource="{{cells["Class"].value}}" />
+	</owl:DatatypeProperty>

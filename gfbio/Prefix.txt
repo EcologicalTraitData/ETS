@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dwcattributes="http://rs.tdwg.org/dwc/terms/attributes/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/"	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:cc="http://creativecommons.org/ns#" xml:base="http://terminologies.gfbio.org/terms/ETS/">
+	<owl:Ontology rdf:about="http://terminologies.gfbio.org/terms/ETS/">
+		<dcterms:title xml:lang="en">Ecological Trait-data Standard (ETS)</dcterms:title>
+		<dcterms:description>The Ecological Trait-data Standard defines terms for the use in datasets containing quantitative and qualitative functional traits.</dcterms:description>
+		<rdfs:comment>For more information about this standard visit https://terminologies.gfbio.org/terms/ets/pages/</rdfs:comment>
+		<rdfs:comment>To contribute to this standard, see https://github.com/EcologicalTraitData/ETS</rdfs:comment>
+		<dc:creator xml:lang="en">Florian D. Schneider</dc:creator>
+		<dc:creator xml:lang="en">Malte Jochum</dc:creator>
+		<dc:creator xml:lang="en">Gaëtane LeProvost</dc:creator>
+		<dc:creator xml:lang="en">Andreas Ostrowski</dc:creator>
+		<dc:creator xml:lang="en">Caterina Penone</dc:creator>
+		<dc:creator xml:lang="en">Nadja Simons</dc:creator>
+		<dc:contributor xml:lang="en">David Fichtmueller</dc:contributor>
+		<dc:publisher xml:lang="en">GFBio Terminology Service</dc:publisher>
+		<dc:language>en</dc:language>
+		<dcterms:modified>2018-09-17</dcterms:modified>
+		<owl:versionInfo>0.9</owl:versionInfo>
+		<owl:versionIRI rdf:resource="http://terminologies.gfbio.org/terms/ets/2018-09-17/ets.owl"/>
+		<cc:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+
+	</owl:Ontology>
+	
+	<!-- 
+	Each RDF description uses the following:
+		rdfs:label
+		rdfs:comment
+		dcterms:description
+		rdfs:isDefinedBy
+		dcterms:issued
+		dcterms:modified
+		rdf:type
+		rdfs:subPropertyOf
+		dwcattributes:status
+		dwcattributes:organizedInClass
+	-->
+	
+
+	<!-- term groups -->
+	<owl:Class rdf:about="http://terminologies.gfbio.org/terms/ETS/Traitdata">
+		<rdfs:label xml:lang="en">Traitdata</rdfs:label>
+		<dcterms:description xml:lang="en">Vocabulary for ecological trait data</dcterms:description>
+		<rdfs:comment xml:lang="en">The terms in this vocabulary structure facts or measurement values describing a property of an entity (e.g. a single specimen or population) of a specific taxon.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-11-14</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+	</owl:Class>
+	<owl:Class rdf:about="http://terminologies.gfbio.org/terms/ETS/Metadata">
+		<rdfs:label xml:lang="en">Metadata</rdfs:label>
+		<dcterms:description xml:lang="en">Vocabulary to describe dataset-level properties on authorship and rights</dcterms:description>
+		<rdfs:comment xml:lang="en">Specifications on terms of use and dataset-level information on authorship and ownership.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-11-14</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+	</owl:Class>
+	<owl:Class rdf:about="http://terminologies.gfbio.org/terms/ETS/Traitlist">
+		<rdfs:label xml:lang="en">Traitlist</rdfs:label>
+		<dcterms:description xml:lang="en">Vocabulary for lists of trait definitions</dcterms:description>
+		<rdfs:comment xml:lang="en">A minimal set of terms for semantic trait ontologies or thesauri of trait definitions</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-11-14</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+	</owl:Class>
+	<owl:Class rdf:about="http://terminologies.gfbio.org/terms/ETS/Occurrence">
+		<rdfs:label xml:lang="en">Occurrence</rdfs:label>
+		<dcterms:description xml:lang="en">Extended Vocabulary for the description of individual specimens</dcterms:description>
+		<rdfs:comment xml:lang="en">These data should be linked to the core traitdata by a unique occurrenceID or locationID.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-11-14</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+	</owl:Class>
+	<owl:Class rdf:about="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact">
+		<rdfs:label xml:lang="en">MeasurementOrFact</rdfs:label>
+		<dcterms:description xml:lang="en">Extended Vocabulary for the description of measurement procedures</dcterms:description>
+		<rdfs:comment xml:lang="en">These data should be linked to the core traitdata by a unique measurementID.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-11-14</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+	</owl:Class>
+	<owl:Class rdf:about="http://terminologies.gfbio.org/terms/ETS/BiodiversityExploratories">
+		<rdfs:label xml:lang="en">BiodiversityExploratories</rdfs:label>
+		<dcterms:description xml:lang="en">Extended Vocabulary for geolocation within the Biodiversity Exploratories Project</dcterms:description>
+		<rdfs:comment xml:lang="en">These data should be linked to the core traitdata by a ExploratoriesPlotID.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-11-14</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+	</owl:Class>
+	
+
+	<!-- individual terms -->
+ 
