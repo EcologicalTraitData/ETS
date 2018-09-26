@@ -70,8 +70,6 @@ At some point, a new major version of the Traitdata Standard may be issued, prov
 
 The Ecological Trait-data Standard  was authored by Florian D. Schneider, Malte Jochum, Gaëtane Le Provost, Andreas Ostrowski, Caterina Penone, and Nadja Simons. It was ported to the GFBio Terminology Service by David Fichtmüller. 
 
-Contributors: David Fichtmüller
-
 ## License
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Ecological Traitdata Standard </span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florian D. Schneider, Malte Jochum, Gaëtane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. That means, you are free to use and re-use, modify and publish all texts and documents on this website, as long as you give attribution to its original source. 
