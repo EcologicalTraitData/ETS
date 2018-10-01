@@ -3,7 +3,7 @@ title: "Ecological Trait-data Standard"
 author: "Florian D. Schneider, Malte Jochum, Gaëtane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons"
 date: "v0.9, released: 20 September 2018"
 params: 
-  release: FALSE
+  release: TRUE
 ---
 
 `r if(params$release) '<!--'`
@@ -31,8 +31,8 @@ We provide four extensions of the vocabulary, that allow for additional informat
 This glossary of terms is available as 
 
 - this human-readable reference (html website), including commentaries and further definitions,
-- a csv table file (the 'source' file,  [ETS.csv](https://github.com/EcologicalTraitData/ETS/raw/master/ETS.csv)),
-- a machine readable .owl ontology file, compliant with semantic web standards accessible via an API (produced by and hosted on the GFBio Terminology Server, **coming soon!**).
+- a csv table file (the 'source' file,  [ETS.csv](https://github.com/EcologicalTraitData/ETS/raw/release/ETS.csv)),
+- a machine readable .owl ontology file (the release file, [ets.owl]((https://github.com/EcologicalTraitData/ETS/raw/release/ets.owl)), compliant with semantic web standards accessible via an API (produced by and hosted on the GFBio Terminology Server:  https://terminologies.gfbio.org/terminology/?ontology=ETS).
 
 The rationale for developing the Ecological Trait-data standard has been cast in a paper that is available as pre-print:  
 
