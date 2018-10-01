@@ -12,7 +12,9 @@ Discussions on terms and versions are coordinated in the [Github Issues](https:/
 
 ---
 
-# release candidate: v0.9.0, released xx September 2018 
+# v0.9, released 27 September 2018 
+
+First public release at GFBio Terminology Service: https://terminologies.gfbio.org/terms/ets/pages/ (human readable) and https://terminologies.gfbio.org/terminology/?ontology=ETS (API access). 
 
 ## major changes 
 
@@ -21,10 +23,11 @@ Discussions on terms and versions are coordinated in the [Github Issues](https:/
 - fix date scheme to ISO 8601 
 - eliminate term versions, introduce 'FirstIssuedIn' to refer to ETS version
 - introduce Traitlist|relatedTerm and revive Traitlist|source 
+- provide field definitions in README
 
 ## minor changes
 
-- update documentation page and field definitions
+- split documentation page into separate branch
 - fix documentation page relative links
 - add contributing conditions (CONTRIBUTING.md) & license statement (LICENSE.md)
 
