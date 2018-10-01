@@ -5,8 +5,7 @@ This repository hosts the **Ecological Traitdata Standard**, which defines terms
 The repository contains: 
 
 - the 'source file' of the ETS (in .csv format), defining the terms and containing the URIs.
-- the source files of the documentation website (.Rmd, .yml), which are parsed in [RStudio as a Rmarkdown Website](http://rmarkdown.rstudio.com/rmarkdown_websites.html) and served via [Github pages](https://pages.github.com/) (output in folder docs) to https://ecologicaltraitdata.github.io/ETS/. 
-- a machine readable version will be generated and hosted by GFBio in .owl format.
+- the 'release' of the ETS (in .owl format), which is the machine-readable reference for the use in GFBio terminology service, accessible at [https://terminologies.gfbio.org/terminology/?ontology=ETS](https://terminologies.gfbio.org/terminology/?ontology=ETS).  
 
 # Use the ETS
 
@@ -42,7 +41,7 @@ The vocabulary contains several fields which are defined as follows:
 
 To refer to **this version** of the ETS please cite: 
   
-> Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C. and Simons, N.K. (2018) Ecological Trait-data Standard Vocabulary, v0.8, URL: https://ecologicaltraitdata.github.io/ETS/v0.8/ , DOI: [10.5281/zenodo.1255287](https://doi.org/10.5281/zenodo.1255287)  
+> Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C. and Simons, N.K. (2018) Ecological Trait-data Standard Vocabulary, v0.9, URL: https://terminologies.gfbio.org/terms/ets/pages/, DOI: [10.5281/zenodo.1041732](https://doi.org/10.5281/zenodo.1041732)  
 
 It is recommended to provide this versioned pointer from the metadata of datasets that apply the ETS. You can cite **all versions** of the ETS by using the DOI [10.5281/zenodo.1041732](https://doi.org/10.5281/zenodo.1041732). This will always resolve to the latest version.  
 
@@ -58,7 +57,7 @@ Please refer to the [Github Issues page](https://github.com/EcologicalTraitData/
 
 ## Versioning
 
-**Current Version is 0.8**
+**Current Version is 0.9**
 
 Terminologies must provide a stability of definitions. If publications refer to the URI of a term, the definition found must be stable and be true to the definition intended by the author.
 
