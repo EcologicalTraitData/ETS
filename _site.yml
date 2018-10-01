@@ -20,7 +20,7 @@ navbar:
   - text: Versions
     menu:
     - text: Version history
-      href: versions.html
+      href: VERSIONS.html
     - text: '--------'
     - text: v0.8
       href: https://ecologicaltraitdata.github.io/ETS/v0.8/index.html
