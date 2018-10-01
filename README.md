@@ -5,8 +5,8 @@ This repository hosts the **Ecological Traitdata Standard**, which defines terms
 The repository contains: 
 
 - the 'source file' of the ETS (in .csv format), defining the terms and containing the URIs.
-- the source files of the documentation website (.Rmd, .yml), which are parsed in [RStudio as a Rmarkdown Website](http://rmarkdown.rstudio.com/rmarkdown_websites.html) and served via [Github pages](https://pages.github.com/) (output in folder docs) to https://ecologicaltraitdata.github.io/ETS/. 
-- a machine readable version will be generated and hosted by GFBio in .owl format.
+- the 'release' of the ETS (in .owl format), which is the machine-readable reference for the use in GFBio terminology service, accessible at [https://terminologies.gfbio.org/terminology/?ontology=ETS](https://terminologies.gfbio.org/terminology/?ontology=ETS).  
+- the source files of the documentation website (.Rmd, .yml), which are parsed in [RStudio as a Rmarkdown Website](http://rmarkdown.rstudio.com/rmarkdown_websites.html) and released as a static website at [GFBio Terminology Service](https://terminologies.gfbio.org/terms/ets/pages/), and as a development preview at https://ecologicaltraitdata.github.io/ETS/. 
 
 # Use the ETS
 
