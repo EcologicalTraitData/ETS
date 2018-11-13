@@ -12,6 +12,20 @@ Discussions on terms and versions are coordinated in the [Github Issues](https:/
 
 ---
 
+# v0.9.1 (patch), released 13 November 2018
+
+Fixing inconsistent URIs and terms. Keeping original terms as deprecated, forwarding to new terms. Defining name scheme for new terms in documentation. 
+
+## major changes
+
+- new case spelling for following terms: occurrenceRemarks
+- new URI for following terms:  scientificName, traitName, traitID, traitValue, traitUnit, scientificNameStd, traitNameStd, traitValueStd, traitUnitStd, measurementID, occurrenceID, basisOfRecord, basisOfRecordDescription, identifier, comments
+
+## minor changes
+
+- define name scheme for new terms and URIs
+- add best-practice guidelines to documentation page
+
 # v0.9, released 27 September 2018 
 
 First public release at GFBio Terminology Service: https://terminologies.gfbio.org/terms/ets/pages/ (human readable) and https://terminologies.gfbio.org/terminology/?ontology=ETS (API access). 

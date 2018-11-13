@@ -42,7 +42,7 @@ The vocabulary contains several fields which are defined as follows:
 
 To refer to **this version** of the ETS please cite: 
   
-> Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C. and Simons, N.K. (2018) Ecological Trait-data Standard Vocabulary, v0.9, URL: https://terminologies.gfbio.org/terms/ets/pages/ , DOI: [10.5281/zenodo.1441132](https://doi.org/10.5281/zenodo.1441132)  
+> Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C. and Simons, N.K. (2018) Ecological Trait-data Standard Vocabulary, v0.9.1, URL: https://terminologies.gfbio.org/terms/ets/pages/ , DOI: [10.5281/zenodo.1485739](https://doi.org/10.5281/zenodo.1485739)  
 
 It is recommended to provide this versioned pointer from the metadata of datasets that apply the ETS. You can cite **all versions** of the ETS by using the DOI [10.5281/zenodo.1041732](https://doi.org/10.5281/zenodo.1041732). This will always resolve to the latest version.  
 

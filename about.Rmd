@@ -55,7 +55,7 @@ Major version 1.0 is aimed to be released in 2019 as a result of a community dis
 
 To refer to **this version** of the ETS please cite: 
 
-> Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C. and Simons, N.K. (2018) Ecological Trait-data Standard Vocabulary, v0.8, URL: https://ecologicaltraitdata.github.io/ETS/v0.8/ , DOI: [10.5281/zenodo.1255287](https://doi.org/10.5281/zenodo.1255287)  
+> Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C. and Simons, N.K. (2018) Ecological Trait-data Standard Vocabulary, v0.8, URL: https://ecologicaltraitdata.github.io/ETS/v0.9.1/ , DOI: [10.5281/zenodo.1485739](https://doi.org/10.5281/zenodo.1485739)  
 
 It is recommended to provide this versioned pointer from the metadata of datasets that apply the ETS. You can cite **all versions** of the ETS by using the DOI [10.5281/zenodo.1041732](https://doi.org/10.5281/zenodo.1041732). This will always resolve to the latest version. 
 
@@ -66,8 +66,6 @@ Please also cite the paper discussing the rationale of the Ecological Trait-data
 # Contributors
 
 The Ecological Trait-data Standard  was authored by Florian D. Schneider, Malte Jochum, Gaëtane Le Provost, Andreas Ostrowski, Caterina Penone, and Nadja Simons. It was ported to the GFBio Terminology Service by David Fichtmüller. 
-
-Contributors: David Fichtmüller
 
 # License
 
