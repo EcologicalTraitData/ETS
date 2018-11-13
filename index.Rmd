@@ -9,7 +9,7 @@ params:
 `r if(params$release) '<!--'`
 
 <div class="alert alert-warning">
-  **You are viewing the development branch of ETS!** Do not refer to these terms and this website when publishing standardised trait data! The release reference is at https://terminologies.gfbio.org/terminology/?ontology=ETS. 
+  **You are viewing the development branch of ETS!** Do not refer to these terms and this website when publishing standardised trait data! The release reference is at https://terminologies.gfbio.org/terms/ets/pages/. 
 </div>
 
 `r if(params$release) '-->'`

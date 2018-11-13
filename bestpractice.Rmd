@@ -116,7 +116,7 @@ However, a disadvantage of the long-table data structure is the mixing of units 
 
 # 21247 morphological traits of moths
 
-moths <- read.service(21247, dec = ",")
+moths <- read.service(21247, dec = ",", user = "fdschneider")
 
 attr(moths, 'thesaurus') <-  traitdataform:::as.thesaurus(
   weight = traitdataform:::as.trait("body_weight",
