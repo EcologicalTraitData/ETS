@@ -1,9 +1,9 @@
 ---
 title: "Ecological Trait-data Standard"
 author: "Florian D. Schneider, Malte Jochum, Gaëtane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons"
-date: "v0.9, released: 20 September 2018"
+date: "v0.9.1, released: 13 November 2018"
 params: 
-  release: TRUE
+  release: FALSE
 ---
 
 `r if(params$release) '<!--'`
@@ -38,7 +38,7 @@ The rationale for developing the Ecological Trait-data standard has been cast in
 
 > Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C., Fichtmüller, D., Gossner, M.M., Güntsch, A., König-Ries, B., Manning, P. and Simons, N.K. (2018) Towards an Ecological Trait-data Standard, biorxiv.org DOI: [10.1101/328302](https://doi.org/10.1101/328302) 
 
-The vocabulary builds on the Darwin Core Standard (DWC; Darwin Core Terms and extensions; these are referenced in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm). 
+The vocabulary builds on the Darwin Core Standard (DWC; Darwin Core Terms and extensions; these are referenced in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm). Note that the documentation page resolves deprecated terms to the term that replaces them in definition, unless they differ in definition. Via API access or in the OWL and CSV file, the definition is accessible for each deprecated term. 
 
 ## Table of contents
 
@@ -53,8 +53,13 @@ sections <- glossary$Namespace
 sectionNames <- levels(glossary$Namespace)
 
 glossary <- as.data.table(glossary)
-glossary <- setNames(split(glossary[,-c(1), with = FALSE], f = as.integer(glossary$Namespace)), sectionNames)
 
+# eliminate all deprecated terms for creation of documentation 
+# WARNING: if deprecated terms are kept with definition different from replacing terms, they should be listed! requires refinement of this part
+glossary <- glossary[-which(glossary$Deprecated),] 
+
+# split list of terms into list of tables per namespace
+glossary <- setNames(split(glossary[,-c(1), with = FALSE], f = as.integer(glossary$Namespace)), sectionNames)
 glossary <- lapply(glossary, function(x) setNames(split(x, f = seq_along(x$columnName)), x$columnName))
 
 namespace <- c("Traitdata", "Metadata", "Traitlist", "Taxon",  "MeasurementOrFact", "Occurrence", "BiodiversityExploratories" )
@@ -103,7 +108,7 @@ sorting <- c( "Definition", "Comment","valueType", "Identifier", "DateIssued", "
      cat("## `", i, "`  ", sep = "")
      cat("\n")
      cat("[go to top](", urlroot, ")", sep = "") 
-     cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
+     #cat("  |  [direct link](", urlroot, "#", tolower(i), ")", sep = "") 
      print(kable(dd, format = "markdown"))
  }
 }
