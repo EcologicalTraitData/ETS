@@ -551,7 +551,7 @@
 					<bgc:block number="55">0</bgc:block>
 				</bgc:variable>
 				<bgc:variable number="56">
-					<bgc:name number="56">occurenceRemarks</bgc:name>
+					<bgc:name number="56">occurrenceRemarks</bgc:name>
 					<bgc:typeOfVariable number="56">string</bgc:typeOfVariable>
 					<bgc:units number="56"></bgc:units>
 					<bgc:description number="56">Comments or notes about the Occurrence.</bgc:description>
