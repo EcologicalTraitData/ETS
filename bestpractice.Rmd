@@ -1,0 +1,222 @@
+---
+title: "Best practice examples for primary data publication"
+fontsize: 11pt
+csl: amnat.csl
+bibliography: biblio.bib
+nocite: | 
+  @gossner15a, @gossner15
+output:
+  html_document:
+    fig_caption: yes
+    keep_md: no
+---
+
+<!---->
+
+This tutorial provides best-practice principles when standardising traits with terms of the Ecological Trait-data Standard (ETS, https://terminologies.gfbio.org/terms/ets/pages/).
+
+We focus this document on the first of the three use-cases for the ETS vocabulary: The publication of project-specific primary data.
+To comply with the FAIR principles of scientific data management and aim at findability, accessibility, interoperability and reusability [@wilkinson16], trait data should apply the following principles when preparing data for publication:
+
+- **Label your dataset!** data should be published with appropriate metadata and provide  a descriptive title and keywords to be findable by search engines. Keywords should include the general label "trait-data", and more specific labels such as "functional traits" or "morphometric traits", as well as the taxa covered by the dataset. 
+
+- **State terms of use!** To enable re-use, the metadata must contain the name of the author or owner of the data, the suggested citation for the data, as well as the license model or terms of use of the data. Recommended are copyright wavers and licenses that permit re-use without seeking authorization from the rights holder, such as Creative Commons (CC) licenses, which also can warrant attribution and citation (CC by) [@kissling18]. Ideally, these statements are provided by the data-hoster in a machine-readable way, by using standardised fields of metadata or hyperlink references. 
+
+- **Use independent file formats!** For reasons of long-term accessibility, data should not be uploaded in proprietary spreadsheet formats (like '.xlsx') but rather in comma- or tab-separated text files  ('.csv' or '.tsv') that are compatible with all computing platforms and internationalisation settings by applying a unified character encoding (e.g. UTF-8 or ASCII). For internationalisation, use points as decimal delimiters and set date-formats to ISO 8601, i.e. "YYYY-MM-DD". 
+
+- **Use standard terms!** Draw column or field names from the ETS vocabulary wherever possible. If co-variates or any ancillary data are not covered by the vocabulary, apply terms of the Darwin Core Standard (DwC).  
+
+- **Use URI references!** Wherever possible, the concepts used to describe the dataset should be referenced to globally accessible Uniform Resource Identifiers (URIs). These references allow data users and software tools to relate the dataset to well-defined concepts of taxa or traits, or measurement units, etc. The ETS-terms 'traitID' and 'taxonID' are defined to label fields with URIs as values. 
+
+- **Provide definitions!** Metadata must reference the data standards, taxonomic concepts and trait ontologies applied in the dataset as well as any user-defined terms and trait concepts. To provide own trait-concepts, use the terms provided within the ETS section "Terms for traitlists". 
+
+- **Publish raw data!** When publishing trait-data, priority is on containing measurement values while minimizing the risk of purporting errors through data conversion or aggregation. Thus, data should be published as they have been recorded, i.e. in original units and raw values, along with standardised values that match a unified and compatible scheme of a data standard. This is true for the core terms, i.e. the trait value (the quality) and observation entity, but also for any co-variates reported along with it. 
+
+- **Keep original values!** For the core terms, data providers should complement user-defined entries (such as project specific taxon abbreviations) with standardised values by applying the '\*Std'-terms. For co-variates, the extensions of the vocabulary provide column names for standardised values only, e.g. elevation above sea-level. These should adhere to accepted standards wherever possible. If any conversion was applied to obtain these data, users should keep the original values in user-defined columns, e.g. by appending '\*Orig' to the column name. Also, additional co-variates, e.g. on environmental growth conditions of the specimen, should be provided in user-defined columns. Any user-defined columns must be adequately defined in the accompanying meta-information. 
+
+- **Report Uncertainty!** If publishing aggregate data (e.g. averages for multiple measurements), report the $n$ and dispersion of the aggregate value. This allows to weigh data from multiple sources when producing compilations. Any sources of bias or noise should be reported along with the data (e.g. observer ID, conditions of measurement etc.). Use terms of the ETS extension "Measurement or Fact". 
+
+- **Use Identifiers!** Well-defined identifiers ('IDs') are key elements to structure the datasets and relate them to complementing datasets, if necessary (Fig. 2 *c* & *d*).
+For instance, for occurrence level data where multiple trait measurements are reported for each individual specimen, the same user-defined entry for 'occurrenceID' would link several measurements across the rows of the dataset. 
+Similarly, multivariate measurements, for instance gas chromatography data or x-y-z data of morphometric coordinates could be linked via a 'measurementID'. 
+In literature data, summarised traits are usually given at the taxon level instead of the individual organism (e.g. reported as means or factorials) and a 'taxonID' is the key identifier.
+In larger compilations, a 'datasetID' allow to trace data origin to the primary source and keep track of authorship and original reference. 
+Beyond being just of structural use for the dataset, identifiers are capable of linking own data to consensus taxonomy and trait terminology via URIs, which point to external terminology services. 
+
+
+# Example 1 - Apply standard terms for matrices
+
+If trait data have been collated at the species level from different literature sources or from expert knowledge, or as aggregated measurements collated from raw data, they usually are reported in a observation-level wide-table format, with a column of values for each trait recorded and a row for each species (or taxon) for which data were available.
+The wide-table format is widely used for the production of lookup-tables at the species level, which may either report qualitative facts (from literature or  expert knowledge) or aggregated quantitative traits (averages or ranges of trait values for this taxon). 
+
+This wide-table format is straightforward for maintaining and managing new data for the data author. 
+In terms of analysis, it allows to easily correlate traits with each other and analyse trade-offs between traits.
+However, wide-tables need to clearly differentiate missing data and traits not applicable to a given taxon (often filled in as 'NA' or dummy numbers, e.g. '999'). Additional information  (e.g. on variation of means or literature source) may be stored in secondary columns or accompanying datasheets. 
+When applying the data standard to wide-table data, the columns for taxa or individuals may be labelled using the terms of the ETS. 
+Taxon concepts should be referenced to globally available concepts using URIs, e.g. by referring to GBIF Taxonomy. Taxa authors and fine-grained higher taxonomy must then be consistent with the linked concept, or may be omitted as redundant and to avoid confusion. 
+
+Remarks should be provided in a human-readable form within the table and provided with further detail in the metadata, if necessary. 
+
+For wide tables, it is essential that the multiple trait columns are labelled in unambiguous ways and be linked to trait concepts provided in the metadata or a secondary spreadsheet.
+
+```{r, echo = FALSE, warning = FALSE, message=FALSE}
+options(knitr.table.format = "html")
+library(kableExtra)
+
+library(traitdataform)
+pulldata('arthropodtraits')
+
+caption = "Example 1 before standardisation; excerpt of original data from Gossner et al. (2015) <em>Scientific Data</em> 2:150013; data DOI: <a href = 'https://doi.org/10.5061/dryad.53ds2'>10.5061/dryad.53ds2</a> containing eight traits of arthropods from an European grassland; details provided in data publication <a href = 'https://www.nature.com/articles/sdata201513/tables/2'>Table 2</a>."
+
+kable(arthropodtraits[1:45,c(1:8,17)], longtable=TRUE, escape = TRUE, row.names = FALSE,
+      booktabs = T, caption = caption) %>%
+kable_styling(latex_options = c("scale_down", "repeat_header", "striped"), font_size = 10)
+
+```
+
+
+```{r, echo = FALSE, warning = FALSE, message=FALSE}
+
+arthropodtraits_head <- head(arthropodtraits, 45) 
+names(arthropodtraits_head)[4] <- "scientificName"
+names(arthropodtraits_head)[1:3] <- tolower(names(arthropodtraits_head)[1:3] )
+arthropodtraits_head$taxonID <- get_gbif_taxonomy(levels(droplevels(arthropodtraits_head$scientificName)))$taxonID
+names(arthropodtraits_head)[17] <- "measurementRemarks"
+levels(arthropodtraits_head$measurementRemarks) <- c("","non-grassland species")
+
+select_cols <- c(4,1,3,18,6:8,17)
+
+caption = "Example 1 after standardisation. Column names mapped to ETS terms; taxa are mapped to taxon concepts in published terminologies via URIs. Trait columns are not standardised and respective definitions and units must be provided in the accompanying metadata."
+
+
+kable(arthropodtraits_head[,select_cols], longtable=TRUE, escape = TRUE, row.names = FALSE,
+      booktabs = T, caption = caption) %>%
+kable_styling(latex_options = c("scale_down", "repeat_header", "striped"), font_size = 10)
+
+```
+
+# Example 2 - provide structure in long-table 
+
+In observation wide-tables, each row is centered around a single physical occurrence of a species, e.g. phenotypic variation of traits within species would usually be recorded per observation where each replicate taken on a distinct individual specimen would be recorded in a row, with the respective trait values stored in columns (see Table B1). 
+Those data are common in investigations of evolutionary trade-offs and trait correlation, or of intra-specific variation along environmental gradients. Occurrence data would also capture phenotypic variation arising from morphotypes and sexual dimorphism. 
+This format is the most intuitive for recording own empirical measurements and therefore is common for measured quantitative data but rarely found for reported qualitative facts obtained from the literature.
+
+A more effective method that allows for high flexibility and easier data merging is the storage of traitdata in long-table formats [@wickham14; @parr16]. 
+This data format corresponds to the Entity-Quality Model: each row contains a single measurement or fact of a specific trait, referenced to a single specimen  (i.e., one occurrence)  which is assigned to a specific taxon  (see Table B2). 
+Identifiers can provide structure and link measurements that are correlated by assigning a unique ID for each single individual. 
+Also, multivariate trait measurements can be recorded in this format by linking multiple rows via a unique measurement identifier. 
+Long-table datasets purport multiple advantages for data handling (e.g. filtering, sub-setting and aggregating data), visualization (e.g. plot measured values by factor variable or taxon) and statistical modelling (e.g. ANOVA for testing difference of trait value by sex) [@wickham14]. 
+As long-table data share a larger set of columns, merging of datasets is in most cases easier for the end-user.
+
+However, a disadvantage of the long-table data structure is the mixing of units or even factor levels in the 'traitValue' column. The mixed content of this column prohibits filtering data based on their values. Data-splitting techniques or a database system are tools to disentangle the data. 
+
+```{r,  echo = FALSE, warning = FALSE, message=FALSE}
+
+# 21228 life history traits of moths
+
+# 21247 morphological traits of moths
+
+moths <- read.service(21247, dec = ",")
+
+attr(moths, 'thesaurus') <-  traitdataform:::as.thesaurus(
+  weight = traitdataform:::as.trait("body_weight",
+                                    expectedUnit = "mg", valueType = "numeric",
+                                    identifier = "http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Body_weight"),
+  wing_length = traitdataform:::as.trait("wing_length",
+                                         expectedUnit = "mm", valueType = "numeric",
+                                         identifier = ""),
+  wing_width = traitdataform:::as.trait("wing_width",
+                                        expectedUnit = "mm", valueType = "numeric",
+                                        identifier = ""),
+  wing_area = traitdataform:::as.trait("wing_area",
+                                       expectedUnit = "mm2", valueType = "numeric",
+                                       identifier = "http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface"),
+  wing_loading = traitdataform:::as.trait("wing_loading",
+                                          expectedUnit = "mg mm-2", valueType = "numeric",
+                                          identifier = "")
+)
+
+attr(moths, 'taxa') <- "species"
+attr(moths, 'keep') <-  c(locationID = "plot")
+attr(moths, 'individuals') <- "label"
+attr(moths, 'units') <- c(weight = "mg", wing_length = "mm", wing_width = "mm", wing_area = "mm2", wing_loading = "mg mm-2")
+
+
+
+caption <- "Example 2 before standardisation. Data are stored in observation wide-table format, i.e. one row contains a single specimen with multiple trait measurements (in columns). Units and specific information on measurements must be reported in the metadata of the dataset. Data originate from Mangels et al. (unpublished)."
+select_cols <- c("label","species","plot","weight","wing_length","wing_width","wing_area","wing_loading")
+
+kable(moths[1:45,select_cols], longtable=TRUE, escape = TRUE, row.names = FALSE,
+      booktabs = T, caption = caption) %>%
+kable_styling(latex_options = c("scale_down", "repeat_header", "striped"), font_size = 10)
+
+
+```
+
+
+```{r, echo = FALSE, warning = FALSE, message=FALSE}
+
+mothsStd <- standardize(moths)
+mothsStd <- mothsStd[order(as.numeric(substr(mothsStd$occurrenceID,2,10))),]
+
+caption <- "Example 2 after standardisation into measurement long-table format. Each row contains a single measurement linked to an observation of an individual specimen, i.e. an occurrence, via identifiers."
+select_cols <- c("scientificName","traitName","traitValue","traitUnit","traitID","scientificNameStd","taxonID","occurrenceID", "measurementID", "locationID")
+
+kable(mothsStd[1:28,select_cols], longtable=TRUE, escape = TRUE, row.names = FALSE,
+      booktabs = T, caption = caption) %>%
+kable_styling(latex_options = c("scale_down", "repeat_header", "striped"), font_size = 10)
+
+```
+
+# Example 3 - apply ETS extensions in trait-data table
+
+If data contain covariate information, the two-dimensional data table can cover these by adding columns defined by the extensions of the ETS. 
+The three extensions complement the core terms according to different layers of metadata information: 1) the "taxon" extension includes terms to describe more details on the taxon concept applied, 2) the "occurrence" extension provides terms to describe the indivdual specimen and its observation context, and 3) the "Measurement or Fact" extension adds information on the methodology or context of the measurement of the trait value. 
+
+Two-dimensional spreadsheets are however limited in the number and complexity of co-variates they can contain. As such, for datasets containing multi-layered information on observations, traits, taxa and environmental context, the use of relational datatabase structures may be indicated, like the generic trait database structure proposed by @kattge11a or the TraitBank structure proposed by @parr16. 
+The trade-off is user-side readability and handling in a single table *vs.* avoidance of content duplication and redundancy in a relational database. 
+Although we cannot cover the structure of relational databases in this tutorial, the standard vocabulary proposed here may still be applied to describe columns within the individual data tables of relational databases. 
+
+```{r, echo = FALSE, warning = FALSE, message=FALSE}
+pulldata('heteroptera_raw')
+
+heteroptera_raw$Center_Sampling_region <- gsub("°", " ", heteroptera_raw$Center_Sampling_region)
+select_cols <- c(1:7,9,11,12:15)
+
+# https://figshare.com/collections/Morphometric_measures_of_Heteroptera_sampled_in_grasslands_across_three_regions_of_Germany/3307611/1
+caption = "Example 3 before standardisation; Excerpt of data from Gossner et al. (2015b) Ecology, 96, 1154–1154. doi: <a href = 'https://doi.org/10.1890/14-2159.1'>10.1890/14-2159.1</a> on measurements of traits in Heteroptera."
+
+kable(heteroptera_raw[1:28,select_cols], longtable=TRUE, escape = TRUE, row.names = FALSE,
+      booktabs = T, caption = caption) %>%
+kable_styling(latex_options = c("scale_down", "repeat_header", "striped"), font_size = 10)
+
+```
+
+
+```{r, echo = FALSE, warning = FALSE, message=FALSE}
+pulldata('heteroptera_raw')
+
+heteroptera_long <- as.traitdata(heteroptera_raw) 
+heteroptera_long <- standardize.taxonomy(heteroptera_long)
+heteroptera_long <- heteroptera_long[order(as.numeric(heteroptera_long$occurrenceID)),]
+heteroptera_long$basisOfRecordDescription <- as.factor(heteroptera_long$basisOfRecordDescription)
+
+
+heteroptera_long$decimalLatitude <-  gsub("°", " ", substr(heteroptera_long$verbatimLocality,0,5))
+heteroptera_long$decimalLongitute <-  gsub("°", " ", substr(heteroptera_long$verbatimLocality,10,14))
+
+heteroptera_long$decimalLatitude <- round(as.numeric(measurements::conv_unit(heteroptera_long$decimalLatitude, from = 'deg_dec_min', to = 'dec_deg')),5)
+heteroptera_long$decimalLongitute <- round(as.numeric(measurements::conv_unit(heteroptera_long$decimalLongitute, from = 'deg_dec_min', to = 'dec_deg')), 5)
+heteroptera_long$basisOfRecord <- as.factor("PreservedSpecimen")
+
+caption = "Example 3 after standardisation; application of terms of the ETS extensions structure the two-dimensional data table. Excerpt of data from Gossner et al. (2015b) Ecology, 96, 1154–1154. doi: <a href = 'https://doi.org/10.1890/14-2159.1'>10.1890/14-2159.1</a>."
+
+select_cols <- c(1,2,3,4,8,6,15,18,22,16,20,21)
+kable(heteroptera_long[heteroptera_long$traitName %in% c("Body_length", "Body_width", "Body_height", "Thorax_width"),select_cols][30:58,], longtable=TRUE, escape = TRUE, row.names = FALSE,
+      booktabs = T, caption = caption) %>%
+kable_styling(latex_options = c("scale_down", "repeat_header", "striped"), font_size = 10)
+
+```
+
+
+# References 

@@ -16,6 +16,8 @@ navbar:
   - text: About
     icon: fa-info
     href: about.html
+  - text: Guidelines
+    href: bestpractice.html
   right:
   - text: Versions
     menu:
