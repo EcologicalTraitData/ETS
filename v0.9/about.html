@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>About this Standard</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ecological Trait-data Standard</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-file-text-o"></span>
+     
+    Vocabulary
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Versions
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="VERSIONS.html">Version history</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="http://github.com/EcologicalTraitdata/">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">About this Standard</h1>
+
+</div>
+
+
+<div id="abstract" class="section level1">
+<h1>Abstract</h1>
+<p>The Ecological Traitdata Standard (ETS) is a collection of terms for datasets on quantitative and qualitative organism properties (i.e. traits) that describe its performance or function in an ecosystem.</p>
+<p>The ETS has three major use-cases:</p>
+<ol style="list-style-type: decimal">
+<li>it provides a low-threshold terminology standard, suitable for storing own trait data locally, or for publishing them on a scientific database or filehosting service. By using the vocabulary for own data publications, authors can ensure the interoperability and re-use of their data.</li>
+<li>it can be used for harmonizing datasets from distributed sources, by mapping the heterogeneous data into the unified scheme provided by the vocabulary. Thus, it aids the development of trait-data compilations.</li>
+<li>it can be used to develop exchange formats for software and webservices, e.g. APIs, and to combine trait-data with other data-types. This aids the development of a semantic web of biodiversity data.</li>
+</ol>
+<p>The rationale of the ETS has been discussed in Schneider et al. 2018, Towards an Ecological Trait-data Standard, biorxiv.org DOI: <a href="https://doi.org/10.1101/328302">10.1101/328302</a>.</p>
+</div>
+<div id="fields" class="section level1">
+<h1>Fields</h1>
+<p>The vocabulary contains several fields which are defined as follows:</p>
+<table>
+<colgroup>
+<col width="27%" />
+<col width="72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>field</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Namespace</td>
+<td>The collection of terms that the term is part of.</td>
+</tr>
+<tr class="even">
+<td>Identifier</td>
+<td>The Uniform Resource Identifier used to uniquely identify a term. If the term is an exact duplicate from Darwin Core or other glossaries, Identifier will forward directly to this definition.</td>
+</tr>
+<tr class="odd">
+<td>Refines</td>
+<td>If the definition builds on terms of the Darwin Core or other Glossaries, the original term is linked here (URI).</td>
+</tr>
+<tr class="even">
+<td>Replaces</td>
+<td>The URI of the term that is replaced by this term.</td>
+</tr>
+<tr class="odd">
+<td>Deprecated</td>
+<td>Flagging deprecated terms. If TRUE, the term should not be used for new datasets, but will be maintained for compatibility.</td>
+</tr>
+<tr class="even">
+<td>ReplacedBy</td>
+<td>If a term is deprecated, this field provides the URI of the replacement term.</td>
+</tr>
+<tr class="odd">
+<td>FirstIssuedIn</td>
+<td>The Version of the ETS this term has been first published (starting with v0.8 as the first public release version)</td>
+</tr>
+<tr class="even">
+<td>DateIssued</td>
+<td>The date when the term was defined for the first time within the ETS.</td>
+</tr>
+<tr class="odd">
+<td>DateModified</td>
+<td>Reports the latest activity on this term.</td>
+</tr>
+<tr class="even">
+<td>Definition</td>
+<td>A statement that represents the concept and essential nature of the term.</td>
+</tr>
+<tr class="odd">
+<td>Comment</td>
+<td>Clarification and examples.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="contribute" class="section level1">
+<h1>Contribute</h1>
+<p>The Ecological Traitdata Standard Vocabulary is under continuous and open community development, hosted on <a href="https://github.com/EcologicalTraitData/ETS">Github</a>. It invites submissions of new terms and extensions, and revisions of existing terms from a wide community of researchers working with trait data. Please refer to the <a href="https://github.com/EcologicalTraitData/ETS/issues">Github Issues page</a> for discussion and revision of individual terms, and settle the issue here before filing a pull-request that implements an update.</p>
+</div>
+<div id="versioning" class="section level1">
+<h1>Versioning</h1>
+<p>Terminologies must provide stability of definitions. If publications refer to the URI of a term, the definition found must be stable and be true to the definition intended by the author. That said, definitions of terms can only be broadened or made more explicit, if the original sense of the definition remains valid. The discussion leading to a refinement of a term should consider this.</p>
+<p>Revisions of terms will be labelled as a fix, but don’t prompt a new minor release unless the functionality of the standard is compromised (that would be issued as a patch).</p>
+<p>Updates of the terms will be collected and issued in minor releases of the ETS on the GFBio terminology service.</p>
+<p>A major release will only be issued if the new terms are incompatible with previous versions. If a definition changes substantially, it will receive an own URI and point to redundant or deprecated terms. Out-dated terms will remain available at the original URI.</p>
+<p>Major version 1.0 is aimed to be released in 2019 as a result of a community discussion (see <a href="https://github.com/EcologicalTraitData/ETS/milestones?with_issues=no">milestone 1.0 on Github issues</a>).</p>
+</div>
+<div id="suggested-citation" class="section level1">
+<h1>Suggested Citation</h1>
+<p>To refer to <strong>this version</strong> of the ETS please cite:</p>
+<blockquote>
+<p>Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C. and Simons, N.K. (2018) Ecological Trait-data Standard Vocabulary, v0.8, URL: <a href="https://ecologicaltraitdata.github.io/ETS/v0.8/" class="uri">https://ecologicaltraitdata.github.io/ETS/v0.8/</a> , DOI: <a href="https://doi.org/10.5281/zenodo.1255287">10.5281/zenodo.1255287</a></p>
+</blockquote>
+<p>It is recommended to provide this versioned pointer from the metadata of datasets that apply the ETS. You can cite <strong>all versions</strong> of the ETS by using the DOI <a href="https://doi.org/10.5281/zenodo.1041732">10.5281/zenodo.1041732</a>. This will always resolve to the latest version.</p>
+<p>Please also cite the paper discussing the rationale of the Ecological Trait-data Standard:</p>
+<blockquote>
+<p>Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C., Fichtmüller, D., Gossner, M.M., Güntsch, A., König-Ries, B., Manning, P. and Simons, N.K. (2018) Towards an Ecological Trait-data Standard, biorxiv.org DOI: <a href="https://doi.org/10.1101/328302">10.1101/328302</a></p>
+</blockquote>
+</div>
+<div id="contributors" class="section level1">
+<h1>Contributors</h1>
+<p>The Ecological Trait-data Standard was authored by Florian D. Schneider, Malte Jochum, Gaëtane Le Provost, Andreas Ostrowski, Caterina Penone, and Nadja Simons. It was ported to the GFBio Terminology Service by David Fichtmüller.</p>
+<p>Contributors: David Fichtmüller</p>
+</div>
+<div id="license" class="section level1">
+<h1>License</h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Ecological Traitdata Standard </span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florian D. Schneider, Malte Jochum, Gaëtane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. That means, you are free to use and re-use, modify and publish all texts and documents on this website, as long as you give attribution to its original source.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
