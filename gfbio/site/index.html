@@ -198,6 +198,9 @@ $(document).ready(function () {
     About
   </a>
 </li>
+<li>
+  <a href="bestpractice.html">Guidelines</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -229,7 +232,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Ecological Trait-data Standard</h1>
 <h4 class="author"><em>Florian D. Schneider, Malte Jochum, Gaëtane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons</em></h4>
-<h4 class="date"><em>v0.9, released: 20 September 2018</em></h4>
+<h4 class="date"><em>v0.9.1, released: 13 November 2018</em></h4>
 
 </div>
 
@@ -237,7 +240,7 @@ $(document).ready(function () {
 <!--
 
 <div class="alert alert-warning">
-  **You are viewing the development branch of ETS!** Do not refer to these terms and this website when publishing standardised trait data! The release reference is at https://terminologies.gfbio.org/terminology/?ontology=ETS. 
+  **You are viewing the development branch of ETS!** Do not refer to these terms and this website when publishing standardised trait data! The release reference is at https://terminologies.gfbio.org/terms/ets/pages/. 
 </div>
 
 -->
@@ -262,21 +265,21 @@ $(document).ready(function () {
 <blockquote>
 <p>Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C., Fichtmüller, D., Gossner, M.M., Güntsch, A., König-Ries, B., Manning, P. and Simons, N.K. (2018) Towards an Ecological Trait-data Standard, biorxiv.org DOI: <a href="https://doi.org/10.1101/328302">10.1101/328302</a></p>
 </blockquote>
-<p>The vocabulary builds on the Darwin Core Standard (DWC; Darwin Core Terms and extensions; these are referenced in field ‘Refines’; the full Darwin Core Standard can be found here: <a href="http://rs.tdwg.org/dwc/terms/index.htm" class="uri">http://rs.tdwg.org/dwc/terms/index.htm</a>).</p>
+<p>The vocabulary builds on the Darwin Core Standard (DWC; Darwin Core Terms and extensions; these are referenced in field ‘Refines’; the full Darwin Core Standard can be found here: <a href="http://rs.tdwg.org/dwc/terms/index.htm" class="uri">http://rs.tdwg.org/dwc/terms/index.htm</a>). Note that the documentation page resolves deprecated terms to the term that replaces them in definition, unless they differ in definition. Via API access or in the OWL and CSV file, the definition is accessible for each deprecated term.</p>
 <div id="table-of-contents" class="section level2">
 <h2>Table of contents</h2>
 <p><a href="#core-traitdata-terms"><strong>Traitdata</strong></a><br />
-<a href="#scientificname"><code>scientificName</code></a> | <a href="#traitname"><code>traitName</code></a> | <a href="#traitid"><code>traitID</code></a> | <a href="#traitvalue"><code>traitValue</code></a> | <a href="#traitunit"><code>traitUnit</code></a> | <a href="#scientificnamestd"><code>scientificNameStd</code></a> | <a href="#traitnamestd"><code>traitNameStd</code></a> | <a href="#traitvaluestd"><code>traitValueStd</code></a> | <a href="#traitunitstd"><code>traitUnitStd</code></a> | <a href="#taxonid"><code>taxonID</code></a> | <a href="#measurementid"><code>measurementID</code></a> | <a href="#occurrenceid"><code>occurrenceID</code></a> | <a href="#warnings"><code>warnings</code></a> |<br />
+<a href="#scientificname"><code>scientificName</code></a> | <a href="#traitname"><code>traitName</code></a> | <a href="#traitid"><code>traitID</code></a> | <a href="#traitvalue"><code>traitValue</code></a> | <a href="#traitunit"><code>traitUnit</code></a> | <a href="#scientificnamestd"><code>scientificNameStd</code></a> | <a href="#traitnamestd"><code>traitNameStd</code></a> | <a href="#traitvaluestd"><code>traitValueStd</code></a> | <a href="#traitunitstd"><code>traitUnitStd</code></a> | <a href="#taxonid"><code>taxonID</code></a> | <a href="#measurementid"><code>measurementID</code></a> | <a href="#occurrenceid"><code>occurrenceID</code></a> | <a href="#warnings"><code>warnings</code></a> | <a href="#scientificname"><code>scientificName</code></a> | <a href="#traitname"><code>traitName</code></a> | <a href="#traitid"><code>traitID</code></a> | <a href="#traitvalue"><code>traitValue</code></a> | <a href="#traitunit"><code>traitUnit</code></a> | <a href="#scientificnamestd"><code>scientificNameStd</code></a> | <a href="#traitnamestd"><code>traitNameStd</code></a> | <a href="#traitvaluestd"><code>traitValueStd</code></a> | <a href="#traitunitstd"><code>traitUnitStd</code></a> | <a href="#measurementid"><code>measurementID</code></a> | <a href="#occurrenceid"><code>occurrenceID</code></a> |<br />
 <a href="#metadata-vocabulary"><strong>Metadata</strong></a><br />
 <a href="#rightsholder"><code>rightsHolder</code></a> | <a href="#bibliographiccitation"><code>bibliographicCitation</code></a> | <a href="#license"><code>license</code></a> | <a href="#datasetid"><code>datasetID</code></a> | <a href="#datasetname"><code>datasetName</code></a> | <a href="#author"><code>author</code></a> | <a href="#version"><code>version</code></a> |<br />
 <a href="#terms-for-trait-definitions"><strong>Traitlist</strong></a><br />
-<a href="#identifier"><code>identifier</code></a> | <a href="#trait"><code>trait</code></a> | <a href="#broaderterm"><code>broaderTerm</code></a> | <a href="#narrowerterm"><code>narrowerTerm</code></a> | <a href="#relatedterm"><code>relatedTerm</code></a> | <a href="#valuetype"><code>valueType</code></a> | <a href="#expectedunit"><code>expectedUnit</code></a> | <a href="#factorlevels"><code>factorLevels</code></a> | <a href="#maxallowedvalue"><code>maxAllowedValue</code></a> | <a href="#minallowedvalue"><code>minAllowedValue</code></a> | <a href="#traitdescription"><code>traitDescription</code></a> | <a href="#comments"><code>comments</code></a> | <a href="#source"><code>source</code></a> |<br />
+<a href="#identifier"><code>identifier</code></a> | <a href="#trait"><code>trait</code></a> | <a href="#broaderterm"><code>broaderTerm</code></a> | <a href="#narrowerterm"><code>narrowerTerm</code></a> | <a href="#relatedterm"><code>relatedTerm</code></a> | <a href="#valuetype"><code>valueType</code></a> | <a href="#expectedunit"><code>expectedUnit</code></a> | <a href="#factorlevels"><code>factorLevels</code></a> | <a href="#maxallowedvalue"><code>maxAllowedValue</code></a> | <a href="#minallowedvalue"><code>minAllowedValue</code></a> | <a href="#traitdescription"><code>traitDescription</code></a> | <a href="#comments"><code>comments</code></a> | <a href="#source"><code>source</code></a> | <a href="#identifier"><code>identifier</code></a> | <a href="#comments"><code>comments</code></a> |<br />
 <a href="#extension-taxon"><strong>Extension: Taxon</strong></a><br />
 <a href="#taxonrank"><code>taxonRank</code></a> | <a href="#kingdom"><code>kingdom</code></a> | <a href="#phylum"><code>phylum</code></a> | <a href="#class"><code>class</code></a> | <a href="#order"><code>order</code></a> | <a href="#family"><code>family</code></a> | <a href="#genus"><code>genus</code></a> |<br />
 <a href="#extension-measurement-or-fact"><strong>Extension: MeasurementOrFact</strong></a><br />
-<a href="#basisofrecord"><code>basisOfRecord</code></a> | <a href="#basisofrecorddescription"><code>basisOfRecordDescription</code></a> | <a href="#references"><code>references</code></a> | <a href="#measurementresolution"><code>measurementResolution</code></a> | <a href="#measurementmethod"><code>measurementMethod</code></a> | <a href="#measurementdeterminedby"><code>measurementDeterminedBy</code></a> | <a href="#measurementdetermineddate"><code>measurementDeterminedDate</code></a> | <a href="#measurementremarks"><code>measurementRemarks</code></a> | <a href="#aggregatemeasure"><code>aggregateMeasure</code></a> | <a href="#individualcount"><code>individualCount</code></a> | <a href="#dispersion"><code>dispersion</code></a> | <a href="#measurementvalue_min"><code>measurementValue_min</code></a> | <a href="#measurementvalue_max"><code>measurementValue_max</code></a> | <a href="#measurementaccuracy"><code>measurementAccuracy</code></a> | <a href="#statisticalmethod"><code>statisticalMethod</code></a> |<br />
+<a href="#basisofrecord"><code>basisOfRecord</code></a> | <a href="#basisofrecorddescription"><code>basisOfRecordDescription</code></a> | <a href="#references"><code>references</code></a> | <a href="#measurementresolution"><code>measurementResolution</code></a> | <a href="#measurementmethod"><code>measurementMethod</code></a> | <a href="#measurementdeterminedby"><code>measurementDeterminedBy</code></a> | <a href="#measurementdetermineddate"><code>measurementDeterminedDate</code></a> | <a href="#measurementremarks"><code>measurementRemarks</code></a> | <a href="#aggregatemeasure"><code>aggregateMeasure</code></a> | <a href="#individualcount"><code>individualCount</code></a> | <a href="#dispersion"><code>dispersion</code></a> | <a href="#measurementvalue_min"><code>measurementValue_min</code></a> | <a href="#measurementvalue_max"><code>measurementValue_max</code></a> | <a href="#measurementaccuracy"><code>measurementAccuracy</code></a> | <a href="#statisticalmethod"><code>statisticalMethod</code></a> | <a href="#basisofrecord"><code>basisOfRecord</code></a> | <a href="#basisofrecorddescription"><code>basisOfRecordDescription</code></a> |<br />
 <a href="#extension-occurrence"><strong>Extension: Occurrence</strong></a><br />
-<a href="#sex"><code>sex</code></a> | <a href="#lifestage"><code>lifeStage</code></a> | <a href="#age"><code>age</code></a> | <a href="#morphotype"><code>morphotype</code></a> | <a href="#eventid"><code>eventID</code></a> | <a href="#preparations"><code>preparations</code></a> | <a href="#samplingprotocol"><code>samplingProtocol</code></a> | <a href="#year"><code>year</code></a> | <a href="#month"><code>month</code></a> | <a href="#day"><code>day</code></a> | <a href="#eventdate"><code>eventDate</code></a> | <a href="#locationid"><code>locationID</code></a> | <a href="#habitat"><code>habitat</code></a> | <a href="#decimallongitude"><code>decimalLongitude</code></a> | <a href="#decimallatitude"><code>decimalLatitude</code></a> | <a href="#elevation"><code>elevation</code></a> | <a href="#geodeticdatum"><code>geodeticDatum</code></a> | <a href="#verbatimlocality"><code>verbatimLocality</code></a> | <a href="#country"><code>country</code></a> | <a href="#countrycode"><code>countryCode</code></a> | <a href="#occurenceremarks"><code>occurenceRemarks</code></a> |<br />
+<a href="#sex"><code>sex</code></a> | <a href="#lifestage"><code>lifeStage</code></a> | <a href="#age"><code>age</code></a> | <a href="#morphotype"><code>morphotype</code></a> | <a href="#eventid"><code>eventID</code></a> | <a href="#preparations"><code>preparations</code></a> | <a href="#samplingprotocol"><code>samplingProtocol</code></a> | <a href="#year"><code>year</code></a> | <a href="#month"><code>month</code></a> | <a href="#day"><code>day</code></a> | <a href="#eventdate"><code>eventDate</code></a> | <a href="#locationid"><code>locationID</code></a> | <a href="#habitat"><code>habitat</code></a> | <a href="#decimallongitude"><code>decimalLongitude</code></a> | <a href="#decimallatitude"><code>decimalLatitude</code></a> | <a href="#elevation"><code>elevation</code></a> | <a href="#geodeticdatum"><code>geodeticDatum</code></a> | <a href="#verbatimlocality"><code>verbatimLocality</code></a> | <a href="#country"><code>country</code></a> | <a href="#countrycode"><code>countryCode</code></a> | <a href="#occurrenceremarks"><code>occurrenceRemarks</code></a> |<br />
 <a href="#extension-biodiversity-exploratories"><strong>Extension: BiodiversityExploratories</strong></a><br />
 <a href="#originbe"><code>OriginBE</code></a> | <a href="#beplotid"><code>BEPlotID</code></a> | <a href="#exploratory"><code>Exploratory</code></a> | <a href="#betype"><code>BEType</code></a> |</p>
 <hr />
@@ -289,7 +292,7 @@ $(document).ready(function () {
 <p>Similarly, linking to published trait definitions in public thesauri or ontologies via the field <code>traitID</code> allows an unambiguous interpretation of the trait measurement. If no online ontology is available, an accompanying data table should specify the trait definitions by making use of terms provided in the section ‘Traitlist’ below.</p>
 <div id="scientificname" class="section level2">
 <h2><code>scientificName</code></h2>
-<p><a href="">go to top</a> | <a href="#scientificname">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="10%" />
@@ -316,19 +319,19 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificname" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificname</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificName" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificName</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
-<td align="left">2018-05-29</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Refines</td>
@@ -336,7 +339,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificname" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificname</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -344,14 +347,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="traitname" class="section level2">
 <h2><code>traitName</code></h2>
-<p><a href="">go to top</a> | <a href="#traitname">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="8%" />
@@ -378,15 +381,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitname" class="uri">http://terminologies.gfbio.org/terms/ETS/traitname</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitName" class="uri">http://terminologies.gfbio.org/terms/ETS/traitName</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -398,7 +401,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitname" class="uri">http://terminologies.gfbio.org/terms/ETS/traitname</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -406,14 +409,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="traitid" class="section level2">
 <h2><code>traitID</code></h2>
-<p><a href="">go to top</a> | <a href="#traitid">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="11%" />
@@ -440,19 +443,19 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitid" class="uri">http://terminologies.gfbio.org/terms/ETS/traitid</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitID" class="uri">http://terminologies.gfbio.org/terms/ETS/traitID</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
-<td align="left">2018-05-29</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Refines</td>
@@ -460,7 +463,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitid" class="uri">http://terminologies.gfbio.org/terms/ETS/traitid</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -468,14 +471,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="traitvalue" class="section level2">
 <h2><code>traitValue</code></h2>
-<p><a href="">go to top</a> | <a href="#traitvalue">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="6%" />
@@ -502,15 +505,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitvalue" class="uri">http://terminologies.gfbio.org/terms/ETS/traitvalue</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitValue" class="uri">http://terminologies.gfbio.org/terms/ETS/traitValue</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -522,7 +525,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitvalue" class="uri">http://terminologies.gfbio.org/terms/ETS/traitvalue</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -530,14 +533,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="traitunit" class="section level2">
 <h2><code>traitUnit</code></h2>
-<p><a href="">go to top</a> | <a href="#traitunit">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="6%" />
@@ -564,15 +567,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitunit" class="uri">http://terminologies.gfbio.org/terms/ETS/traitunit</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitUnit" class="uri">http://terminologies.gfbio.org/terms/ETS/traitUnit</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -584,7 +587,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitunit" class="uri">http://terminologies.gfbio.org/terms/ETS/traitunit</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -592,14 +595,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="scientificnamestd" class="section level2">
 <h2><code>scientificNameStd</code></h2>
-<p><a href="">go to top</a> | <a href="#scientificnamestd">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="2%" />
@@ -626,19 +629,19 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificnamestd" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificnamestd</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificNameStd" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificNameStd</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
-<td align="left">2017-11-01</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Refines</td>
@@ -646,7 +649,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificnamestd" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificnamestd</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -654,14 +657,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="traitnamestd" class="section level2">
 <h2><code>traitNameStd</code></h2>
-<p><a href="">go to top</a> | <a href="#traitnamestd">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="7%" />
@@ -688,15 +691,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitnamestd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitnamestd</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitNameStd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitNameStd</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -708,7 +711,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitnamestd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitnamestd</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -716,14 +719,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="traitvaluestd" class="section level2">
 <h2><code>traitValueStd</code></h2>
-<p><a href="">go to top</a> | <a href="#traitvaluestd">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="6%" />
@@ -750,15 +753,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitvaluestd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitvaluestd</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitValueStd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitValueStd</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -770,7 +773,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitvaluestd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitvaluestd</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -778,14 +781,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="traitunitstd" class="section level2">
 <h2><code>traitUnitStd</code></h2>
-<p><a href="">go to top</a> | <a href="#traitunitstd">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="7%" />
@@ -812,15 +815,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitunitstd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitunitstd</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitUnitStd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitUnitStd</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -832,7 +835,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitunitstd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitunitstd</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -840,14 +843,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="taxonid" class="section level2">
 <h2><code>taxonID</code></h2>
-<p><a href="">go to top</a> | <a href="#taxonid">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="5%" />
@@ -894,7 +897,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -902,14 +905,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="measurementid" class="section level2">
 <h2><code>measurementID</code></h2>
-<p><a href="">go to top</a> | <a href="#measurementid">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="4%" />
@@ -936,15 +939,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/measurementid" class="uri">http://terminologies.gfbio.org/terms/ETS/measurementid</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/measurementID" class="uri">http://terminologies.gfbio.org/terms/ETS/measurementID</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -956,7 +959,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/measurementid" class="uri">http://terminologies.gfbio.org/terms/ETS/measurementid</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -964,14 +967,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="occurrenceid" class="section level2">
 <h2><code>occurrenceID</code></h2>
-<p><a href="">go to top</a> | <a href="#occurrenceid">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="1%" />
@@ -998,15 +1001,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/occurrenceid" class="uri">http://terminologies.gfbio.org/terms/ETS/occurrenceid</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/occurrenceID" class="uri">http://terminologies.gfbio.org/terms/ETS/occurrenceID</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -1018,7 +1021,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/occurrenceid" class="uri">http://terminologies.gfbio.org/terms/ETS/occurrenceid</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1026,14 +1029,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="warnings" class="section level2">
 <h2><code>warnings</code></h2>
-<p><a href="">go to top</a> | <a href="#warnings">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="3%" />
@@ -1080,7 +1083,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1088,7 +1091,689 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="scientificname-1" class="section level2">
+<h2><code>scientificName</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="89%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">scientificName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">Original character string provided as species name by the data owner (kept for reference and continuity)</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Can be equal to scientificNameStd. Authors may use abbreviations, or use underscores to separate genus and species name.</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificName" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificName</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/scientificName" class="uri">http://rs.tdwg.org/dwc/terms/scientificName</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificname" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificname</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
 <td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="traitname-1" class="section level2">
+<h2><code>traitName</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="91%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">traitName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">Name of the trait as used by the data provider (kept for compatibility on provider side).</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">This can be a short name or user defined coded trait name. However, it is recommended to provide definition of the user provided trait names in the metadata.</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitName" class="uri">http://terminologies.gfbio.org/terms/ETS/traitName</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/measurementType" class="uri">http://rs.tdwg.org/dwc/terms/measurementType</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitname" class="uri">http://terminologies.gfbio.org/terms/ETS/traitname</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="traitid-1" class="section level2">
+<h2><code>traitID</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">traitID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">Unique identifier of the trait according to a public ontology, or a user-provided thesaurus of traits.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Examples: TO:0000181; TOP103; <a href="http://top-thesaurus.org/annotationInfo?viz=1&amp;&amp;trait=Seed_mass" class="uri">http://top-thesaurus.org/annotationInfo?viz=1&amp;&amp;trait=Seed_mass</a>;</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">factor</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitID" class="uri">http://terminologies.gfbio.org/terms/ETS/traitID</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitid" class="uri">http://terminologies.gfbio.org/terms/ETS/traitid</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="traitvalue-1" class="section level2">
+<h2><code>traitValue</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">traitValue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">Measured raw value or factor level for this species trait as measured and provided by the author.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Must respect the unit given in ‘measurementUnit_user’ for numerical traits. For categorical traits, the factor levels should be harmonized across the dataset and explained in the metadata.</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitValue" class="uri">http://terminologies.gfbio.org/terms/ETS/traitValue</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/measurementValue" class="uri">http://rs.tdwg.org/dwc/terms/measurementValue</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitvalue" class="uri">http://terminologies.gfbio.org/terms/ETS/traitvalue</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="traitunit-1" class="section level2">
+<h2><code>traitUnit</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">traitUnit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">Reports the unit that the author’s raw data were measured in, if applicable (only for numeric values). For unitless numerical values, use ‘unitless’ in this field. For factorial values, leave empty or provide NA.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">For numerical values report unit in format for lengths “mm”, for volumes “mm3” / “mm^3”, areas “mm2” / “mm^2”, for movement “m/s”, or for volume to surface ratios: “mm3/mm2”</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitUnit" class="uri">http://terminologies.gfbio.org/terms/ETS/traitUnit</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/measurementUnit" class="uri">http://rs.tdwg.org/dwc/terms/measurementUnit</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitunit" class="uri">http://terminologies.gfbio.org/terms/ETS/traitunit</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="scientificnamestd-1" class="section level2">
+<h2><code>scientificNameStd</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="2%" />
+<col width="97%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">scientificNameStd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">The full name, with authorship and date information if known. This should resolve to the currently valid (zoological) or accepted (botanical) taxon.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Provide reference taxonomy in metadata of the dataset. Examples: “Coleoptera” (order), “Vespertilionidae” (family), “Manis” (genus), “Ctenomys sociabilis” (genus + specificEpithet), “Ambystoma tigrinum diaboli” (genus + specificEpithet + infraspecificEpithet), “Roptrocerus typographi (GyÃ¶rfi, 1952)” (genus + specificEpithet + scientificNameAuthorship), “Quercus agrifolia var. oxyadenia (Torr.) J.T. Howell” (genus + specificEpithet + taxonRank + infraspecificEpithet + scientificNameAuthorship). For discussion see <a href="http://terms.tdwg.org/wiki/dwc:scientificName" class="uri">http://terms.tdwg.org/wiki/dwc:scientificName</a></td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificNameStd" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificNameStd</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/scientificName" class="uri">http://rs.tdwg.org/dwc/terms/scientificName</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificnamestd" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificnamestd</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="traitnamestd-1" class="section level2">
+<h2><code>traitNameStd</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="92%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">traitNameStd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">Descriptive Name of the trait reported. This should follow the controlled vocabulary of a thesaurus of traits available online or published along with the dataset.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Accompanying this, the traitID should provide an unambiguous link to the trait definition in the thesaurus or supplementary dataset.</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">factor</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitNameStd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitNameStd</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/measurementType" class="uri">http://rs.tdwg.org/dwc/terms/measurementType</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitnamestd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitnamestd</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="traitvaluestd-1" class="section level2">
+<h2><code>traitValueStd</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">traitValueStd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">Standardized measured value or factor level for this species trait. Numerical values must use the correct unit. Factor levels must be compliant with the thesaurus of traits.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Using “.” as a decimal separator! The standardized data values or factor levels must correspond to the expected units and factor levels of the trait thesaurus, e.g. “32.423”, “female”, “apter”, “3”</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitValueStd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitValueStd</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/measurementValue" class="uri">http://rs.tdwg.org/dwc/terms/measurementValue</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitvaluestd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitvaluestd</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="traitunitstd-1" class="section level2">
+<h2><code>traitUnitStd</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="92%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">traitUnitStd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">The units associated with the measurementValue. The expected standard unit for this trait as defined in the traitlist/ thesaurus.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Recommended best practice is to use the International System of Units (SI). Examples: “mm”, “C”, “km”, “ha”. For discussion see <a href="http://terms.tdwg.org/wiki/dwc:measurementUnit" class="uri">http://terms.tdwg.org/wiki/dwc:measurementUnit</a></td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitUnitStd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitUnitStd</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/measurementUnit" class="uri">http://rs.tdwg.org/dwc/terms/measurementUnit</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitunitstd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitunitstd</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="measurementid-1" class="section level2">
+<h2><code>measurementID</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="4%" />
+<col width="95%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">measurementID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">An identifier for the MeasurementOrFact (information pertaining to measurements, facts, characteristics, or assertions). May be a global unique identifier or an identifier specific to the data set.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Links multi-value trait measurements, e.g. x-y-z coordinates of a morphometric landmark, biochemical compound quantities for different chainlengths. In this case, the trait names must specify the sub-measurement, e.g. “landmark32_x”, and must be specified in a reference trait list, given in the field “measurementMethod”.</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/measurementID" class="uri">http://terminologies.gfbio.org/terms/ETS/measurementID</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/measurementID" class="uri">http://rs.tdwg.org/dwc/terms/measurementID</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/measurementid" class="uri">http://terminologies.gfbio.org/terms/ETS/measurementid</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="occurrenceid-1" class="section level2">
+<h2><code>occurrenceID</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="1%" />
+<col width="98%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">occurrenceID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">An identifier for the Occurrence (as opposed to a particular digital record of the occurrence). In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the occurrenceID globally unique.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">For a specimen in the absence of a bona fide global unique identifier, for example, use the form: “<a href="urn:catalog" class="uri">urn:catalog</a>:[institutionCode]:[collectionCode]:[catalogNumber]. Examples:”<a href="urn:lsid:nhm.ku.edu:Herps:32" class="uri">urn:lsid:nhm.ku.edu:Herps:32</a>“,”<a href="urn:catalog:FMNH:Mammal:145732" class="uri">urn:catalog:FMNH:Mammal:145732</a>“. For discussion see <a href="http://terms.tdwg.org/wiki/dwc:occurrenceID" class="uri">http://terms.tdwg.org/wiki/dwc:occurrenceID</a>. This is important for the analysis of co-variation of morphometric data or intraspecific variation. It also couples multiple measurements on a single specimen, which also could be a leaf or a single bone without an assignment to an individual organism. If available, upload related dataset to describe specimens more precisely, e.g. environmental parameters or identity related information.</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/occurrenceID" class="uri">http://terminologies.gfbio.org/terms/ETS/occurrenceID</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/occurrenceID" class="uri">http://rs.tdwg.org/dwc/terms/occurrenceID</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/occurrenceid" class="uri">http://terminologies.gfbio.org/terms/ETS/occurrenceid</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -1102,7 +1787,7 @@ $(document).ready(function () {
 <p>When combining datasets from different sources, <code>datasetID</code> may keep the reference to an external data sheet specifying the metadata. Alternatively, the terms of this section can be added as columns to the dataset to maintain important information about authorship and terms of use at the measurement level.</p>
 <div id="rightsholder" class="section level2">
 <h2><code>rightsHolder</code></h2>
-<p><a href="">go to top</a> | <a href="#rightsholder">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="10%" />
@@ -1149,7 +1834,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1157,14 +1842,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="bibliographiccitation" class="section level2">
 <h2><code>bibliographicCitation</code></h2>
-<p><a href="">go to top</a> | <a href="#bibliographiccitation">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="4%" />
@@ -1211,7 +1896,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1219,14 +1904,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="license" class="section level2">
 <h2><code>license</code></h2>
-<p><a href="">go to top</a> | <a href="#license">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="7%" />
@@ -1273,7 +1958,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1281,14 +1966,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="datasetid" class="section level2">
 <h2><code>datasetID</code></h2>
-<p><a href="">go to top</a> | <a href="#datasetid">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="9%" />
@@ -1335,7 +2020,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1343,14 +2028,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="datasetname" class="section level2">
 <h2><code>datasetName</code></h2>
-<p><a href="">go to top</a> | <a href="#datasetname">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="9%" />
@@ -1397,7 +2082,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1405,14 +2090,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="author" class="section level2">
 <h2><code>author</code></h2>
-<p><a href="">go to top</a> | <a href="#author">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="12%" />
@@ -1459,7 +2144,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1467,14 +2152,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="version" class="section level2">
 <h2><code>version</code></h2>
-<p><a href="">go to top</a> | <a href="#version">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="12%" />
@@ -1521,7 +2206,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1529,7 +2214,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -1543,7 +2228,7 @@ $(document).ready(function () {
 <p>The following vocabulary helps to provide trait definitions as a separate data table or within the metadata object along with the publication of the trait dataset.</p>
 <div id="identifier" class="section level2">
 <h2><code>identifier</code></h2>
-<p><a href="">go to top</a> | <a href="#identifier">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="8%" />
@@ -1570,19 +2255,19 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/Identifier" class="uri">http://terminologies.gfbio.org/terms/ETS/Identifier</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/identifier" class="uri">http://terminologies.gfbio.org/terms/ETS/identifier</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-10-24</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
-<td align="left">2018-05-29</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Refines</td>
@@ -1590,7 +2275,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/Identifier" class="uri">http://terminologies.gfbio.org/terms/ETS/Identifier</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1598,14 +2283,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="trait" class="section level2">
 <h2><code>trait</code></h2>
-<p><a href="">go to top</a> | <a href="#trait">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="7%" />
@@ -1652,7 +2337,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1660,14 +2345,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="broaderterm" class="section level2">
 <h2><code>broaderTerm</code></h2>
-<p><a href="">go to top</a> | <a href="#broaderterm">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="10%" />
@@ -1714,7 +2399,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1722,14 +2407,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="narrowerterm" class="section level2">
 <h2><code>narrowerTerm</code></h2>
-<p><a href="">go to top</a> | <a href="#narrowerterm">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="11%" />
@@ -1776,7 +2461,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1784,14 +2469,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="relatedterm" class="section level2">
 <h2><code>relatedTerm</code></h2>
-<p><a href="">go to top</a> | <a href="#relatedterm">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="12%" />
@@ -1838,7 +2523,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1846,14 +2531,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="valuetype" class="section level2">
 <h2><code>valueType</code></h2>
-<p><a href="">go to top</a> | <a href="#valuetype">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="1%" />
@@ -1900,7 +2585,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1908,14 +2593,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="expectedunit" class="section level2">
 <h2><code>expectedUnit</code></h2>
-<p><a href="">go to top</a> | <a href="#expectedunit">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <thead>
 <tr class="header">
@@ -1958,7 +2643,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1966,14 +2651,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="factorlevels" class="section level2">
 <h2><code>factorLevels</code></h2>
-<p><a href="">go to top</a> | <a href="#factorlevels">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="7%" />
@@ -2020,7 +2705,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2028,14 +2713,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="maxallowedvalue" class="section level2">
 <h2><code>maxAllowedValue</code></h2>
-<p><a href="">go to top</a> | <a href="#maxallowedvalue">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="7%" />
@@ -2082,7 +2767,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2090,14 +2775,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="minallowedvalue" class="section level2">
 <h2><code>minAllowedValue</code></h2>
-<p><a href="">go to top</a> | <a href="#minallowedvalue">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="10%" />
@@ -2144,7 +2829,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2152,14 +2837,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="traitdescription" class="section level2">
 <h2><code>traitDescription</code></h2>
-<p><a href="">go to top</a> | <a href="#traitdescription">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="7%" />
@@ -2206,7 +2891,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2214,14 +2899,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="comments" class="section level2">
 <h2><code>comments</code></h2>
-<p><a href="">go to top</a> | <a href="#comments">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="14%" />
@@ -2248,19 +2933,19 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/Comments" class="uri">http://terminologies.gfbio.org/terms/ETS/Comments</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/comments" class="uri">http://terminologies.gfbio.org/terms/ETS/comments</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
-<td align="left">2017-11-15</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Refines</td>
@@ -2268,7 +2953,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/Comments" class="uri">http://terminologies.gfbio.org/terms/ETS/Comments</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2276,14 +2961,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="source" class="section level2">
 <h2><code>source</code></h2>
-<p><a href="">go to top</a> | <a href="#source">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="13%" />
@@ -2330,7 +3015,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2338,7 +3023,131 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="identifier-1" class="section level2">
+<h2><code>identifier</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="91%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">identifier</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">A unique identifier for the trait; globally unique or dataset-specific</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Identifiers are ideally globally unique and stable URIs which link to the source of the trait description in a public ontology or thesaurus of traits;</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/identifier" class="uri">http://terminologies.gfbio.org/terms/ETS/identifier</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://purl.org/dc/terms/identifier" class="uri">http://purl.org/dc/terms/identifier</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/Identifier" class="uri">http://terminologies.gfbio.org/terms/ETS/Identifier</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
 <td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="comments-1" class="section level2">
+<h2><code>comments</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="14%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">Details and Examples for clarification of the trait definition.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Can contain definition of trait levels or requirements for standardized conditions.</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/comments" class="uri">http://terminologies.gfbio.org/terms/ETS/comments</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/Comments" class="uri">http://terminologies.gfbio.org/terms/ETS/Comments</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -2352,7 +3161,7 @@ $(document).ready(function () {
 <p>If the dataset provides a URI within <code>taxonID</code> that maps to a taxonomic online reference or lookup table of an unambiguous and commonly accepted or verified species name, most of these information are redundant. They should be provided nonetheless to enable sorting and analysis by higher hierarchical levels.</p>
 <div id="taxonrank" class="section level2">
 <h2><code>taxonRank</code></h2>
-<p><a href="">go to top</a> | <a href="#taxonrank">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="6%" />
@@ -2399,7 +3208,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2407,14 +3216,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="kingdom" class="section level2">
 <h2><code>kingdom</code></h2>
-<p><a href="">go to top</a> | <a href="#kingdom">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="13%" />
@@ -2461,7 +3270,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2469,14 +3278,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="phylum" class="section level2">
 <h2><code>phylum</code></h2>
-<p><a href="">go to top</a> | <a href="#phylum">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="11%" />
@@ -2523,7 +3332,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2531,14 +3340,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="class" class="section level2">
 <h2><code>class</code></h2>
-<p><a href="">go to top</a> | <a href="#class">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="12%" />
@@ -2585,7 +3394,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2593,14 +3402,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="order" class="section level2">
 <h2><code>order</code></h2>
-<p><a href="">go to top</a> | <a href="#order">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="12%" />
@@ -2647,7 +3456,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2655,14 +3464,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="family" class="section level2">
 <h2><code>family</code></h2>
-<p><a href="">go to top</a> | <a href="#family">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="12%" />
@@ -2709,7 +3518,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2717,14 +3526,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="genus" class="section level2">
 <h2><code>genus</code></h2>
-<p><a href="">go to top</a> | <a href="#genus">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="14%" />
@@ -2771,7 +3580,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2779,7 +3588,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -2794,7 +3603,7 @@ $(document).ready(function () {
 <p>For data not obtained from own measurement, the field <code>references</code> provides a precise reference to the source of data (e.g. a book or existing database) or the authority of expert knowledge. For literature data, the original source might report trait values on the family or genus level, but the dataset author infers and reports the trait data at species level (e.g. if the entire genus reportedly shares the same trait value). To preserve this information, the column <code>measurementResolution</code> should report the taxon rank for which the reported value was originally assessed.</p>
 <div id="basisofrecord" class="section level2">
 <h2><code>basisOfRecord</code></h2>
-<p><a href="">go to top</a> | <a href="#basisofrecord">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="3%" />
@@ -2821,15 +3630,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/basisofrecord" class="uri">http://terminologies.gfbio.org/terms/ETS/basisofrecord</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/basisOfRecord" class="uri">http://terminologies.gfbio.org/terms/ETS/basisOfRecord</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -2841,7 +3650,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/basisofrecord" class="uri">http://terminologies.gfbio.org/terms/ETS/basisofrecord</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2849,14 +3658,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="basisofrecorddescription" class="section level2">
 <h2><code>basisOfRecordDescription</code></h2>
-<p><a href="">go to top</a> | <a href="#basisofrecorddescription">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="4%" />
@@ -2883,15 +3692,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/basisofrecorddescription" class="uri">http://terminologies.gfbio.org/terms/ETS/basisofrecorddescription</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/basisOfRecordDescription" class="uri">http://terminologies.gfbio.org/terms/ETS/basisOfRecordDescription</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -2903,7 +3712,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/basisofrecorddescription" class="uri">http://terminologies.gfbio.org/terms/ETS/basisofrecorddescription</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2911,14 +3720,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="references" class="section level2">
 <h2><code>references</code></h2>
-<p><a href="">go to top</a> | <a href="#references">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="3%" />
@@ -2965,7 +3774,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -2973,14 +3782,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="measurementresolution" class="section level2">
 <h2><code>measurementResolution</code></h2>
-<p><a href="">go to top</a> | <a href="#measurementresolution">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="5%" />
@@ -3027,7 +3836,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3035,14 +3844,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="measurementmethod" class="section level2">
 <h2><code>measurementMethod</code></h2>
-<p><a href="">go to top</a> | <a href="#measurementmethod">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="2%" />
@@ -3089,7 +3898,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3097,14 +3906,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="measurementdeterminedby" class="section level2">
 <h2><code>measurementDeterminedBy</code></h2>
-<p><a href="">go to top</a> | <a href="#measurementdeterminedby">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="4%" />
@@ -3151,7 +3960,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3159,14 +3968,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="measurementdetermineddate" class="section level2">
 <h2><code>measurementDeterminedDate</code></h2>
-<p><a href="">go to top</a> | <a href="#measurementdetermineddate">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="2%" />
@@ -3213,7 +4022,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3221,14 +4030,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="measurementremarks" class="section level2">
 <h2><code>measurementRemarks</code></h2>
-<p><a href="">go to top</a> | <a href="#measurementremarks">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="9%" />
@@ -3275,7 +4084,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3283,14 +4092,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="aggregatemeasure" class="section level2">
 <h2><code>aggregateMeasure</code></h2>
-<p><a href="">go to top</a> | <a href="#aggregatemeasure">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="4%" />
@@ -3337,7 +4146,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3345,14 +4154,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="individualcount" class="section level2">
 <h2><code>individualCount</code></h2>
-<p><a href="">go to top</a> | <a href="#individualcount">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="8%" />
@@ -3399,7 +4208,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3407,14 +4216,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="dispersion" class="section level2">
 <h2><code>dispersion</code></h2>
-<p><a href="">go to top</a> | <a href="#dispersion">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="4%" />
@@ -3461,7 +4270,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3469,14 +4278,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="measurementvalue_min" class="section level2">
 <h2><code>measurementValue_min</code></h2>
-<p><a href="">go to top</a> | <a href="#measurementvalue_min">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="13%" />
@@ -3523,7 +4332,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3531,14 +4340,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="measurementvalue_max" class="section level2">
 <h2><code>measurementValue_max</code></h2>
-<p><a href="">go to top</a> | <a href="#measurementvalue_max">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="13%" />
@@ -3585,7 +4394,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3593,14 +4402,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="measurementaccuracy" class="section level2">
 <h2><code>measurementAccuracy</code></h2>
-<p><a href="">go to top</a> | <a href="#measurementaccuracy">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="9%" />
@@ -3647,7 +4456,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3655,14 +4464,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="statisticalmethod" class="section level2">
 <h2><code>statisticalMethod</code></h2>
-<p><a href="">go to top</a> | <a href="#statisticalmethod">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="7%" />
@@ -3709,7 +4518,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3717,7 +4526,131 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="basisofrecord-1" class="section level2">
+<h2><code>basisOfRecord</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="3%" />
+<col width="96%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">basisOfRecord</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">How and from which kind of specimen were the data obtained? Make use of controlled vocabulary. Valid entries are: ‘LivingSpecimen’; ‘PreservedSpecimen’; ‘FossilSpecimen’; ‘literatureData’; ‘traitDatabase’; ‘expertKnowledge’ (see Comments)</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Options are: Taken by own measurement (defined in DwC: <a href="http://rs.tdwg.org/dwc/terms/LivingSpecimen" class="uri">http://rs.tdwg.org/dwc/terms/LivingSpecimen</a>; <a href="http://rs.tdwg.org/dwc/terms/PreservedSpecimen" class="uri">http://rs.tdwg.org/dwc/terms/PreservedSpecimen</a>; <a href="http://rs.tdwg.org/dwc/terms/FossilSpecimen" class="uri">http://rs.tdwg.org/dwc/terms/FossilSpecimen</a> ) or taken from literature (enter ‘literatureData’), from an existing trait database (enter ‘traitDatabase’), or expert knowledge (enter ‘expertKnowledge’). Provide further information in field ‘basisOfRecordDescription’ and ‘references’.</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">factor</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/basisOfRecord" class="uri">http://terminologies.gfbio.org/terms/ETS/basisOfRecord</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/basisOfRecord" class="uri">http://rs.tdwg.org/dwc/terms/basisOfRecord</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/basisofrecord" class="uri">http://terminologies.gfbio.org/terms/ETS/basisofrecord</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
 <td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="basisofrecorddescription-1" class="section level2">
+<h2><code>basisOfRecordDescription</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="4%" />
+<col width="95%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">basisOfRecordDescription</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">Adding more detail to the basisOfRecord.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">If life specimens were sampled, where did they come from? Have they been reared in cultivation? If literature data or online database, provide type of literature, e.g. textbook, website, URL, etc. If preserved specimens were used, which method of preservation? In case of expert knowledge, give the name of the authority.</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/basisOfRecordDescription" class="uri">http://terminologies.gfbio.org/terms/ETS/basisOfRecordDescription</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/basisofrecorddescription" class="uri">http://terminologies.gfbio.org/terms/ETS/basisofrecorddescription</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -3733,7 +4666,7 @@ $(document).ready(function () {
 <p>For most trait data compiled from literature or expert knowledge, the level of information on an ‘occurrence’ would not apply, since no specific individual has been observed. In this case, the field ‘occurrenceID’ should be left blank in the core data. In cases where different aggregate ranges or averages are reported for male and female individuals, the columns sex or developmental stage may be used without the reference to an occurrence ID.</p>
 <div id="sex" class="section level2">
 <h2><code>sex</code></h2>
-<p><a href="">go to top</a> | <a href="#sex">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="9%" />
@@ -3780,7 +4713,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3788,14 +4721,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="lifestage" class="section level2">
 <h2><code>lifeStage</code></h2>
-<p><a href="">go to top</a> | <a href="#lifestage">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="5%" />
@@ -3842,7 +4775,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3850,14 +4783,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="age" class="section level2">
 <h2><code>age</code></h2>
-<p><a href="">go to top</a> | <a href="#age">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <thead>
 <tr class="header">
@@ -3900,7 +4833,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3908,14 +4841,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="morphotype" class="section level2">
 <h2><code>morphotype</code></h2>
-<p><a href="">go to top</a> | <a href="#morphotype">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="8%" />
@@ -3962,7 +4895,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -3970,14 +4903,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="eventid" class="section level2">
 <h2><code>eventID</code></h2>
-<p><a href="">go to top</a> | <a href="#eventid">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="5%" />
@@ -4024,7 +4957,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4032,14 +4965,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="preparations" class="section level2">
 <h2><code>preparations</code></h2>
-<p><a href="">go to top</a> | <a href="#preparations">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="3%" />
@@ -4086,7 +5019,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4094,14 +5027,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="samplingprotocol" class="section level2">
 <h2><code>samplingProtocol</code></h2>
-<p><a href="">go to top</a> | <a href="#samplingprotocol">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="2%" />
@@ -4148,7 +5081,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4156,14 +5089,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="year" class="section level2">
 <h2><code>year</code></h2>
-<p><a href="">go to top</a> | <a href="#year">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="16%" />
@@ -4210,7 +5143,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4218,14 +5151,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="month" class="section level2">
 <h2><code>month</code></h2>
-<p><a href="">go to top</a> | <a href="#month">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="12%" />
@@ -4272,7 +5205,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4280,14 +5213,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="day" class="section level2">
 <h2><code>day</code></h2>
-<p><a href="">go to top</a> | <a href="#day">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="15%" />
@@ -4334,7 +5267,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4342,14 +5275,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="eventdate" class="section level2">
 <h2><code>eventDate</code></h2>
-<p><a href="">go to top</a> | <a href="#eventdate">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="1%" />
@@ -4396,7 +5329,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4404,14 +5337,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="locationid" class="section level2">
 <h2><code>locationID</code></h2>
-<p><a href="">go to top</a> | <a href="#locationid">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="6%" />
@@ -4458,7 +5391,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4466,14 +5399,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="habitat" class="section level2">
 <h2><code>habitat</code></h2>
-<p><a href="">go to top</a> | <a href="#habitat">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="6%" />
@@ -4520,7 +5453,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4528,14 +5461,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="decimallongitude" class="section level2">
 <h2><code>decimalLongitude</code></h2>
-<p><a href="">go to top</a> | <a href="#decimallongitude">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="4%" />
@@ -4582,7 +5515,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4590,14 +5523,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="decimallatitude" class="section level2">
 <h2><code>decimalLatitude</code></h2>
-<p><a href="">go to top</a> | <a href="#decimallatitude">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="4%" />
@@ -4644,7 +5577,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4652,14 +5585,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="elevation" class="section level2">
 <h2><code>elevation</code></h2>
-<p><a href="">go to top</a> | <a href="#elevation">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="3%" />
@@ -4706,7 +5639,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4714,14 +5647,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="geodeticdatum" class="section level2">
 <h2><code>geodeticDatum</code></h2>
-<p><a href="">go to top</a> | <a href="#geodeticdatum">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="2%" />
@@ -4768,7 +5701,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4776,14 +5709,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="verbatimlocality" class="section level2">
 <h2><code>verbatimLocality</code></h2>
-<p><a href="">go to top</a> | <a href="#verbatimlocality">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="3%" />
@@ -4830,7 +5763,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4838,14 +5771,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="country" class="section level2">
 <h2><code>country</code></h2>
-<p><a href="">go to top</a> | <a href="#country">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="6%" />
@@ -4892,7 +5825,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4900,14 +5833,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="countrycode" class="section level2">
 <h2><code>countryCode</code></h2>
-<p><a href="">go to top</a> | <a href="#countrycode">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="9%" />
@@ -4954,7 +5887,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -4962,14 +5895,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="occurenceremarks" class="section level2">
-<h2><code>occurenceRemarks</code></h2>
-<p><a href="">go to top</a> | <a href="#occurenceremarks">direct link</a></p>
+<div id="occurrenceremarks" class="section level2">
+<h2><code>occurrenceRemarks</code></h2>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="12%" />
@@ -4978,7 +5911,7 @@ $(document).ready(function () {
 <thead>
 <tr class="header">
 <th align="left"></th>
-<th align="left">occurenceRemarks</th>
+<th align="left">occurrenceRemarks</th>
 </tr>
 </thead>
 <tbody>
@@ -5008,7 +5941,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
-<td align="left"></td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">Refines</td>
@@ -5016,7 +5949,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -5024,7 +5957,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -5036,7 +5969,7 @@ $(document).ready(function () {
 <p>Trait data uploaded to the Biodiversity Exploratories Information System (BExIS) should use the vocabulary in a single-file longtable format (no DwC-Archives supported).</p>
 <div id="originbe" class="section level2">
 <h2><code>OriginBE</code></h2>
-<p><a href="">go to top</a> | <a href="#originbe">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="13%" />
@@ -5083,7 +6016,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -5091,14 +6024,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="beplotid" class="section level2">
 <h2><code>BEPlotID</code></h2>
-<p><a href="">go to top</a> | <a href="#beplotid">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="5%" />
@@ -5145,7 +6078,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -5153,14 +6086,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="exploratory" class="section level2">
 <h2><code>Exploratory</code></h2>
-<p><a href="">go to top</a> | <a href="#exploratory">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <colgroup>
 <col width="10%" />
@@ -5207,7 +6140,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -5215,14 +6148,14 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="betype" class="section level2">
 <h2><code>BEType</code></h2>
-<p><a href="">go to top</a> | <a href="#betype">direct link</a></p>
+<p><a href="">go to top</a></p>
 <table>
 <thead>
 <tr class="header">
@@ -5265,7 +6198,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -5273,7 +6206,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">ReplacedBy</td>
-<td align="left">NA</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
