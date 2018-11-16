@@ -45,7 +45,7 @@ The vocabulary builds on the Darwin Core Standard (DWC; Darwin Core Terms and ex
 ```{r, results = 'asis', echo = FALSE, warning = FALSE}
 library(data.table)
 library(knitr)
-glossary <- read.csv("ETS.csv")
+glossary <- read.csv("ETS.csv", fileEncoding = "UTF-8")
 urlroot <- ""
 
 # eliminate all deprecated terms for creation of documentation 
