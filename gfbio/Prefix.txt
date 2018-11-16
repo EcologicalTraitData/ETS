@@ -22,18 +22,31 @@
 	</owl:Ontology>
 	
 	<!-- 
-	Each RDF description uses the following:
+	Each RDF description uses the following properties:
 		rdfs:label
 		rdfs:comment
 		dcterms:description
 		rdfs:isDefinedBy
 		dcterms:issued
-		dcterms:modified
 		rdf:type
-		rdfs:subPropertyOf
 		dwcattributes:status
 		dwcattributes:organizedInClass
+	
+	The following properties are used by some of the concepts
+		rdfs:subPropertyOf
+		dcterms:replaces
+		dcterms:isReplacedBy
+		dcterms:modified
 	-->
+	
+	<!-- Annotation properties -->
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/isReplacedBy"/>
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/replaces"/>
+	<owl:AnnotationProperty rdf:about="http://rs.tdwg.org/dwc/terms/attributes/organizedInClass"/>
+	<owl:AnnotationProperty rdf:about="http://rs.tdwg.org/dwc/terms/attributes/status"/>
 	
 
 	<!-- term groups -->
