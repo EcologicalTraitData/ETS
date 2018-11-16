@@ -48,15 +48,15 @@ library(knitr)
 glossary <- read.csv("ETS.csv")
 urlroot <- ""
 
+# eliminate all deprecated terms for creation of documentation 
+# WARNING: if deprecated terms are kept with definition different from replacing terms, they should be listed! requires refinement of this part
+glossary <- glossary[-which(glossary$Deprecated),] 
+
 columnNames <- glossary$columnName
 sections <- glossary$Namespace
 sectionNames <- levels(glossary$Namespace)
 
 glossary <- as.data.table(glossary)
-
-# eliminate all deprecated terms for creation of documentation 
-# WARNING: if deprecated terms are kept with definition different from replacing terms, they should be listed! requires refinement of this part
-glossary <- glossary[-which(glossary$Deprecated),] 
 
 # split list of terms into list of tables per namespace
 glossary <- setNames(split(glossary[,-c(1), with = FALSE], f = as.integer(glossary$Namespace)), sectionNames)
