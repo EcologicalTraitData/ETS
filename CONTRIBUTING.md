@@ -3,6 +3,10 @@
 The Ecological Traitdata Standard Vocabulary is under continuous and open community development, hosted on [Github](https://github.com/EcologicalTraitData/ETS). It invites submissions of new terms and extensions, and revisions of existing terms from a wide community of researchers working with trait data.
 Please refer to the [Github Issues page](https://github.com/EcologicalTraitData/ETS/issues) for discussion and revision of individual terms, and settle the issue here before filing a pull-request that implements an update. 
 
+# Name scheme for new terms
+
+New terms should be labelled using lower camel case (i.e. with a lower case letter at the start and then upper case letters to separate words, e.g. "camelCase"). For new classes, (i.e. names of extensions) use upper camel case (e.g. "Metadata"). This is conventional for ontologies for use in the semantic web. 
+
 # File format
 
 The original source file is [ETS.csv](https://github.com/EcologicalTraitData/ETS/blob/master/ETS.csv), defining the terms and containing the URIs. When editing this file, make sure it is saved with **comma as field separator**, **decimal points**, and using **double quotes** to envelope long text character strings. Standard Date format is ISO 8601, YYYY-MM-DD. 
