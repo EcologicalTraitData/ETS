@@ -1,0 +1,7318 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Best practice examples for primary data publication</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ecological Trait-data Standard</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-file-text-o"></span>
+     
+    Vocabulary
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="bestpractice.html">Guidelines</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Versions
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="VERSIONS.html">Version history</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.9/index.html">v0.9</a>
+    </li>
+    <li>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.8/index.html">v0.8</a>
+    </li>
+    <li>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.7/index.html">v0.7</a>
+    </li>
+    <li>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.6/index.html">v0.6</a>
+    </li>
+    <li>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.5/index.html">v0.5</a>
+    </li>
+    <li>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.4/index.html">v0.4</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="http://github.com/EcologicalTraitdata/">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Best practice examples for primary data publication</h1>
+
+</div>
+
+
+<!---->
+<p>This tutorial provides best-practice principles when standardising traits with terms of the Ecological Trait-data Standard (ETS, <a href="https://terminologies.gfbio.org/terms/ets/pages/" class="uri">https://terminologies.gfbio.org/terms/ets/pages/</a>).</p>
+<p>We focus this document on the first of the three use-cases for the ETS vocabulary: The publication of project-specific primary data. To comply with the FAIR principles of scientific data management and aim at findability, accessibility, interoperability and reusability <span class="citation">(Wilkinson et al. 2016)</span>, trait data should apply the following principles when preparing data for publication:</p>
+<ul>
+<li><p><strong>Label your dataset!</strong> data should be published with appropriate metadata and provide a descriptive title and keywords to be findable by search engines. Keywords should include the general label “trait-data”, and more specific labels such as “functional traits” or “morphometric traits”, as well as the taxa covered by the dataset.</p></li>
+<li><p><strong>State terms of use!</strong> To enable re-use, the metadata must contain the name of the author or owner of the data, the suggested citation for the data, as well as the license model or terms of use of the data. Recommended are copyright wavers and licenses that permit re-use without seeking authorization from the rights holder, such as Creative Commons (CC) licenses, which also can warrant attribution and citation (CC by) <span class="citation">(Kissling et al. 2018)</span>. Ideally, these statements are provided by the data-hoster in a machine-readable way, by using standardised fields of metadata or hyperlink references.</p></li>
+<li><p><strong>Use independent file formats!</strong> For reasons of long-term accessibility, data should not be uploaded in proprietary spreadsheet formats (like ‘.xlsx’) but rather in comma- or tab-separated text files (‘.csv’ or ‘.tsv’) that are compatible with all computing platforms and internationalisation settings by applying a unified character encoding (e.g. UTF-8 or ASCII). For internationalisation, use points as decimal delimiters and set date-formats to ISO 8601, i.e. “YYYY-MM-DD”.</p></li>
+<li><p><strong>Use standard terms!</strong> Draw column or field names from the ETS vocabulary wherever possible. If co-variates or any ancillary data are not covered by the vocabulary, apply terms of the Darwin Core Standard (DwC).</p></li>
+<li><p><strong>Use URI references!</strong> Wherever possible, the concepts used to describe the dataset should be referenced to globally accessible Uniform Resource Identifiers (URIs). These references allow data users and software tools to relate the dataset to well-defined concepts of taxa or traits, or measurement units, etc. The ETS-terms ‘traitID’ and ‘taxonID’ are defined to label fields with URIs as values.</p></li>
+<li><p><strong>Provide definitions!</strong> Metadata must reference the data standards, taxonomic concepts and trait ontologies applied in the dataset as well as any user-defined terms and trait concepts. To provide own trait-concepts, use the terms provided within the ETS section “Terms for traitlists”.</p></li>
+<li><p><strong>Publish raw data!</strong> When publishing trait-data, priority is on containing measurement values while minimizing the risk of purporting errors through data conversion or aggregation. Thus, data should be published as they have been recorded, i.e. in original units and raw values, along with standardised values that match a unified and compatible scheme of a data standard. This is true for the core terms, i.e. the trait value (the quality) and observation entity, but also for any co-variates reported along with it.</p></li>
+<li><p><strong>Keep original values!</strong> For the core terms, data providers should complement user-defined entries (such as project specific taxon abbreviations) with standardised values by applying the ‘*Std’-terms. For co-variates, the extensions of the vocabulary provide column names for standardised values only, e.g. elevation above sea-level. These should adhere to accepted standards wherever possible. If any conversion was applied to obtain these data, users should keep the original values in user-defined columns, e.g. by appending ‘*Orig’ to the column name. Also, additional co-variates, e.g. on environmental growth conditions of the specimen, should be provided in user-defined columns. Any user-defined columns must be adequately defined in the accompanying meta-information.</p></li>
+<li><p><strong>Report Uncertainty!</strong> If publishing aggregate data (e.g. averages for multiple measurements), report the <span class="math inline">\(n\)</span> and dispersion of the aggregate value. This allows to weigh data from multiple sources when producing compilations. Any sources of bias or noise should be reported along with the data (e.g. observer ID, conditions of measurement etc.). Use terms of the ETS extension “Measurement or Fact”.</p></li>
+<li><p><strong>Use Identifiers!</strong> Well-defined identifiers (‘IDs’) are key elements to structure the datasets and relate them to complementing datasets, if necessary (Fig. 2 <em>c</em> &amp; <em>d</em>). For instance, for occurrence level data where multiple trait measurements are reported for each individual specimen, the same user-defined entry for ‘occurrenceID’ would link several measurements across the rows of the dataset. Similarly, multivariate measurements, for instance gas chromatography data or x-y-z data of morphometric coordinates could be linked via a ‘measurementID’. In literature data, summarised traits are usually given at the taxon level instead of the individual organism (e.g. reported as means or factorials) and a ‘taxonID’ is the key identifier. In larger compilations, a ‘datasetID’ allow to trace data origin to the primary source and keep track of authorship and original reference. Beyond being just of structural use for the dataset, identifiers are capable of linking own data to consensus taxonomy and trait terminology via URIs, which point to external terminology services.</p></li>
+</ul>
+<div id="example-1---apply-standard-terms-for-matrices" class="section level1">
+<h1>Example 1 - Apply standard terms for matrices</h1>
+<p>If trait data have been collated at the species level from different literature sources or from expert knowledge, or as aggregated measurements collated from raw data, they usually are reported in a observation-level wide-table format, with a column of values for each trait recorded and a row for each species (or taxon) for which data were available. The wide-table format is widely used for the production of lookup-tables at the species level, which may either report qualitative facts (from literature or expert knowledge) or aggregated quantitative traits (averages or ranges of trait values for this taxon).</p>
+<p>This wide-table format is straightforward for maintaining and managing new data for the data author. In terms of analysis, it allows to easily correlate traits with each other and analyse trade-offs between traits. However, wide-tables need to clearly differentiate missing data and traits not applicable to a given taxon (often filled in as ‘NA’ or dummy numbers, e.g. ‘999’). Additional information (e.g. on variation of means or literature source) may be stored in secondary columns or accompanying datasheets. When applying the data standard to wide-table data, the columns for taxa or individuals may be labelled using the terms of the ETS. Taxon concepts should be referenced to globally available concepts using URIs, e.g. by referring to GBIF Taxonomy. Taxa authors and fine-grained higher taxonomy must then be consistent with the linked concept, or may be omitted as redundant and to avoid confusion.</p>
+<p>Remarks should be provided in a human-readable form within the table and provided with further detail in the metadata, if necessary.</p>
+<p>For wide tables, it is essential that the multiple trait columns are labelled in unambiguous ways and be linked to trait concepts provided in the metadata or a secondary spreadsheet.</p>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Example 1 before standardisation; excerpt of original data from Gossner et al. (2015) <em>Scientific Data</em> 2:150013; data DOI: <a href="https://doi.org/10.5061/dryad.53ds2">10.5061/dryad.53ds2</a> containing eight traits of arthropods from an European grassland; details provided in data publication <a href="https://www.nature.com/articles/sdata201513/tables/2">Table 2</a>.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Order
+</th>
+<th style="text-align:left;">
+Suborder
+</th>
+<th style="text-align:left;">
+Family
+</th>
+<th style="text-align:left;">
+SpeciesID
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:right;">
+Body_Size
+</th>
+<th style="text-align:right;">
+Dispersal_ability
+</th>
+<th style="text-align:left;">
+Feeding_guild
+</th>
+<th style="text-align:left;">
+Remark
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Anyphaenidae
+</td>
+<td style="text-align:left;">
+Anyphaena accentuata
+</td>
+<td style="text-align:left;">
+(Walckenaer, 1802)
+</td>
+<td style="text-align:right;">
+6.25
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Aculepeira ceropegia
+</td>
+<td style="text-align:left;">
+Walckenaer, 1802
+</td>
+<td style="text-align:right;">
+11.00
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Agalenatea redii
+</td>
+<td style="text-align:left;">
+(Scopoli, 1763)
+</td>
+<td style="text-align:right;">
+6.93
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Araneus diadematus
+</td>
+<td style="text-align:left;">
+Clerck, 1757
+</td>
+<td style="text-align:right;">
+11.88
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Araneus marmoreus
+</td>
+<td style="text-align:left;">
+Clerck, 1757
+</td>
+<td style="text-align:right;">
+10.03
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Araneus quadratus
+</td>
+<td style="text-align:left;">
+Clerck, 1757
+</td>
+<td style="text-align:right;">
+12.25
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Araneus sturmi
+</td>
+<td style="text-align:left;">
+(Hahn, 1831)
+</td>
+<td style="text-align:right;">
+4.63
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Araneus triguttatus
+</td>
+<td style="text-align:left;">
+Fabricius, 1775
+</td>
+<td style="text-align:right;">
+5.25
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Araniella alpica
+</td>
+<td style="text-align:left;">
+(L. Koch, 1869)
+</td>
+<td style="text-align:right;">
+6.00
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Araniella cucurbitina
+</td>
+<td style="text-align:left;">
+(Clerck, 1757)
+</td>
+<td style="text-align:right;">
+5.50
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Araniella opisthographa
+</td>
+<td style="text-align:left;">
+(Kulczynski, 1905)
+</td>
+<td style="text-align:right;">
+4.38
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Argiope bruennichi
+</td>
+<td style="text-align:left;">
+(Scopoli, 1772)
+</td>
+<td style="text-align:right;">
+11.78
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Cercidia prominens
+</td>
+<td style="text-align:left;">
+(Westring, 1851)
+</td>
+<td style="text-align:right;">
+5.38
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Cyclosa conica
+</td>
+<td style="text-align:left;">
+(Pallas, 1772)
+</td>
+<td style="text-align:right;">
+5.75
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Cyclosa oculata
+</td>
+<td style="text-align:left;">
+(Walckenaer, 1802)
+</td>
+<td style="text-align:right;">
+5.08
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Gibbaranea gibbosa
+</td>
+<td style="text-align:left;">
+(Walckenaer, 1802)
+</td>
+<td style="text-align:right;">
+6.75
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Gibbaranea omoeda
+</td>
+<td style="text-align:left;">
+(Thorell, 1870)
+</td>
+<td style="text-align:right;">
+9.13
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Hypsosinga albovittata
+</td>
+<td style="text-align:left;">
+(Westring, 1851)
+</td>
+<td style="text-align:right;">
+4.15
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Hypsosinga sanguinea
+</td>
+<td style="text-align:left;">
+(C.L. Koch, 1844)
+</td>
+<td style="text-align:right;">
+3.75
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Larinioides cornutus
+</td>
+<td style="text-align:left;">
+(Clerck, 1757)
+</td>
+<td style="text-align:right;">
+10.35
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Mangora acalypha
+</td>
+<td style="text-align:left;">
+(Walckenaer, 1802)
+</td>
+<td style="text-align:right;">
+4.50
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Nuctenea umbratica
+</td>
+<td style="text-align:left;">
+(Clerck, 1757)
+</td>
+<td style="text-align:right;">
+11.25
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+Singa hamata
+</td>
+<td style="text-align:left;">
+(Clerck, 1757)
+</td>
+<td style="text-align:right;">
+5.90
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Clubionidae
+</td>
+<td style="text-align:left;">
+Clubiona brevipes
+</td>
+<td style="text-align:left;">
+Blackwall, 1841
+</td>
+<td style="text-align:right;">
+5.50
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Clubionidae
+</td>
+<td style="text-align:left;">
+Clubiona diversa
+</td>
+<td style="text-align:left;">
+O. P.-Cambridge, 1862
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Clubionidae
+</td>
+<td style="text-align:left;">
+Clubiona leucaspis
+</td>
+<td style="text-align:left;">
+Simon, 1932
+</td>
+<td style="text-align:right;">
+4.05
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Clubionidae
+</td>
+<td style="text-align:left;">
+Clubiona neglecta
+</td>
+<td style="text-align:left;">
+O. P.-Cambridge, 1862
+</td>
+<td style="text-align:right;">
+6.25
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Clubionidae
+</td>
+<td style="text-align:left;">
+Clubiona reclusa
+</td>
+<td style="text-align:left;">
+O. P.-Cambridge, 1863
+</td>
+<td style="text-align:right;">
+5.75
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Clubionidae
+</td>
+<td style="text-align:left;">
+Clubiona stagnatilis
+</td>
+<td style="text-align:left;">
+Kulczynski, 1897
+</td>
+<td style="text-align:right;">
+6.25
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Dictynidae
+</td>
+<td style="text-align:left;">
+Argenna subnigra
+</td>
+<td style="text-align:left;">
+(O. P.-Cambridge, 1861)
+</td>
+<td style="text-align:right;">
+2.25
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Dictynidae
+</td>
+<td style="text-align:left;">
+Dictyna pusilla
+</td>
+<td style="text-align:left;">
+Thorell, 1856
+</td>
+<td style="text-align:right;">
+2.45
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Dictynidae
+</td>
+<td style="text-align:left;">
+Lathys humilis
+</td>
+<td style="text-align:left;">
+(Blackwall, 1855)
+</td>
+<td style="text-align:right;">
+2.20
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Dictynidae
+</td>
+<td style="text-align:left;">
+Nigma flavescens
+</td>
+<td style="text-align:left;">
+(Walckenaer, 1830)
+</td>
+<td style="text-align:right;">
+3.08
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Gnaphosidae
+</td>
+<td style="text-align:left;">
+Micaria pulicaria
+</td>
+<td style="text-align:left;">
+(Sundevall, 1831)
+</td>
+<td style="text-align:right;">
+3.55
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+Araeoncus humilis
+</td>
+<td style="text-align:left;">
+(Blackwall, 1841)
+</td>
+<td style="text-align:right;">
+1.60
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+Baryphyma pratense
+</td>
+<td style="text-align:left;">
+(Blackwall, 1861)
+</td>
+<td style="text-align:right;">
+2.20
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+Bathyphantes approximatus
+</td>
+<td style="text-align:left;">
+(O. P.-Cambridge, 1871)
+</td>
+<td style="text-align:right;">
+2.63
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+Bathyphantes gracilis
+</td>
+<td style="text-align:left;">
+(Blackwall, 1841)
+</td>
+<td style="text-align:right;">
+1.98
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+Bathyphantes parvulus
+</td>
+<td style="text-align:left;">
+(Westring, 1851)
+</td>
+<td style="text-align:right;">
+2.15
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+Centromerita bicolor
+</td>
+<td style="text-align:left;">
+(Blackwall, 1833)
+</td>
+<td style="text-align:right;">
+3.25
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+Centromerus sylvaticus
+</td>
+<td style="text-align:left;">
+(Blackwall, 1841)
+</td>
+<td style="text-align:right;">
+3.43
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+Ceratinella brevipes
+</td>
+<td style="text-align:left;">
+(Westring, 1851)
+</td>
+<td style="text-align:right;">
+1.45
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+Ceratinella scabrosa
+</td>
+<td style="text-align:left;">
+(O. P.-Cambridge, 1871)
+</td>
+<td style="text-align:right;">
+1.88
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+Cinetata gradata
+</td>
+<td style="text-align:left;">
+(Simon, 1881)
+</td>
+<td style="text-align:right;">
+1.45
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Labidognatha
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+Cnephalocotes obscurus
+</td>
+<td style="text-align:left;">
+(Blackwall, 1834)
+</td>
+<td style="text-align:right;">
+1.73
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Example 1 after standardisation. Column names mapped to ETS terms; taxa are mapped to taxon concepts in published terminologies via URIs. Trait columns are not standardised and respective definitions and units must be provided in the accompanying metadata.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+scientificName
+</th>
+<th style="text-align:left;">
+order
+</th>
+<th style="text-align:left;">
+family
+</th>
+<th style="text-align:left;">
+taxonID
+</th>
+<th style="text-align:right;">
+Body_Size
+</th>
+<th style="text-align:right;">
+Dispersal_ability
+</th>
+<th style="text-align:left;">
+Feeding_guild
+</th>
+<th style="text-align:left;">
+measurementRemarks
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Anyphaena accentuata
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Anyphaenidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2159474" class="uri">http://www.gbif.org/species/2159474</a>
+</td>
+<td style="text-align:right;">
+6.25
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Aculepeira ceropegia
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2160943" class="uri">http://www.gbif.org/species/2160943</a>
+</td>
+<td style="text-align:right;">
+11.00
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Agalenatea redii
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2154595" class="uri">http://www.gbif.org/species/2154595</a>
+</td>
+<td style="text-align:right;">
+6.93
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneus diadematus
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2134131" class="uri">http://www.gbif.org/species/2134131</a>
+</td>
+<td style="text-align:right;">
+11.88
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneus marmoreus
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2160133" class="uri">http://www.gbif.org/species/2160133</a>
+</td>
+<td style="text-align:right;">
+10.03
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneus quadratus
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2159970" class="uri">http://www.gbif.org/species/2159970</a>
+</td>
+<td style="text-align:right;">
+12.25
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneus sturmi
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2159735" class="uri">http://www.gbif.org/species/2159735</a>
+</td>
+<td style="text-align:right;">
+4.63
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+non-grassland species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araneus triguttatus
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2160067" class="uri">http://www.gbif.org/species/2160067</a>
+</td>
+<td style="text-align:right;">
+5.25
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+non-grassland species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araniella alpica
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2159883" class="uri">http://www.gbif.org/species/2159883</a>
+</td>
+<td style="text-align:right;">
+6.00
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+non-grassland species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araniella cucurbitina
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2158387" class="uri">http://www.gbif.org/species/2158387</a>
+</td>
+<td style="text-align:right;">
+5.50
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araniella opisthographa
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2158384" class="uri">http://www.gbif.org/species/2158384</a>
+</td>
+<td style="text-align:right;">
+4.38
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Argiope bruennichi
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2158385" class="uri">http://www.gbif.org/species/2158385</a>
+</td>
+<td style="text-align:right;">
+11.78
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cercidia prominens
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2144644" class="uri">http://www.gbif.org/species/2144644</a>
+</td>
+<td style="text-align:right;">
+5.38
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cyclosa conica
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/5170994" class="uri">http://www.gbif.org/species/5170994</a>
+</td>
+<td style="text-align:right;">
+5.75
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cyclosa oculata
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2134203" class="uri">http://www.gbif.org/species/2134203</a>
+</td>
+<td style="text-align:right;">
+5.08
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gibbaranea gibbosa
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2134053" class="uri">http://www.gbif.org/species/2134053</a>
+</td>
+<td style="text-align:right;">
+6.75
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gibbaranea omoeda
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2134068" class="uri">http://www.gbif.org/species/2134068</a>
+</td>
+<td style="text-align:right;">
+9.13
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+non-grassland species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hypsosinga albovittata
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2134110" class="uri">http://www.gbif.org/species/2134110</a>
+</td>
+<td style="text-align:right;">
+4.15
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hypsosinga sanguinea
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2138915" class="uri">http://www.gbif.org/species/2138915</a>
+</td>
+<td style="text-align:right;">
+3.75
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Larinioides cornutus
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2138546" class="uri">http://www.gbif.org/species/2138546</a>
+</td>
+<td style="text-align:right;">
+10.35
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mangora acalypha
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2138356" class="uri">http://www.gbif.org/species/2138356</a>
+</td>
+<td style="text-align:right;">
+4.50
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nuctenea umbratica
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2138349" class="uri">http://www.gbif.org/species/2138349</a>
+</td>
+<td style="text-align:right;">
+11.25
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+non-grassland species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Singa hamata
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Araneidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2158735" class="uri">http://www.gbif.org/species/2158735</a>
+</td>
+<td style="text-align:right;">
+5.90
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clubiona brevipes
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Clubionidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2137224" class="uri">http://www.gbif.org/species/2137224</a>
+</td>
+<td style="text-align:right;">
+5.50
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+non-grassland species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clubiona diversa
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Clubionidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2143869" class="uri">http://www.gbif.org/species/2143869</a>
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clubiona leucaspis
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Clubionidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2144214" class="uri">http://www.gbif.org/species/2144214</a>
+</td>
+<td style="text-align:right;">
+4.05
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+non-grassland species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clubiona neglecta
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Clubionidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2143966" class="uri">http://www.gbif.org/species/2143966</a>
+</td>
+<td style="text-align:right;">
+6.25
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clubiona reclusa
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Clubionidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2144189" class="uri">http://www.gbif.org/species/2144189</a>
+</td>
+<td style="text-align:right;">
+5.75
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clubiona stagnatilis
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Clubionidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2144246" class="uri">http://www.gbif.org/species/2144246</a>
+</td>
+<td style="text-align:right;">
+6.25
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Argenna subnigra
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Dictynidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2143910" class="uri">http://www.gbif.org/species/2143910</a>
+</td>
+<td style="text-align:right;">
+2.25
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dictyna pusilla
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Dictynidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2137146" class="uri">http://www.gbif.org/species/2137146</a>
+</td>
+<td style="text-align:right;">
+2.45
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lathys humilis
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Dictynidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2158202" class="uri">http://www.gbif.org/species/2158202</a>
+</td>
+<td style="text-align:right;">
+2.20
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+non-grassland species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nigma flavescens
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Dictynidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2158180" class="uri">http://www.gbif.org/species/2158180</a>
+</td>
+<td style="text-align:right;">
+3.08
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+non-grassland species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Micaria pulicaria
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Gnaphosidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2144854" class="uri">http://www.gbif.org/species/2144854</a>
+</td>
+<td style="text-align:right;">
+3.55
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Araeoncus humilis
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2158811" class="uri">http://www.gbif.org/species/2158811</a>
+</td>
+<td style="text-align:right;">
+1.60
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Baryphyma pratense
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2158809" class="uri">http://www.gbif.org/species/2158809</a>
+</td>
+<td style="text-align:right;">
+2.20
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bathyphantes approximatus
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2160397" class="uri">http://www.gbif.org/species/2160397</a>
+</td>
+<td style="text-align:right;">
+2.63
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bathyphantes gracilis
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2160408" class="uri">http://www.gbif.org/species/2160408</a>
+</td>
+<td style="text-align:right;">
+1.98
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bathyphantes parvulus
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2159204" class="uri">http://www.gbif.org/species/2159204</a>
+</td>
+<td style="text-align:right;">
+2.15
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Centromerita bicolor
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2144779" class="uri">http://www.gbif.org/species/2144779</a>
+</td>
+<td style="text-align:right;">
+3.25
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Centromerus sylvaticus
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2159061" class="uri">http://www.gbif.org/species/2159061</a>
+</td>
+<td style="text-align:right;">
+3.43
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ceratinella brevipes
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/5168243" class="uri">http://www.gbif.org/species/5168243</a>
+</td>
+<td style="text-align:right;">
+1.45
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ceratinella scabrosa
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2145001" class="uri">http://www.gbif.org/species/2145001</a>
+</td>
+<td style="text-align:right;">
+1.88
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+non-grassland species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cinetata gradata
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2158999" class="uri">http://www.gbif.org/species/2158999</a>
+</td>
+<td style="text-align:right;">
+1.45
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+non-grassland species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cnephalocotes obscurus
+</td>
+<td style="text-align:left;">
+Araneae
+</td>
+<td style="text-align:left;">
+Linyphiidae
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2159393" class="uri">http://www.gbif.org/species/2159393</a>
+</td>
+<td style="text-align:right;">
+1.73
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="example-2---provide-structure-in-long-table" class="section level1">
+<h1>Example 2 - provide structure in long-table</h1>
+<p>In observation wide-tables, each row is centered around a single physical occurrence of a species, e.g. phenotypic variation of traits within species would usually be recorded per observation where each replicate taken on a distinct individual specimen would be recorded in a row, with the respective trait values stored in columns (see Table B1). Those data are common in investigations of evolutionary trade-offs and trait correlation, or of intra-specific variation along environmental gradients. Occurrence data would also capture phenotypic variation arising from morphotypes and sexual dimorphism. This format is the most intuitive for recording own empirical measurements and therefore is common for measured quantitative data but rarely found for reported qualitative facts obtained from the literature.</p>
+<p>A more effective method that allows for high flexibility and easier data merging is the storage of traitdata in long-table formats <span class="citation">(Wickham 2014; Parr et al. 2016)</span>. This data format corresponds to the Entity-Quality Model: each row contains a single measurement or fact of a specific trait, referenced to a single specimen (i.e., one occurrence) which is assigned to a specific taxon (see Table B2). Identifiers can provide structure and link measurements that are correlated by assigning a unique ID for each single individual. Also, multivariate trait measurements can be recorded in this format by linking multiple rows via a unique measurement identifier. Long-table datasets purport multiple advantages for data handling (e.g. filtering, sub-setting and aggregating data), visualization (e.g. plot measured values by factor variable or taxon) and statistical modelling (e.g. ANOVA for testing difference of trait value by sex) <span class="citation">(Wickham 2014)</span>. As long-table data share a larger set of columns, merging of datasets is in most cases easier for the end-user.</p>
+<p>However, a disadvantage of the long-table data structure is the mixing of units or even factor levels in the ‘traitValue’ column. The mixed content of this column prohibits filtering data based on their values. Data-splitting techniques or a database system are tools to disentangle the data.</p>
+<pre><code>## Please enter password in TK window (Alt+Tab)</code></pre>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Example 2 before standardisation. Data are stored in observation wide-table format, i.e. one row contains a single specimen with multiple trait measurements (in columns). Units and specific information on measurements must be reported in the metadata of the dataset. Data originate from Mangels et al. (unpublished).
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+label
+</th>
+<th style="text-align:left;">
+species
+</th>
+<th style="text-align:left;">
+plot
+</th>
+<th style="text-align:right;">
+weight
+</th>
+<th style="text-align:right;">
+wing_length
+</th>
+<th style="text-align:right;">
+wing_width
+</th>
+<th style="text-align:right;">
+wing_area
+</th>
+<th style="text-align:right;">
+wing_loading
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+F1
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+5.174
+</td>
+<td style="text-align:right;">
+12.59
+</td>
+<td style="text-align:right;">
+8.34
+</td>
+<td style="text-align:right;">
+141.99738
+</td>
+<td style="text-align:right;">
+0.0364373
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F2
+</td>
+<td style="text-align:left;">
+Xanthorhoe_spadicearia
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+8.058
+</td>
+<td style="text-align:right;">
+11.38
+</td>
+<td style="text-align:right;">
+7.63
+</td>
+<td style="text-align:right;">
+99.42776
+</td>
+<td style="text-align:right;">
+0.0810438
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F3
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG4
+</td>
+<td style="text-align:right;">
+5.586
+</td>
+<td style="text-align:right;">
+15.01
+</td>
+<td style="text-align:right;">
+11.40
+</td>
+<td style="text-align:right;">
+231.40572
+</td>
+<td style="text-align:right;">
+0.0241394
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F4
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG6
+</td>
+<td style="text-align:right;">
+4.797
+</td>
+<td style="text-align:right;">
+14.90
+</td>
+<td style="text-align:right;">
+12.39
+</td>
+<td style="text-align:right;">
+249.65837
+</td>
+<td style="text-align:right;">
+0.0192143
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F6
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+14.263
+</td>
+<td style="text-align:right;">
+11.47
+</td>
+<td style="text-align:right;">
+13.60
+</td>
+<td style="text-align:right;">
+210.95551
+</td>
+<td style="text-align:right;">
+0.0676114
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F7
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+4.731
+</td>
+<td style="text-align:right;">
+12.82
+</td>
+<td style="text-align:right;">
+11.61
+</td>
+<td style="text-align:right;">
+201.28379
+</td>
+<td style="text-align:right;">
+0.0235041
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F8
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+9.200
+</td>
+<td style="text-align:right;">
+12.85
+</td>
+<td style="text-align:right;">
+13.85
+</td>
+<td style="text-align:right;">
+240.68080
+</td>
+<td style="text-align:right;">
+0.0382249
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F11
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+4.611
+</td>
+<td style="text-align:right;">
+9.83
+</td>
+<td style="text-align:right;">
+13.85
+</td>
+<td style="text-align:right;">
+184.11613
+</td>
+<td style="text-align:right;">
+0.0250440
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F12
+</td>
+<td style="text-align:left;">
+Xanthorhoe_spadicearia
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+5.173
+</td>
+<td style="text-align:right;">
+10.59
+</td>
+<td style="text-align:right;">
+6.63
+</td>
+<td style="text-align:right;">
+80.39895
+</td>
+<td style="text-align:right;">
+0.0643416
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F14
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+5.181
+</td>
+<td style="text-align:right;">
+12.50
+</td>
+<td style="text-align:right;">
+11.63
+</td>
+<td style="text-align:right;">
+196.59763
+</td>
+<td style="text-align:right;">
+0.0263533
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F15
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+14.159
+</td>
+<td style="text-align:right;">
+13.50
+</td>
+<td style="text-align:right;">
+8.33
+</td>
+<td style="text-align:right;">
+152.07832
+</td>
+<td style="text-align:right;">
+0.0931033
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F16
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+8.745
+</td>
+<td style="text-align:right;">
+12.44
+</td>
+<td style="text-align:right;">
+12.06
+</td>
+<td style="text-align:right;">
+202.88794
+</td>
+<td style="text-align:right;">
+0.0431026
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F17
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+5.336
+</td>
+<td style="text-align:right;">
+15.02
+</td>
+<td style="text-align:right;">
+12.66
+</td>
+<td style="text-align:right;">
+257.15335
+</td>
+<td style="text-align:right;">
+0.0207503
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F18
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+7.321
+</td>
+<td style="text-align:right;">
+12.14
+</td>
+<td style="text-align:right;">
+13.21
+</td>
+<td style="text-align:right;">
+216.87528
+</td>
+<td style="text-align:right;">
+0.0337567
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F19
+</td>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+7.248
+</td>
+<td style="text-align:right;">
+10.45
+</td>
+<td style="text-align:right;">
+13.13
+</td>
+<td style="text-align:right;">
+185.55368
+</td>
+<td style="text-align:right;">
+0.0390615
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F23
+</td>
+<td style="text-align:left;">
+Xanthorhoe_ferrugata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+4.834
+</td>
+<td style="text-align:right;">
+10.95
+</td>
+<td style="text-align:right;">
+7.64
+</td>
+<td style="text-align:right;">
+97.77862
+</td>
+<td style="text-align:right;">
+0.0494382
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F24
+</td>
+<td style="text-align:left;">
+Xanthorhoe_spadicearia
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+4.499
+</td>
+<td style="text-align:right;">
+10.97
+</td>
+<td style="text-align:right;">
+7.04
+</td>
+<td style="text-align:right;">
+88.43418
+</td>
+<td style="text-align:right;">
+0.0508740
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F25
+</td>
+<td style="text-align:left;">
+Xanthorhoe_ferrugata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+4.257
+</td>
+<td style="text-align:right;">
+11.48
+</td>
+<td style="text-align:right;">
+6.69
+</td>
+<td style="text-align:right;">
+89.76446
+</td>
+<td style="text-align:right;">
+0.0474241
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F26
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG5
+</td>
+<td style="text-align:right;">
+38.106
+</td>
+<td style="text-align:right;">
+13.01
+</td>
+<td style="text-align:right;">
+8.92
+</td>
+<td style="text-align:right;">
+155.26143
+</td>
+<td style="text-align:right;">
+0.2454312
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F27
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+26.000
+</td>
+<td style="text-align:right;">
+13.75
+</td>
+<td style="text-align:right;">
+8.21
+</td>
+<td style="text-align:right;">
+151.03142
+</td>
+<td style="text-align:right;">
+0.1721496
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F28
+</td>
+<td style="text-align:left;">
+Xanthorhoe_ferrugata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+4.866
+</td>
+<td style="text-align:right;">
+11.69
+</td>
+<td style="text-align:right;">
+7.10
+</td>
+<td style="text-align:right;">
+97.00839
+</td>
+<td style="text-align:right;">
+0.0501606
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F29
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG8
+</td>
+<td style="text-align:right;">
+18.363
+</td>
+<td style="text-align:right;">
+14.16
+</td>
+<td style="text-align:right;">
+7.13
+</td>
+<td style="text-align:right;">
+135.07477
+</td>
+<td style="text-align:right;">
+0.1359469
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F30
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG8
+</td>
+<td style="text-align:right;">
+31.109
+</td>
+<td style="text-align:right;">
+13.30
+</td>
+<td style="text-align:right;">
+7.97
+</td>
+<td style="text-align:right;">
+141.81801
+</td>
+<td style="text-align:right;">
+0.2193586
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F32
+</td>
+<td style="text-align:left;">
+Xanthorhoe_ferrugata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+5.474
+</td>
+<td style="text-align:right;">
+11.49
+</td>
+<td style="text-align:right;">
+8.11
+</td>
+<td style="text-align:right;">
+108.91239
+</td>
+<td style="text-align:right;">
+0.0502606
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F33
+</td>
+<td style="text-align:left;">
+Xanthorhoe_spadicearia
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+5.205
+</td>
+<td style="text-align:right;">
+11.98
+</td>
+<td style="text-align:right;">
+7.97
+</td>
+<td style="text-align:right;">
+109.33419
+</td>
+<td style="text-align:right;">
+0.0476063
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F34
+</td>
+<td style="text-align:left;">
+Xanthorhoe_ferrugata
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+5.416
+</td>
+<td style="text-align:right;">
+11.76
+</td>
+<td style="text-align:right;">
+6.53
+</td>
+<td style="text-align:right;">
+89.75464
+</td>
+<td style="text-align:right;">
+0.0603423
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F35
+</td>
+<td style="text-align:left;">
+Xanthorhoe_spadicearia
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+6.260
+</td>
+<td style="text-align:right;">
+12.32
+</td>
+<td style="text-align:right;">
+7.56
+</td>
+<td style="text-align:right;">
+106.65307
+</td>
+<td style="text-align:right;">
+0.0586950
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F37
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG6
+</td>
+<td style="text-align:right;">
+42.806
+</td>
+<td style="text-align:right;">
+14.36
+</td>
+<td style="text-align:right;">
+8.18
+</td>
+<td style="text-align:right;">
+157.15535
+</td>
+<td style="text-align:right;">
+0.2723802
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F38
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG5
+</td>
+<td style="text-align:right;">
+27.836
+</td>
+<td style="text-align:right;">
+12.78
+</td>
+<td style="text-align:right;">
+7.69
+</td>
+<td style="text-align:right;">
+131.48573
+</td>
+<td style="text-align:right;">
+0.2117036
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F41
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG4
+</td>
+<td style="text-align:right;">
+27.077
+</td>
+<td style="text-align:right;">
+13.71
+</td>
+<td style="text-align:right;">
+7.21
+</td>
+<td style="text-align:right;">
+132.24954
+</td>
+<td style="text-align:right;">
+0.2047417
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F43
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG5
+</td>
+<td style="text-align:right;">
+33.193
+</td>
+<td style="text-align:right;">
+13.86
+</td>
+<td style="text-align:right;">
+7.53
+</td>
+<td style="text-align:right;">
+139.63029
+</td>
+<td style="text-align:right;">
+0.2377206
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F44
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+<td style="text-align:right;">
+41.737
+</td>
+<td style="text-align:right;">
+15.24
+</td>
+<td style="text-align:right;">
+7.85
+</td>
+<td style="text-align:right;">
+160.05751
+</td>
+<td style="text-align:right;">
+0.2607625
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F45
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG4
+</td>
+<td style="text-align:right;">
+31.526
+</td>
+<td style="text-align:right;">
+13.17
+</td>
+<td style="text-align:right;">
+7.02
+</td>
+<td style="text-align:right;">
+123.69277
+</td>
+<td style="text-align:right;">
+0.2548734
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F46
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG8
+</td>
+<td style="text-align:right;">
+37.507
+</td>
+<td style="text-align:right;">
+13.49
+</td>
+<td style="text-align:right;">
+7.40
+</td>
+<td style="text-align:right;">
+133.55652
+</td>
+<td style="text-align:right;">
+0.2808324
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F47
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG5
+</td>
+<td style="text-align:right;">
+24.972
+</td>
+<td style="text-align:right;">
+12.82
+</td>
+<td style="text-align:right;">
+6.78
+</td>
+<td style="text-align:right;">
+116.28914
+</td>
+<td style="text-align:right;">
+0.2147406
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F49
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG8
+</td>
+<td style="text-align:right;">
+36.843
+</td>
+<td style="text-align:right;">
+13.35
+</td>
+<td style="text-align:right;">
+8.24
+</td>
+<td style="text-align:right;">
+147.17360
+</td>
+<td style="text-align:right;">
+0.2503370
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F50
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG8
+</td>
+<td style="text-align:right;">
+30.651
+</td>
+<td style="text-align:right;">
+13.97
+</td>
+<td style="text-align:right;">
+8.51
+</td>
+<td style="text-align:right;">
+159.05503
+</td>
+<td style="text-align:right;">
+0.1927069
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F51
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG8
+</td>
+<td style="text-align:right;">
+28.902
+</td>
+<td style="text-align:right;">
+13.21
+</td>
+<td style="text-align:right;">
+7.83
+</td>
+<td style="text-align:right;">
+138.38404
+</td>
+<td style="text-align:right;">
+0.2088536
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F55
+</td>
+<td style="text-align:left;">
+Agrotis_cinerea
+</td>
+<td style="text-align:left;">
+HEG4
+</td>
+<td style="text-align:right;">
+27.860
+</td>
+<td style="text-align:right;">
+14.53
+</td>
+<td style="text-align:right;">
+6.58
+</td>
+<td style="text-align:right;">
+141.80384
+</td>
+<td style="text-align:right;">
+0.1964686
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F60
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG2
+</td>
+<td style="text-align:right;">
+23.886
+</td>
+<td style="text-align:right;">
+12.60
+</td>
+<td style="text-align:right;">
+8.07
+</td>
+<td style="text-align:right;">
+136.03965
+</td>
+<td style="text-align:right;">
+0.1755812
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F61
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG2
+</td>
+<td style="text-align:right;">
+37.667
+</td>
+<td style="text-align:right;">
+13.79
+</td>
+<td style="text-align:right;">
+7.65
+</td>
+<td style="text-align:right;">
+141.13903
+</td>
+<td style="text-align:right;">
+0.2668787
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F62
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG2
+</td>
+<td style="text-align:right;">
+41.072
+</td>
+<td style="text-align:right;">
+13.15
+</td>
+<td style="text-align:right;">
+7.21
+</td>
+<td style="text-align:right;">
+126.84766
+</td>
+<td style="text-align:right;">
+0.3237900
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F63
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG2
+</td>
+<td style="text-align:right;">
+45.677
+</td>
+<td style="text-align:right;">
+13.88
+</td>
+<td style="text-align:right;">
+7.61
+</td>
+<td style="text-align:right;">
+141.31737
+</td>
+<td style="text-align:right;">
+0.3232228
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F64
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG2
+</td>
+<td style="text-align:right;">
+30.076
+</td>
+<td style="text-align:right;">
+12.69
+</td>
+<td style="text-align:right;">
+7.43
+</td>
+<td style="text-align:right;">
+126.14553
+</td>
+<td style="text-align:right;">
+0.2384230
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F65
+</td>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+HEG2
+</td>
+<td style="text-align:right;">
+35.836
+</td>
+<td style="text-align:right;">
+13.62
+</td>
+<td style="text-align:right;">
+8.39
+</td>
+<td style="text-align:right;">
+152.88346
+</td>
+<td style="text-align:right;">
+0.2344008
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Example 2 after standardisation into measurement long-table format. Each row contains a single measurement linked to an observation of an individual specimen, i.e. an occurrence, via identifiers.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+scientificName
+</th>
+<th style="text-align:left;">
+traitName
+</th>
+<th style="text-align:right;">
+traitValue
+</th>
+<th style="text-align:left;">
+traitUnit
+</th>
+<th style="text-align:left;">
+traitID
+</th>
+<th style="text-align:left;">
+scientificNameStd
+</th>
+<th style="text-align:left;">
+taxonID
+</th>
+<th style="text-align:left;">
+occurrenceID
+</th>
+<th style="text-align:left;">
+measurementID
+</th>
+<th style="text-align:left;">
+locationID
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Aethes_smeathmanniana
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+28.4123374
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Aethes smeathmanniana
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1738422" class="uri">http://www.gbif.org/species/1738422</a>
+</td>
+<td style="text-align:left;">
+300
+</td>
+<td style="text-align:left;">
+7968
+</td>
+<td style="text-align:left;">
+SEG9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Phragmatobia_fuliginosa
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+153.5047254
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Plutella xylostella
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1831136" class="uri">http://www.gbif.org/species/1831136</a>
+</td>
+<td style="text-align:left;">
+900
+</td>
+<td style="text-align:left;">
+8568
+</td>
+<td style="text-align:left;">
+SEG5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Charanyca_trigrammica
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+162.8447263
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Chiasmia clathrata
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4525078" class="uri">http://www.gbif.org/species/4525078</a>
+</td>
+<td style="text-align:left;">
+100
+</td>
+<td style="text-align:left;">
+7768
+</td>
+<td style="text-align:left;">
+AEG7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Noctua_pronuba
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+388.4864652
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Oligia latruncula
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1766410" class="uri">http://www.gbif.org/species/1766410</a>
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+7718
+</td>
+<td style="text-align:left;">
+AEG3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Agrotis_exclamationis
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+144.6516482
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Agrotis ipsilon
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1771245" class="uri">http://www.gbif.org/species/1771245</a>
+</td>
+<td style="text-align:left;">
+600
+</td>
+<td style="text-align:left;">
+8268
+</td>
+<td style="text-align:left;">
+AEG5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Xanthorhoe_ferrugata
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+88.2405917
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Xestia xanthographa
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/5112283" class="uri">http://www.gbif.org/species/5112283</a>
+</td>
+<td style="text-align:left;">
+2000
+</td>
+<td style="text-align:left;">
+9668
+</td>
+<td style="text-align:left;">
+AEG6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Agrotis_exclamationis
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+180.1734551
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Agrotis ipsilon
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1771245" class="uri">http://www.gbif.org/species/1771245</a>
+</td>
+<td style="text-align:left;">
+60
+</td>
+<td style="text-align:left;">
+7728
+</td>
+<td style="text-align:left;">
+AEG3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+196.5976292
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Chrysoteuchia culmella
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1887290" class="uri">http://www.gbif.org/species/1887290</a>
+</td>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+7678
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+177.9901284
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Chrysoteuchia culmella
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1887290" class="uri">http://www.gbif.org/species/1887290</a>
+</td>
+<td style="text-align:left;">
+1000
+</td>
+<td style="text-align:left;">
+8668
+</td>
+<td style="text-align:left;">
+HEG6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Spilosoma_lubricipeda
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+240.4265979
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Stenoptilia pterodactyla
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1858775" class="uri">http://www.gbif.org/species/1858775</a>
+</td>
+<td style="text-align:left;">
+70
+</td>
+<td style="text-align:left;">
+7738
+</td>
+<td style="text-align:left;">
+AEG3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Agrotis_cinerea
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+164.4559959
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Agrotis exclamationis
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1771214" class="uri">http://www.gbif.org/species/1771214</a>
+</td>
+<td style="text-align:left;">
+80
+</td>
+<td style="text-align:left;">
+7748
+</td>
+<td style="text-align:left;">
+AEG9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ochropleura_plecta
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+103.7014608
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Oligia strigilis
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/7895336" class="uri">http://www.gbif.org/species/7895336</a>
+</td>
+<td style="text-align:left;">
+90
+</td>
+<td style="text-align:left;">
+7758
+</td>
+<td style="text-align:left;">
+AEG4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Agrotis_exclamationis
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+171.6821347
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Agrotis ipsilon
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1771245" class="uri">http://www.gbif.org/species/1771245</a>
+</td>
+<td style="text-align:left;">
+400
+</td>
+<td style="text-align:left;">
+8068
+</td>
+<td style="text-align:left;">
+AEG9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+136.0396538
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Emmelina monodactyla
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1859046" class="uri">http://www.gbif.org/species/1859046</a>
+</td>
+<td style="text-align:left;">
+40
+</td>
+<td style="text-align:left;">
+7708
+</td>
+<td style="text-align:left;">
+HEG2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Crambus_perlellus
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+87.8307107
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Cucullia umbratica
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/5109523" class="uri">http://www.gbif.org/species/5109523</a>
+</td>
+<td style="text-align:left;">
+800
+</td>
+<td style="text-align:left;">
+8468
+</td>
+<td style="text-align:left;">
+SEG3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Deltote_bankiana
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+67.0752461
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Depressaria chaerophylli
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1837410" class="uri">http://www.gbif.org/species/1837410</a>
+</td>
+<td style="text-align:left;">
+700
+</td>
+<td style="text-align:left;">
+8368
+</td>
+<td style="text-align:left;">
+SEG1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Agrotis_exclamationis
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+125.8721030
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Agrotis ipsilon
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1771245" class="uri">http://www.gbif.org/species/1771245</a>
+</td>
+<td style="text-align:left;">
+500
+</td>
+<td style="text-align:left;">
+8168
+</td>
+<td style="text-align:left;">
+AEG7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+151.0314158
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Emmelina monodactyla
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1859046" class="uri">http://www.gbif.org/species/1859046</a>
+</td>
+<td style="text-align:left;">
+20
+</td>
+<td style="text-align:left;">
+7688
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+wing_area
+</td>
+<td style="text-align:right;">
+132.2495362
+</td>
+<td style="text-align:left;">
+mm2
+</td>
+<td style="text-align:left;">
+<a href="http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface" class="uri">http://t-sita.cesab.org/BETSI_vizInfo.jsp?trait=Wing_surface</a>
+</td>
+<td style="text-align:left;">
+Emmelina monodactyla
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1859046" class="uri">http://www.gbif.org/species/1859046</a>
+</td>
+<td style="text-align:left;">
+30
+</td>
+<td style="text-align:left;">
+7698
+</td>
+<td style="text-align:left;">
+HEG4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Charanyca_trigrammica
+</td>
+<td style="text-align:left;">
+wing_loading
+</td>
+<td style="text-align:right;">
+0.3108483
+</td>
+<td style="text-align:left;">
+mg mm-2
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Chiasmia clathrata
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4525078" class="uri">http://www.gbif.org/species/4525078</a>
+</td>
+<td style="text-align:left;">
+100
+</td>
+<td style="text-align:left;">
+10324
+</td>
+<td style="text-align:left;">
+AEG7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Diaphora_mendica
+</td>
+<td style="text-align:left;">
+wing_loading
+</td>
+<td style="text-align:right;">
+0.1755812
+</td>
+<td style="text-align:left;">
+mg mm-2
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Emmelina monodactyla
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1859046" class="uri">http://www.gbif.org/species/1859046</a>
+</td>
+<td style="text-align:left;">
+40
+</td>
+<td style="text-align:left;">
+10264
+</td>
+<td style="text-align:left;">
+HEG2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Agrotis_exclamationis
+</td>
+<td style="text-align:left;">
+wing_loading
+</td>
+<td style="text-align:right;">
+0.2977945
+</td>
+<td style="text-align:left;">
+mg mm-2
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Agrotis ipsilon
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1771245" class="uri">http://www.gbif.org/species/1771245</a>
+</td>
+<td style="text-align:left;">
+400
+</td>
+<td style="text-align:left;">
+10624
+</td>
+<td style="text-align:left;">
+AEG9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Agrotis_exclamationis
+</td>
+<td style="text-align:left;">
+wing_loading
+</td>
+<td style="text-align:right;">
+0.5297395
+</td>
+<td style="text-align:left;">
+mg mm-2
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Agrotis ipsilon
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1771245" class="uri">http://www.gbif.org/species/1771245</a>
+</td>
+<td style="text-align:left;">
+60
+</td>
+<td style="text-align:left;">
+10284
+</td>
+<td style="text-align:left;">
+AEG3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chiasmia_clathrata
+</td>
+<td style="text-align:left;">
+wing_loading
+</td>
+<td style="text-align:right;">
+0.0263533
+</td>
+<td style="text-align:left;">
+mg mm-2
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Chrysoteuchia culmella
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1887290" class="uri">http://www.gbif.org/species/1887290</a>
+</td>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+10234
+</td>
+<td style="text-align:left;">
+HEG9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Agrotis_exclamationis
+</td>
+<td style="text-align:left;">
+wing_loading
+</td>
+<td style="text-align:right;">
+0.3993657
+</td>
+<td style="text-align:left;">
+mg mm-2
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Agrotis ipsilon
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1771245" class="uri">http://www.gbif.org/species/1771245</a>
+</td>
+<td style="text-align:left;">
+500
+</td>
+<td style="text-align:left;">
+10724
+</td>
+<td style="text-align:left;">
+AEG7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Deltote_bankiana
+</td>
+<td style="text-align:left;">
+wing_loading
+</td>
+<td style="text-align:right;">
+0.0884976
+</td>
+<td style="text-align:left;">
+mg mm-2
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Depressaria chaerophylli
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1837410" class="uri">http://www.gbif.org/species/1837410</a>
+</td>
+<td style="text-align:left;">
+700
+</td>
+<td style="text-align:left;">
+10924
+</td>
+<td style="text-align:left;">
+SEG1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Agrotis_cinerea
+</td>
+<td style="text-align:left;">
+wing_loading
+</td>
+<td style="text-align:right;">
+0.3057596
+</td>
+<td style="text-align:left;">
+mg mm-2
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Agrotis exclamationis
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1771214" class="uri">http://www.gbif.org/species/1771214</a>
+</td>
+<td style="text-align:left;">
+80
+</td>
+<td style="text-align:left;">
+10304
+</td>
+<td style="text-align:left;">
+AEG9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Phragmatobia_fuliginosa
+</td>
+<td style="text-align:left;">
+wing_loading
+</td>
+<td style="text-align:right;">
+0.2140130
+</td>
+<td style="text-align:left;">
+mg mm-2
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Plutella xylostella
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/1831136" class="uri">http://www.gbif.org/species/1831136</a>
+</td>
+<td style="text-align:left;">
+900
+</td>
+<td style="text-align:left;">
+11124
+</td>
+<td style="text-align:left;">
+SEG5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="example-3---apply-ets-extensions-in-trait-data-table" class="section level1">
+<h1>Example 3 - apply ETS extensions in trait-data table</h1>
+<p>If data contain covariate information, the two-dimensional data table can cover these by adding columns defined by the extensions of the ETS. The three extensions complement the core terms according to different layers of metadata information: 1) the “taxon” extension includes terms to describe more details on the taxon concept applied, 2) the “occurrence” extension provides terms to describe the indivdual specimen and its observation context, and 3) the “Measurement or Fact” extension adds information on the methodology or context of the measurement of the trait value.</p>
+<p>Two-dimensional spreadsheets are however limited in the number and complexity of co-variates they can contain. As such, for datasets containing multi-layered information on observations, traits, taxa and environmental context, the use of relational datatabase structures may be indicated, like the generic trait database structure proposed by <span class="citation">Kattge et al. (2011)</span> or the TraitBank structure proposed by <span class="citation">Parr et al. (2016)</span>. The trade-off is user-side readability and handling in a single table <em>vs.</em> avoidance of content duplication and redundancy in a relational database. Although we cannot cover the structure of relational databases in this tutorial, the standard vocabulary proposed here may still be applied to describe columns within the individual data tables of relational databases.</p>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Example 3 before standardisation; Excerpt of data from Gossner et al. (2015b) Ecology, 96, 1154–1154. doi: <a href="https://doi.org/10.1890/14-2159.1">10.1890/14-2159.1</a> on measurements of traits in Heteroptera.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+ID
+</th>
+<th style="text-align:left;">
+Order
+</th>
+<th style="text-align:left;">
+Suborder
+</th>
+<th style="text-align:left;">
+Family
+</th>
+<th style="text-align:left;">
+SpeciesID
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Sex
+</th>
+<th style="text-align:left;">
+Source
+</th>
+<th style="text-align:left;">
+Center_Sampling_region
+</th>
+<th style="text-align:right;">
+Body_length
+</th>
+<th style="text-align:right;">
+Body_width
+</th>
+<th style="text-align:right;">
+Body_height
+</th>
+<th style="text-align:right;">
+Thorax_length
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+Acalypta nigrina
+</td>
+<td style="text-align:left;">
+(Fallen, 1807)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+48 57’ N 10 55’ E
+</td>
+<td style="text-align:right;">
+2.35
+</td>
+<td style="text-align:right;">
+1.15
+</td>
+<td style="text-align:right;">
+0.77
+</td>
+<td style="text-align:right;">
+0.49
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+Acalypta nigrina
+</td>
+<td style="text-align:left;">
+(Fallen, 1807)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+49 27’ N 11 05’ E
+</td>
+<td style="text-align:right;">
+2.10
+</td>
+<td style="text-align:right;">
+1.22
+</td>
+<td style="text-align:right;">
+0.67
+</td>
+<td style="text-align:right;">
+0.24
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+Acalypta nigrina
+</td>
+<td style="text-align:left;">
+(Fallen, 1807)
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+49 07’ N 10 45’ E
+</td>
+<td style="text-align:right;">
+2.17
+</td>
+<td style="text-align:right;">
+1.07
+</td>
+<td style="text-align:right;">
+0.68
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+Acalypta nigrina
+</td>
+<td style="text-align:left;">
+(Fallen, 1807)
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+49 27’ N 11 05’ E
+</td>
+<td style="text-align:right;">
+2.15
+</td>
+<td style="text-align:right;">
+1.04
+</td>
+<td style="text-align:right;">
+0.67
+</td>
+<td style="text-align:right;">
+0.22
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+Acalypta parvula
+</td>
+<td style="text-align:left;">
+(Fallen, 1807)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+49 27’ N 11 05’ E
+</td>
+<td style="text-align:right;">
+1.84
+</td>
+<td style="text-align:right;">
+0.82
+</td>
+<td style="text-align:right;">
+0.56
+</td>
+<td style="text-align:right;">
+0.17
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+Acalypta parvula
+</td>
+<td style="text-align:left;">
+(Fallen, 1807)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+49 36’ N 11 00’ E
+</td>
+<td style="text-align:right;">
+1.81
+</td>
+<td style="text-align:right;">
+0.96
+</td>
+<td style="text-align:right;">
+0.56
+</td>
+<td style="text-align:right;">
+0.17
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+Acalypta parvula
+</td>
+<td style="text-align:left;">
+(Fallen, 1807)
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+48 54’ N 11 11’ E
+</td>
+<td style="text-align:right;">
+1.62
+</td>
+<td style="text-align:right;">
+0.81
+</td>
+<td style="text-align:right;">
+0.44
+</td>
+<td style="text-align:right;">
+0.18
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+Acalypta parvula
+</td>
+<td style="text-align:left;">
+(Fallen, 1807)
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:left;">
+48 43’ N 09 37’ E
+</td>
+<td style="text-align:right;">
+1.65
+</td>
+<td style="text-align:right;">
+0.49
+</td>
+<td style="text-align:right;">
+0.51
+</td>
+<td style="text-align:right;">
+0.68
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+(Fieber, 1844)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+48 11’ N 10 45’ E
+</td>
+<td style="text-align:right;">
+2.39
+</td>
+<td style="text-align:right;">
+1.13
+</td>
+<td style="text-align:right;">
+0.73
+</td>
+<td style="text-align:right;">
+0.59
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+(Fieber, 1844)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+48 48’ N 11 06’ E
+</td>
+<td style="text-align:right;">
+2.42
+</td>
+<td style="text-align:right;">
+1.30
+</td>
+<td style="text-align:right;">
+0.77
+</td>
+<td style="text-align:right;">
+0.60
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+(Fieber, 1844)
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+49 29’ N 10 59’ E
+</td>
+<td style="text-align:right;">
+2.44
+</td>
+<td style="text-align:right;">
+1.19
+</td>
+<td style="text-align:right;">
+0.71
+</td>
+<td style="text-align:right;">
+0.63
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+(Fieber, 1844)
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:left;">
+51 20’ N 10 41’ E
+</td>
+<td style="text-align:right;">
+1.63
+</td>
+<td style="text-align:right;">
+0.81
+</td>
+<td style="text-align:right;">
+0.56
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+(Herrich-Schäffer, 1841)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:left;">
+51 20’ N 10 41’ E
+</td>
+<td style="text-align:right;">
+6.45
+</td>
+<td style="text-align:right;">
+1.79
+</td>
+<td style="text-align:right;">
+1.05
+</td>
+<td style="text-align:right;">
+0.74
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+(Herrich-Schäffer, 1841)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+6.28
+</td>
+<td style="text-align:right;">
+1.82
+</td>
+<td style="text-align:right;">
+1.23
+</td>
+<td style="text-align:right;">
+0.72
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+(Herrich-Schäffer, 1841)
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:left;">
+53 02’ N 13 83’ E
+</td>
+<td style="text-align:right;">
+4.46
+</td>
+<td style="text-align:right;">
+0.98
+</td>
+<td style="text-align:right;">
+1.49
+</td>
+<td style="text-align:right;">
+0.57
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+Adelphocoris ticinensis
+</td>
+<td style="text-align:left;">
+(Meyer-Dür, 1843)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+52 44’ N 07 24’ E
+</td>
+<td style="text-align:right;">
+6.03
+</td>
+<td style="text-align:right;">
+2.00
+</td>
+<td style="text-align:right;">
+1.81
+</td>
+<td style="text-align:right;">
+1.31
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+Adelphocoris ticinensis
+</td>
+<td style="text-align:left;">
+(Meyer-Dür, 1843)
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+52 44’ N 07 24’ E
+</td>
+<td style="text-align:right;">
+5.69
+</td>
+<td style="text-align:right;">
+1.88
+</td>
+<td style="text-align:right;">
+1.82
+</td>
+<td style="text-align:right;">
+1.06
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+Adelphocoris lineolatus
+</td>
+<td style="text-align:left;">
+(Goeze, 1778)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+38 48’ N 68 47’ E
+</td>
+<td style="text-align:right;">
+6.96
+</td>
+<td style="text-align:right;">
+2.37
+</td>
+<td style="text-align:right;">
+2.06
+</td>
+<td style="text-align:right;">
+1.10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+Adelphocoris lineolatus
+</td>
+<td style="text-align:left;">
+(Goeze, 1778)
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+38 48’ N 68 47’ E
+</td>
+<td style="text-align:right;">
+6.71
+</td>
+<td style="text-align:right;">
+1.24
+</td>
+<td style="text-align:right;">
+2.04
+</td>
+<td style="text-align:right;">
+1.38
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+Adelphocoris quadripunctatus
+</td>
+<td style="text-align:left;">
+(Fabricius, 1794)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+48 54’ N 11 11’ E
+</td>
+<td style="text-align:right;">
+7.29
+</td>
+<td style="text-align:right;">
+2.31
+</td>
+<td style="text-align:right;">
+1.77
+</td>
+<td style="text-align:right;">
+2.05
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+Adelphocoris quadripunctatus
+</td>
+<td style="text-align:left;">
+(Fabricius, 1794)
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+48 54’ N 11 11’ E
+</td>
+<td style="text-align:right;">
+8.61
+</td>
+<td style="text-align:right;">
+2.01
+</td>
+<td style="text-align:right;">
+1.82
+</td>
+<td style="text-align:right;">
+1.63
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+Adelphocoris seticornis
+</td>
+<td style="text-align:left;">
+(Fabricius, 1775)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:left;">
+48 43’ N 09 37’ E
+</td>
+<td style="text-align:right;">
+5.74
+</td>
+<td style="text-align:right;">
+1.92
+</td>
+<td style="text-align:right;">
+1.48
+</td>
+<td style="text-align:right;">
+2.14
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+Adelphocoris seticornis
+</td>
+<td style="text-align:left;">
+(Fabricius, 1775)
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:left;">
+48 43’ N 09 37’ E
+</td>
+<td style="text-align:right;">
+5.95
+</td>
+<td style="text-align:right;">
+1.95
+</td>
+<td style="text-align:right;">
+1.87
+</td>
+<td style="text-align:right;">
+2.33
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Pentatomidae
+</td>
+<td style="text-align:left;">
+Aelia acuminata
+</td>
+<td style="text-align:left;">
+(Linnaeus, 1758)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:left;">
+51 20’ N 10 41’ E
+</td>
+<td style="text-align:right;">
+9.16
+</td>
+<td style="text-align:right;">
+4.23
+</td>
+<td style="text-align:right;">
+2.96
+</td>
+<td style="text-align:right;">
+1.12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Pentatomidae
+</td>
+<td style="text-align:left;">
+Aelia acuminata
+</td>
+<td style="text-align:left;">
+(Linnaeus, 1758)
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:left;">
+53 02’ N 13 83’ E
+</td>
+<td style="text-align:right;">
+7.72
+</td>
+<td style="text-align:right;">
+3.70
+</td>
+<td style="text-align:right;">
+2.58
+</td>
+<td style="text-align:right;">
+1.24
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Pentatomidae
+</td>
+<td style="text-align:left;">
+Aelia klugii
+</td>
+<td style="text-align:left;">
+Hahn, 1833
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+49 07’ N 10 45’ E
+</td>
+<td style="text-align:right;">
+7.55
+</td>
+<td style="text-align:right;">
+3.54
+</td>
+<td style="text-align:right;">
+2.08
+</td>
+<td style="text-align:right;">
+1.16
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Pentatomidae
+</td>
+<td style="text-align:left;">
+Aelia klugii
+</td>
+<td style="text-align:left;">
+Hahn, 1833
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:left;">
+49 27’ N 11 05’ E
+</td>
+<td style="text-align:right;">
+6.32
+</td>
+<td style="text-align:right;">
+3.02
+</td>
+<td style="text-align:right;">
+1.90
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+Hemiptera
+</td>
+<td style="text-align:left;">
+Heteroptera
+</td>
+<td style="text-align:left;">
+Alydidae
+</td>
+<td style="text-align:left;">
+Alydus calcaratus
+</td>
+<td style="text-align:left;">
+(Linnaeus, 1758)
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:left;">
+51 20’ N 10 41’ E
+</td>
+<td style="text-align:right;">
+11.50
+</td>
+<td style="text-align:right;">
+2.99
+</td>
+<td style="text-align:right;">
+2.99
+</td>
+<td style="text-align:right;">
+3.76
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Example 3 after standardisation; application of terms of the ETS extensions structure the two-dimensional data table. Excerpt of data from Gossner et al. (2015b) Ecology, 96, 1154–1154. doi: <a href="https://doi.org/10.1890/14-2159.1">10.1890/14-2159.1</a>.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+scientificName
+</th>
+<th style="text-align:left;">
+traitName
+</th>
+<th style="text-align:right;">
+traitValue
+</th>
+<th style="text-align:left;">
+traitUnit
+</th>
+<th style="text-align:left;">
+occurrenceID
+</th>
+<th style="text-align:left;">
+taxonID
+</th>
+<th style="text-align:left;">
+family
+</th>
+<th style="text-align:left;">
+sex
+</th>
+<th style="text-align:left;">
+basisOfRecord
+</th>
+<th style="text-align:left;">
+basisOfRecordDescription
+</th>
+<th style="text-align:right;">
+decimalLatitude
+</th>
+<th style="text-align:right;">
+decimalLongitute
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Acalypta parvula
+</td>
+<td style="text-align:left;">
+Body_height
+</td>
+<td style="text-align:right;">
+0.51
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2020740" class="uri">http://www.gbif.org/species/2020740</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+48.71667
+</td>
+<td style="text-align:right;">
+9.61667
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta parvula
+</td>
+<td style="text-align:left;">
+Body_length
+</td>
+<td style="text-align:right;">
+1.65
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2020740" class="uri">http://www.gbif.org/species/2020740</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+48.71667
+</td>
+<td style="text-align:right;">
+9.61667
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta parvula
+</td>
+<td style="text-align:left;">
+Body_width
+</td>
+<td style="text-align:right;">
+0.49
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/2020740" class="uri">http://www.gbif.org/species/2020740</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+48.71667
+</td>
+<td style="text-align:right;">
+9.61667
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Body_width
+</td>
+<td style="text-align:right;">
+1.13
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+48.18333
+</td>
+<td style="text-align:right;">
+10.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Body_height
+</td>
+<td style="text-align:right;">
+0.73
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+48.18333
+</td>
+<td style="text-align:right;">
+10.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Thorax_width
+</td>
+<td style="text-align:right;">
+1.13
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+48.18333
+</td>
+<td style="text-align:right;">
+10.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Body_length
+</td>
+<td style="text-align:right;">
+2.39
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+48.18333
+</td>
+<td style="text-align:right;">
+10.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Body_length
+</td>
+<td style="text-align:right;">
+2.42
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+48.80000
+</td>
+<td style="text-align:right;">
+11.10000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Body_width
+</td>
+<td style="text-align:right;">
+1.30
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+48.80000
+</td>
+<td style="text-align:right;">
+11.10000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Thorax_width
+</td>
+<td style="text-align:right;">
+1.17
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+48.80000
+</td>
+<td style="text-align:right;">
+11.10000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Body_height
+</td>
+<td style="text-align:right;">
+0.77
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+48.80000
+</td>
+<td style="text-align:right;">
+11.10000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Body_length
+</td>
+<td style="text-align:right;">
+2.44
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+49.48333
+</td>
+<td style="text-align:right;">
+10.98333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Body_width
+</td>
+<td style="text-align:right;">
+1.19
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+49.48333
+</td>
+<td style="text-align:right;">
+10.98333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Thorax_width
+</td>
+<td style="text-align:right;">
+1.09
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+49.48333
+</td>
+<td style="text-align:right;">
+10.98333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Body_height
+</td>
+<td style="text-align:right;">
+0.71
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+49.48333
+</td>
+<td style="text-align:right;">
+10.98333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Body_width
+</td>
+<td style="text-align:right;">
+0.81
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+51.33333
+</td>
+<td style="text-align:right;">
+10.68333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Body_length
+</td>
+<td style="text-align:right;">
+1.63
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+51.33333
+</td>
+<td style="text-align:right;">
+10.68333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Body_height
+</td>
+<td style="text-align:right;">
+0.56
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+51.33333
+</td>
+<td style="text-align:right;">
+10.68333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acalypta platycheila
+</td>
+<td style="text-align:left;">
+Thorax_width
+</td>
+<td style="text-align:right;">
+0.60
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/4489001" class="uri">http://www.gbif.org/species/4489001</a>
+</td>
+<td style="text-align:left;">
+Tingidae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+51.33333
+</td>
+<td style="text-align:right;">
+10.68333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+Body_height
+</td>
+<td style="text-align:right;">
+1.05
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/8426653" class="uri">http://www.gbif.org/species/8426653</a>
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+51.33333
+</td>
+<td style="text-align:right;">
+10.68333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+Body_length
+</td>
+<td style="text-align:right;">
+6.45
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/8426653" class="uri">http://www.gbif.org/species/8426653</a>
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+51.33333
+</td>
+<td style="text-align:right;">
+10.68333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+Thorax_width
+</td>
+<td style="text-align:right;">
+1.45
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/8426653" class="uri">http://www.gbif.org/species/8426653</a>
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+51.33333
+</td>
+<td style="text-align:right;">
+10.68333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+Body_width
+</td>
+<td style="text-align:right;">
+1.79
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/8426653" class="uri">http://www.gbif.org/species/8426653</a>
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+51.33333
+</td>
+<td style="text-align:right;">
+10.68333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+Body_height
+</td>
+<td style="text-align:right;">
+1.23
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/8426653" class="uri">http://www.gbif.org/species/8426653</a>
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+Body_width
+</td>
+<td style="text-align:right;">
+1.82
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/8426653" class="uri">http://www.gbif.org/species/8426653</a>
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+Body_length
+</td>
+<td style="text-align:right;">
+6.28
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/8426653" class="uri">http://www.gbif.org/species/8426653</a>
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+Thorax_width
+</td>
+<td style="text-align:right;">
+1.52
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/8426653" class="uri">http://www.gbif.org/species/8426653</a>
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Zoological State Collection Munich
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+Body_height
+</td>
+<td style="text-align:right;">
+1.49
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/8426653" class="uri">http://www.gbif.org/species/8426653</a>
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+53.03333
+</td>
+<td style="text-align:right;">
+14.38333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acetropis carinata
+</td>
+<td style="text-align:left;">
+Thorax_width
+</td>
+<td style="text-align:right;">
+1.45
+</td>
+<td style="text-align:left;">
+mm
+</td>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+<a href="http://www.gbif.org/species/8426653" class="uri">http://www.gbif.org/species/8426653</a>
+</td>
+<td style="text-align:left;">
+Miridae
+</td>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+PreservedSpecimen
+</td>
+<td style="text-align:left;">
+Biodiversity Exploratories
+</td>
+<td style="text-align:right;">
+53.03333
+</td>
+<td style="text-align:right;">
+14.38333
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-gossner15">
+<p>Gossner, M. M., N. K. Simons, R. Achtziger, T. Blick, W. H. Dorow, F. Dziock, F. Köhler, et al. 2015a. A summary of eight traits of Coleoptera, Hemiptera, Orthoptera and Araneae, occurring in grasslands in Germany. Scientific Data 2:150013.</p>
+</div>
+<div id="ref-gossner15a">
+<p>Gossner, M. M., N. K. Simons, L. Höck, and W. W. Weisser. 2015b. Morphometric measures of Heteroptera sampled in grasslands across three regions of Germany. Ecology 96:1154–1154.</p>
+</div>
+<div id="ref-kattge11a">
+<p>Kattge, J., K. Ogle, G. Bönisch, S. Díaz, S. Lavorel, J. Madin, K. Nadrowski, et al. 2011. A generic structure for plant trait databases. Methods in Ecology and Evolution 2:202–213.</p>
+</div>
+<div id="ref-kissling18">
+<p>Kissling, W. D., R. Walls, A. Bowser, M. O. Jones, J. Kattge, D. Agosti, J. Amengual, et al. 2018. Towards global data products of Essential Biodiversity Variables on species traits. Nature Ecology &amp; Evolution 2:1531–1540.</p>
+</div>
+<div id="ref-parr16">
+<p>Parr, C. S., K. S. Schulz, J. Hammock, N. Wilson, P. Leary, J. Rice, C. Jr, et al. 2016. TraitBank: Practical semantics for organism attribute data. Semantic Web 7:577–588.</p>
+</div>
+<div id="ref-wickham14">
+<p>Wickham, H. 2014. Tidy data. Journal of Statistical Software 59:1–23.</p>
+</div>
+<div id="ref-wilkinson16">
+<p>Wilkinson, M. D., M. Dumontier, I. J. Aalbersberg, G. Appleton, M. Axton, A. Baak, N. Blomberg, et al. 2016. The FAIR Guiding Principles for scientific data management and stewardship. Scientific Data 3:160018.</p>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
