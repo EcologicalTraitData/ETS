@@ -14,9 +14,9 @@
 		<dc:contributor xml:lang="en">David Fichtmueller</dc:contributor>
 		<dc:publisher xml:lang="en">GFBio Terminology Service</dc:publisher>
 		<dc:language>en</dc:language>
-		<dcterms:modified>2018-09-17</dcterms:modified>
-		<owl:versionInfo>0.9</owl:versionInfo>
-		<owl:versionIRI rdf:resource="http://terminologies.gfbio.org/terms/ets/2018-09-17/ets.owl"/>
+		<dcterms:modified>2019-03-25</dcterms:modified>
+		<owl:versionInfo>0.10</owl:versionInfo>
+		<owl:versionIRI rdf:resource="http://terminologies.gfbio.org/terms/ets/2019-03-15/ets.owl"/>
 		<cc:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
 
 	</owl:Ontology>
