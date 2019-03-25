@@ -215,7 +215,7 @@ $(document).ready(function () {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="https://ecologicaltraitdata.github.io/ETS/v0.9.1/index.html">v0.9.1</a>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.9/index.html">v0.9</a>
     </li>
     <li>
       <a href="https://ecologicaltraitdata.github.io/ETS/v0.8/index.html">v0.8</a>
@@ -251,7 +251,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Ecological Trait-data Standard</h1>
 <h4 class="author"><em>Florian D. Schneider, Malte Jochum, Gaëtane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons</em></h4>
-<h4 class="date"><em>v0.10, released: 25 March 2019</em></h4>
+<h4 class="date"><em>v0.9.1, released: 13 November 2018</em></h4>
 
 </div>
 
@@ -280,13 +280,13 @@ $(document).ready(function () {
 <blockquote>
 <p>Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C., Fichtmüller, D., Gossner, M.M., Güntsch, A., König-Ries, B., Manning, P. and Simons, N.K. (2018) Towards an Ecological Trait-data Standard, biorxiv.org DOI: <a href="https://doi.org/10.1101/328302">10.1101/328302</a></p>
 </blockquote>
-<p>The vocabulary builds on terms of the Darwin Core Standard and its extensions (DWC; these are referenced in field ‘Refines’; the full Darwin Core Standard can be found here: <a href="http://rs.tdwg.org/dwc/terms/index.htm" class="uri">http://rs.tdwg.org/dwc/terms/index.htm</a>) as well as on terms of the Dublin Core Metadata Initiative (<a href="http://www.dublincore.org/specifications/dublin-core/dcmi-terms/" class="uri">http://www.dublincore.org/specifications/dublin-core/dcmi-terms/</a>). Note that the documentation page resolves deprecated terms to the term that replaces them in definition, unless they differ in definition. Via API access or in the OWL and CSV source file, the definition is accessible for each deprecated term.</p>
+<p>The vocabulary builds on the Darwin Core Standard (DWC; Darwin Core Terms and extensions; these are referenced in field ‘Refines’; the full Darwin Core Standard can be found here: <a href="http://rs.tdwg.org/dwc/terms/index.htm" class="uri">http://rs.tdwg.org/dwc/terms/index.htm</a>). Note that the documentation page resolves deprecated terms to the term that replaces them in definition, unless they differ in definition. Via API access or in the OWL and CSV file, the definition is accessible for each deprecated term.</p>
 <div id="table-of-contents" class="section level2">
 <h2>Table of contents</h2>
 <p><a href="#core-traitdata-terms"><strong>Traitdata</strong></a><br />
-<a href="#traitid"><code>traitID</code></a> | <a href="#scientificname"><code>scientificName</code></a> | <a href="#traitname"><code>traitName</code></a> | <a href="#traitvalue"><code>traitValue</code></a> | <a href="#traitunit"><code>traitUnit</code></a> | <a href="#verbatimscientificname"><code>verbatimScientificName</code></a> | <a href="#verbatimtraitname"><code>verbatimTraitName</code></a> | <a href="#verbatimtraitvalue"><code>verbatimTraitValue</code></a> | <a href="#verbatimtraitunit"><code>verbatimTraitUnit</code></a> | <a href="#taxonid"><code>taxonID</code></a> | <a href="#measurementid"><code>measurementID</code></a> | <a href="#occurrenceid"><code>occurrenceID</code></a> | <a href="#warnings"><code>warnings</code></a> |<br />
+<a href="#scientificname"><code>scientificName</code></a> | <a href="#traitname"><code>traitName</code></a> | <a href="#traitid"><code>traitID</code></a> | <a href="#traitvalue"><code>traitValue</code></a> | <a href="#traitunit"><code>traitUnit</code></a> | <a href="#scientificnamestd"><code>scientificNameStd</code></a> | <a href="#traitnamestd"><code>traitNameStd</code></a> | <a href="#traitvaluestd"><code>traitValueStd</code></a> | <a href="#traitunitstd"><code>traitUnitStd</code></a> | <a href="#taxonid"><code>taxonID</code></a> | <a href="#measurementid"><code>measurementID</code></a> | <a href="#occurrenceid"><code>occurrenceID</code></a> | <a href="#warnings"><code>warnings</code></a> |<br />
 <a href="#metadata-vocabulary"><strong>Metadata</strong></a><br />
-<a href="#datasetid"><code>datasetID</code></a> | <a href="#datasetname"><code>datasetName</code></a> | <a href="#datasetdescription"><code>datasetDescription</code></a> | <a href="#author"><code>author</code></a> | <a href="#issued"><code>issued</code></a> | <a href="#version"><code>version</code></a> | <a href="#bibliographiccitation"><code>bibliographicCitation</code></a> | <a href="#conformsto"><code>conformsTo</code></a> | <a href="#rightsholder"><code>rightsHolder</code></a> | <a href="#rights"><code>rights</code></a> | <a href="#license"><code>license</code></a> |<br />
+<a href="#rightsholder"><code>rightsHolder</code></a> | <a href="#bibliographiccitation"><code>bibliographicCitation</code></a> | <a href="#license"><code>license</code></a> | <a href="#datasetid"><code>datasetID</code></a> | <a href="#datasetname"><code>datasetName</code></a> | <a href="#author"><code>author</code></a> | <a href="#version"><code>version</code></a> |<br />
 <a href="#terms-for-trait-definitions"><strong>Traitlist</strong></a><br />
 <a href="#identifier"><code>identifier</code></a> | <a href="#trait"><code>trait</code></a> | <a href="#broaderterm"><code>broaderTerm</code></a> | <a href="#narrowerterm"><code>narrowerTerm</code></a> | <a href="#relatedterm"><code>relatedTerm</code></a> | <a href="#valuetype"><code>valueType</code></a> | <a href="#expectedunit"><code>expectedUnit</code></a> | <a href="#factorlevels"><code>factorLevels</code></a> | <a href="#maxallowedvalue"><code>maxAllowedValue</code></a> | <a href="#minallowedvalue"><code>minAllowedValue</code></a> | <a href="#traitdescription"><code>traitDescription</code></a> | <a href="#comments"><code>comments</code></a> | <a href="#source"><code>source</code></a> |<br />
 <a href="#extension-taxon"><strong>Extension: Taxon</strong></a><br />
@@ -302,8 +302,133 @@ $(document).ready(function () {
 </div>
 <div id="core-traitdata-terms" class="section level1">
 <h1>Core traitdata terms</h1>
-<p>For the essential primary data (1. trait value, 2. taxon assignment, 3. trait name), it is recommended to report standardised names and value units following the community consensus in the field. By linking to (public) ontologies via the field <code>taxonID</code>, further taxonomic information can be extracted for analysis. Alternatively, <code>taxonID</code> may also link to an accompanying datasheet that contains information on the taxonomic resolution or specification of the observation. Similarly, linking to published trait definitions in public thesauri or ontologies via the field <code>traitID</code> allows an unambiguous interpretation of the trait measurement. If no online ontology is available, an accompanying data table should specify the trait definitions by making use of terms provided in the section ‘Traitlist’ below.</p>
-<p>Additionally, ‘verbatim’ duplicates of the core terms are provided to capture the original data provider’s values and labels. This ensures compatibility on the provider’s side and transparency for data users on the reported measurements and facts, and enables checking for inconsistencies and misspellings in the complete dataset provided by the author. This practice of double recordof author-side and standardised data has successfully established for the TRY database on plant traits, for instance (Kattge et al. 2011. TRY – a global database of plant traits. Global Change Biology, 17, 2905–2935).</p>
+<p>For the essential primary data (trait value, taxon assignment, trait name), it is recommended to report the original naming and value scheme as used by the data provider. However, to ensure compatibility with other datasets, the original data provider’s information should be duplicated into standardized columns indexed by appending <code>Std</code> to the column name. This ensures compatibility on the provider’s side and transparency for data users on the reported measurements and facts, and enables checking for inconsistencies and misspellings in the complete dataset provided by the author. If provided, the standardized fields allow merging heterogeneous data sources into a single table to perform further analyses. This practice of double bookkeeping of trait data has successfully established for the TRY database on plant traits, for instance (Kattge et al. 2011. TRY – a global database of plant traits. Global Change Biology, 17, 2905–2935).</p>
+<p>By linking to (public) ontologies via the field <code>taxonID</code>, further taxonomic information can be extracted for analysis. Alternatively, <code>taxonID</code> may also link to an accompanying datasheet that contains information on the taxonomic resolution or specification of the observation.</p>
+<p>Similarly, linking to published trait definitions in public thesauri or ontologies via the field <code>traitID</code> allows an unambiguous interpretation of the trait measurement. If no online ontology is available, an accompanying data table should specify the trait definitions by making use of terms provided in the section ‘Traitlist’ below.</p>
+<div id="scientificname" class="section level2">
+<h2><code>scientificName</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="89%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">scientificName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">Original character string provided as species name by the data owner (kept for reference and continuity)</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Can be equal to scientificNameStd. Authors may use abbreviations, or use underscores to separate genus and species name.</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificName" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificName</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/scientificName" class="uri">http://rs.tdwg.org/dwc/terms/scientificName</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificname" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificname</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="traitname" class="section level2">
+<h2><code>traitName</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="91%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">traitName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">Name of the trait as used by the data provider (kept for compatibility on provider side).</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">This can be a short name or user defined coded trait name. However, it is recommended to provide definition of the user provided trait names in the metadata.</td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitName" class="uri">http://terminologies.gfbio.org/terms/ETS/traitName</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2018-11-01</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.9.1</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"><a href="http://rs.tdwg.org/dwc/terms/measurementType" class="uri">http://rs.tdwg.org/dwc/terms/measurementType</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitname" class="uri">http://terminologies.gfbio.org/terms/ETS/traitname</a></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div id="traitid" class="section level2">
 <h2><code>traitID</code></h2>
 <p><a href="">go to top</a></p>
@@ -366,130 +491,6 @@ $(document).ready(function () {
 </tbody>
 </table>
 </div>
-<div id="scientificname" class="section level2">
-<h2><code>scientificName</code></h2>
-<p><a href="">go to top</a></p>
-<table>
-<colgroup>
-<col width="2%" />
-<col width="97%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">scientificName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Definition</td>
-<td align="left">The full name, with authorship and date information if known. This should resolve to the currently valid (zoological) or accepted (botanical) taxon.</td>
-</tr>
-<tr class="even">
-<td align="left">Comment</td>
-<td align="left">Provide reference taxonomy in metadata of the dataset. Examples: “Coleoptera” (order), “Vespertilionidae” (family), “Manis” (genus), “Ctenomys sociabilis” (genus + specificEpithet), “Ambystoma tigrinum diaboli” (genus + specificEpithet + infraspecificEpithet), “Roptrocerus typographi (Györfi, 1952)” (genus + specificEpithet + scientificNameAuthorship), “Quercus agrifolia var. oxyadenia (Torr.) J.T. Howell” (genus + specificEpithet + taxonRank + infraspecificEpithet + scientificNameAuthorship). For discussion see <a href="http://terms.tdwg.org/wiki/dwc:scientificName" class="uri">http://terms.tdwg.org/wiki/dwc:scientificName</a></td>
-</tr>
-<tr class="odd">
-<td align="left">valueType</td>
-<td align="left">character</td>
-</tr>
-<tr class="even">
-<td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificName" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificName</a></td>
-</tr>
-<tr class="odd">
-<td align="left">DateIssued</td>
-<td align="left">2018-11-01</td>
-</tr>
-<tr class="even">
-<td align="left">FirstIssuedIn</td>
-<td align="left">v0.9.1</td>
-</tr>
-<tr class="odd">
-<td align="left">DateModified</td>
-<td align="left">2019-03-25</td>
-</tr>
-<tr class="even">
-<td align="left">Refines</td>
-<td align="left"><a href="http://rs.tdwg.org/dwc/terms/scientificName" class="uri">http://rs.tdwg.org/dwc/terms/scientificName</a></td>
-</tr>
-<tr class="odd">
-<td align="left">Replaces</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificnamestd" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificnamestd</a>; <a href="http://terminologies.gfbio.org/terms/ETS/scientificNameStd" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificNameStd</a></td>
-</tr>
-<tr class="even">
-<td align="left">Deprecated</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ReplacedBy</td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="traitname" class="section level2">
-<h2><code>traitName</code></h2>
-<p><a href="">go to top</a></p>
-<table>
-<colgroup>
-<col width="7%" />
-<col width="92%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">traitName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Definition</td>
-<td align="left">Descriptive Name of the trait reported. This should follow the controlled vocabulary of a thesaurus of traits available online or published along with the dataset.</td>
-</tr>
-<tr class="even">
-<td align="left">Comment</td>
-<td align="left">Accompanying this, the traitID should provide an unambiguous link to the trait definition in the thesaurus or supplementary dataset.</td>
-</tr>
-<tr class="odd">
-<td align="left">valueType</td>
-<td align="left">character</td>
-</tr>
-<tr class="even">
-<td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitName" class="uri">http://terminologies.gfbio.org/terms/ETS/traitName</a></td>
-</tr>
-<tr class="odd">
-<td align="left">DateIssued</td>
-<td align="left">2018-11-01</td>
-</tr>
-<tr class="even">
-<td align="left">FirstIssuedIn</td>
-<td align="left">v0.9.1</td>
-</tr>
-<tr class="odd">
-<td align="left">DateModified</td>
-<td align="left">2019-03-25</td>
-</tr>
-<tr class="even">
-<td align="left">Refines</td>
-<td align="left"><a href="http://rs.tdwg.org/dwc/terms/measurementType" class="uri">http://rs.tdwg.org/dwc/terms/measurementType</a></td>
-</tr>
-<tr class="odd">
-<td align="left">Replaces</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitnamestd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitnamestd</a>; <a href="http://terminologies.gfbio.org/terms/ETS/traitNameStd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitNameStd</a></td>
-</tr>
-<tr class="even">
-<td align="left">Deprecated</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ReplacedBy</td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
-</div>
 <div id="traitvalue" class="section level2">
 <h2><code>traitValue</code></h2>
 <p><a href="">go to top</a></p>
@@ -507,11 +508,11 @@ $(document).ready(function () {
 <tbody>
 <tr class="odd">
 <td align="left">Definition</td>
-<td align="left">Standardized measured value or factor level for this species trait. Numerical values must use the correct unit. Factor levels must be compliant with the thesaurus of traits.</td>
+<td align="left">Measured raw value or factor level for this species trait as measured and provided by the author.</td>
 </tr>
 <tr class="even">
 <td align="left">Comment</td>
-<td align="left">Using “.” as a decimal separator! The standardized data values or factor levels must correspond to the expected units and factor levels of the trait thesaurus, e.g. “32.423”, “female”, “apter”, “3”</td>
+<td align="left">Must respect the unit given in ‘measurementUnit_user’ for numerical traits. For categorical traits, the factor levels should be harmonized across the dataset and explained in the metadata.</td>
 </tr>
 <tr class="odd">
 <td align="left">valueType</td>
@@ -531,7 +532,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
-<td align="left">2019-03-25</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Refines</td>
@@ -539,7 +540,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitvaluestd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitvaluestd</a>; <a href="http://terminologies.gfbio.org/terms/ETS/traitValueStd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitValueStd</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitvalue" class="uri">http://terminologies.gfbio.org/terms/ETS/traitvalue</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -557,8 +558,8 @@ $(document).ready(function () {
 <p><a href="">go to top</a></p>
 <table>
 <colgroup>
-<col width="7%" />
-<col width="92%" />
+<col width="6%" />
+<col width="93%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -569,11 +570,11 @@ $(document).ready(function () {
 <tbody>
 <tr class="odd">
 <td align="left">Definition</td>
-<td align="left">The units associated with the measurementValue. The expected standard unit for this trait as defined in the traitlist/ thesaurus.</td>
+<td align="left">Reports the unit that the author’s raw data were measured in, if applicable (only for numeric values). For unitless numerical values, use ‘unitless’ in this field. For factorial values, leave empty or provide NA.</td>
 </tr>
 <tr class="even">
 <td align="left">Comment</td>
-<td align="left">Recommended best practice is to use the International System of Units (SI). Examples: “mm”, “C”, “km”, “ha”. For discussion see <a href="http://terms.tdwg.org/wiki/dwc:measurementUnit" class="uri">http://terms.tdwg.org/wiki/dwc:measurementUnit</a></td>
+<td align="left">For numerical values report unit in format for lengths “mm”, for volumes “mm3” / “mm^3”, areas “mm2” / “mm^2”, for movement “m/s”, or for volume to surface ratios: “mm3/mm2”</td>
 </tr>
 <tr class="odd">
 <td align="left">valueType</td>
@@ -593,7 +594,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
-<td align="left">2019-03-25</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Refines</td>
@@ -601,7 +602,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitunitstd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitunitstd</a>; <a href="http://terminologies.gfbio.org/terms/ETS/traitUnitStd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitUnitStd</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitunit" class="uri">http://terminologies.gfbio.org/terms/ETS/traitunit</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -614,28 +615,28 @@ $(document).ready(function () {
 </tbody>
 </table>
 </div>
-<div id="verbatimscientificname" class="section level2">
-<h2><code>verbatimScientificName</code></h2>
+<div id="scientificnamestd" class="section level2">
+<h2><code>scientificNameStd</code></h2>
 <p><a href="">go to top</a></p>
 <table>
 <colgroup>
-<col width="8%" />
-<col width="91%" />
+<col width="2%" />
+<col width="97%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left"></th>
-<th align="left">verbatimScientificName</th>
+<th align="left">scientificNameStd</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Definition</td>
-<td align="left">Original character string provided as species name or taxon identifier by the data provider.</td>
+<td align="left">The full name, with authorship and date information if known. This should resolve to the currently valid (zoological) or accepted (botanical) taxon.</td>
 </tr>
 <tr class="even">
 <td align="left">Comment</td>
-<td align="left">kept for reference and continuity on the provider side; Can be any scientific taxon identifier used by the data provider, or in a project-specific context</td>
+<td align="left">Provide reference taxonomy in metadata of the dataset. Examples: “Coleoptera” (order), “Vespertilionidae” (family), “Manis” (genus), “Ctenomys sociabilis” (genus + specificEpithet), “Ambystoma tigrinum diaboli” (genus + specificEpithet + infraspecificEpithet), “Roptrocerus typographi (Györfi, 1952)” (genus + specificEpithet + scientificNameAuthorship), “Quercus agrifolia var. oxyadenia (Torr.) J.T. Howell” (genus + specificEpithet + taxonRank + infraspecificEpithet + scientificNameAuthorship). For discussion see <a href="http://terms.tdwg.org/wiki/dwc:scientificName" class="uri">http://terms.tdwg.org/wiki/dwc:scientificName</a></td>
 </tr>
 <tr class="odd">
 <td align="left">valueType</td>
@@ -643,15 +644,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/verbatimScientificName" class="uri">http://terminologies.gfbio.org/terms/ETS/verbatimScientificName</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificNameStd" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificNameStd</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2019-03-25</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.10</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -663,7 +664,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left"></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/scientificnamestd" class="uri">http://terminologies.gfbio.org/terms/ETS/scientificnamestd</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -676,44 +677,44 @@ $(document).ready(function () {
 </tbody>
 </table>
 </div>
-<div id="verbatimtraitname" class="section level2">
-<h2><code>verbatimTraitName</code></h2>
+<div id="traitnamestd" class="section level2">
+<h2><code>traitNameStd</code></h2>
 <p><a href="">go to top</a></p>
 <table>
 <colgroup>
-<col width="6%" />
-<col width="93%" />
+<col width="7%" />
+<col width="92%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left"></th>
-<th align="left">verbatimTraitName</th>
+<th align="left">traitNameStd</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Definition</td>
-<td align="left">Original character string provided as trait label by the data provider.</td>
+<td align="left">Descriptive Name of the trait reported. This should follow the controlled vocabulary of a thesaurus of traits available online or published along with the dataset.</td>
 </tr>
 <tr class="even">
 <td align="left">Comment</td>
-<td align="left">kept for reference and continuity on provider side; this can be a short name or user defined coded trait name. However, it is recommended to provide definition of the user provided trait names in the metadata.</td>
+<td align="left">Accompanying this, the traitID should provide an unambiguous link to the trait definition in the thesaurus or supplementary dataset.</td>
 </tr>
 <tr class="odd">
 <td align="left">valueType</td>
-<td align="left">character</td>
+<td align="left">factor</td>
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/verbatimTraitName" class="uri">http://terminologies.gfbio.org/terms/ETS/verbatimTraitName</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitNameStd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitNameStd</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2019-03-25</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.10</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -725,7 +726,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left"></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitnamestd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitnamestd</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -738,8 +739,8 @@ $(document).ready(function () {
 </tbody>
 </table>
 </div>
-<div id="verbatimtraitvalue" class="section level2">
-<h2><code>verbatimTraitValue</code></h2>
+<div id="traitvaluestd" class="section level2">
+<h2><code>traitValueStd</code></h2>
 <p><a href="">go to top</a></p>
 <table>
 <colgroup>
@@ -749,17 +750,17 @@ $(document).ready(function () {
 <thead>
 <tr class="header">
 <th align="left"></th>
-<th align="left">verbatimTraitValue</th>
+<th align="left">traitValueStd</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Definition</td>
-<td align="left">Measured raw value or factor level for this species trait as measured and provided by the data provider.</td>
+<td align="left">Standardized measured value or factor level for this species trait. Numerical values must use the correct unit. Factor levels must be compliant with the thesaurus of traits.</td>
 </tr>
 <tr class="even">
 <td align="left">Comment</td>
-<td align="left">Must respect the unit given in ‘measurementUnit_user’ for numerical traits. For categorical traits, the factor levels should be harmonized across the dataset and explained in the metadata.</td>
+<td align="left">Using “.” as a decimal separator! The standardized data values or factor levels must correspond to the expected units and factor levels of the trait thesaurus, e.g. “32.423”, “female”, “apter”, “3”</td>
 </tr>
 <tr class="odd">
 <td align="left">valueType</td>
@@ -767,15 +768,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/verbatimTraitValue" class="uri">http://terminologies.gfbio.org/terms/ETS/verbatimTraitValue</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitValueStd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitValueStd</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2019-03-25</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.10</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -787,7 +788,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left"></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitvaluestd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitvaluestd</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -800,28 +801,28 @@ $(document).ready(function () {
 </tbody>
 </table>
 </div>
-<div id="verbatimtraitunit" class="section level2">
-<h2><code>verbatimTraitUnit</code></h2>
+<div id="traitunitstd" class="section level2">
+<h2><code>traitUnitStd</code></h2>
 <p><a href="">go to top</a></p>
 <table>
 <colgroup>
-<col width="4%" />
-<col width="95%" />
+<col width="7%" />
+<col width="92%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left"></th>
-<th align="left">verbatimTraitUnit</th>
+<th align="left">traitUnitStd</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Definition</td>
-<td align="left">Unit that the value reported in ‘verbatimTraitValue’ was measured in, if applicable (only for numeric values).</td>
+<td align="left">The units associated with the measurementValue. The expected standard unit for this trait as defined in the traitlist/ thesaurus.</td>
 </tr>
 <tr class="even">
 <td align="left">Comment</td>
-<td align="left">For unitless numerical values, use ‘unitless’ in this field. For categorical values, leave empty or provide NA. For numerical values report unit in format for lengths “mm”, for volumes “mm3” / “mm^3”, areas “mm2” / “mm^2”, for movement “m/s”, or for volume to surface ratios: “mm3/mm2”</td>
+<td align="left">Recommended best practice is to use the International System of Units (SI). Examples: “mm”, “C”, “km”, “ha”. For discussion see <a href="http://terms.tdwg.org/wiki/dwc:measurementUnit" class="uri">http://terms.tdwg.org/wiki/dwc:measurementUnit</a></td>
 </tr>
 <tr class="odd">
 <td align="left">valueType</td>
@@ -829,15 +830,15 @@ $(document).ready(function () {
 </tr>
 <tr class="even">
 <td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/verbatimTraitUnit" class="uri">http://terminologies.gfbio.org/terms/ETS/verbatimTraitUnit</a></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitUnitStd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitUnitStd</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DateIssued</td>
-<td align="left">2019-03-25</td>
+<td align="left">2018-11-01</td>
 </tr>
 <tr class="even">
 <td align="left">FirstIssuedIn</td>
-<td align="left">v0.10</td>
+<td align="left">v0.9.1</td>
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
@@ -849,7 +850,7 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
-<td align="left"></td>
+<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/traitunitstd" class="uri">http://terminologies.gfbio.org/terms/ETS/traitunitstd</a></td>
 </tr>
 <tr class="even">
 <td align="left">Deprecated</td>
@@ -1115,8 +1116,194 @@ $(document).ready(function () {
 <div id="metadata-vocabulary" class="section level1">
 <h1>Metadata vocabulary</h1>
 <p>To describe trait-datasets unambiguously, we suggest the following terms to be used in the metadata accompanying the publication of trait-data.</p>
-<p>Each dataset should have a self-assigned title provided in <code>datasetName</code> and a description in <code>datasetDescription</code>. To retain the attribution to the original data contributor use <code>author</code>. Data owner <code>rightsHolder</code> states the person or organization that owns or manages the rights to the data; <code>bibliographicCitation</code> states a bibliographic reference which should be cited when the data is used; <code>rights</code> and <code>license</code> specify under which terms and conditions the data can be used, re-used and/or published. Since trait data are of great use for synthesis studies, information about how the data may be distributed, re-used and attributed to are of particular importance for trait datasets. Most researchers encourage re-use of their published datasets while making sure they are sufficiently credited. The use of permissive licenses for traitdata publications, such as Creative Commons Attribution or Creative Commons Zero/Public Domain release, has been established as the gold standard.</p>
+<p>To retain the rights of the original data contributor use <code>author</code>. Data owner <code>rightsHolder</code> states the person or organization that owns or manages the rights to the data; <code>bibliographicCitation</code> states a bibliographic reference which should be cited when the data is used; and <code>license</code> specifies under which terms and conditions the data can be used, re-used and/or published. Since trait data are of great use for synthesis studies, information about how the data may be distributed, re-used and attributed to are of particular importance for trait datasets. Most researchers encourage re-use of their published datasets while making sure they are sufficiently credited. The use of permissive licenses for traitdata publications, such as Creative Commons Attribution or Creative Commons Zero/Public Domain release, has been established as the gold standard.</p>
 <p>When combining datasets from different sources, <code>datasetID</code> may keep the reference to an external data sheet specifying the metadata. Alternatively, the terms of this section can be added as columns to the dataset to maintain important information about authorship and terms of use at the measurement level.</p>
+<div id="rightsholder" class="section level2">
+<h2><code>rightsHolder</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="89%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">rightsHolder</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">A person or organization owning or managing rights over the resource, i.e. this dataset.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Example: “The Regents of the University of California.”. For discussion see <a href="http://terms.tdwg.org/wiki/dwc:rightsHolder" class="uri">http://terms.tdwg.org/wiki/dwc:rightsHolder</a></td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://purl.org/dc/terms/rightsHolder" class="uri">http://purl.org/dc/terms/rightsHolder</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2017-07-07</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.8</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="bibliographiccitation" class="section level2">
+<h2><code>bibliographicCitation</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="4%" />
+<col width="95%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">bibliographicCitation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">A bibliographic reference for the resource as a statement indicating how this record should be cited (attributed) when used. Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Examples: “Ctenomys sociabilis (MVZ 165861)” for a specimen, “Oliver P. Pearson. 1985. Los tuco-tucos (genera Ctenomys) de los Parques Nacionales Lanin y Nahuel Huapi, Argentina Historia Natural, 5(37):337-343.” for a Taxon. For discussion see <a href="http://terms.tdwg.org/wiki/dwc:bibliographicCitation" class="uri">http://terms.tdwg.org/wiki/dwc:bibliographicCitation</a></td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://purl.org/dc/terms/bibliographicCitation" class="uri">http://purl.org/dc/terms/bibliographicCitation</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2017-07-07</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.8</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="license" class="section level2">
+<h2><code>license</code></h2>
+<p><a href="">go to top</a></p>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">license</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Definition</td>
+<td align="left">A legal document giving official permission to do something with the resource.</td>
+</tr>
+<tr class="even">
+<td align="left">Comment</td>
+<td align="left">Examples: “<a href="http://creativecommons.org/publicdomain/zero/1.0/legalcode" class="uri">http://creativecommons.org/publicdomain/zero/1.0/legalcode</a>”, “<a href="http://creativecommons.org/licenses/by/4.0/legalcode" class="uri">http://creativecommons.org/licenses/by/4.0/legalcode</a>”. For discussion see <a href="http://terms.tdwg.org/wiki/dwc:license" class="uri">http://terms.tdwg.org/wiki/dwc:license</a></td>
+</tr>
+<tr class="odd">
+<td align="left">valueType</td>
+<td align="left">character</td>
+</tr>
+<tr class="even">
+<td align="left">Identifier</td>
+<td align="left"><a href="http://purl.org/dc/terms/license" class="uri">http://purl.org/dc/terms/license</a></td>
+</tr>
+<tr class="odd">
+<td align="left">DateIssued</td>
+<td align="left">2017-07-07</td>
+</tr>
+<tr class="even">
+<td align="left">FirstIssuedIn</td>
+<td align="left">v0.8</td>
+</tr>
+<tr class="odd">
+<td align="left">DateModified</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Refines</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Replaces</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Deprecated</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ReplacedBy</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div id="datasetid" class="section level2">
 <h2><code>datasetID</code></h2>
 <p><a href="">go to top</a></p>
@@ -1220,73 +1407,11 @@ $(document).ready(function () {
 </tr>
 <tr class="odd">
 <td align="left">DateModified</td>
-<td align="left">2019-03-25</td>
-</tr>
-<tr class="even">
-<td align="left">Refines</td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Replaces</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Deprecated</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ReplacedBy</td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="datasetdescription" class="section level2">
-<h2><code>datasetDescription</code></h2>
-<p><a href="">go to top</a></p>
-<table>
-<colgroup>
-<col width="8%" />
-<col width="91%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">datasetDescription</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Definition</td>
-<td align="left">An account of the resource.</td>
-</tr>
-<tr class="even">
-<td align="left">Comment</td>
-<td align="left">Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
-</tr>
-<tr class="odd">
-<td align="left">valueType</td>
-<td align="left">character</td>
-</tr>
-<tr class="even">
-<td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/datasetDescription" class="uri">http://terminologies.gfbio.org/terms/ETS/datasetDescription</a></td>
-</tr>
-<tr class="odd">
-<td align="left">DateIssued</td>
-<td align="left">2019-03-25</td>
-</tr>
-<tr class="even">
-<td align="left">FirstIssuedIn</td>
-<td align="left">v0.10</td>
-</tr>
-<tr class="odd">
-<td align="left">DateModified</td>
 <td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Refines</td>
-<td align="left"><a href="http://purl.org/dc/terms/description" class="uri">http://purl.org/dc/terms/description</a></td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>
@@ -1365,68 +1490,6 @@ $(document).ready(function () {
 </tbody>
 </table>
 </div>
-<div id="issued" class="section level2">
-<h2><code>issued</code></h2>
-<p><a href="">go to top</a></p>
-<table>
-<colgroup>
-<col width="8%" />
-<col width="91%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">issued</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Definition</td>
-<td align="left">Date of formal issuance (e.g., publication) of the resource. Recommended best practice is to use an encoding scheme, such as ISO 8601:2004(E).</td>
-</tr>
-<tr class="even">
-<td align="left">Comment</td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">valueType</td>
-<td align="left">character</td>
-</tr>
-<tr class="even">
-<td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/issued" class="uri">http://terminologies.gfbio.org/terms/ETS/issued</a></td>
-</tr>
-<tr class="odd">
-<td align="left">DateIssued</td>
-<td align="left">2019-03-25</td>
-</tr>
-<tr class="even">
-<td align="left">FirstIssuedIn</td>
-<td align="left">v0.10</td>
-</tr>
-<tr class="odd">
-<td align="left">DateModified</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Refines</td>
-<td align="left"><a href="http://purl.org/dc/terms/issued" class="uri">http://purl.org/dc/terms/issued</a></td>
-</tr>
-<tr class="odd">
-<td align="left">Replaces</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Deprecated</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ReplacedBy</td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
-</div>
 <div id="version" class="section level2">
 <h2><code>version</code></h2>
 <p><a href="">go to top</a></p>
@@ -1473,316 +1536,6 @@ $(document).ready(function () {
 <tr class="even">
 <td align="left">Refines</td>
 <td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Replaces</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Deprecated</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ReplacedBy</td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="bibliographiccitation" class="section level2">
-<h2><code>bibliographicCitation</code></h2>
-<p><a href="">go to top</a></p>
-<table>
-<colgroup>
-<col width="4%" />
-<col width="95%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">bibliographicCitation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Definition</td>
-<td align="left">A bibliographic reference for the resource as a statement indicating how this record should be cited (attributed) when used. Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible.</td>
-</tr>
-<tr class="even">
-<td align="left">Comment</td>
-<td align="left">Examples: “Ctenomys sociabilis (MVZ 165861)” for a specimen, “Oliver P. Pearson. 1985. Los tuco-tucos (genera Ctenomys) de los Parques Nacionales Lanin y Nahuel Huapi, Argentina Historia Natural, 5(37):337-343.” for a Taxon. For discussion see <a href="http://terms.tdwg.org/wiki/dwc:bibliographicCitation" class="uri">http://terms.tdwg.org/wiki/dwc:bibliographicCitation</a></td>
-</tr>
-<tr class="odd">
-<td align="left">valueType</td>
-<td align="left">character</td>
-</tr>
-<tr class="even">
-<td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/bibliographicCitation" class="uri">http://terminologies.gfbio.org/terms/ETS/bibliographicCitation</a></td>
-</tr>
-<tr class="odd">
-<td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
-</tr>
-<tr class="even">
-<td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
-</tr>
-<tr class="odd">
-<td align="left">DateModified</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Refines</td>
-<td align="left"><a href="http://purl.org/dc/terms/bibliographicCitation" class="uri">http://purl.org/dc/terms/bibliographicCitation</a></td>
-</tr>
-<tr class="odd">
-<td align="left">Replaces</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Deprecated</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ReplacedBy</td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="conformsto" class="section level2">
-<h2><code>conformsTo</code></h2>
-<p><a href="">go to top</a></p>
-<table>
-<colgroup>
-<col width="5%" />
-<col width="94%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">conformsTo</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Definition</td>
-<td align="left">An established standard to which the described resource conforms.</td>
-</tr>
-<tr class="even">
-<td align="left">Comment</td>
-<td align="left">Literal reference (incl. version or date issued) and/or DOI of data standard that the dataset applies. Example: “Ecological Trait-data Standard Vocabulary, v0.9.1, URL: <a href="https://terminologies.gfbio.org/terms/ets/pages/" class="uri">https://terminologies.gfbio.org/terms/ets/pages/</a>, DOI: 10.5281/zenodo.1485739”</td>
-</tr>
-<tr class="odd">
-<td align="left">valueType</td>
-<td align="left">character</td>
-</tr>
-<tr class="even">
-<td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/conformsTo" class="uri">http://terminologies.gfbio.org/terms/ETS/conformsTo</a></td>
-</tr>
-<tr class="odd">
-<td align="left">DateIssued</td>
-<td align="left">2019-03-25</td>
-</tr>
-<tr class="even">
-<td align="left">FirstIssuedIn</td>
-<td align="left">v0.10</td>
-</tr>
-<tr class="odd">
-<td align="left">DateModified</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Refines</td>
-<td align="left"><a href="http://purl.org/dc/terms/conformsTo" class="uri">http://purl.org/dc/terms/conformsTo</a></td>
-</tr>
-<tr class="odd">
-<td align="left">Replaces</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Deprecated</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ReplacedBy</td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="rightsholder" class="section level2">
-<h2><code>rightsHolder</code></h2>
-<p><a href="">go to top</a></p>
-<table>
-<colgroup>
-<col width="10%" />
-<col width="89%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">rightsHolder</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Definition</td>
-<td align="left">A person or organization owning or managing rights over the resource, i.e. this dataset.</td>
-</tr>
-<tr class="even">
-<td align="left">Comment</td>
-<td align="left">Example: “The Regents of the University of California.”. For discussion see <a href="http://terms.tdwg.org/wiki/dwc:rightsHolder" class="uri">http://terms.tdwg.org/wiki/dwc:rightsHolder</a></td>
-</tr>
-<tr class="odd">
-<td align="left">valueType</td>
-<td align="left">character</td>
-</tr>
-<tr class="even">
-<td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/rightsHolder" class="uri">http://terminologies.gfbio.org/terms/ETS/rightsHolder</a></td>
-</tr>
-<tr class="odd">
-<td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
-</tr>
-<tr class="even">
-<td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
-</tr>
-<tr class="odd">
-<td align="left">DateModified</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Refines</td>
-<td align="left"><a href="http://purl.org/dc/terms/rightsHolder" class="uri">http://purl.org/dc/terms/rightsHolder</a></td>
-</tr>
-<tr class="odd">
-<td align="left">Replaces</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Deprecated</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ReplacedBy</td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="rights" class="section level2">
-<h2><code>rights</code></h2>
-<p><a href="">go to top</a></p>
-<table>
-<colgroup>
-<col width="8%" />
-<col width="91%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">rights</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Definition</td>
-<td align="left">Information about rights held in and over the resource.</td>
-</tr>
-<tr class="even">
-<td align="left">Comment</td>
-<td align="left">Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</td>
-</tr>
-<tr class="odd">
-<td align="left">valueType</td>
-<td align="left">character</td>
-</tr>
-<tr class="even">
-<td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/rights" class="uri">http://terminologies.gfbio.org/terms/ETS/rights</a></td>
-</tr>
-<tr class="odd">
-<td align="left">DateIssued</td>
-<td align="left">2019-03-25</td>
-</tr>
-<tr class="even">
-<td align="left">FirstIssuedIn</td>
-<td align="left">v0.10</td>
-</tr>
-<tr class="odd">
-<td align="left">DateModified</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Refines</td>
-<td align="left"><a href="http://purl.org/dc/terms/rights" class="uri">http://purl.org/dc/terms/rights</a></td>
-</tr>
-<tr class="odd">
-<td align="left">Replaces</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Deprecated</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ReplacedBy</td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="license" class="section level2">
-<h2><code>license</code></h2>
-<p><a href="">go to top</a></p>
-<table>
-<colgroup>
-<col width="7%" />
-<col width="93%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">license</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Definition</td>
-<td align="left">A legal document giving official permission to do something with the resource.</td>
-</tr>
-<tr class="even">
-<td align="left">Comment</td>
-<td align="left">Examples: “<a href="http://creativecommons.org/publicdomain/zero/1.0/legalcode" class="uri">http://creativecommons.org/publicdomain/zero/1.0/legalcode</a>”, “<a href="http://creativecommons.org/licenses/by/4.0/legalcode" class="uri">http://creativecommons.org/licenses/by/4.0/legalcode</a>”. For discussion see <a href="http://terms.tdwg.org/wiki/dwc:license" class="uri">http://terms.tdwg.org/wiki/dwc:license</a></td>
-</tr>
-<tr class="odd">
-<td align="left">valueType</td>
-<td align="left">character</td>
-</tr>
-<tr class="even">
-<td align="left">Identifier</td>
-<td align="left"><a href="http://terminologies.gfbio.org/terms/ETS/license" class="uri">http://terminologies.gfbio.org/terms/ETS/license</a></td>
-</tr>
-<tr class="odd">
-<td align="left">DateIssued</td>
-<td align="left">2017-07-07</td>
-</tr>
-<tr class="even">
-<td align="left">FirstIssuedIn</td>
-<td align="left">v0.8</td>
-</tr>
-<tr class="odd">
-<td align="left">DateModified</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Refines</td>
-<td align="left"><a href="http://purl.org/dc/terms/license" class="uri">http://purl.org/dc/terms/license</a></td>
 </tr>
 <tr class="odd">
 <td align="left">Replaces</td>

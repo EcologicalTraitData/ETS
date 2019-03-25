@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dwcattributes="http://rs.tdwg.org/dwc/terms/attributes/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/"	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:cc="http://creativecommons.org/ns#" xml:base="http://terminologies.gfbio.org/terms/ETS/">
+	<owl:Ontology rdf:about="http://terminologies.gfbio.org/terms/ETS/">
+		<dcterms:title xml:lang="en">Ecological Trait-data Standard (ETS)</dcterms:title>
+		<dcterms:description>The Ecological Trait-data Standard defines terms for the use in datasets containing quantitative and qualitative functional traits.</dcterms:description>
+		<rdfs:comment>For more information about this standard visit https://terminologies.gfbio.org/terms/ets/pages/</rdfs:comment>
+		<rdfs:comment>To contribute to this standard, see https://github.com/EcologicalTraitData/ETS</rdfs:comment>
+		<dc:creator xml:lang="en">Florian D. Schneider</dc:creator>
+		<dc:creator xml:lang="en">Malte Jochum</dc:creator>
+		<dc:creator xml:lang="en">Gaëtane LeProvost</dc:creator>
+		<dc:creator xml:lang="en">Andreas Ostrowski</dc:creator>
+		<dc:creator xml:lang="en">Caterina Penone</dc:creator>
+		<dc:creator xml:lang="en">Nadja Simons</dc:creator>
+		<dc:contributor xml:lang="en">David Fichtmueller</dc:contributor>
+		<dc:publisher xml:lang="en">GFBio Terminology Service</dc:publisher>
+		<dc:language>en</dc:language>
+		<dcterms:modified>2018-11-13</dcterms:modified>
+		<owl:versionInfo>0.9.1</owl:versionInfo>
+		<owl:versionIRI rdf:resource="http://terminologies.gfbio.org/terms/ets/2018-11-13/ets.owl"/>
+		<cc:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+
+	</owl:Ontology>
+	
+	<!-- 
+	Each RDF description uses the following properties:
+		rdfs:label
+		rdfs:comment
+		dcterms:description
+		rdfs:isDefinedBy
+		dcterms:issued
+		rdf:type
+		dwcattributes:status
+		dwcattributes:organizedInClass
+	
+	The following properties are used by some of the concepts
+		rdfs:subPropertyOf
+		dcterms:replaces
+		dcterms:isReplacedBy
+		dcterms:modified
+	-->
+	
+	<!-- Annotation properties -->
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/isReplacedBy"/>
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/replaces"/>
+	<owl:AnnotationProperty rdf:about="http://rs.tdwg.org/dwc/terms/attributes/organizedInClass"/>
+	<owl:AnnotationProperty rdf:about="http://rs.tdwg.org/dwc/terms/attributes/status"/>
+	
+
+	<!-- term groups -->
+	<owl:Class rdf:about="http://terminologies.gfbio.org/terms/ETS/Traitdata">
+		<rdfs:label xml:lang="en">Traitdata</rdfs:label>
+		<dcterms:description xml:lang="en">Vocabulary for ecological trait data</dcterms:description>
+		<rdfs:comment xml:lang="en">The terms in this vocabulary structure facts or measurement values describing a property of an entity (e.g. a single specimen or population) of a specific taxon.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-11-14</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+	</owl:Class>
+	<owl:Class rdf:about="http://terminologies.gfbio.org/terms/ETS/Metadata">
+		<rdfs:label xml:lang="en">Metadata</rdfs:label>
+		<dcterms:description xml:lang="en">Vocabulary to describe dataset-level properties on authorship and rights</dcterms:description>
+		<rdfs:comment xml:lang="en">Specifications on terms of use and dataset-level information on authorship and ownership.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-11-14</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+	</owl:Class>
+	<owl:Class rdf:about="http://terminologies.gfbio.org/terms/ETS/Traitlist">
+		<rdfs:label xml:lang="en">Traitlist</rdfs:label>
+		<dcterms:description xml:lang="en">Vocabulary for lists of trait definitions</dcterms:description>
+		<rdfs:comment xml:lang="en">A minimal set of terms for semantic trait ontologies or thesauri of trait definitions</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-11-14</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+	</owl:Class>
+	<owl:Class rdf:about="http://terminologies.gfbio.org/terms/ETS/Occurrence">
+		<rdfs:label xml:lang="en">Occurrence</rdfs:label>
+		<dcterms:description xml:lang="en">Extended Vocabulary for the description of individual specimens</dcterms:description>
+		<rdfs:comment xml:lang="en">These data should be linked to the core traitdata by a unique occurrenceID or locationID.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-11-14</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+	</owl:Class>
+	<owl:Class rdf:about="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact">
+		<rdfs:label xml:lang="en">MeasurementOrFact</rdfs:label>
+		<dcterms:description xml:lang="en">Extended Vocabulary for the description of measurement procedures</dcterms:description>
+		<rdfs:comment xml:lang="en">These data should be linked to the core traitdata by a unique measurementID.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-11-14</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+	</owl:Class>
+	<owl:Class rdf:about="http://terminologies.gfbio.org/terms/ETS/BiodiversityExploratories">
+		<rdfs:label xml:lang="en">BiodiversityExploratories</rdfs:label>
+		<dcterms:description xml:lang="en">Extended Vocabulary for geolocation within the Biodiversity Exploratories Project</dcterms:description>
+		<rdfs:comment xml:lang="en">These data should be linked to the core traitdata by a ExploratoriesPlotID.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-11-14</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+	</owl:Class>
+	
+
+	<!-- individual terms -->
+ 	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/scientificName">
+		<rdfs:label xml:lang="en">scientificName</rdfs:label>
+		<dcterms:description xml:lang="en">Original character string provided as species name by the data owner (kept for reference and continuity)</dcterms:description>
+		<rdfs:comment xml:lang="en">Can be equal to scientificNameStd. Authors may use abbreviations, or use underscores to separate genus and species name.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/scientificName" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/scientificname"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitName">
+		<rdfs:label xml:lang="en">traitName</rdfs:label>
+		<dcterms:description xml:lang="en">Name of the trait as used by the data provider (kept for compatibility on provider side).</dcterms:description>
+		<rdfs:comment xml:lang="en">This can be a short name or user defined coded trait name. However, it is recommended to provide definition of the user provided trait names in the metadata.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementType" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitname"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitID">
+		<rdfs:label xml:lang="en">traitID</rdfs:label>
+		<dcterms:description xml:lang="en">Unique identifier of the trait according to a public ontology, or a user-provided thesaurus of traits.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: TO:0000181; TOP103; http://top-thesaurus.org/annotationInfo?viz=1&amp;&amp;trait=Seed_mass;</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitid"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitValue">
+		<rdfs:label xml:lang="en">traitValue</rdfs:label>
+		<dcterms:description xml:lang="en">Measured raw value or factor level for this species trait as measured and provided by the author.</dcterms:description>
+		<rdfs:comment xml:lang="en">Must respect the unit given in 'measurementUnit_user' for numerical traits. For categorical traits, the factor levels should be harmonized across the dataset and explained in the metadata.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementValue" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitvalue"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitUnit">
+		<rdfs:label xml:lang="en">traitUnit</rdfs:label>
+		<dcterms:description xml:lang="en">Reports the unit that the author's raw data were measured in, if applicable (only for numeric values). For unitless numerical values, use 'unitless' in this field. For factorial values, leave empty or provide NA.</dcterms:description>
+		<rdfs:comment xml:lang="en">For numerical values report unit in format for lengths "mm", for volumes "mm3" / "mm^3", areas "mm2" / "mm^2", for movement "m/s", or for volume to surface ratios: "mm3/mm2"</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementUnit" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitunit"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/scientificNameStd">
+		<rdfs:label xml:lang="en">scientificNameStd</rdfs:label>
+		<dcterms:description xml:lang="en">The full name, with authorship and date information if known. This should resolve to the currently valid (zoological) or accepted (botanical) taxon.</dcterms:description>
+		<rdfs:comment xml:lang="en">Provide reference taxonomy in metadata of the dataset. Examples: "Coleoptera" (order), "Vespertilionidae" (family), "Manis" (genus), "Ctenomys sociabilis" (genus + specificEpithet), "Ambystoma tigrinum diaboli" (genus + specificEpithet + infraspecificEpithet), "Roptrocerus typographi (Györfi, 1952)" (genus + specificEpithet + scientificNameAuthorship), "Quercus agrifolia var. oxyadenia (Torr.) J.T. Howell" (genus + specificEpithet + taxonRank + infraspecificEpithet + scientificNameAuthorship). For discussion see http://terms.tdwg.org/wiki/dwc:scientificName</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/scientificName" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/scientificnamestd"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitNameStd">
+		<rdfs:label xml:lang="en">traitNameStd</rdfs:label>
+		<dcterms:description xml:lang="en">Descriptive Name of the trait reported. This should follow the controlled vocabulary of a thesaurus of traits available online or published along with the dataset.</dcterms:description>
+		<rdfs:comment xml:lang="en">Accompanying this, the traitID should provide an unambiguous link to the trait definition in the thesaurus or supplementary dataset.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementType" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitnamestd"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitValueStd">
+		<rdfs:label xml:lang="en">traitValueStd</rdfs:label>
+		<dcterms:description xml:lang="en">Standardized measured value or factor level for this species trait. Numerical values must use the correct unit. Factor levels must be compliant with the thesaurus of traits.</dcterms:description>
+		<rdfs:comment xml:lang="en">Using "." as a decimal separator! The standardized data values or factor levels must correspond to the expected units and factor levels of the trait thesaurus, e.g. "32.423", "female", "apter", "3"</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementValue" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitvaluestd"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitUnitStd">
+		<rdfs:label xml:lang="en">traitUnitStd</rdfs:label>
+		<dcterms:description xml:lang="en">The units associated with the measurementValue. The expected standard unit for this trait as defined in the traitlist/ thesaurus.</dcterms:description>
+		<rdfs:comment xml:lang="en">Recommended best practice is to use the International System of Units (SI). Examples: "mm", "C", "km", "ha". For discussion see http://terms.tdwg.org/wiki/dwc:measurementUnit</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementUnit" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitunitstd"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/taxonID">
+		<rdfs:label xml:lang="en">taxonID</rdfs:label>
+		<dcterms:description xml:lang="en">An identifier for the set of taxon information (data associated with the Taxon class). May be a global unique identifier or an identifier specific to the data set.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "GBIF Backbone Taxonomy:497924", "8fa58e08-08de-4ac1-b69c-1235340b7001", "32567", "http://species.gbif.org/abies_alba_1753", "urn:lsid:gbif.org:usages:32567". For discussion see http://terms.tdwg.org/wiki/dwc:taxonID</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/measurementID">
+		<rdfs:label xml:lang="en">measurementID</rdfs:label>
+		<dcterms:description xml:lang="en">An identifier for the MeasurementOrFact (information pertaining to measurements, facts, characteristics, or assertions). May be a global unique identifier or an identifier specific to the data set.</dcterms:description>
+		<rdfs:comment xml:lang="en">Links multi-value trait measurements, e.g. x-y-z coordinates of a morphometric landmark, biochemical compound quantities for different chainlengths. In this case, the trait names must specify the sub-measurement, e.g. "landmark32_x", and must be specified in a reference trait list, given in the field "measurementMethod".</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementID" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/measurementid"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/occurrenceID">
+		<rdfs:label xml:lang="en">occurrenceID</rdfs:label>
+		<dcterms:description xml:lang="en">An identifier for the Occurrence (as opposed to a particular digital record of the occurrence). In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the occurrenceID globally unique.</dcterms:description>
+		<rdfs:comment xml:lang="en">For a specimen in the absence of a bona fide global unique identifier, for example, use the form: "urn:catalog:[institutionCode]:[collectionCode]:[catalogNumber]. Examples: "urn:lsid:nhm.ku.edu:Herps:32", "urn:catalog:FMNH:Mammal:145732". For discussion see http://terms.tdwg.org/wiki/dwc:occurrenceID. This is important for the analysis of co-variation of morphometric data or intraspecific variation. It also couples multiple measurements on a single specimen, which also could be a leaf or a single bone without an assignment to an individual organism. If available, upload related dataset to describe specimens more precisely, e.g. environmental parameters or identity related information.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/occurrenceID" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/occurrenceid"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/warnings">
+		<rdfs:label xml:lang="en">warnings</rdfs:label>
+		<dcterms:description xml:lang="en">Warnings on the quality or reliability of the reported trait value.</dcterms:description>
+		<rdfs:comment xml:lang="en">Warnings from autogenerated data should be stored here, e.g. regarding a lack of match between the provided taxonID and the ontology, or the trait names or values, a mismatch in the units provided and the unit expected according to the trait table. User defined warnings and flags can be added as well, e.g. 'NOTUSE' to mark data that are unreliable or erroneous.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2018-05-29</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/taxonRank">
+		<rdfs:label xml:lang="en">taxonRank</rdfs:label>
+		<dcterms:description xml:lang="en">The taxonomic rank of the most specific name in the scientificName. Recommended best practice is to use a controlled vocabulary.</dcterms:description>
+		<rdfs:comment xml:lang="en">This is to clarify cases where information is not given on a species level. Examples: "subspecies", "varietas", "forma", "species", "genus". For discussion see http://terms.tdwg.org/wiki/dwc:taxonRank</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2018-03-21</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Taxon" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/kingdom">
+		<rdfs:label xml:lang="en">kingdom</rdfs:label>
+		<dcterms:description xml:lang="en">The full scientific name of the kingdom in which the taxon is classified.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "Animalia", "Plantae". For discussion see http://terms.tdwg.org/wiki/dwc:kingdom</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2018-03-21</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Taxon" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/phylum">
+		<rdfs:label xml:lang="en">phylum</rdfs:label>
+		<dcterms:description xml:lang="en">The full scientific name of the phylum or division in which the taxon is classified.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "Chordata" (phylum), "Bryophyta" (division). For discussion see http://terms.tdwg.org/wiki/dwc:phylum</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2018-03-21</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Taxon" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/class">
+		<rdfs:label xml:lang="en">class</rdfs:label>
+		<dcterms:description xml:lang="en">The full scientific name of the class in which the taxon is classified.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "Mammalia", "Hepaticopsida". For discussion see http://terms.tdwg.org/wiki/dwc:class</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2018-03-21</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Taxon" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/order">
+		<rdfs:label xml:lang="en">order</rdfs:label>
+		<dcterms:description xml:lang="en">The full scientific name of the order in which the taxon is classified.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "Carnivora", "Monocleales". For discussion see http://terms.tdwg.org/wiki/dwc:order</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2018-03-21</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Taxon" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/family">
+		<rdfs:label xml:lang="en">family</rdfs:label>
+		<dcterms:description xml:lang="en">The full scientific name of the family in which the taxon is classified.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "Felidae", "Monocleaceae". For discussion see http://terms.tdwg.org/wiki/dwc:family</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2018-03-21</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Taxon" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/genus">
+		<rdfs:label xml:lang="en">genus</rdfs:label>
+		<dcterms:description xml:lang="en">The full scientific name of the genus in which the taxon is classified.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "Puma", "Monoclea". For discussion see http://terms.tdwg.org/wiki/dwc:genus</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2018-03-21</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Taxon" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/basisOfRecord">
+		<rdfs:label xml:lang="en">basisOfRecord</rdfs:label>
+		<dcterms:description xml:lang="en">How and from which kind of specimen were the data obtained? Make use of controlled vocabulary. Valid entries are: 'LivingSpecimen'; 'PreservedSpecimen'; 'FossilSpecimen'; 'literatureData'; 'traitDatabase'; 'expertKnowledge' (see Comments)</dcterms:description>
+		<rdfs:comment xml:lang="en">Options are: Taken by own measurement (defined in DwC: http://rs.tdwg.org/dwc/terms/LivingSpecimen; http://rs.tdwg.org/dwc/terms/PreservedSpecimen; http://rs.tdwg.org/dwc/terms/FossilSpecimen ) or taken from literature (enter 'literatureData'), from an existing trait database (enter 'traitDatabase'), or expert knowledge (enter 'expertKnowledge'). Provide further information in field 'basisOfRecordDescription' and 'references'.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/basisOfRecord" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/basisofrecord"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/basisOfRecordDescription">
+		<rdfs:label xml:lang="en">basisOfRecordDescription</rdfs:label>
+		<dcterms:description xml:lang="en">Adding more detail to the basisOfRecord.</dcterms:description>
+		<rdfs:comment xml:lang="en">If life specimens were sampled, where did they come from? Have they been reared in cultivation? If literature data or online database, provide type of literature, e.g. textbook, website, URL, etc. If preserved specimens were used, which method of preservation? In case of expert knowledge, give the name of the authority.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/basisofrecorddescription"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/references">
+		<rdfs:label xml:lang="en">references</rdfs:label>
+		<dcterms:description xml:lang="en">Precise reference to the source. If literature data, this should quote the book or online database. If museum specimen, this should report the name of the collection. If expert knowledge, this should name the authority, preferably using ORCID. If trait database, provide reference to the original publication, DOI or URL of the trait-database.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "http://mvzarctos.berkeley.edu/guid/MVZ:Mamm:165861"; "http://www.catalogueoflife.org/annual-checklist/show_species_details.php?record_id=6197868". For discussion see http://terms.tdwg.org/wiki/dwc:references</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-08-24</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/references" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/measurementResolution">
+		<rdfs:label xml:lang="en">measurementResolution</rdfs:label>
+		<dcterms:description xml:lang="en">If the trait information was originally given on another taxonomic level than species. Applies mainly for literature and expert knowledge data. not applying for measured data. The hierarchical level to which the trait data would refer.</dcterms:description>
+		<rdfs:comment xml:lang="en">For example, information given in literature could state 'most species in this genus are winged', but the trait data could be given for each species in this genus.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/measurementMethod">
+		<rdfs:label xml:lang="en">measurementMethod</rdfs:label>
+		<dcterms:description xml:lang="en">Applies primarily to measured data. The method, tools and scales used to measure a (numerical) trait value. A description of or reference to (publication, URI) the method or protocol used to determine the measurement, fact, characteristic, or assertion.</dcterms:description>
+		<rdfs:comment xml:lang="en">Should be a concise and standardized text entry or reference (publication, URI), referring to a particular method (e.g. 'direct weighing', 'length-mass regression', 'intertegular span', 'length between node X and y' ) and measurement conditions (e.g. certain temperature or humidity, name of device or scale used for measurement). To avoid repetition or lengthy entries, authors should use global identifiers of methodological terms if available, or enter dataset specific identifiers and provide a more detailed description of the method or protocol used to determine the measurement, fact, characteristic, or assertion in the metadata of the dataset.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementMethod" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/measurementDeterminedBy">
+		<rdfs:label xml:lang="en">measurementDeterminedBy</rdfs:label>
+		<dcterms:description xml:lang="en">A list (concatenated and separated) of names of people, groups, or organizations who determined the value of the measurement.</dcterms:description>
+		<rdfs:comment xml:lang="en">The recommended best practice is to separate the values with a vertical bar (' | '). Examples: "Rob Guralnick", "Julie Woodruff | Eileen Lacey". Can be encoded by dataset-specific identifiers for reasons of privacy. This is kept as a co-factor for repeated measurements.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/measurementDeterminedDate">
+		<rdfs:label xml:lang="en">measurementDeterminedDate</rdfs:label>
+		<dcterms:description xml:lang="en">The date on which the MeasurementOrFact was made. Recommended best practice is to use an encoding scheme, such as ISO 8601:2004(E).</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "1963-03-08T14:07-0600" is 8 Mar 1963 2:07pm in the time zone six hours earlier than UTC, "2009-02-20T08:40Z" is 20 Feb 2009 8:40am UTC, "1809-02-12" is 12 Feb 1809, "1906-06" is Jun 1906, "1971" is just that year, "2007-03-01T13:00:00Z/2008-05-11T15:30:00Z" is the interval between 1 Mar 2007 1pm UTC and 11 May 2008 3:30pm UTC, "2007-11-13/15" is the interval between 13 Nov 2007 and 15 Nov 2007. For discussion see http://terms.tdwg.org/wiki/dwc:measurementDeterminedDate</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/measurementRemarks">
+		<rdfs:label xml:lang="en">measurementRemarks</rdfs:label>
+		<dcterms:description xml:lang="en">Remarks concerning a particular measurement, e.g. additional information on the quality and reliability, reference or acknowledgements.</dcterms:description>
+		<rdfs:comment xml:lang="en">Any particularities about the individual measurement or specimen that might affect trait measuremnt, e.g. 'last antenna segment missing'.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementRemarks" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/aggregateMeasure">
+		<rdfs:label xml:lang="en">aggregateMeasure</rdfs:label>
+		<dcterms:description xml:lang="en">Is measurementValue reporting an individual measurement or an aggregate Measure? Takes a binary entry: TRUE or FALSE</dcterms:description>
+		<rdfs:comment xml:lang="en">This is flagging aggregate data in an unambiguous way. Aggregate measures are often reported for repeated measures, e.g. replicate measurements of leaf size from a single plant individual or for grouped measurement, e.g. for weightings of a counted number of specimens (e.g. leaves or small organisms).</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/individualCount">
+		<rdfs:label xml:lang="en">individualCount</rdfs:label>
+		<dcterms:description xml:lang="en">If measurement is an aggregate measure of multiple individuals or specimens, report number of specimens as count, i.e. integer number. Defaults to 1</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "1", "25". For discussion see http://terms.tdwg.org/wiki/dwc:individualCount</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/individualCount" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/dispersion">
+		<rdfs:label xml:lang="en">dispersion</rdfs:label>
+		<dcterms:description xml:lang="en">If aggregate measure of multiple individuals or specimens, the numeric value of dispersion (variance or standard deviation) for the mean value reported in measurementValue_user (no unit conversion is provided by the R-package!). Defaults to 0. If a value is provided, report the statistical method in the field statisticalMethod.</dcterms:description>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/measurementValue_min">
+		<rdfs:label xml:lang="en">measurementValue_min</rdfs:label>
+		<dcterms:description xml:lang="en">The lower boundary of observed values. Instead of or in addition to dispersion metric.</dcterms:description>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/measurementValue_max">
+		<rdfs:label xml:lang="en">measurementValue_max</rdfs:label>
+		<dcterms:description xml:lang="en">The upper boundary of observed values. Instead of or in addition to dispersion metric.</dcterms:description>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/measurementAccuracy">
+		<rdfs:label xml:lang="en">measurementAccuracy</rdfs:label>
+		<dcterms:description xml:lang="en">The description of the potential error associated with the measurementValue.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "0.01", "normal distribution with variation of 2 m". For discussion see http://terms.tdwg.org/wiki/dwc:measurementAccuracy</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementAccuracy" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/statisticalMethod">
+		<rdfs:label xml:lang="en">statisticalMethod</rdfs:label>
+		<dcterms:description xml:lang="en">For aggregated measures, the method for data aggregation or averaging as well as the variation or range.</dcterms:description>
+		<rdfs:comment xml:lang="en">Example: 'mean and standard deviation', 'median and 95% confidence interval', 'mean and variance', 'mean and range of values', 'median and 95% interquantile range'</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/sex">
+		<rdfs:label xml:lang="en">sex</rdfs:label>
+		<dcterms:description xml:lang="en">The sex of the biological individual(s) represented in the Occurrence. Recommended best practice is to use a controlled vocabulary.</dcterms:description>
+		<rdfs:comment xml:lang="en">Use vocabulary: "male", "female", "subadult", "unknown", "hermaphrodite" (no abbreviations or numerical encodings)</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/sex" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/lifeStage">
+		<rdfs:label xml:lang="en">lifeStage</rdfs:label>
+		<dcterms:description xml:lang="en">The age class or life stage of the biological individual(s) at the time the Occurrence was recorded. Recommended best practice is to use a controlled vocabulary.</dcterms:description>
+		<rdfs:comment xml:lang="en">Recommended factor levels are: seed, seedling, sapling, adult, egg, larval_instar_1, larval_instar_2, larval_instar_3, ... , pupa; For very taxon-specific life stages, it is recommended to provide detailed explanation in the metadata of the dataset.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/lifeStage" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/age">
+		<rdfs:label xml:lang="en">age</rdfs:label>
+		<dcterms:description xml:lang="en">The age of the specimen in years.</dcterms:description>
+		<rdfs:comment xml:lang="en">Use integer or float numbers. Example: "2", "0.16".</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/morphotype">
+		<rdfs:label xml:lang="en">morphotype</rdfs:label>
+		<dcterms:description xml:lang="en">The morphotype of the observed specimen.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "worker", "drone", "queen". Since morphotypes can differ between organism groups, provide definition of morphotypes in the metadata of the dataset.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/eventID">
+		<rdfs:label xml:lang="en">eventID</rdfs:label>
+		<dcterms:description xml:lang="en">The sampling event or campaign. A globally valid URI or user specified character string that links to another table providing detailed information, e.g. environmental or temporal parameters, descriptions on methods etc..</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: a combination of date and sampling region</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/eventID" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/preparations">
+		<rdfs:label xml:lang="en">preparations</rdfs:label>
+		<dcterms:description xml:lang="en">For preserved specimens, a list (concatenated and separated) of preparations and preservation methods for the occurrence.</dcterms:description>
+		<rdfs:comment xml:lang="en">Do not report procedures for measurement or sampling here (see samplingProtocol and measurementMethod). The recommended best practice is to separate the values with a vertical bar (' | '). Examples: "fossil", "cast", "photograph", "DNA extract", "skin | "skull | skeleton", "whole animal (ETOH) | tissue (EDTA)". For discussion see http://terms.tdwg.org/wiki/dwc:preparations</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/samplingProtocol">
+		<rdfs:label xml:lang="en">samplingProtocol</rdfs:label>
+		<dcterms:description xml:lang="en">The name of, reference to, or description of the method or protocol used for obtaining the specimen.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "UV light trap", "mist net", "bottom trawl", "ad hoc observation", "point count", "Penguins from space: faecal stains reveal the location of emperor penguin colonies, http://dx.doi.org/10.1111/j.1466-8238.2009.00467.x", "Takats et al. 2001. Guidelines for Nocturnal Owl Monitoring in North America. Beaverhill Bird Observatory and Bird Studies Canada, Edmonton, Alberta. 32 pp.", "http://www.bsc-eoc.org/download/Owl.pdf". For discussion see http://terms.tdwg.org/wiki/dwc:samplingProtocol</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/year">
+		<rdfs:label xml:lang="en">year</rdfs:label>
+		<dcterms:description xml:lang="en">The four-digit year, at which the specimens were extracted or sampled.</dcterms:description>
+		<rdfs:comment xml:lang="en">Example: "2008". For discussion see http://terms.tdwg.org/wiki/dwc:year</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/month">
+		<rdfs:label xml:lang="en">month</rdfs:label>
+		<dcterms:description xml:lang="en">The ordinal month, in which the specimens were extracted or sampled.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "1" (=January), "10" (=October). For discussion see http://terms.tdwg.org/wiki/dwc:month</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/day">
+		<rdfs:label xml:lang="en">day</rdfs:label>
+		<dcterms:description xml:lang="en">The integer day of the month on which the specimens were extracted or sampled.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "9", "28". For discussion see http://terms.tdwg.org/wiki/dwc:day</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/eventDate">
+		<rdfs:label xml:lang="en">eventDate</rdfs:label>
+		<dcterms:description xml:lang="en">The date-time or interval during which an Event occurred. For occurrences, this is the date-time when the event was recorded. Not suitable for a time in a geological context. Recommended best practice is to use an encoding scheme, such as ISO 8601:2004(E). For lower precision, use year, month and day field instead.</dcterms:description>
+		<rdfs:comment xml:lang="en">Note: this is not to record the date when the specimens were measured (use measurementDeterminedDate for this). If applicable, at least provide a year. Providing a date is highly viable for studies analyzing temporal variation in traits. Examples: "1963-03-08T14:07-0600" is 8 Mar 1963 2:07pm in the time zone six hours earlier than UTC, "2009-02-20T08:40Z" is 20 Feb 2009 8:40am UTC, "1809-02-12" is 12 Feb 1809, "1906-06" is Jun 1906, "1971" is just that year, "2007-03-01T13:00:00Z/2008-05-11T15:30:00Z" is the interval between 1 Mar 2007 1pm UTC and 11 May 2008 3:30pm UTC, "2007-11-13/15" is the interval between 13 Nov 2007 and 15 Nov 2007. For discussion see http://terms.tdwg.org/wiki/dwc:eventDate</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/eventDate" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/locationID">
+		<rdfs:label xml:lang="en">locationID</rdfs:label>
+		<dcterms:description xml:lang="en">An identifier for the set of location information (data associated with dcterms:Location). May be a global unique identifier or an identifier specific to the data set.</dcterms:description>
+		<rdfs:comment xml:lang="en">Could report the plot within the experimental setting which would be further specified in the metadata or in a separate dataset. For discussion see http://terms.tdwg.org/wiki/dwc:locationID</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/habitat">
+		<rdfs:label xml:lang="en">habitat</rdfs:label>
+		<dcterms:description xml:lang="en">A category or description of the habitat in which the specimen occurred.</dcterms:description>
+		<rdfs:comment xml:lang="en">Example: 'forest', 'grassland', 'oak savanna', 'pre-cordilleran steppe'. It is recommended to link to ecological ontologies, if available, using public URIs. For discussion see http://terms.tdwg.org/wiki/dwc:habitat</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/habitat" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/decimalLongitude">
+		<rdfs:label xml:lang="en">decimalLongitude</rdfs:label>
+		<dcterms:description xml:lang="en">The geographic longitude (in decimal degrees, using the spatial reference system given in geodeticDatum) of the geographic center of a Location. Positive values are east of the Greenwich Meridian, negative values are west of it. Legal values lie between -180 and 180, inclusive.</dcterms:description>
+		<rdfs:comment xml:lang="en">Example: "-121.1761111". For discussion see http://terms.tdwg.org/wiki/dwc:decimalLongitude</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/decimalLatitude">
+		<rdfs:label xml:lang="en">decimalLatitude</rdfs:label>
+		<dcterms:description xml:lang="en">The geographic latitude (in decimal degrees, using the spatial reference system given in geodeticDatum) of the geographic center of a Location. Positive values are north of the Equator, negative values are south of it. Legal values lie between -90 and 90, inclusive.</dcterms:description>
+		<rdfs:comment xml:lang="en">Example: "-41.0983423". For discussion see http://terms.tdwg.org/wiki/dwc:decimalLatitude</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/elevation">
+		<rdfs:label xml:lang="en">elevation</rdfs:label>
+		<dcterms:description xml:lang="en">The geographic elevation in meters above sea level.</dcterms:description>
+		<rdfs:comment xml:lang="en">May map to verbatimElevation (http://rs.tdwg.org/dwc/terms/verbatimElevation) or minimumElevationInMeters (http://rs.tdwg.org/dwc/terms/minimumElevationInMeters) and maximumElevationInMeters (http://rs.tdwg.org/dwc/terms/maximumElevationInMeters); Example: "200". For discussion see http://terms.tdwg.org/wiki/dwc:maximumElevationInMeters</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/verbatimElevation" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/geodeticDatum">
+		<rdfs:label xml:lang="en">geodeticDatum</rdfs:label>
+		<dcterms:description xml:lang="en">The ellipsoid, geodetic datum, or spatial reference system (SRS) upon which the geographic coordinates given in decimalLatitude and decimalLongitude as based. Recommended best practice is use the EPSG code as a controlled vocabulary to provide an SRS, if known. Otherwise use a controlled vocabulary for the name or code of the geodetic datum, if known. Otherwise use a controlled vocabulary for the name or code of the ellipsoid, if known. If none of these is known, use the value "unknown".</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "EPSG:4326", "WGS84", "NAD27", "Campo Inchauspe", "European 1950", "Clarke 1866". For discussion see http://terms.tdwg.org/wiki/dwc:geodeticDatum</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/verbatimLocality">
+		<rdfs:label xml:lang="en">verbatimLocality</rdfs:label>
+		<dcterms:description xml:lang="en">The specific description of the place.</dcterms:description>
+		<rdfs:comment xml:lang="en">Less specific geographic information can be provided in other geographic terms of Darwin Core (higherGeography, continent, country, stateProvince, county, municipality, waterBody, island, islandGroup). This term may contain information modified from the original to correct perceived errors or standardize the description. Example: "25 km NNE Bariloche por R. Nac. 237". For discussion see http://terms.tdwg.org/wiki/dwc:verbatimLocality</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/country">
+		<rdfs:label xml:lang="en">country</rdfs:label>
+		<dcterms:description xml:lang="en">The name of the country or major administrative unit in which the Location occurs. Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "Germany", "Denmark", "Colombia", "España". For discussion see http://terms.tdwg.org/wiki/dwc:country;</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/countryCode">
+		<rdfs:label xml:lang="en">countryCode</rdfs:label>
+		<dcterms:description xml:lang="en">The standard code for the country in which the Location occurs. Recommended best practice is to use ISO 3166-1-alpha-2 country codes.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples:"DE" for Germany, "AR" for Argentina, "SV" for El Salvador. For discussion see http://terms.tdwg.org/wiki/dwc:countryCode</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/occurrenceRemarks">
+		<rdfs:label xml:lang="en">occurrenceRemarks</rdfs:label>
+		<dcterms:description xml:lang="en">Comments or notes about the Occurrence.</dcterms:description>
+		<rdfs:comment xml:lang="en">Example: "found dead on road". For discussion see http://terms.tdwg.org/wiki/dwc:occurrenceRemarks</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2018-11-01</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Occurrence" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/rightsHolder">
+		<rdfs:label xml:lang="en">rightsHolder</rdfs:label>
+		<dcterms:description xml:lang="en">A person or organization owning or managing rights over the resource, i.e. this dataset.</dcterms:description>
+		<rdfs:comment xml:lang="en">Example: "The Regents of the University of California.". For discussion see http://terms.tdwg.org/wiki/dwc:rightsHolder</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Metadata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/bibliographicCitation">
+		<rdfs:label xml:lang="en">bibliographicCitation</rdfs:label>
+		<dcterms:description xml:lang="en">A bibliographic reference for the resource as a statement indicating how this record should be cited (attributed) when used. Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "Ctenomys sociabilis (MVZ 165861)" for a specimen, "Oliver P. Pearson. 1985. Los tuco-tucos (genera Ctenomys) de los Parques Nacionales Lanin y Nahuel Huapi, Argentina Historia Natural, 5(37):337-343." for a Taxon. For discussion see http://terms.tdwg.org/wiki/dwc:bibliographicCitation</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Metadata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/license">
+		<rdfs:label xml:lang="en">license</rdfs:label>
+		<dcterms:description xml:lang="en">A legal document giving official permission to do something with the resource.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "http://creativecommons.org/publicdomain/zero/1.0/legalcode", "http://creativecommons.org/licenses/by/4.0/legalcode". For discussion see http://terms.tdwg.org/wiki/dwc:license</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Metadata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/datasetID">
+		<rdfs:label xml:lang="en">datasetID</rdfs:label>
+		<dcterms:description xml:lang="en">An identifier for the set of data. May be a global unique identifier or an identifier specific to a collection or institution.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: BExIS ID, or a DOI referring to the published dataset ; For discussion see http://terms.tdwg.org/wiki/dwc:datasetID</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2018-05-29</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Metadata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://rs.tdwg.org/dwc/terms/datasetName">
+		<rdfs:label xml:lang="en">datasetName</rdfs:label>
+		<dcterms:description xml:lang="en">The name identifying the data set from which the record was derived.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: "Grinnell Resurvey Mammals", "Lacey Ctenomys Recaptures". For discussion see http://terms.tdwg.org/wiki/dwc:datasetName</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Metadata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/author">
+		<rdfs:label xml:lang="en">author</rdfs:label>
+		<dcterms:description xml:lang="en">The person, organization or service primarily responsible for making the dataset.</dcterms:description>
+		<rdfs:comment xml:lang="en">Multiple names may be provided; Examples: John Doe; Bob, Anne; http://orcid.org/0000-0002-1494-5684</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-09-05</dcterms:issued>
+		<dcterms:modified>2018-05-29</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/creator" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Metadata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/version">
+		<rdfs:label xml:lang="en">version</rdfs:label>
+		<dcterms:description xml:lang="en">The version of the dataset.</dcterms:description>
+		<rdfs:comment xml:lang="en">Can be a date or numeric versioning scheme, e.g. following semantic versioning https://semver.org/</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-09-05</dcterms:issued>
+		<dcterms:modified>2018-05-29</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Metadata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/OriginBE">
+		<rdfs:label xml:lang="en">OriginBE</rdfs:label>
+		<dcterms:description xml:lang="en">Did measured specimens originate from Exploratories Plots? TRUE or FALSE, defaults to FALSE</dcterms:description>
+		<rdfs:comment xml:lang="en">As unambiguous flag for data and specimens that are originating from Exploratories sites.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/BiodiversityExploratories" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/BEPlotID">
+		<rdfs:label xml:lang="en">BEPlotID</rdfs:label>
+		<dcterms:description xml:lang="en">EP plot ID (or also any valid Gridplot ID or MIP ID) where the measured specimen was extracted.</dcterms:description>
+		<rdfs:comment xml:lang="en">Only for specimen that were extracted from the Exploratories directly (or direct offspring, if hatched in the lab). Please also report it, even if this was not part of your research question and provide a Date (a year at last) if available.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2018-03-21</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/BiodiversityExploratories" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/Exploratory">
+		<rdfs:label xml:lang="en">Exploratory</rdfs:label>
+		<dcterms:description xml:lang="en">Exploratories Region (Hainich, Schorfheide, Alb) for sorting purpose and readability, or if exact Plot ID is not available.</dcterms:description>
+		<rdfs:comment xml:lang="en">Use vocabulary: 'HAI'; 'SCH'; 'ALB'</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2017-11-01</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/BiodiversityExploratories" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/BEType">
+		<rdfs:label xml:lang="en">BEType</rdfs:label>
+		<dcterms:description xml:lang="en">Defined code for landscape type of the exploratories plot.</dcterms:description>
+		<rdfs:comment xml:lang="en">Use vocabulary: "W" for forest and "G" for grassland plot</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2018-05-29</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/BiodiversityExploratories" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/identifier">
+		<rdfs:label xml:lang="en">identifier</rdfs:label>
+		<dcterms:description xml:lang="en">A unique identifier for the trait; globally unique or dataset-specific</dcterms:description>
+		<rdfs:comment xml:lang="en">Identifiers are ideally globally unique and stable URIs which link to the source of the trait description in a public ontology or thesaurus of traits;</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/Identifier"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/trait">
+		<rdfs:label xml:lang="en">trait</rdfs:label>
+		<dcterms:description xml:lang="en">A descriptive trait name</dcterms:description>
+		<rdfs:comment xml:lang="en">Trait names should be unique but intuitively comprehensible. Additional specifications such as unit of measurement can be included in the name. Several words are separated by "_".</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-10-24</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/title" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/broaderTerm">
+		<rdfs:label xml:lang="en">broaderTerm</rdfs:label>
+		<dcterms:description xml:lang="en">One or several terms that enclose the trait definition.</dcterms:description>
+		<rdfs:comment xml:lang="en">The broader term is given as the unique identifier (traitID) of the broader trait. Each trait can only have one broader term.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-08-24</dcterms:issued>
+		<dcterms:modified>2017-11-15</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/narrowerTerm">
+		<rdfs:label xml:lang="en">narrowerTerm</rdfs:label>
+		<dcterms:description xml:lang="en">One or several terms that are enclosed by the trait definition.</dcterms:description>
+		<rdfs:comment xml:lang="en">This allows to derive hierarchical trees of traits. Several traits can be listed as narrower terms of one trait.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-08-24</dcterms:issued>
+		<dcterms:modified>2017-11-15</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/relatedTerm">
+		<rdfs:label xml:lang="en">relatedTerm</rdfs:label>
+		<dcterms:description xml:lang="en">One or several terms that relate to this term</dcterms:description>
+		<rdfs:comment xml:lang="en">This allows to link terms of the same hierarchical level or of other branches of the ontology</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-09-18</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/valueType">
+		<rdfs:label xml:lang="en">valueType</rdfs:label>
+		<dcterms:description xml:lang="en">Type of trait values. Possible entries are 'numeric', 'integer', 'categorical', 'ordinal', 'logical', or 'character'.</dcterms:description>
+		<rdfs:comment xml:lang="en">Numerical values represent measurements of length, volumes, ratios, rates or timespans. Integer values apply to count data (e.g. eggs per clutch). Binary data (encoded as 0 or 1) or logical data (coded as TRUE or FALSE) may apply to qualitative traits such as specific behavior during mating (e.g. are territories defended) or specialization to a given habitat (e.g. species restricted to relicts of primeval forests). Categorical traits should define a constrained set of factor levels, such as sex differences in wing morphology (both sexes winged, both sexes unwinged, only males winged, only females winged) or unconstrained entries such as color. Ordinal categorical traits may be better encoded as integer values, e.g. a logical sequence as in the case of life stages or hibernation stages, or habitat preference traits such as horizontal stratum use.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-09-27</dcterms:issued>
+		<dcterms:modified>2017-11-15</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/expectedUnit">
+		<rdfs:label xml:lang="en">expectedUnit</rdfs:label>
+		<dcterms:description xml:lang="en">The unit expected for measurement entries.</dcterms:description>
+		<rdfs:comment xml:lang="en">Only applies to numerical traits. Should be given in SI units.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-10-24</dcterms:issued>
+		<dcterms:modified>2017-11-15</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/factorLevels">
+		<rdfs:label xml:lang="en">factorLevels</rdfs:label>
+		<dcterms:description xml:lang="en">A comma separated list of terms comprising the constrained vocabulary for categorical traits or ordinal binary traits.</dcterms:description>
+		<rdfs:comment xml:lang="en">Ordinal traits may be encoded with numerically indexed factor levels; e.g. 1_egg, 2_larvae, 3_pupae, 4_adult; the field traitDescription should define the factor levels;</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-09-27</dcterms:issued>
+		<dcterms:modified>2017-11-15</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/maxAllowedValue">
+		<rdfs:label xml:lang="en">maxAllowedValue</rdfs:label>
+		<dcterms:description xml:lang="en">A lower boundary for accepted numerical values.</dcterms:description>
+		<rdfs:comment xml:lang="en">May be used for eliminating invalid data. This boundary may constrain a range of values of meaningful orders of magnitude, or constrain entries to positive values.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-09-27</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/minAllowedValue">
+		<rdfs:label xml:lang="en">minAllowedValue</rdfs:label>
+		<dcterms:description xml:lang="en">An upper boundary for accepted numerical values.</dcterms:description>
+		<rdfs:comment xml:lang="en">May be used for eliminating invalid data. This boundary may constrain a range of values of meaningful orders of magnitude.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-09-27</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitDescription">
+		<rdfs:label xml:lang="en">traitDescription</rdfs:label>
+		<dcterms:description xml:lang="en">A short, unambiguous definition of the trait as used in the specific study context; may refer to a method of measurement; may copy the description of a public trait ontology;</dcterms:description>
+		<rdfs:comment xml:lang="en">The definition should make use of terms provided by existing public ontologies, e.g. 'the mass (PATO:mass), either fresh or dried, of a fruit (PO:fruit)'</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-09-27</dcterms:issued>
+		<dcterms:modified>2018-05-29</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/comments">
+		<rdfs:label xml:lang="en">comments</rdfs:label>
+		<dcterms:description xml:lang="en">Details and Examples for clarification of the trait definition.</dcterms:description>
+		<rdfs:comment xml:lang="en">Can contain definition of trait levels or requirements for standardized conditions.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-11-01</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/Comments"/>
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/source">
+		<rdfs:label xml:lang="en">source</rdfs:label>
+		<dcterms:description xml:lang="en">The original source of the trait definition</dcterms:description>
+		<rdfs:comment xml:lang="en">Can be a DOI or bibliographic reference to the original publication of this trait definition</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2018-09-18</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>recommended</dwcattributes:status>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/scientificname">
+		<rdfs:label xml:lang="en">scientificName</rdfs:label>
+		<dcterms:description xml:lang="en">Original character string provided as species name by the data owner (kept for reference and continuity)</dcterms:description>
+		<rdfs:comment xml:lang="en">Can be equal to scientificNameStd. Authors may use abbreviations, or use underscores to separate genus and species name.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2018-05-29</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/scientificName" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/scientificName"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitname">
+		<rdfs:label xml:lang="en">traitName</rdfs:label>
+		<dcterms:description xml:lang="en">Name of the trait as used by the data provider (kept for compatibility on provider side).</dcterms:description>
+		<rdfs:comment xml:lang="en">This can be a short name or user defined coded trait name. However, it is recommended to provide definition of the user provided trait names in the metadata.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementType" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitName"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitid">
+		<rdfs:label xml:lang="en">traitID</rdfs:label>
+		<dcterms:description xml:lang="en">Unique identifier of the trait according to a public ontology, or a user-provided thesaurus of traits.</dcterms:description>
+		<rdfs:comment xml:lang="en">Examples: TO:0000181; TOP103; http://top-thesaurus.org/annotationInfo?viz=1&amp;&amp;trait=Seed_mass;</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2018-05-29</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitID"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitvalue">
+		<rdfs:label xml:lang="en">traitValue</rdfs:label>
+		<dcterms:description xml:lang="en">Measured raw value or factor level for this species trait as measured and provided by the author.</dcterms:description>
+		<rdfs:comment xml:lang="en">Must respect the unit given in 'measurementUnit_user' for numerical traits. For categorical traits, the factor levels should be harmonized across the dataset and explained in the metadata.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementValue" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitValue"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitunit">
+		<rdfs:label xml:lang="en">traitUnit</rdfs:label>
+		<dcterms:description xml:lang="en">Reports the unit that the author's raw data were measured in, if applicable (only for numeric values). For unitless numerical values, use 'unitless' in this field. For factorial values, leave empty or provide NA.</dcterms:description>
+		<rdfs:comment xml:lang="en">For numerical values report unit in format for lengths "mm", for volumes "mm3" / "mm^3", areas "mm2" / "mm^2", for movement "m/s", or for volume to surface ratios: "mm3/mm2"</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementUnit" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitUnit"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/scientificnamestd">
+		<rdfs:label xml:lang="en">scientificNameStd</rdfs:label>
+		<dcterms:description xml:lang="en">The full name, with authorship and date information if known. This should resolve to the currently valid (zoological) or accepted (botanical) taxon.</dcterms:description>
+		<rdfs:comment xml:lang="en">Provide reference taxonomy in metadata of the dataset. Examples: "Coleoptera" (order), "Vespertilionidae" (family), "Manis" (genus), "Ctenomys sociabilis" (genus + specificEpithet), "Ambystoma tigrinum diaboli" (genus + specificEpithet + infraspecificEpithet), "Roptrocerus typographi (Györfi, 1952)" (genus + specificEpithet + scientificNameAuthorship), "Quercus agrifolia var. oxyadenia (Torr.) J.T. Howell" (genus + specificEpithet + taxonRank + infraspecificEpithet + scientificNameAuthorship). For discussion see http://terms.tdwg.org/wiki/dwc:scientificName</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2017-11-01</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/scientificName" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/scientificNameStd"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitnamestd">
+		<rdfs:label xml:lang="en">traitNameStd</rdfs:label>
+		<dcterms:description xml:lang="en">Descriptive Name of the trait reported. This should follow the controlled vocabulary of a thesaurus of traits available online or published along with the dataset.</dcterms:description>
+		<rdfs:comment xml:lang="en">Accompanying this, the traitID should provide an unambiguous link to the trait definition in the thesaurus or supplementary dataset.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementType" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitNameStd"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitvaluestd">
+		<rdfs:label xml:lang="en">traitValueStd</rdfs:label>
+		<dcterms:description xml:lang="en">Standardized measured value or factor level for this species trait. Numerical values must use the correct unit. Factor levels must be compliant with the thesaurus of traits.</dcterms:description>
+		<rdfs:comment xml:lang="en">Using "." as a decimal separator! The standardized data values or factor levels must correspond to the expected units and factor levels of the trait thesaurus, e.g. "32.423", "female", "apter", "3"</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementValue" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitValueStd"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/traitunitstd">
+		<rdfs:label xml:lang="en">traitUnitStd</rdfs:label>
+		<dcterms:description xml:lang="en">The units associated with the measurementValue. The expected standard unit for this trait as defined in the traitlist/ thesaurus.</dcterms:description>
+		<rdfs:comment xml:lang="en">Recommended best practice is to use the International System of Units (SI). Examples: "mm", "C", "km", "ha". For discussion see http://terms.tdwg.org/wiki/dwc:measurementUnit</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementUnit" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitUnitStd"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/measurementid">
+		<rdfs:label xml:lang="en">measurementID</rdfs:label>
+		<dcterms:description xml:lang="en">An identifier for the MeasurementOrFact (information pertaining to measurements, facts, characteristics, or assertions). May be a global unique identifier or an identifier specific to the data set.</dcterms:description>
+		<rdfs:comment xml:lang="en">Links multi-value trait measurements, e.g. x-y-z coordinates of a morphometric landmark, biochemical compound quantities for different chainlengths. In this case, the trait names must specify the sub-measurement, e.g. "landmark32_x", and must be specified in a reference trait list, given in the field "measurementMethod".</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementID" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/measurementID"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/occurrenceid">
+		<rdfs:label xml:lang="en">occurrenceID</rdfs:label>
+		<dcterms:description xml:lang="en">An identifier for the Occurrence (as opposed to a particular digital record of the occurrence). In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the occurrenceID globally unique.</dcterms:description>
+		<rdfs:comment xml:lang="en">For a specimen in the absence of a bona fide global unique identifier, for example, use the form: "urn:catalog:[institutionCode]:[collectionCode]:[catalogNumber]. Examples: "urn:lsid:nhm.ku.edu:Herps:32", "urn:catalog:FMNH:Mammal:145732". For discussion see http://terms.tdwg.org/wiki/dwc:occurrenceID. This is important for the analysis of co-variation of morphometric data or intraspecific variation. It also couples multiple measurements on a single specimen, which also could be a leaf or a single bone without an assignment to an individual organism. If available, upload related dataset to describe specimens more precisely, e.g. environmental parameters or identity related information.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/occurrenceID" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/occurrenceID"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/basisofrecord">
+		<rdfs:label xml:lang="en">basisOfRecord</rdfs:label>
+		<dcterms:description xml:lang="en">How and from which kind of specimen were the data obtained? Make use of controlled vocabulary. Valid entries are: 'LivingSpecimen'; 'PreservedSpecimen'; 'FossilSpecimen'; 'literatureData'; 'traitDatabase'; 'expertKnowledge' (see Comments)</dcterms:description>
+		<rdfs:comment xml:lang="en">Options are: Taken by own measurement (defined in DwC: http://rs.tdwg.org/dwc/terms/LivingSpecimen; http://rs.tdwg.org/dwc/terms/PreservedSpecimen; http://rs.tdwg.org/dwc/terms/FossilSpecimen ) or taken from literature (enter 'literatureData'), from an existing trait database (enter 'traitDatabase'), or expert knowledge (enter 'expertKnowledge'). Provide further information in field 'basisOfRecordDescription' and 'references'.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/basisOfRecord" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/basisOfRecord"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/basisofrecorddescription">
+		<rdfs:label xml:lang="en">basisOfRecordDescription</rdfs:label>
+		<dcterms:description xml:lang="en">Adding more detail to the basisOfRecord.</dcterms:description>
+		<rdfs:comment xml:lang="en">If life specimens were sampled, where did they come from? Have they been reared in cultivation? If literature data or online database, provide type of literature, e.g. textbook, website, URL, etc. If preserved specimens were used, which method of preservation? In case of expert knowledge, give the name of the authority.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/basisOfRecordDescription"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/MeasurementOrFact" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/Identifier">
+		<rdfs:label xml:lang="en">identifier</rdfs:label>
+		<dcterms:description xml:lang="en">A unique identifier for the trait; globally unique or dataset-specific</dcterms:description>
+		<rdfs:comment xml:lang="en">Identifiers are ideally globally unique and stable URIs which link to the source of the trait description in a public ontology or thesaurus of traits;</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-10-24</dcterms:issued>
+		<dcterms:modified>2018-05-29</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/identifier"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://terminologies.gfbio.org/terms/ETS/Comments">
+		<rdfs:label xml:lang="en">comments</rdfs:label>
+		<dcterms:description xml:lang="en">Details and Examples for clarification of the trait definition.</dcterms:description>
+		<rdfs:comment xml:lang="en">Can contain definition of trait levels or requirements for standardized conditions.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/" />
+		<dcterms:issued>2017-07-07</dcterms:issued>
+		<dcterms:modified>2017-11-15</dcterms:modified>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<dwcattributes:status>historical</dwcattributes:status>
+		<dcterms:isReplacedBy rdf:resource="http://terminologies.gfbio.org/terms/ETS/comments"/>
+		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitlist" />
+	</owl:DatatypeProperty>
+</rdf:RDF>

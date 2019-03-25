@@ -211,7 +211,7 @@ $(document).ready(function () {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="https://ecologicaltraitdata.github.io/ETS/v0.9.1/index.html">v0.9.1</a>
+      <a href="https://ecologicaltraitdata.github.io/ETS/v0.9/index.html">v0.9</a>
     </li>
     <li>
       <a href="https://ecologicaltraitdata.github.io/ETS/v0.8/index.html">v0.8</a>
@@ -255,40 +255,17 @@ $(document).ready(function () {
 <p>If alterations in terms lead to incompatibility with previous versions, a new major version of the Trait-data Standard Vocabulary may be issued, providing new versioned URIs for all terms of the standard that have been altered since the previous major version.</p>
 <p>Discussions on terms and versions are coordinated in the <a href="https://github.com/EcologicalTraitData/ETS/issues">Github Issues</a>.</p>
 <hr />
-<div id="v0.10-released-25-march-2019" class="section level1">
-<h1>v0.10, released 25 March 2019</h1>
-<div id="critical-changes" class="section level2">
-<h2>critical changes</h2>
-<p>The assignment of user-defined and standardised measurement values and trait and taxon assignments has been updated, to match labelling practice in DwC and provide a more intuitive content for those fields. Accordingly</p>
-<ul>
-<li>the v0.9.1 terms <code>scientificName</code>, <code>traitName</code>, <code>traitValue</code>, and <code>traitUnit</code> have been renamed into <code>verbatimScientificName</code>, <code>verbatimTraitName</code>, <code>verbatimTraitValue</code>, and <code>verbatimTraitUnit</code> with new identifiers.</li>
-<li>the terms <code>scientificNameStd</code>, <code>traitNameStd</code>, <code>traitValueStd</code>, and <code>traitUnitStd</code> have been renamed into <code>scientificName</code>, <code>traitName</code>, <code>traitValue</code>, and <code>traitUnit</code> and now form the default suggested content for trait data complying with the ETS. Definitions have been harmonized. The original *Std identifiers now resolve to these new terms.</li>
-</ul>
-</div>
-<div id="major-changes" class="section level2">
-<h2>major changes</h2>
-<ul>
-<li>further recommended metadata terms have been added, based on Dublin Core Metadata Initiative: <code>rights</code>, <code>datasetDefinition</code>, <code>issued</code>, and <code>conformsTo</code></li>
-</ul>
-</div>
-<div id="minor-changes" class="section level2">
-<h2>minor changes</h2>
-<ul>
-<li>the identifier field for Dublin Core terms now provides an own Identifier on GFBio terminology service, while the Dublin Core identifier is given in the ‘Refines’ field.</li>
-</ul>
-</div>
-</div>
 <div id="v0.9.1-patch-released-13-november-2018" class="section level1">
 <h1>v0.9.1 (patch), released 13 November 2018</h1>
 <p>Fixing inconsistent URIs and terms. Keeping original terms as deprecated, forwarding to new terms. Defining name scheme for new terms in documentation.</p>
-<div id="major-changes-1" class="section level2">
+<div id="major-changes" class="section level2">
 <h2>major changes</h2>
 <ul>
 <li>new case spelling for following terms: occurrenceRemarks</li>
 <li>new URI for following terms: scientificName, traitName, traitID, traitValue, traitUnit, scientificNameStd, traitNameStd, traitValueStd, traitUnitStd, measurementID, occurrenceID, basisOfRecord, basisOfRecordDescription, identifier, comments</li>
 </ul>
 </div>
-<div id="minor-changes-1" class="section level2">
+<div id="minor-changes" class="section level2">
 <h2>minor changes</h2>
 <ul>
 <li>define name scheme for new terms and URIs</li>
@@ -299,7 +276,7 @@ $(document).ready(function () {
 <div id="v0.9-released-27-september-2018" class="section level1">
 <h1>v0.9, released 27 September 2018</h1>
 <p>First public release at GFBio Terminology Service: <a href="https://terminologies.gfbio.org/terms/ets/pages/" class="uri">https://terminologies.gfbio.org/terms/ets/pages/</a> (human readable) and <a href="https://terminologies.gfbio.org/terminology/?ontology=ETS" class="uri">https://terminologies.gfbio.org/terminology/?ontology=ETS</a> (API access).</p>
-<div id="major-changes-2" class="section level2">
+<div id="major-changes-1" class="section level2">
 <h2>major changes</h2>
 <ul>
 <li>move URI for terms to GFBio terminology service</li>
@@ -310,7 +287,7 @@ $(document).ready(function () {
 <li>provide field definitions in README</li>
 </ul>
 </div>
-<div id="minor-changes-2" class="section level2">
+<div id="minor-changes-1" class="section level2">
 <h2>minor changes</h2>
 <ul>
 <li>split documentation page into separate branch</li>
@@ -333,7 +310,7 @@ $(document).ready(function () {
 <div id="v0.7.0-released-21-march-2018" class="section level1">
 <h1>v0.7.0, released 21 March 2018</h1>
 <p>(<a href="https://github.com/EcologicalTraitData/ETS/tree/v0.7">Github</a> )</p>
-<div id="major-changes-3" class="section level2">
+<div id="major-changes-2" class="section level2">
 <h2>major changes</h2>
 <ul>
 <li>add class/extension “Taxon” with extended taxonomic hierarchical terms.</li>
@@ -352,14 +329,14 @@ $(document).ready(function () {
 </div>
 <div id="v0.6-released-14-nov.2017" class="section level1">
 <h1>v0.6, released 14 Nov. 2017</h1>
-<div id="major-changes-4" class="section level2">
+<div id="major-changes-3" class="section level2">
 <h2>major changes</h2>
 <ul>
 <li>Construct multi-page website using Rmarkdown Website</li>
 <li>add recommendations on how to build trait thesaurus</li>
 </ul>
 </div>
-<div id="minor-changes-3" class="section level2">
+<div id="minor-changes-2" class="section level2">
 <h2>minor changes</h2>
 <hr />
 </div>
@@ -367,14 +344,14 @@ $(document).ready(function () {
 <div id="v0.5-released-3-nov.2017" class="section level1">
 <h1>v0.5, released 3 Nov. 2017</h1>
 <p>Website | Github release | DOI:</p>
-<div id="major-changes-5" class="section level2">
+<div id="major-changes-4" class="section level2">
 <h2>major changes</h2>
 <ul>
 <li>fix URIs of terms, forward URI of terms identical to DwC</li>
 <li>removed colum ‘vocabulary’, define constrained vocabulary in Comments instead</li>
 </ul>
 </div>
-<div id="minor-changes-4" class="section level2">
+<div id="minor-changes-3" class="section level2">
 <h2>minor changes</h2>
 <ul>
 <li>spell-checking terms and descriptions, remove reference to Exploratories</li>
