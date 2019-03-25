@@ -1,7 +1,7 @@
 ---
 title: "Ecological Trait-data Standard"
 author: "Florian D. Schneider, Malte Jochum, Gaëtane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons"
-date: "v0.9.1, released: 13 November 2018"
+date: "v0.10, released: 25 March 2019"
 params: 
   release: FALSE
 ---
@@ -38,7 +38,7 @@ The rationale for developing the Ecological Trait-data standard has been cast in
 
 > Schneider, F.D., Jochum, M., Le Provost, G., Ostrowski, A., Penone, C., Fichtmüller, D., Gossner, M.M., Güntsch, A., König-Ries, B., Manning, P. and Simons, N.K. (2018) Towards an Ecological Trait-data Standard, biorxiv.org DOI: [10.1101/328302](https://doi.org/10.1101/328302) 
 
-The vocabulary builds on the Darwin Core Standard (DWC; Darwin Core Terms and extensions; these are referenced in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm). Note that the documentation page resolves deprecated terms to the term that replaces them in definition, unless they differ in definition. Via API access or in the OWL and CSV file, the definition is accessible for each deprecated term. 
+The vocabulary builds on terms of the Darwin Core Standard and its extensions (DWC; these are referenced in field 'Refines'; the full Darwin Core Standard can be found here: http://rs.tdwg.org/dwc/terms/index.htm) as well as on terms of the Dublin Core Metadata Initiative (http://www.dublincore.org/specifications/dublin-core/dcmi-terms/). Note that the documentation page resolves deprecated terms to the term that replaces them in definition, unless they differ in definition. Via API access or in the OWL and CSV source file, the definition is accessible for each deprecated term. 
 
 ## Table of contents
 
@@ -87,12 +87,12 @@ for(j in namespace) {
 
 # Core traitdata terms
 
-For the essential primary data (trait value, taxon assignment, trait name), it is recommended to report the original naming and value scheme as used by the data provider. However, to ensure compatibility with other datasets, the original data provider's information should be duplicated into standardized columns indexed by appending `Std` to the column name. 
-This ensures compatibility on the provider's side and transparency for data users on the reported measurements and facts, and enables checking for inconsistencies and misspellings in the complete dataset provided by the author. If provided, the standardized fields allow merging heterogeneous data sources into a single table to perform further analyses. This practice of double bookkeeping of trait data has successfully established for the TRY database on plant traits, for instance (Kattge et al. 2011. TRY – a global database of plant traits. Global Change Biology, 17, 2905–2935). 
-
+For the essential primary data (1. trait value, 2. taxon assignment, 3. trait name), it is recommended to report standardised names and value units following the community consensus in the field. 
 By linking to (public) ontologies via the field `taxonID`, further taxonomic information can be extracted for analysis. Alternatively, `taxonID` may also link to an accompanying datasheet that contains information on the taxonomic resolution or specification of the observation. 
-
 Similarly, linking to published trait definitions in public thesauri or ontologies via the field `traitID` allows an unambiguous interpretation of the trait measurement. If no online ontology is available, an accompanying data table should specify the trait definitions by making use of terms provided in the section 'Traitlist' below. 
+
+Additionally, 'verbatim' duplicates of the core terms are provided to capture the original data provider's values and labels. 
+This ensures compatibility on the provider's side and transparency for data users on the reported measurements and facts, and enables checking for inconsistencies and misspellings in the complete dataset provided by the author. This practice of double recordof author-side and standardised data has successfully established for the TRY database on plant traits, for instance (Kattge et al. 2011. TRY – a global database of plant traits. Global Change Biology, 17, 2905–2935). 
 
 ```{r, results = 'asis', echo = FALSE}
 
@@ -122,7 +122,8 @@ parseterms("Traitdata")
 
 To describe trait-datasets unambiguously, we suggest the following terms to be used in the metadata accompanying the publication of trait-data. 
 
-To retain the rights of the original data contributor use `author`. Data owner `rightsHolder` states the person or organization that owns or manages the rights to the data; `bibliographicCitation` states a bibliographic reference which should be cited when the data is used; and `license` specifies under which terms and conditions the data can be used, re-used and/or published. 
+Each dataset should have a self-assigned title provided in `datasetName` and a description in `datasetDescription`. 
+To retain the attribution to the original data contributor use `author`. Data owner `rightsHolder` states the person or organization that owns or manages the rights to the data; `bibliographicCitation` states a bibliographic reference which should be cited when the data is used; `rights` and `license` specify under which terms and conditions the data can be used, re-used and/or published. 
 Since trait data are of great use for synthesis studies, information about how the data may be distributed, re-used and attributed to are of particular importance for trait datasets. Most researchers encourage re-use of their published datasets while making sure they are sufficiently credited. The use of permissive licenses for traitdata publications, such as Creative Commons Attribution or Creative Commons Zero/Public Domain release, has been established as the gold standard. 
 
 When combining datasets from different sources, `datasetID` may keep the reference to an external data sheet specifying the metadata. Alternatively, the terms of this section can be added as columns to the dataset to maintain important information about authorship and terms of use at the measurement level. 
