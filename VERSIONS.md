@@ -12,6 +12,25 @@ Discussions on terms and versions are coordinated in the [Github Issues](https:/
 
 ---
 
+# v0.10, released 28 March 2019
+
+## critical changes
+
+The assignment of user-defined and standardised measurement values and trait and taxon assignments has been updated, to match labelling practice in DwC and provide a more intuitive content for those fields. Accordingly
+
+- the v0.9.1 terms `scientificName`, `traitName`, `traitValue`, and `traitUnit` have been renamed into `verbatimScientificName`, `verbatimTraitName`, `verbatimTraitValue`, and `verbatimTraitUnit` with new identifiers. 
+- the terms `scientificNameStd`, `traitNameStd`, `traitValueStd`, and  `traitUnitStd` have been renamed into `scientificName`, `traitName`, `traitValue`, and `traitUnit` and now form the default suggested content for trait data complying with the ETS. Definitions have been harmonized. The original *Std identifiers now resolve to these new terms.
+
+## major changes
+
+- further recommended metadata terms have been added, based on Dublin Core Metadata Initiative: `rights`, `datasetDefinition`, `issued`, and `conformsTo` 
+
+## minor changes
+
+- the identifier field for Dublin Core terms now provides an own Identifier on GFBio terminology service, while the Dublin Core identifier is given in the 'Refines' field.  
+
+---
+
 # v0.9.1 (patch), released 13 November 2018
 
 Fixing inconsistent URIs and terms. Keeping original terms as deprecated, forwarding to new terms. Defining name scheme for new terms in documentation. 
