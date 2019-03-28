@@ -122,7 +122,7 @@
 		<dcterms:modified>2019-03-25</dcterms:modified>
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
 		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/scientificName" />
-		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/scientificnamestd; http://terminologies.gfbio.org/terms/ETS/scientificNameStd"/>
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/scientificNameStd"/>
 		<dwcattributes:status>recommended</dwcattributes:status>
 		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
 	</owl:DatatypeProperty>
@@ -135,7 +135,7 @@
 		<dcterms:modified>2019-03-25</dcterms:modified>
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
 		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementType" />
-		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitnamestd; http://terminologies.gfbio.org/terms/ETS/traitNameStd"/>
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitNameStd"/>
 		<dwcattributes:status>recommended</dwcattributes:status>
 		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
 	</owl:DatatypeProperty>
@@ -148,7 +148,7 @@
 		<dcterms:modified>2019-03-25</dcterms:modified>
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
 		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementValue" />
-		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitvaluestd; http://terminologies.gfbio.org/terms/ETS/traitValueStd"/>
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitValueStd"/>
 		<dwcattributes:status>recommended</dwcattributes:status>
 		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
 	</owl:DatatypeProperty>
@@ -161,7 +161,7 @@
 		<dcterms:modified>2019-03-25</dcterms:modified>
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
 		<rdfs:subPropertyOf rdf:resource="http://rs.tdwg.org/dwc/terms/measurementUnit" />
-		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitunitstd; http://terminologies.gfbio.org/terms/ETS/traitUnitStd"/>
+		<dcterms:replaces rdf:resource="http://terminologies.gfbio.org/terms/ETS/traitUnitStd"/>
 		<dwcattributes:status>recommended</dwcattributes:status>
 		<dwcattributes:organizedInClass rdf:resource="http://terminologies.gfbio.org/terms/ETS/Traitdata" />
 	</owl:DatatypeProperty>
