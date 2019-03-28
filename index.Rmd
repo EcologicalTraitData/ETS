@@ -1,7 +1,7 @@
 ---
 title: "Ecological Trait-data Standard"
 author: "Florian D. Schneider, Malte Jochum, Gaëtane LeProvost, Caterina Penone, Andreas Ostrowski, Nadja K. Simons"
-date: "v0.10, released: 25 March 2019"
+date: "v0.10, released: 28 March 2019"
 params: 
   release: FALSE
 ---

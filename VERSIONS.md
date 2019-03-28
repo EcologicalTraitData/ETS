@@ -12,7 +12,7 @@ Discussions on terms and versions are coordinated in the [Github Issues](https:/
 
 ---
 
-# v0.10, released 25 March 2019
+# v0.10, released 28 March 2019
 
 ## critical changes
 
@@ -28,6 +28,8 @@ The assignment of user-defined and standardised measurement values and trait and
 ## minor changes
 
 - the identifier field for Dublin Core terms now provides an own Identifier on GFBio terminology service, while the Dublin Core identifier is given in the 'Refines' field.  
+
+---
 
 # v0.9.1 (patch), released 13 November 2018
 
